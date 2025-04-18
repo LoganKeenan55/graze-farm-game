@@ -1,71 +1,51 @@
 extends CharacterBody2D
-
+##
+@onready var tileComponent = $TileComponent
+@onready var hotBar = $HUD/HotBar
+##
 var speed: int = 96
 var mode = "nothing" # nothing, placing, farming, seed
-
+##
 var inventory= {
 	"farmTile": 50,"waterTile" :50 , "brickTile":5 , "autoFarmTile":5,
 	"wheat":10, "corn":10
 }
-
+##
 var currentTile = 0
 var placeableTiles = ["farmTile", "waterTile", "brickTile", "autoFarmTile"]
-
+##
 var currentItem = 0
 var items = ["hoe", "shovel", "seeds"]
-
+##
 var currentSeed = 0
 var harvestables = ["wheat", "corn"]
+##
 
-var autoFarmTilePreload = preload("res://AutoFarmTile.tscn")
-var farmTilePreload = preload("res://FarmTile.tscn")
-var waterTilePreload = preload("res://WaterTile.tscn")
-var brickTilePreload = preload("res://BrickTile.tscn")
-var textureAtlasPreload = preload("res://TexturePreview.tscn")
-var TilePreview
-
-@onready var hotBar = get_node("HUD/HotBar")
 
 func _ready() -> void:
 	add_to_group("player")
-	
-	hotBar.setTexture("items",2,harvestables[currentSeed])
+	$TileComponent.hotBar = hotBar
+
 func getData():
 	return {
 		"group": "player",
 		"position": position,
 		"inventory": inventory
 	}
-
-func getInput():
-	if Input.is_action_just_pressed("p"):
-		GlobalVars.saveGame()
-	if Input.is_action_just_pressed("l"):
-		GlobalVars.loadGame()
-
-	var inputDirection = Input.get_vector("a", "d", "w", "s")
-	velocity = inputDirection * speed
-	if inputDirection.x > 0:
-		$Player_Sprites/AnimationPlayer.play("right")
-	elif inputDirection.x < 0:
-		$Player_Sprites/AnimationPlayer.play("left")
-	else:
-		$Player_Sprites/AnimationPlayer.play("straight")
-		
-		
+func handleChangingMode():
 	if Input.is_action_just_pressed("e"): # placing mode
 		
 		if mode != "placing":
 			if mode == "seed":
 				hotBar.setMode("noseed")
 			mode = "placing"
-			createTilePreview()
+			tileComponent.createTilePreview()
 			$Cursor.visible = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			hotBar.setMode("placing")
 		else:
 			mode = "nothing"
-			freeTilePreview()
+			tileComponent.freeTilePreview()
 			hotBar.setMode("nothing")
 
 	if Input.is_action_just_pressed("f"): # farming mode
@@ -73,104 +53,71 @@ func getInput():
 			if mode == "seed":
 				hotBar.setMode("noseed")
 			mode = "farming"
-			freeTilePreview()
+			tileComponent.freeTilePreview()
 			hotBar.setMode("farming")
 			$Cursor.visible = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		else:
 			mode = "nothing"
-			freeTilePreview()
+			tileComponent.freeTilePreview()
 			$Cursor.visible = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			$Cursor.updateTexture()
 			hotBar.setMode("nothing")
-
+func handleSavingLoadingGame():
+	if Input.is_action_just_pressed("p"):
+		GlobalVars.saveGame()
+	if Input.is_action_just_pressed("l"):
+		GlobalVars.loadGame()
+func getInput():
+	handleSavingLoadingGame()
+	handleMovement()
+	handleChangingMode()
+		
+	
 func _process(_delta: float) -> void:
 	getInput()
 	handleMode()
 
+func handleMovement():
+	var inputDirection = Input.get_vector("a", "d", "w", "s")
+	velocity = inputDirection * speed
+
+	if inputDirection.length_squared() > 0:
+		$Player_Sprites/AnimationPlayer.play("walk")
+	else:
+		$Player_Sprites/AnimationPlayer.play("straight")
+
+	if inputDirection.x > 0: #right
+		$Player_Sprites/Head.frame = 1
+		$Player_Sprites/Body.frame = 1
+		$Player_Sprites/Legs.flip_h = true
+	elif inputDirection.x < 0: #left
+		$Player_Sprites/Head.frame = 2
+		$Player_Sprites/Body.frame = 2
+		$Player_Sprites/Legs.flip_h = false
+	else: #straight
+		$Player_Sprites/Head.frame = 0
+		$Player_Sprites/Body.frame = 0
+
 func _physics_process(delta):
 	move_and_slide()
-
-func createTile(type):
-	var tilePosition = Vector2(
-		snapped(get_global_mouse_position().x, 16),
-		snapped(get_global_mouse_position().y, 16)
-	)
-
-	var tilesParent = get_tree().current_scene.find_child("Tiles", true, false)
-	var underTilesParent = get_tree().current_scene.find_child("UnderTiles", true, false)
-
-	for child in tilesParent.get_children():
-		if child.position == tilePosition:
-			return
-	for child in underTilesParent.get_children():
-		if child.position == tilePosition:
-			return
-	
-	if inventory[type]<1:
-		return
-
-	var newTile
-	match type:
-		
-		"farmTile":
-			
-			newTile = farmTilePreload.instantiate()
-			newTile.position = tilePosition
-			tilesParent.add_child(newTile)
-			inventory["farmTile"] -= 1
-			
-		"waterTile":
-			newTile = waterTilePreload.instantiate()
-			newTile.position = tilePosition
-			tilesParent.add_child(newTile)
-			inventory["waterTile"] -= 1
-		
-		"brickTile":
-			newTile = brickTilePreload.instantiate()
-			newTile.position = tilePosition
-			underTilesParent.add_child(newTile)
-			inventory["brickTile"] -= 1
-			
-		"autoFarmTile":
-			newTile = autoFarmTilePreload.instantiate()
-			newTile.position = tilePosition
-			underTilesParent.add_child(newTile)
-			inventory["autoFarmTile"] -= 1
-			
-	hotBar.setAmount("tiles",placeableTiles.find(type),inventory[type])
-	if newTile:
-		sortTilesByY(tilesParent)
-	
-func freeTilePreview():
-	if TilePreview:
-		TilePreview.queue_free()
-
-func createTilePreview():
-	if TilePreview == null:
-		TilePreview = textureAtlasPreload.instantiate()
-		TilePreview.stateIndex = currentTile
-		get_parent().add_child(TilePreview)
-		TilePreview.isBeingUsed = true
-		TilePreview.position = Vector2(snapped(get_global_mouse_position().x, 16), snapped(get_global_mouse_position().y, 16))
 
 func handleMode():
 	match mode:
 		"nothing":
 			pass
-
 		"placing":
 			for i in range(1, 5):
 				if Input.is_action_just_pressed(str(i)):
 					currentTile = i - 1
-					if TilePreview:
-						TilePreview.stateIndex = currentTile
-						TilePreview.updateTexture()
+					if tileComponent.tilePreview:
+						tileComponent.tilePreview.stateIndex = currentTile
+						tileComponent.tilePreview.updateTexture()
 					hotBar.updateSelected("tiles", currentTile)
 
 			if Input.is_action_pressed("left_click") and !GlobalFarmTileManager.overTile:
-				createTile(placeableTiles[currentTile])
+				tileComponent.createTile(placeableTiles[currentTile])
 
 		"farming":
 			for i in range(1, 4):
@@ -196,8 +143,8 @@ func handleMode():
 					mode = "farming"
 					$Cursor.updateTexture()
 
-func sortTilesByY(parentNode):
-	var tiles = parentNode.get_children()
-	tiles.sort_custom(func(a, b): return a.position.y < b.position.y)
-	for i in range(tiles.size()):
-		parentNode.move_child(tiles[i], i)
+#func sortTilesByY(parentNode):
+	#var tiles = parentNode.get_children()
+	#tiles.sort_custom(func(a, b): return a.position.y < b.position.y)
+	#for i in range(tiles.size()):
+		#parentNode.move_child(tiles[i], i)

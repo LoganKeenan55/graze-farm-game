@@ -8,6 +8,7 @@ var mode = "farming"
 @onready var player = find_parent("Player")
 func _ready() -> void:
 	setArrs()
+	
 func setArrs(): #sets arrays with sprites and numbers
 	var Itemchildren = $ItemsHUD.get_children()
 	var count1 = 1

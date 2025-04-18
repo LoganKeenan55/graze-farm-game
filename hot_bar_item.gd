@@ -26,6 +26,7 @@ var textureRegions = {
 
 func _ready() -> void:
 	setSelected(false)
+	
 func setTexture(texture: String):
 	if texture in textureRegions:
 		var atlas = AtlasTexture.new()

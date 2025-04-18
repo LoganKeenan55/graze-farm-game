@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dbstt3x47rihs"]
+[gd_scene load_steps=25 format=3 uid="uid://dbstt3x47rihs"]
 
 [ext_resource type="Script" uid="uid://dixq4vvsfd82e" path="res://player.gd" id="1_dkxi4"]
+[ext_resource type="Script" uid="uid://cm2cq6cxwf16t" path="res://node_creating_component.gd" id="2_3tkgg"]
 [ext_resource type="Texture2D" uid="uid://uadpj7cba24k" path="res://player_sprites/head.png" id="2_hp6x6"]
 [ext_resource type="Texture2D" uid="uid://ca7cxu84r4kmj" path="res://player_sprite.png" id="2_tdg3f"]
 [ext_resource type="Texture2D" uid="uid://b7tcjkpnffixc" path="res://player_sprites/body.png" id="3_3tkgg"]
@@ -19,58 +20,6 @@ atlas = ExtResource("3_3tkgg")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3kul"]
 atlas = ExtResource("4_l6ohk")
-
-[sub_resource type="Animation" id="Animation_hp6x6"]
-resource_name = "straight"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Legs:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Legs:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_3tkgg"]
 length = 0.001
@@ -129,46 +78,22 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head:frame")
+tracks/0/path = NodePath("Legs:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Legs:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 7]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Legs:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Legs:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -183,6 +108,34 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Legs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Legs:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hp6x6"]
+resource_name = "straight"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Head:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -190,7 +143,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -202,7 +155,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -211,10 +164,10 @@ tracks/2/path = NodePath("Legs:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 7]
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -229,12 +182,30 @@ tracks/3/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_d6rpx"]
+resource_name = "walk"
+length = 0.488
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Legs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 7, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d6rpx"]
 _data = {
 &"RESET": SubResource("Animation_3tkgg"),
 &"left": SubResource("Animation_l6ohk"),
 &"right": SubResource("Animation_oudfo"),
-&"straight": SubResource("Animation_hp6x6")
+&"straight": SubResource("Animation_hp6x6"),
+&"walk": SubResource("Animation_d6rpx")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdg3f"]
@@ -253,6 +224,9 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.34902)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dkxi4")
+
+[node name="TileComponent" type="Node2D" parent="."]
+script = ExtResource("2_3tkgg")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture_filter = 1
