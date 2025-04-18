@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5tdy0vlg8yx"]
+
+[ext_resource type="Script" uid="uid://diindhuf2tctw" path="res://hud.gd" id="1_efote"]
+[ext_resource type="PackedScene" uid="uid://cq8ghkv3svonm" path="res://HotBar.tscn" id="2_vow1y"]
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="3_vow1y"]
+[ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://Dogica_Pixel_edited.pfb" id="4_ne771"]
+
+[sub_resource type="Theme" id="Theme_n2snw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne771"]
+atlas = ExtResource("3_vow1y")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxqia"]
+atlas = ExtResource("3_vow1y")
+region = Rect2(112, 0, 16, 16)
+
+[node name="HUD" type="Node2D"]
+script = ExtResource("1_efote")
+
+[node name="mode" type="Label" parent="."]
+visible = false
+offset_left = -160.0
+offset_top = 39.0
+offset_right = -116.0
+offset_bottom = 62.0
+theme = SubResource("Theme_n2snw")
+theme_override_font_sizes/font_size = 10
+text = "Mode:"
+
+[node name="wheat" type="Label" parent="."]
+visible = false
+offset_left = 107.0
+offset_top = -84.0
+offset_right = 151.0
+offset_bottom = -61.0
+theme = SubResource("Theme_n2snw")
+theme_override_font_sizes/font_size = 10
+text = "Wheat"
+horizontal_alignment = 2
+
+[node name="seeds" type="Label" parent="."]
+visible = false
+offset_left = 107.0
+offset_top = -65.0
+offset_right = 151.0
+offset_bottom = -42.0
+theme = SubResource("Theme_n2snw")
+theme_override_font_sizes/font_size = 10
+text = "Seeds"
+horizontal_alignment = 2
+
+[node name="item" type="Label" parent="."]
+visible = false
+offset_left = -160.0
+offset_top = 58.0
+offset_right = -116.0
+offset_bottom = 81.0
+theme = SubResource("Theme_n2snw")
+theme_override_font_sizes/font_size = 10
+text = "Item:"
+
+[node name="tile" type="Label" parent="."]
+visible = false
+offset_left = -160.0
+offset_top = 77.0
+offset_right = -116.0
+offset_bottom = 100.0
+theme = SubResource("Theme_n2snw")
+theme_override_font_sizes/font_size = 10
+text = "Tile:"
+
+[node name="HotBar" parent="." instance=ExtResource("2_vow1y")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_speed = 20.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 108.671
+offset_top = -83.971
+offset_right = 149.671
+offset_bottom = -43.971
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(41.48, 0)
+layout_direction = 3
+layout_mode = 2
+offset_left = -0.48
+offset_right = 41.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 0.25098)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 56.0
+theme_override_constants/separation = -2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Wheat" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_ne771")
+
+[node name="WheatCount" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ne771")
+theme_override_font_sizes/font_size = 6
+text = "500"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Corn" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_xxqia")
+
+[node name="CornCount" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ne771")
+theme_override_font_sizes/font_size = 6
+text = "500"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_ne771")
+
+[node name="TextureRect2" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ne771")
+theme_override_font_sizes/font_size = 6
+text = "500"

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4kch1f76k5q8"]
+
+[ext_resource type="Script" uid="uid://bipeprex55w0e" path="res://cursor.gd" id="1_5l68f"]
+[ext_resource type="Texture2D" uid="uid://dd55bgn0tahlj" path="res://textureAtlas.png" id="2_e4vdg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf7gk"]
+atlas = ExtResource("2_e4vdg")
+region = Rect2(240, 0, 16, 16)
+
+[node name="Cursor" type="Node"]
+script = ExtResource("1_5l68f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_qf7gk")

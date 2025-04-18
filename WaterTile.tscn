@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpsu1q5hkv5i"]
+
+[ext_resource type="Script" uid="uid://d0aehc5ktod78" path="res://water_tile.gd" id="1_dt1af"]
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="2_82oga"]
+[ext_resource type="Script" uid="uid://ewvew8lybpov" path="res://water_tile_hitbox.gd" id="3_hfn7n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei1f6"]
+atlas = ExtResource("2_82oga")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr0hc"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3llwx"]
+size = Vector2(19.7279, 19.6704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdsmd"]
+size = Vector2(2.22725, 1.83748)
+
+[node name="WaterTile" type="Node2D"]
+script = ExtResource("1_dt1af")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_ei1f6")
+
+[node name="Blend" type="Node2D" parent="."]
+
+[node name="Texture" type="Node" parent="."]
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(-8, -8)
+script = ExtResource("3_hfn7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_fr0hc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(-8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8.10478, 7.96018)
+shape = SubResource("RectangleShape2D_3llwx")
+
+[node name="DeletingCollision" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeletingCollision"]
+position = Vector2(0.0204535, -0.0381246)
+shape = SubResource("RectangleShape2D_tdsmd")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]
+[connection signal="input_event" from="HitBox" to="HitBox" method="_on_input_event"]
