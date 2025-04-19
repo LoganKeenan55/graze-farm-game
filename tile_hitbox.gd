@@ -16,7 +16,7 @@ func handleDeletingTile(event):
 			player.hotBar.setAmount("tiles",player.placeableTiles.find(get_parent().tileType),player.inventory[get_parent().tileType])
 			get_parent().queue_free()  # Delete the object
 			deleted = true
-		
+			SoundManager.play_sound(get_parent().sound)
 
 func handleHarvesting():
 	if get_parent().tileState[get_parent().stateIndex] == "harvestable":

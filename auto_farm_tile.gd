@@ -2,6 +2,9 @@ extends "res://tile.gd"
 
 var level = 0
 var range = 46
+
+var sound = "res://sounds/metal_sound.mp3"
+
 var textureRegions = {
 	"autoFarmTile": Rect2(16, 112, 16, 16),
 }
@@ -10,7 +13,7 @@ func _ready() -> void:
 	add_to_group("autoFarmerTiles")
 	sprite = $Sprite 
 	usesBlending = false
-
+	tileType = "autoFarmTile"
 func getData():
 	var nodeData = {}
 	nodeData["group"] = "autoFarmerTiles"

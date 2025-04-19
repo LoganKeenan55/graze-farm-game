@@ -57,7 +57,7 @@ func createTile(type):
 			newTile.position = tilePosition
 			tilesParent.add_child(newTile)
 			inventory["waterTile"] -= 1
-		
+			
 		"brickTile":
 			newTile = brickTilePreload.instantiate()
 			newTile.position = tilePosition
@@ -71,7 +71,7 @@ func createTile(type):
 			inventory["autoFarmTile"] -= 1
 			
 	hotBar.setAmount("tiles",placeableTiles.find(type),inventory[type])
-
+	SoundManager.play_sound(newTile.sound)
 	if newTile:
 		sortTilesByY(tilesParent)
 

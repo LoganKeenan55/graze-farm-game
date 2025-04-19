@@ -1,14 +1,17 @@
 extends "res://tile.gd"
 class_name FarmTile
 
+@onready var player = $HitBox.player
+
+
 var wheatParticlePreload = preload("res://WheatHarvestParticle.tscn")
 var cornPartilePreload = preload("res://CornHarvestParticle.tscn")
 var tileState = ["unfertile", "fertile", "seeded", "growing", "harvestable"]
 var cropType = "default" #what kind of crop
 var growSpeed:int = 30  #30 there is a 1/growSpeed chance every .5 sec, def = 30
 var waterSources = {} #dictionary of all waterSources
+var sound = "res://sounds/dirt_sound.mp3"
 
-@onready var player = $HitBox.player
 
 var currentTextureRegions: Dictionary
 var currentHarvestParticle

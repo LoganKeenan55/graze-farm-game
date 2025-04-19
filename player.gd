@@ -7,7 +7,7 @@ var speed: int = 96
 var mode = "nothing" # nothing, placing, farming, seed
 ##
 var inventory= {
-	"farmTile": 50,"waterTile" :50 , "brickTile":5 , "autoFarmTile":5,
+	"farmTile": 50,"waterTile" :50 , "brickTile":50 , "autoFarmTile":5,
 	"wheat":10, "corn":10
 }
 ##
@@ -26,12 +26,26 @@ func _ready() -> void:
 	add_to_group("player")
 	$TileComponent.hotBar = hotBar
 
+func _physics_process(delta):
+	move_and_slide()
+
+func _process(_delta: float) -> void:
+	getInput()
+	handleMode()
+
+func getInput():
+	handleSavingLoadingGame()
+	handleMovement()
+	handleChangingMode()
+
+
 func getData():
 	return {
 		"group": "player",
 		"position": position,
 		"inventory": inventory
 	}
+
 func handleChangingMode():
 	if Input.is_action_just_pressed("e"): # placing mode
 		
@@ -64,20 +78,12 @@ func handleChangingMode():
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			$Cursor.updateTexture()
 			hotBar.setMode("nothing")
+
 func handleSavingLoadingGame():
 	if Input.is_action_just_pressed("p"):
 		GlobalVars.saveGame()
 	if Input.is_action_just_pressed("l"):
 		GlobalVars.loadGame()
-func getInput():
-	handleSavingLoadingGame()
-	handleMovement()
-	handleChangingMode()
-		
-	
-func _process(_delta: float) -> void:
-	getInput()
-	handleMode()
 
 func handleMovement():
 	var inputDirection = Input.get_vector("a", "d", "w", "s")
@@ -86,7 +92,7 @@ func handleMovement():
 	if inputDirection.length_squared() > 0:
 		$Player_Sprites/AnimationPlayer.play("walk")
 	else:
-		$Player_Sprites/AnimationPlayer.play("straight")
+		$Player_Sprites/AnimationPlayer.play("idle")
 
 	if inputDirection.x > 0: #right
 		$Player_Sprites/Head.frame = 1
@@ -99,9 +105,6 @@ func handleMovement():
 	else: #straight
 		$Player_Sprites/Head.frame = 0
 		$Player_Sprites/Body.frame = 0
-
-func _physics_process(delta):
-	move_and_slide()
 
 func handleMode():
 	match mode:
