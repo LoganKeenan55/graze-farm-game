@@ -114,6 +114,7 @@ func harvestCrop():
 				player.inventory["corn"] += randi_range(1,2)
 				
 		player.hotBar.updateAmounts("items")
+		SoundManager.play_sound("res://sounds/harvest_sound.mp3", position)
 func seedCrop(newType = null):
 	var typeToPlant = newType if newType != null else cropType
 	match typeToPlant:
@@ -124,6 +125,7 @@ func seedCrop(newType = null):
 				stateIndex = 2
 				updateTexture()
 				player.inventory["wheat"] -= 1 
+				SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
 		"corn":
 			if player.inventory["corn"] >= 1:
 				if newType:
@@ -131,7 +133,7 @@ func seedCrop(newType = null):
 				stateIndex = 2
 				updateTexture()
 				player.inventory["corn"] -= 1 
-		
+				SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
 func setType(type:String):
 	if type == "default":
 		currentTextureRegions = defaultTextureRegions

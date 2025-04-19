@@ -1,10 +1,11 @@
 extends Node
 
-const MAX_SOUNDS = 10
+const MAX_SOUNDS = 20
 
 var active_sounds = [] #keeps track of all sounds being played
+@onready var player = get_tree().current_scene.get_node("Player")
 
-func play_sound(path: String) -> void:
+func play_sound(path: String, pos:Vector2 = Vector2.ZERO) -> void:
 	if active_sounds.size() >= MAX_SOUNDS:
 		return
 	
@@ -17,9 +18,22 @@ func play_sound(path: String) -> void:
 	add_child(audio_player)
 	audio_player.stream = stream
 	
-	#scales volume based on how many sounds are being played
-	var volume_scale = 1.0 - (active_sounds.size()* 0.2)
-	audio_player.volume_db = linear_to_db(clamp(volume_scale, 0.2, 1.0)) 
+	var distance_volume_scale = 1.0  # Default full volume
+
+	#Only apply distance scaling if a non-zero position was given
+	if pos != Vector2.ZERO:
+		var distance = pos.distance_to(player.position)
+		var max_distance = 200.0
+		distance_volume_scale = clamp(1.0 - (distance / max_distance), 0.0, 1.0)
+		print(distance_volume_scale)
+		if distance_volume_scale <= 0.0:
+			audio_player.queue_free()
+			return
+	
+	#scales volume based on how many sounds are being played and by distance 
+	var volume_scale = (1.0 - (active_sounds.size() * 0.2)) * distance_volume_scale
+	audio_player.volume_db = linear_to_db(clamp(volume_scale, 0.01, 1.0))
+
 	
 	var pitch_scale = 1.0 - (randf_range(-1.0,0.2))
 	audio_player.pitch_scale = pitch_scale
