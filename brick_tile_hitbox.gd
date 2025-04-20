@@ -8,6 +8,7 @@ func handlePlayerInterection(event):
 		"hoe":
 			pass
 		"shovel":
+			
 			handleDeletingTile(event)
 		"seeds":
 			pass

@@ -17,8 +17,17 @@ func handleDeletingTile(event):
 			get_parent().queue_free()  # Delete the object
 			deleted = true
 			SoundManager.play_sound(get_parent().sound)
-			if get_parent().tileType == "waterTile":
-				get_parent().updateFertileTiles(-1)
+			
+			match get_parent().tileType: #Tile specific code for deleting
+				"waterTile":
+					get_parent().updateFertileTiles(-1)
+				"farmTile":
+					if get_parent().stateIndex >= 2 and get_parent().stateIndex <= 3:
+						player.inventory[get_parent().cropType] += 1
+					if get_parent().stateIndex == 4:
+						get_parent().harvestCrop()
+			player.hotBar.updateAmounts("seeds")
+				
 				
 func handleHarvesting():
 	if get_parent().tileState[get_parent().stateIndex] == "harvestable":

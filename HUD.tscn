@@ -96,14 +96,17 @@ color = Color(0, 0, 0, 0.25098)
 layout_mode = 0
 offset_right = 36.0
 offset_bottom = 56.0
+mouse_filter = 2
 theme_override_constants/separation = -2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Wheat" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_ne771")
 
 [node name="WheatCount" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
@@ -115,10 +118,12 @@ text = "500"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Corn" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2"]
 texture_filter = 1
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_xxqia")
 
 [node name="CornCount" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
@@ -131,10 +136,12 @@ text = "500"
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3"]
 texture_filter = 1
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_ne771")
 
 [node name="TextureRect2" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
