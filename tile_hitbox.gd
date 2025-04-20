@@ -17,7 +17,9 @@ func handleDeletingTile(event):
 			get_parent().queue_free()  # Delete the object
 			deleted = true
 			SoundManager.play_sound(get_parent().sound)
-
+			if get_parent().tileType == "waterTile":
+				get_parent().updateFertileTiles(-1)
+				
 func handleHarvesting():
 	if get_parent().tileState[get_parent().stateIndex] == "harvestable":
 		get_parent().harvestCrop()
