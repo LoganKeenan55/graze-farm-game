@@ -95,8 +95,15 @@ func advanceState():
 		if stateIndex > 1 and stateIndex < 4: #is seeded but not fully grown
 			stateIndex += 1 
 			updateTexture()
-			if stateIndex == 4:
+			if stateIndex == 4: #fully grown
 				$AnimationPlayer.play("grow")
+				match cropType:
+					"wheat":
+						SoundManager.play_sound("res://sounds/bloop1.mp3",position,.5)
+					"corn":
+						SoundManager.play_sound("res://sounds/bloop2.mp3",position,.5)
+					#"other":
+						#SoundManager.play_sound("res://sounds/bloop3.mp3",position,.5)
 
 func harvestCrop():
 	if harvestable:
@@ -107,14 +114,12 @@ func harvestCrop():
 			stateIndex = 0
 		updateTexture()
 
-		match cropType:
-			"wheat":
-				player.inventory["wheat"] += randi_range(1,2)
-			"corn":
-				player.inventory["corn"] += randi_range(1,2)
-				
-		player.hotBar.updateAmounts("items")
+		player.inventory[cropType] += randi_range(1,2) #add to inventory
+			
+		player.hotBar.updateAmounts("items") #update hotbar
+		
 		SoundManager.play_sound("res://sounds/harvest_sound.mp3", position)
+
 func seedCrop(newType = null):
 	var typeToPlant = newType if newType != null else cropType
 	match typeToPlant:
