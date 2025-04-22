@@ -2,7 +2,7 @@ extends Node
 
 const MAX_SOUNDS = 20
 
-var volume:float = 1
+var volume:float = .5
 
 var active_sounds = [] #keeps track of all sounds being played
 @onready var player = get_tree().current_scene.get_node("Player")
@@ -27,7 +27,6 @@ func play_sound(path: String, pos:Vector2 = Vector2.ZERO, overide: float = 0) ->
 		var distance = pos.distance_to(player.position)
 		var max_distance = 200.0
 		distance_volume_scale = clamp(1.0 - (distance / max_distance), 0.0, 1.0)
-		print(distance_volume_scale)
 		if distance_volume_scale <= 0.0:
 			audio_player.queue_free()
 			return

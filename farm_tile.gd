@@ -7,7 +7,9 @@ class_name FarmTile
 var wheatParticlePreload = preload("res://WheatHarvestParticle.tscn")
 var cornPartilePreload = preload("res://CornHarvestParticle.tscn")
 var tileState = ["unfertile", "fertile", "seeded", "growing", "harvestable"]
+
 var cropType = "default" #what kind of crop
+
 var growSpeed:int = 30  #30 there is a 1/growSpeed chance every .5 sec, def = 30
 var waterSources = {} #dictionary of all waterSources
 var sound = "res://sounds/dirt_sound.mp3"
@@ -22,8 +24,8 @@ var wheatTextureRegions = {
 	"seeded": Rect2(0, 32, 16, 16),
 	"growing": Rect2(0, 48, 16, 16),
 	"harvestable": Rect2(0, 64, 16, 32)
-	}
-	
+}	
+
 var cornTextureRegions = {
 	"unfertile": Rect2(0, 0, 16, 16),
 	"fertile": Rect2(0, 16, 16, 16),
@@ -38,18 +40,20 @@ var defaultTextureRegions = {
 }
 
 func _ready() -> void:
+	add_to_group("farmTiles")
 	tileType = "farmTile"
 	setType("default")
 	
 	if randi() % 2 == 0:
 		$Sprite.flip_h = true
-	add_to_group("farmTiles")
+	
 	inFrontOfPlayer = true
 	stateIndex = 0
-	updateTexture()
+	
 	
 	#GlobalFarmTileManager.wheetGrowPerMinute += ((GlobalFarmTileManager.tickSpeed)/growSpeed)
 	GlobalFarmTileManager.allFarmTiles.append(self)
+	updateTexture()
 	manageBlending()
 	updateWaterTiles()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h0dopj8abaid"]
+[gd_scene load_steps=12 format=3 uid="uid://h0dopj8abaid"]
 
 [ext_resource type="Script" uid="uid://thvw1uc00t8q" path="res://auto_farm_tile.gd" id="1_gdu07"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="2_m3el6"]
@@ -78,6 +78,10 @@ _data = {
 &"activate": SubResource("Animation_gdu07")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3el6"]
+atlas = ExtResource("2_m3el6")
+region = Rect2(96, 0, 16, 16)
+
 [node name="AutoFarmTile" type="Node2D"]
 script = ExtResource("1_gdu07")
 
@@ -117,4 +121,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_n1gtn")
 }
 
+[node name="cropTexture" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1)
+texture = SubResource("AtlasTexture_m3el6")
+region_rect = Rect2(96, 0, 16, 16)
+
 [connection signal="input_event" from="HitBox" to="HitBox" method="_on_input_event"]
+[connection signal="mouse_entered" from="HitBox" to="HitBox" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HitBox" to="HitBox" method="_on_mouse_exited"]

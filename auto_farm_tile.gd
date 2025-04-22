@@ -3,10 +3,24 @@ extends "res://tile.gd"
 var level = 0
 var range = 46
 
+var cropType = "wheat"
+
 var sound = "res://sounds/metal_sound.mp3"
+var tileState = ["level1","level2"]
 
 var textureRegions = {
-	"autoFarmTile": Rect2(16, 112, 16, 16),
+	"level1": Rect2(16, 112, 16, 16),
+}
+
+
+
+var cropTextureRegions = {
+	"corn":Rect2(112, 0, 16, 16),
+	"wheat":Rect2(96, 0, 16, 16),
+	"default": 	Rect2(-16, 0, 16, 16),
+	
+	"wheatSeeds":Rect2(240, 16, 16, 16),
+	"cornSeeds":Rect2(224, 16, 16, 16)
 }
 
 func _ready() -> void:
@@ -14,12 +28,31 @@ func _ready() -> void:
 	sprite = $Sprite 
 	usesBlending = false
 	tileType = "autoFarmTile"
+	updateTexture()
 func getData():
 	var nodeData = {}
 	nodeData["group"] = "autoFarmerTiles"
 	nodeData["position"] = position
 	nodeData["level"] = level
 	return nodeData
+
+func updateTexture():
+	var currentState = tileState[stateIndex]
+	if currentState in textureRegions:
+		var atlas = AtlasTexture.new()
+		atlas.atlas = atlasTexture
+		atlas.region = textureRegions[currentState]
+		sprite.texture = atlas  #apply the new texture region
+	if cropType in cropTextureRegions:
+		var CropAtlas = AtlasTexture.new()
+		CropAtlas.atlas = atlasTexture
+		CropAtlas.region = cropTextureRegions[cropType]
+		print(CropAtlas.region)
+		$cropTexture.texture = CropAtlas  #apply the new texture region
+	manageBlending()
+
+
+
 
 func harvestFarmTiles():
 	for tile in get_tree().get_nodes_in_group("farmTiles"):

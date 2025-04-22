@@ -15,7 +15,7 @@ var currentTile = 0
 var placeableTiles = ["farmTile", "waterTile", "brickTile", "autoFarmTile"]
 ##
 var currentItem = 0
-var items = ["hoe", "shovel", "seeds"]
+var items = ["hoe", "shovel", "seeds", "wrench"]
 ##
 var currentSeed = 0
 var harvestables = ["wheat", "corn"]
@@ -123,7 +123,7 @@ func handleMode():
 				tileComponent.createTile(placeableTiles[currentTile])
 
 		"farming":
-			for i in range(1, 4):
+			for i in range(1, 5):
 				if Input.is_action_just_pressed(str(i)):
 					currentItem = i - 1
 					$Cursor.item = currentItem

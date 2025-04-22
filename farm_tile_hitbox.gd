@@ -12,3 +12,5 @@ func handlePlayerInterection(event):
 			handleDeletingTile(event)
 		"seeds":
 			handleSeeding()
+		"wrench":
+			handleWrench()

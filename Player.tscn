@@ -221,8 +221,8 @@ _data = {
 &"walk": SubResource("Animation_d6rpx")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdg3f"]
-height = 23.3206
+[sub_resource type="CircleShape2D" id="CircleShape2D_3tkgg"]
+radius = 7.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtqjt"]
 radius = 8.50018
@@ -276,12 +276,11 @@ texture_filter = 1
 texture = ExtResource("2_tdg3f")
 
 [node name="HitBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 3
 script = ExtResource("3_cxr5p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CapsuleShape2D_tdg3f")
+shape = SubResource("CircleShape2D_3tkgg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.05)
