@@ -21,11 +21,13 @@ var textureRegions = {
 	"hoe": Rect2(240, 0, 16, 16),
 	"shovel": Rect2(240, 32, 16, 16),
 	"wheat":Rect2(240, 16, 16, 16),
-	"corn":Rect2(224, 16, 16, 16)
+	"corn":Rect2(224, 16, 16, 16),
+	"wrench": Rect2(240, 32, 16, 16)
 }
 
 func _ready() -> void:
 	setSelected(false)
+	
 func setTexture(texture: String):
 	if texture in textureRegions:
 		var atlas = AtlasTexture.new()

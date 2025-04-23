@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 GlobalVars="*res://global_save.gd"
 GlobalFarmTileManager="*res://global_farm_tile_manager.gd"
+SoundManager="*res://sound_manager.gd"
 
 [display]
 

@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3a8xcunyvb1s"]
+
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_6mtla"]
+[ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://Dogica_Pixel_edited.pfb" id="2_ooegs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jxq7"]
+atlas = ExtResource("1_6mtla")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waugx"]
+atlas = ExtResource("1_6mtla")
+region = Rect2(96, 0, 16, 16)
+
+[node name="UpgradeToolTip" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -30.261
+offset_right = 41.0
+offset_bottom = 9.739
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(41.48, 0)
+layout_direction = 3
+layout_mode = 2
+offset_left = -0.48
+offset_top = 15.0
+offset_right = 41.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 0.25098)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 42.0
+offset_bottom = 56.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Upgrade" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ooegs")
+theme_override_font_sizes/font_size = 6
+text = "e"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Corn" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_0jxq7")
+
+[node name="CornCount" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ooegs")
+theme_override_font_sizes/font_size = 6
+text = "500"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_waugx")
+
+[node name="TextureRect2" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ooegs")
+theme_override_font_sizes/font_size = 6
+text = "500"

@@ -9,6 +9,7 @@ extends Node
 var mode = "nothing"
 
 func _ready() -> void:
+	setTexture("items",2,"wheat")
 	itemBar.updateAllItems(player.items)
 	tileBar.updateAllItems(player.placeableTiles)
 	seedBar.updateAllItems(player.harvestables)

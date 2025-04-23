@@ -1,14 +1,19 @@
 extends "res://tile.gd"
 class_name FarmTile
 
+@onready var player = $HitBox.player
+
+
 var wheatParticlePreload = preload("res://WheatHarvestParticle.tscn")
 var cornPartilePreload = preload("res://CornHarvestParticle.tscn")
 var tileState = ["unfertile", "fertile", "seeded", "growing", "harvestable"]
+
 var cropType = "default" #what kind of crop
+
 var growSpeed:int = 30  #30 there is a 1/growSpeed chance every .5 sec, def = 30
 var waterSources = {} #dictionary of all waterSources
+var sound = "res://sounds/dirt_sound.mp3"
 
-@onready var player = $HitBox.player
 
 var currentTextureRegions: Dictionary
 var currentHarvestParticle
@@ -19,8 +24,8 @@ var wheatTextureRegions = {
 	"seeded": Rect2(0, 32, 16, 16),
 	"growing": Rect2(0, 48, 16, 16),
 	"harvestable": Rect2(0, 64, 16, 32)
-	}
-	
+}	
+
 var cornTextureRegions = {
 	"unfertile": Rect2(0, 0, 16, 16),
 	"fertile": Rect2(0, 16, 16, 16),
@@ -35,18 +40,20 @@ var defaultTextureRegions = {
 }
 
 func _ready() -> void:
+	add_to_group("farmTiles")
 	tileType = "farmTile"
 	setType("default")
 	
 	if randi() % 2 == 0:
 		$Sprite.flip_h = true
-	add_to_group("farmTiles")
+	
 	inFrontOfPlayer = true
 	stateIndex = 0
-	updateTexture()
+	
 	
 	#GlobalFarmTileManager.wheetGrowPerMinute += ((GlobalFarmTileManager.tickSpeed)/growSpeed)
 	GlobalFarmTileManager.allFarmTiles.append(self)
+	updateTexture()
 	manageBlending()
 	updateWaterTiles()
 
@@ -92,8 +99,15 @@ func advanceState():
 		if stateIndex > 1 and stateIndex < 4: #is seeded but not fully grown
 			stateIndex += 1 
 			updateTexture()
-			if stateIndex == 4:
+			if stateIndex == 4: #fully grown
 				$AnimationPlayer.play("grow")
+				match cropType:
+					"wheat":
+						SoundManager.play_sound("res://sounds/bloop1.mp3",position,.5)
+					"corn":
+						SoundManager.play_sound("res://sounds/bloop2.mp3",position,.5)
+					#"other":
+						#SoundManager.play_sound("res://sounds/bloop3.mp3",position,.5)
 
 func harvestCrop():
 	if harvestable:
@@ -104,13 +118,12 @@ func harvestCrop():
 			stateIndex = 0
 		updateTexture()
 
-		match cropType:
-			"wheat":
-				player.inventory["wheat"] += randi_range(1,2)
-			"corn":
-				player.inventory["corn"] += randi_range(1,2)
-				
-		player.hotBar.updateAmounts("items")
+		player.inventory[cropType] += randi_range(1,2) #add to inventory
+			
+		player.hotBar.updateAmounts("items") #update hotbar
+		
+		SoundManager.play_sound("res://sounds/harvest_sound.mp3", position)
+
 func seedCrop(newType = null):
 	var typeToPlant = newType if newType != null else cropType
 	match typeToPlant:
@@ -121,6 +134,7 @@ func seedCrop(newType = null):
 				stateIndex = 2
 				updateTexture()
 				player.inventory["wheat"] -= 1 
+				SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
 		"corn":
 			if player.inventory["corn"] >= 1:
 				if newType:
@@ -128,7 +142,7 @@ func seedCrop(newType = null):
 				stateIndex = 2
 				updateTexture()
 				player.inventory["corn"] -= 1 
-		
+				SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
 func setType(type:String):
 	if type == "default":
 		currentTextureRegions = defaultTextureRegions

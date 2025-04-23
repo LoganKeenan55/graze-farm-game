@@ -47,7 +47,9 @@ func loadGame():
 			timeSinceLastSave = abs(node["globalTime"] - Time.get_unix_time_from_system())
 		if node["group"] == "player":
 			player.position = node["position"]
-			player.inventory = node["inventory"]
+			player.inventory.clear()
+			for key in node["inventory"]:
+				player.inventory[key] = node["inventory"][key]
 		if node["group"] == "farmTiles":
 			newTile = farmTilePreload.instantiate()
 			newTile.position = node["position"]

@@ -28,16 +28,14 @@ var blendTextureRegions = {
 func _ready() -> void:
 	updateTexture()
 	manageBlending()
-	
+
 	
 func getData(): #needed for all tiles
 	pass
 
-
 func updateTexture(): #needed for all tiles
 	pass
 
-	
 func manageBlending():
 	if usesBlending:
 		for child in get_node("Blend").get_children():
@@ -69,6 +67,7 @@ func createBlendSprite(direction):
 		
 		
 		#if other is bellow and other harvestable == true then cc[down] = false
+
 func findCurrentCollisions(area, entering: bool):
 	if area.get_parent().has_method("manageBlending") and usesBlending and area.get_parent().usesBlending:
 		var otherPosition = area.get_parent().position
