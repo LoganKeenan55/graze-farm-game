@@ -38,7 +38,7 @@ func handleHarvesting():
 		get_parent().harvestCrop()
 #	if abs(Input.get_last_mouse_velocity().x) + abs(Input.get_last_mouse_velocity().y) >1000:
 
-func handleWrench():
+func handleHammer():
 	if tooltip == null: #create tooltip
 		tooltip = upgrateToolTipPreload.instantiate()
 		get_parent().add_child(tooltip)

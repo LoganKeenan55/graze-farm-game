@@ -15,7 +15,7 @@ var currentTile = 0
 var placeableTiles = ["farmTile", "waterTile", "brickTile", "autoFarmTile"]
 ##
 var currentItem = 0
-var items = ["hoe", "shovel", "seeds", "wrench"]
+var items = ["hoe", "shovel", "seeds", "hammer"]
 ##
 var currentSeed = 0
 var harvestables = ["wheat", "corn"]
