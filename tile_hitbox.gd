@@ -42,10 +42,12 @@ func handleHammer():
 	if tooltip == null: #create tooltip
 		tooltip = upgrateToolTipPreload.instantiate()
 		get_parent().add_child(tooltip)
+		tooltip.changeCropType(get_parent().cropType)
 		tooltip.position = position
+		tooltip.z_index = 12
 	
 	if Input.is_action_pressed("left_click"): #if left click
-		get_parent().stateIndex+=1
+		get_parent().updateLevel(get_parent().level+1)
 		get_parent().updateTexture()
 
 
@@ -53,7 +55,7 @@ func _on_mouse_exited():
 	if tooltip:
 		tooltip.queue_free()
 		tooltip = null
-
+	
 
 func handleSeeding():
 	match get_parent().tileType:

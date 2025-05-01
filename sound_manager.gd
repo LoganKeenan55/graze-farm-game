@@ -7,6 +7,10 @@ var volume:float = .5
 var active_sounds = [] #keeps track of all sounds being played
 @onready var player = get_tree().current_scene.get_node("Player")
 
+#path -> sound_file
+#pos -> position of sound (optional)
+#overide -> range of (0-1) subtracts overide from sound
+
 func play_sound(path: String, pos:Vector2 = Vector2.ZERO, overide: float = 0) -> void:
 	if active_sounds.size() >= MAX_SOUNDS:
 		return

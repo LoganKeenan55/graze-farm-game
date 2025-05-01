@@ -103,9 +103,9 @@ func advanceState():
 				$AnimationPlayer.play("grow")
 				match cropType:
 					"wheat":
-						SoundManager.play_sound("res://sounds/bloop1.mp3",position,.5)
+						SoundManager.play_sound("res://sounds/bloop1.mp3",position,.1)
 					"corn":
-						SoundManager.play_sound("res://sounds/bloop2.mp3",position,.5)
+						SoundManager.play_sound("res://sounds/bloop2.mp3",position,.1)
 					#"other":
 						#SoundManager.play_sound("res://sounds/bloop3.mp3",position,.5)
 

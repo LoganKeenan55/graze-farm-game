@@ -7,15 +7,7 @@ var atlasTexture: Texture2D = preload("res://textureAtlas.png")
 var stateIndex = 0
 var item = 0
 
-var textureRegions = {
-	"hoe": Rect2(240, 0, 16, 16),
-	"seeds": Rect2(240, 16, 16, 16),
-	"shovel": Rect2(240, 32, 16, 16),
-	"hammer": Rect2(224, 0, 16, 16), 
-	"cursor": Rect2(240, 48, 16, 16),
-	"wheat":Rect2(240, 16, 16, 16),
-	"corn":Rect2(224, 16, 16, 16)
-}
+var textureRegions = GlobalVars.textureRegions
 
 
 func _ready() -> void:
@@ -28,8 +20,8 @@ func updateTexture():
 	var textureName: String
 	if items[item] == "seeds":
 		match get_parent().currentSeed:
-			0: textureName = "wheat"
-			1: textureName = "corn"
+			0: textureName = "wheatSeeds"
+			1: textureName = "cornSeeds"
 	else:
 		textureName = items[item]
 

@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalVars="*res://global_save.gd"
+GlobalVars="*res://globalVars.gd"
 GlobalFarmTileManager="*res://global_farm_tile_manager.gd"
 SoundManager="*res://sound_manager.gd"
 
