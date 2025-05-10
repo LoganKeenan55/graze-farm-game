@@ -30,6 +30,10 @@ func handleDeletingTile(event):
 						player.inventory[get_parent().cropType] += 1
 					if get_parent().stateIndex == 4:
 						get_parent().harvestCrop()
+				"autoFarmTile":
+					player.inventory["wheat"] += get_parent().priceCounts["wheat"]
+					player.inventory["corn"] += get_parent().priceCounts["corn"]
+					player.hotBar.updateAll()
 			player.hotBar.updateAmounts("seeds")
 				
 				
@@ -45,11 +49,11 @@ func handleHammer():
 		tooltip.changeCropType(get_parent().cropType)
 		tooltip.position = position
 		tooltip.z_index = 12
-	
+		tooltip.price.text = str(get_parent().upgradePrices[player.harvestables[player.currentSeed]])
 	if Input.is_action_pressed("left_click"): #if left click
-		get_parent().updateLevel(get_parent().level+1)
+		get_parent().upgrade()
 		get_parent().updateTexture()
-
+		tooltip.queue_free()
 
 func _on_mouse_exited():
 	if tooltip:
@@ -66,9 +70,22 @@ func handleSeeding():
 				if player.harvestables[player.currentSeed] == "corn":
 					get_parent().seedCrop("corn")
 		"autoFarmTile":
-			if Input.is_action_pressed("left_click"):
-				print("seeded")
+			if get_parent().cropType != "default": #check if autoFarmTile hasn't already been seeded
+				return 
+			if tooltip == null: #create tooltip
+				tooltip = upgrateToolTipPreload.instantiate()
+				get_parent().add_child(tooltip)
+				tooltip.changeCropType(get_parent().cropType)
+				tooltip.position = position
+				tooltip.z_index = 12
 
+				tooltip.label.text = "Seed?"
+				tooltip.price.text = str(get_parent().seedPrices[player.harvestables[player.currentSeed]])
+				tooltip.changeCropType(player.harvestables[player.currentSeed])
+			if  Input.is_action_pressed("left_click"):
+				get_parent().setCrop(player.harvestables[player.currentSeed])
+				if get_parent().cropType != "default":
+					tooltip.queue_free()
 func handlePlayerInterection(event):
 	#match player.items[player.currentItem]:
 		#"hoe":

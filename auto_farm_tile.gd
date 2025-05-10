@@ -1,20 +1,28 @@
 extends "res://tile.gd"
 
-var level = 0
+@onready var player = get_tree().current_scene.find_child("Player", true, false)
+
+var level = 1
 var range = 46
 
-var cropType = "corn"
+var cropType = "default"
+
+
+var priceCounts: Dictionary = {#count of all crops added to it, to be returned when destroyed
+	"wheat": 0,
+	"corn": 0
+}
 
 var sound = "res://sounds/metal_sound.mp3"
 var tileState = ["level1","level2"]
 
 var textureRegions = {
 	"level1": Rect2(16, 112, 16, 16),
+	"level2": Rect2(32, 112, 16, 16),
 }
 
-
-
 var level1TextureRegions = {
+	"default": 	Rect2(500, 0, 16, 16),
 	"corn":Rect2(112, 0, 16, 16),
 	"wheat":Rect2(96, 0, 16, 16),
 }
@@ -26,6 +34,17 @@ var level2TextureRegions = {
 
 var currentTextureRegions: Dictionary
 
+var seedPrices = {
+	"wheat": 50,
+	"corn": 50
+	
+}
+var upgradePrices = {
+	"wheat": 50,
+	"corn": 100
+}
+
+
 func _ready() -> void:
 	currentTextureRegions = level1TextureRegions
 	add_to_group("autoFarmerTiles")
@@ -33,6 +52,7 @@ func _ready() -> void:
 	usesBlending = false
 	tileType = "autoFarmTile"
 	updateTexture()
+	
 func getData():
 	var nodeData = {}
 	nodeData["group"] = "autoFarmerTiles"
@@ -55,16 +75,40 @@ func updateTexture():
 		$cropTexture.texture = CropAtlas
 	manageBlending()
 
-func updateLevel(newlev):
-	level = newlev
+func upgrade():
+	if cropType == "default":
+		return
+	level+=1 
+	upgradePrices[cropType] *= 1.5  #increases price on each upgrade
+	upgradePrices[cropType] = int(upgradePrices[cropType]) #rounds
+
+	if level == 2:
+		currentTextureRegions = level2TextureRegions
+		updateTexture()
+	if level == 3:
+		stateIndex = 1
+		updateTexture()
 	updateTexture()
-	print(level)
+	
+
+func setCrop(newCrop):
+	if player.inventory[newCrop] < seedPrices[newCrop]:
+		return
+	if cropType == newCrop or cropType != "default":
+		return
+	
+	player.inventory[newCrop]-=seedPrices[newCrop]
+	cropType = newCrop
+	priceCounts[newCrop] += seedPrices[newCrop]
+	updateTexture()
+
 
 func harvestFarmTiles():
 	for tile in get_tree().get_nodes_in_group("farmTiles"):
-		if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
-			if tile.harvestable:
-				tile.harvestCrop()
+		if tile.cropType == cropType:
+			if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
+				if tile.harvestable:
+					tile.harvestCrop()
 
 func plantFarmTiles():
 	for tile in get_tree().get_nodes_in_group("farmTiles"):

@@ -45,7 +45,7 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Upgrade" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ooegs")
@@ -67,7 +67,7 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_0jxq7")
 
-[node name="CornCount" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+[node name="Price" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ooegs")

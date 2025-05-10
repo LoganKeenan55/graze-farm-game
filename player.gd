@@ -37,7 +37,14 @@ func getInput():
 	handleSavingLoadingGame()
 	handleMovement()
 	handleChangingMode()
-
+	if Input.is_action_just_pressed("c"):
+		inventory["farmTile"] = 9999
+		inventory["waterTile"] = 9999
+		inventory["autoFarmTile"] = 9999
+		inventory["brickTile"] = 9999
+		inventory["wheat"] = 9999
+		inventory["corn"] = 9999
+		hotBar.updateAll()
 
 func getData():
 	return {

@@ -10,7 +10,6 @@ var tileState = ["unfertile", "fertile", "seeded", "growing", "harvestable"]
 
 var cropType = "default" #what kind of crop
 
-var growSpeed:int = 30  #30 there is a 1/growSpeed chance every .5 sec, def = 30
 var waterSources = {} #dictionary of all waterSources
 var sound = "res://sounds/dirt_sound.mp3"
 
@@ -37,6 +36,11 @@ var cornTextureRegions = {
 var defaultTextureRegions = {
 	"unfertile": Rect2(0, 0, 16, 16),
 	"fertile": Rect2(0, 16, 16, 16)
+}
+
+var growSpeeds = { #there is a 1/growSpeed chance every .5 sec, def = 30
+	"wheat": 20,
+	"corn": 30
 }
 
 func _ready() -> void:
@@ -95,7 +99,9 @@ func updateTexture():
 	#print("New texture: " + str(currentState))
 		
 func advanceState():
-	if randi_range(1,growSpeed) == 1:
+	if cropType == "default":
+		return
+	if randi_range(1,growSpeeds[cropType]) == 1:
 		if stateIndex > 1 and stateIndex < 4: #is seeded but not fully grown
 			stateIndex += 1 
 			updateTexture()
