@@ -8,7 +8,7 @@ var mode = "nothing" # nothing, placing, farming, seed
 ##
 var inventory= {
 	"farmTile": 50,"waterTile" :50 , "brickTile":50 , "autoFarmTile":5,
-	"wheat":10, "corn":10
+	"wheat":10, "corn":10, "bamboo": 20
 }
 ##
 var currentTile = 0
@@ -18,7 +18,7 @@ var currentItem = 0
 var items = ["hoe", "shovel", "seeds", "hammer"]
 ##
 var currentSeed = 0
-var harvestables = ["wheat", "corn"]
+var harvestables = ["wheat", "corn", "bamboo"]
 ##
 
 
@@ -37,13 +37,14 @@ func getInput():
 	handleSavingLoadingGame()
 	handleMovement()
 	handleChangingMode()
-	if Input.is_action_just_pressed("c"):
+	if Input.is_action_just_pressed("c"): #cheat
 		inventory["farmTile"] = 9999
 		inventory["waterTile"] = 9999
 		inventory["autoFarmTile"] = 9999
 		inventory["brickTile"] = 9999
 		inventory["wheat"] = 9999
 		inventory["corn"] = 9999
+		inventory["bamboo"] = 9999
 		hotBar.updateAll()
 
 func getData():
@@ -144,7 +145,7 @@ func handleMode():
 						hotBar.updateSelected("items", currentItem)
 
 		"seed":
-			for i in range(1, 3):
+			for i in range(1, 4):
 				if Input.is_action_just_pressed(str(i)):
 					currentSeed = i - 1
 					hotBar.setTexture("items",2,harvestables[currentSeed])

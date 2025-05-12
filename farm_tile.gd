@@ -6,6 +6,7 @@ class_name FarmTile
 
 var wheatParticlePreload = preload("res://WheatHarvestParticle.tscn")
 var cornPartilePreload = preload("res://CornHarvestParticle.tscn")
+var bambooParticlePreload = preload("res://bamboo_harvest_particle.tscn")
 var tileState = ["unfertile", "fertile", "seeded", "growing", "harvestable"]
 
 var cropType = "default" #what kind of crop
@@ -33,6 +34,14 @@ var cornTextureRegions = {
 	"harvestable": Rect2(16, 64, 16, 32)
 }
 
+var bambooTextureRegions = {
+	"unfertile": Rect2(0, 0, 16, 16),
+	"fertile": Rect2(0, 16, 16, 16),
+	"seeded": Rect2(32, 32, 16, 16),
+	"growing": Rect2(32, 48, 16, 16),
+	"harvestable": Rect2(32, 64, 16, 32)
+}
+
 var defaultTextureRegions = {
 	"unfertile": Rect2(0, 0, 16, 16),
 	"fertile": Rect2(0, 16, 16, 16)
@@ -40,7 +49,8 @@ var defaultTextureRegions = {
 
 var growSpeeds = { #there is a 1/growSpeed chance every .5 sec, def = 30
 	"wheat": 20,
-	"corn": 30
+	"corn": 30,
+	"bamboo": 10,
 }
 
 func _ready() -> void:
@@ -132,23 +142,38 @@ func harvestCrop():
 
 func seedCrop(newType = null):
 	var typeToPlant = newType if newType != null else cropType
-	match typeToPlant:
-		"wheat":
-			if player.inventory["wheat"]>= 1:
-				if newType:
-					setType(newType)
-				stateIndex = 2
-				updateTexture()
-				player.inventory["wheat"] -= 1 
-				SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
-		"corn":
-			if player.inventory["corn"] >= 1:
-				if newType:
-					setType(newType)
-				stateIndex = 2
-				updateTexture()
-				player.inventory["corn"] -= 1 
-				SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
+	if player.inventory[typeToPlant]>= 1:
+		if newType:
+			setType(newType)
+		stateIndex = 2
+		updateTexture()
+		player.inventory[typeToPlant] -= 1 
+		SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
+	#match typeToPlant:
+		#"wheat":
+			#if player.inventory["wheat"]>= 1:
+				#if newType:
+					#setType(newType)
+				#stateIndex = 2
+				#updateTexture()
+				#player.inventory["wheat"] -= 1 
+				#SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
+		#"corn":
+			#if player.inventory["corn"] >= 1:
+				#if newType:
+					#setType(newType)
+				#stateIndex = 2
+				#updateTexture()
+				#player.inventory["corn"] -= 1 
+				#SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
+		#"bamboo":
+			#if player.inventory["bamboo"] >= 1:
+				#if newType:
+					#setType(newType)
+				#stateIndex = 2
+				#updateTexture()
+				#player.inventory["bamboo"] -= 1 
+				#SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
 func setType(type:String):
 	if type == "default":
 		currentTextureRegions = defaultTextureRegions
@@ -161,6 +186,11 @@ func setType(type:String):
 		cropType = type
 		currentTextureRegions = cornTextureRegions
 		currentHarvestParticle = cornPartilePreload
+		
+	if type == "bamboo":
+		cropType = type
+		currentTextureRegions = bambooTextureRegions
+		currentHarvestParticle = bambooParticlePreload
 	cropType = type
 	updateTexture()
 

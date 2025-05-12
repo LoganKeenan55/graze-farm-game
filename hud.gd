@@ -10,3 +10,4 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	$Control/VBoxContainer/HBoxContainer/WheatCount.text = str(player.inventory["wheat"])
 	$Control/VBoxContainer/HBoxContainer2/CornCount.text = str(player.inventory["corn"])
+	$Control/VBoxContainer/HBoxContainer3/BambooCount.text = str(player.inventory["bamboo"])

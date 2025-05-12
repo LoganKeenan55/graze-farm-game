@@ -12,6 +12,7 @@ var textureRegions = {
 }
 
 func _ready() -> void:
+	$HitBox.createRemoveParticle()
 	add_to_group("waterTiles")
 	tileType = "waterTile"
 	inFrontOfPlayer = true

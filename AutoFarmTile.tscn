@@ -123,7 +123,6 @@ libraries = {
 
 [node name="cropTexture" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 1)
 texture = SubResource("AtlasTexture_m3el6")
 region_rect = Rect2(96, 0, 16, 16)
 

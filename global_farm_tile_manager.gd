@@ -30,7 +30,8 @@ func growFarmTiles():
 func activateAutoFarmers():
 	for autoFarmer in get_tree().get_nodes_in_group("autoFarmerTiles"):
 		if autoFarmer:
-			autoFarmer.activate()
+			if autoFarmer.cropType != "default":
+				autoFarmer.activate()
 
 
 func flowWater():

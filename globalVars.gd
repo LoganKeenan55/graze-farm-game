@@ -2,6 +2,11 @@ extends Node
 
 
 var textureRegions = {
+	"farmTile": Rect2(0, 0, 16, 16),
+	"waterTile": Rect2(0, 96, 16, 16),
+	"brickTile": Rect2(0,128 ,16 ,16),
+	"autoFarmTile": Rect2(16, 112, 16, 16),
+	
 	"hoe": Rect2(240, 0, 16, 16),
 	"seeds": Rect2(240, 16, 16, 16),
 	"shovel": Rect2(240, 32, 16, 16),
@@ -10,10 +15,12 @@ var textureRegions = {
 	
 	"corn":Rect2(112, 0, 16, 16),
 	"wheat":Rect2(96, 0, 16, 16),
+	"bamboo": Rect2(128, 0, 16, 16),
 	"default": 	Rect2(500, 0, 16, 16),
 	
 	"wheatSeeds":Rect2(240, 16, 16, 16),
-	"cornSeeds":Rect2(224, 16, 16, 16)
+	"cornSeeds":Rect2(224, 16, 16, 16),
+	"bambooSeeds":Rect2(224, 32, 16, 16),
 }
 
 var timeSinceLastSave

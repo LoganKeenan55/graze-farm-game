@@ -10,7 +10,8 @@ var cropType = "default"
 
 var priceCounts: Dictionary = {#count of all crops added to it, to be returned when destroyed
 	"wheat": 0,
-	"corn": 0
+	"corn": 0,
+	"bamboo": 0
 }
 
 var sound = "res://sounds/metal_sound.mp3"
@@ -25,23 +26,26 @@ var level1TextureRegions = {
 	"default": 	Rect2(500, 0, 16, 16),
 	"corn":Rect2(112, 0, 16, 16),
 	"wheat":Rect2(96, 0, 16, 16),
+	"bamboo": Rect2(128, 0, 16, 16),
 }
 
 var level2TextureRegions = {
 	"corn":Rect2(224, 16, 16, 16),
 	"wheat":Rect2(240, 16, 16, 16),
+	"bamboo": Rect2(128, 0, 16, 16),
 }
 
 var currentTextureRegions: Dictionary
 
 var seedPrices = {
 	"wheat": 50,
-	"corn": 50
-	
+	"corn": 50,
+	"bamboo": 200
 }
 var upgradePrices = {
 	"wheat": 50,
-	"corn": 100
+	"corn": 100,
+	"bamboo": 300
 }
 
 
@@ -76,18 +80,26 @@ func updateTexture():
 	manageBlending()
 
 func upgrade():
+	if player.inventory[cropType] < upgradePrices[cropType]: #if player can afford it
+		return
+		
 	if cropType == "default":
 		return
+		
 	level+=1 
+	player.inventory[cropType] -= upgradePrices[cropType]
+	
 	upgradePrices[cropType] *= 1.5  #increases price on each upgrade
 	upgradePrices[cropType] = int(upgradePrices[cropType]) #rounds
 
+	
+	
 	if level == 2:
-		currentTextureRegions = level2TextureRegions
-		updateTexture()
+		currentTextureRegions = level2TextureRegions #set to seeded
+		
 	if level == 3:
-		stateIndex = 1
-		updateTexture()
+		stateIndex = 1 #set texture to red
+		
 	updateTexture()
 	
 
@@ -112,9 +124,10 @@ func harvestFarmTiles():
 
 func plantFarmTiles():
 	for tile in get_tree().get_nodes_in_group("farmTiles"):
-		if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
-			if tile.tileState[tile.stateIndex] == "fertile" and tile.cropType != "default":
-				tile.seedCrop()
+		if tile.cropType == cropType:
+			if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
+				if tile.tileState[tile.stateIndex] == "fertile" and tile.cropType != "default":
+					tile.seedCrop()
 
 func activate():
 	$AnimationPlayer.play("activate")

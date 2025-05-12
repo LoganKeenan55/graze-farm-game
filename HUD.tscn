@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5tdy0vlg8yx"]
+[gd_scene load_steps=9 format=3 uid="uid://c5tdy0vlg8yx"]
 
 [ext_resource type="Script" uid="uid://diindhuf2tctw" path="res://hud.gd" id="1_efote"]
 [ext_resource type="PackedScene" uid="uid://cq8ghkv3svonm" path="res://HotBar.tscn" id="2_vow1y"]
@@ -14,6 +14,10 @@ region = Rect2(96, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxqia"]
 atlas = ExtResource("3_vow1y")
 region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv1iq"]
+atlas = ExtResource("3_vow1y")
+region = Rect2(128, 0, 16, 16)
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_efote")
@@ -89,7 +93,7 @@ layout_direction = 3
 layout_mode = 2
 offset_left = -0.48
 offset_right = 41.0
-offset_bottom = 30.0
+offset_bottom = 47.0
 color = Color(0, 0, 0, 0.25098)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
@@ -134,17 +138,16 @@ theme_override_font_sizes/font_size = 6
 text = "500"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3"]
+[node name="Bambo" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3"]
 texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
-texture = SubResource("AtlasTexture_ne771")
+texture = SubResource("AtlasTexture_gv1iq")
 
-[node name="TextureRect2" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
+[node name="BambooCount" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ne771")

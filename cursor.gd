@@ -22,6 +22,7 @@ func updateTexture():
 		match get_parent().currentSeed:
 			0: textureName = "wheatSeeds"
 			1: textureName = "cornSeeds"
+			2: textureName = "bambooSeeds"
 	else:
 		textureName = items[item]
 

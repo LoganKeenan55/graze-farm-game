@@ -29,10 +29,10 @@ func _ready() -> void:
 	setSelected(false)
 	
 func setTexture(texture: String):
-	if texture in textureRegions:
+	if texture in GlobalVars.textureRegions:
 		var atlas = AtlasTexture.new()
 		atlas.atlas = atlasTexture
-		atlas.region = textureRegions[texture]
+		atlas.region = GlobalVars.textureRegions[texture]
 		sprite.texture = atlas  #apply the new texture region
 
 func setAmount(newAmount):

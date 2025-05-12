@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbstt3x47rihs"]
+[gd_scene load_steps=24 format=3 uid="uid://dbstt3x47rihs"]
 
 [ext_resource type="Script" uid="uid://dixq4vvsfd82e" path="res://player.gd" id="1_dkxi4"]
 [ext_resource type="Script" uid="uid://cm2cq6cxwf16t" path="res://node_creating_component.gd" id="2_3tkgg"]
 [ext_resource type="Texture2D" uid="uid://uadpj7cba24k" path="res://player_sprites/head.png" id="2_hp6x6"]
-[ext_resource type="Texture2D" uid="uid://ca7cxu84r4kmj" path="res://player_sprite.png" id="2_tdg3f"]
 [ext_resource type="Texture2D" uid="uid://b7tcjkpnffixc" path="res://player_sprites/body.png" id="3_3tkgg"]
 [ext_resource type="Script" uid="uid://0kgyusjvw7tu" path="res://hit_box.gd" id="3_cxr5p"]
 [ext_resource type="PackedScene" uid="uid://c5tdy0vlg8yx" path="res://HUD.tscn" id="3_kne1u"]
@@ -222,8 +221,9 @@ _data = {
 &"walk": SubResource("Animation_d6rpx")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3tkgg"]
-radius = 7.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp6x6"]
+radius = 8.50018
+height = 27.9645
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtqjt"]
 radius = 8.50018
@@ -271,21 +271,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_d6rpx")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-texture = ExtResource("2_tdg3f")
-
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 3
 script = ExtResource("3_cxr5p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-visible = false
-shape = SubResource("CircleShape2D_3tkgg")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -5.05)
+shape = SubResource("CapsuleShape2D_hp6x6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -5.05)
 shape = SubResource("CapsuleShape2D_dtqjt")
 
