@@ -50,7 +50,7 @@ var defaultTextureRegions = {
 var growSpeeds = { #there is a 1/growSpeed chance every .5 sec, def = 30
 	"wheat": 20,
 	"corn": 30,
-	"bamboo": 10,
+	"bamboo": 15,
 }
 
 func _ready() -> void:
@@ -122,8 +122,8 @@ func advanceState():
 						SoundManager.play_sound("res://sounds/bloop1.mp3",position,.1)
 					"corn":
 						SoundManager.play_sound("res://sounds/bloop2.mp3",position,.1)
-					#"other":
-						#SoundManager.play_sound("res://sounds/bloop3.mp3",position,.5)
+					"bamboo":
+						SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
 
 func harvestCrop():
 	if harvestable:
@@ -133,13 +133,20 @@ func harvestCrop():
 		if waterSources.size() == 0:
 			stateIndex = 0
 		updateTexture()
-
-		player.inventory[cropType] += randi_range(1,2) #add to inventory
-			
+	
+		match cropType: #add to inventory
+			"wheat":
+				player.inventory[cropType] += randi_range(1,2)
+			"corn":
+				player.inventory[cropType] += randi_range(1,2)
+			"bamboo":
+				player.inventory[cropType] += randi_range(1,2)
+				SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
+				
 		player.hotBar.updateAmounts("items") #update hotbar
 		
 		SoundManager.play_sound("res://sounds/harvest_sound.mp3", position)
-
+		
 func seedCrop(newType = null):
 	var typeToPlant = newType if newType != null else cropType
 	if player.inventory[typeToPlant]>= 1:

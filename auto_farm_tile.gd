@@ -32,7 +32,7 @@ var level1TextureRegions = {
 var level2TextureRegions = {
 	"corn":Rect2(224, 16, 16, 16),
 	"wheat":Rect2(240, 16, 16, 16),
-	"bamboo": Rect2(128, 0, 16, 16),
+	"bamboo": Rect2(208, 16, 16, 16),
 }
 
 var currentTextureRegions: Dictionary
@@ -40,12 +40,12 @@ var currentTextureRegions: Dictionary
 var seedPrices = {
 	"wheat": 50,
 	"corn": 50,
-	"bamboo": 200
+	"bamboo": 100
 }
 var upgradePrices = {
 	"wheat": 50,
 	"corn": 100,
-	"bamboo": 300
+	"bamboo": 200
 }
 
 
@@ -132,4 +132,5 @@ func plantFarmTiles():
 func activate():
 	$AnimationPlayer.play("activate")
 	harvestFarmTiles()
-	plantFarmTiles()
+	if level >= 2:
+		plantFarmTiles()

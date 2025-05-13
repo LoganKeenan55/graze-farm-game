@@ -9,7 +9,7 @@ var textureRegions = {
 	
 	"hoe": Rect2(240, 0, 16, 16),
 	"seeds": Rect2(240, 16, 16, 16),
-	"shovel": Rect2(240, 32, 16, 16),
+	"shovel": Rect2(208, 0, 16, 16),
 	"hammer": Rect2(224, 0, 16, 16), 
 	"cursor": Rect2(240, 48, 16, 16),
 	
@@ -20,7 +20,7 @@ var textureRegions = {
 	
 	"wheatSeeds":Rect2(240, 16, 16, 16),
 	"cornSeeds":Rect2(224, 16, 16, 16),
-	"bambooSeeds":Rect2(224, 32, 16, 16),
+	"bambooSeeds":Rect2(208, 16, 16, 16),
 }
 
 var timeSinceLastSave

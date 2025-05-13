@@ -12,18 +12,7 @@ var atlasTexture: Texture2D = preload("res://textureAtlas.png")
 var stateIndex:int = 0 #what state is tile in
 var selected: bool = false
 
-var textureRegions = {
-	"farmTile": Rect2(0, 0, 16, 16),
-	"waterTile": Rect2(0, 96, 16, 16),
-	"brickTile": Rect2(0,128 ,16 ,16),
-	"autoFarmTile": Rect2(16, 112, 16, 16),
-	
-	"hoe": Rect2(240, 0, 16, 16),
-	"shovel": Rect2(240, 32, 16, 16),
-	"wheat":Rect2(240, 16, 16, 16),
-	"corn":Rect2(224, 16, 16, 16),
-	"hammer": Rect2(224, 0, 16, 16),
-}
+
 
 func _ready() -> void:
 	setSelected(false)
