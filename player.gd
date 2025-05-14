@@ -2,8 +2,10 @@ extends CharacterBody2D
 ##
 @onready var tileComponent = $TileComponent
 @onready var hotBar = $HUD/HotBar
+@onready var stepSoundTimer: Timer = $StepSoundTimer
 ##
 var speed: int = 96
+var isWalking = false
 var mode = "nothing" # nothing, placing, farming, seed
 ##
 var inventory= {
@@ -37,6 +39,9 @@ func getInput():
 	handleSavingLoadingGame()
 	handleMovement()
 	handleChangingMode()
+	handleCheats()
+
+func handleCheats():
 	if Input.is_action_just_pressed("c"): #cheat
 		inventory["farmTile"] = 9999
 		inventory["waterTile"] = 9999
@@ -99,8 +104,13 @@ func handleMovement():
 
 	if inputDirection.length_squared() > 0:
 		$Player_Sprites/AnimationPlayer.play("walk")
+		if not isWalking:
+			isWalking = true
+			stepSoundTimer.start()
 	else:
 		$Player_Sprites/AnimationPlayer.play("idle")
+		isWalking = false
+		stepSoundTimer.stop()
 
 	if inputDirection.x > 0: #right
 		$Player_Sprites/Head.frame = 1
@@ -159,3 +169,7 @@ func handleMode():
 	#tiles.sort_custom(func(a, b): return a.position.y < b.position.y)
 	#for i in range(tiles.size()):
 		#parentNode.move_child(tiles[i], i)
+
+
+func _on_step_sound_timer_timeout() -> void:
+	SoundManager.play_sound("res://sounds/grass_walk.mp3",Vector2.ZERO,.35)

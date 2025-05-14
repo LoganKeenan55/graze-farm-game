@@ -242,11 +242,6 @@ script = ExtResource("1_dkxi4")
 [node name="TileComponent" type="Node2D" parent="."]
 script = ExtResource("2_3tkgg")
 
-[node name="Shadow" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, 7.99)
-texture = ExtResource("7_dtqjt")
-
 [node name="Player_Sprites" type="Node2D" parent="."]
 position = Vector2(0, -5.05)
 
@@ -271,6 +266,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_d6rpx")
 }
 
+[node name="Shadow" type="Sprite2D" parent="Player_Sprites"]
+texture_filter = 1
+position = Vector2(0, 13.04)
+texture = ExtResource("7_dtqjt")
+
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 3
 script = ExtResource("3_cxr5p")
@@ -294,3 +294,9 @@ width = 5.0
 width_curve = SubResource("Curve_tdg3f")
 gradient = SubResource("Gradient_tdg3f")
 script = ExtResource("6_tdg3f")
+
+[node name="StepSoundTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="StepSoundTimer" to="." method="_on_step_sound_timer_timeout"]

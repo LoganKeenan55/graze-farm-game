@@ -123,7 +123,7 @@ func advanceState():
 					"corn":
 						SoundManager.play_sound("res://sounds/bloop2.mp3",position,.1)
 					"bamboo":
-						SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
+						SoundManager.play_sound("res://sounds/bloop3.mp3",position)
 
 func harvestCrop():
 	if harvestable:
