@@ -51,6 +51,8 @@ func handleHammer():
 		tooltip.z_index = 12
 		tooltip.price.text = str(get_parent().upgradePrices[player.harvestables[player.currentSeed]])
 	if Input.is_action_pressed("left_click"):
+		if get_parent().cropType == "default":
+			return
 		get_parent().upgrade()
 		get_parent().updateTexture()
 		tooltip.queue_free()

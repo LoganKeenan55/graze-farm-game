@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_SOUNDS = 20
+const MAX_SOUNDS = 35
 
 var volume:float = .5
 

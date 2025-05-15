@@ -15,11 +15,12 @@ var priceCounts: Dictionary = {#count of all crops added to it, to be returned w
 }
 
 var sound = "res://sounds/metal_sound.mp3"
-var tileState = ["level1","level2"]
+var tileState = ["level1","level2","level3"]
 
 var textureRegions = {
 	"level1": Rect2(16, 112, 16, 16),
 	"level2": Rect2(32, 112, 16, 16),
+	"level3": Rect2(48, 112, 16, 16),
 }
 
 var level1TextureRegions = {
@@ -79,19 +80,22 @@ func updateTexture():
 		$cropTexture.texture = CropAtlas
 	manageBlending()
 
+
 func upgrade():
-	if player.inventory[cropType] < upgradePrices[cropType]: #if player can afford it
-		return
-		
 	if cropType == "default":
 		return
 		
+	if player.inventory[cropType] < upgradePrices[cropType]: #if player can afford it
+		return
+		
+
 	level+=1 
 	player.inventory[cropType] -= upgradePrices[cropType]
 	
+	priceCounts[cropType] += upgradePrices[cropType]
 	upgradePrices[cropType] *= 1.5  #increases price on each upgrade
 	upgradePrices[cropType] = int(upgradePrices[cropType]) #rounds
-
+	
 	
 	
 	if level == 2:
@@ -99,6 +103,9 @@ func upgrade():
 		
 	if level == 3:
 		stateIndex = 1 #set texture to red
+	
+	if level == 4:
+		stateIndex = 2
 		
 	updateTexture()
 	

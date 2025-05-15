@@ -245,6 +245,11 @@ script = ExtResource("2_3tkgg")
 [node name="Player_Sprites" type="Node2D" parent="."]
 position = Vector2(0, -5.05)
 
+[node name="Shadow" type="Sprite2D" parent="Player_Sprites"]
+texture_filter = 1
+position = Vector2(0, 13.04)
+texture = ExtResource("7_dtqjt")
+
 [node name="Head" type="Sprite2D" parent="Player_Sprites"]
 texture_filter = 1
 texture = SubResource("AtlasTexture_oudfo")
@@ -265,11 +270,6 @@ hframes = 8
 libraries = {
 &"": SubResource("AnimationLibrary_d6rpx")
 }
-
-[node name="Shadow" type="Sprite2D" parent="Player_Sprites"]
-texture_filter = 1
-position = Vector2(0, 13.04)
-texture = ExtResource("7_dtqjt")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 3
