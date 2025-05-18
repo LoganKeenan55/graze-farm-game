@@ -64,6 +64,7 @@ func setMode(type: String):
 			mode = "nothing"
 		"seed":
 			$SeedsAnimationPlayer.play("Appear")
+			$ItemsHUD/arrow.z_index = -1
 		"noseed":
 			$SeedsAnimationPlayer.play("Disappear")
 
@@ -92,7 +93,6 @@ func isSelected(type:String, index: int) -> bool:
 		"tiles":	
 			return tileBar.isSelected(index)
 		"seeds":	
-			
 			return seedBar.isSelected(index)
 	
 	print("INVALID TYPE")

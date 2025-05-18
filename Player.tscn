@@ -175,6 +175,7 @@ tracks/1/keys = {
 resource_name = "walk"
 length = 0.48
 loop_mode = 1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -182,7 +183,7 @@ tracks/0/path = NodePath("Legs:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"times": PackedFloat32Array(0, 0.06, 0.13, 0.19, 0.26, 0.33, 0.39, 0.46),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [2, 2, 1, 1, 6, 6, 1, 1]
@@ -210,6 +211,23 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 1), Vector2(0, 1), Vector2(0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.11, 0.37),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_walk_sound"
+}, {
+"args": [],
+"method": &"play_walk_sound"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d6rpx"]

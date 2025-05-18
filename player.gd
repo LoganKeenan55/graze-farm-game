@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var stepSoundTimer: Timer = $StepSoundTimer
 ##
 var speed: int = 96
-var isWalking = false
 var mode = "nothing" # nothing, placing, farming, seed
 ##
 var inventory= {
@@ -104,13 +103,10 @@ func handleMovement():
 
 	if inputDirection.length_squared() > 0:
 		$Player_Sprites/AnimationPlayer.play("walk")
-		if not isWalking:
-			isWalking = true
-			stepSoundTimer.start()
+		
 	else:
 		$Player_Sprites/AnimationPlayer.play("idle")
-		isWalking = false
-		stepSoundTimer.stop()
+
 
 	if inputDirection.x > 0: #right
 		$Player_Sprites/Head.frame = 1
@@ -171,5 +167,6 @@ func handleMode():
 		#parentNode.move_child(tiles[i], i)
 
 
-func _on_step_sound_timer_timeout() -> void:
-	SoundManager.play_sound("res://sounds/grass_walk.mp3",Vector2.ZERO,.35)
+
+func play_walk_sound():
+	SoundManager.play_sound("res://sounds/grass_walk.mp3",Vector2.ZERO,.4)

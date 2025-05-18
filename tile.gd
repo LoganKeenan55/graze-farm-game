@@ -59,7 +59,10 @@ func createBlendSprite(direction):
 	atlas.region = blendTextureRegions[direction]
 	blendSprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	blendSprite.texture = atlas  
-	blendSprite.position = get_node("Blend").position
+
+	#blendSprite.position = get_node("Blend").position
+	blendSprite.position.x = snapped(get_node("Blend").position.x, 16) 
+	blendSprite.position.y = snapped(get_node("Blend").position.y, 16)
 	get_node("Blend").add_child(blendSprite)
 	
 	#for item in get_children():

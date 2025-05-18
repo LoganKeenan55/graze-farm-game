@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3a8xcunyvb1s"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_6mtla"]
-[ext_resource type="Script" uid="uid://31wpsoqrerkx" path="res://upgrade_tool_tip.gd" id="1_ooegs"]
+[ext_resource type="Script" path="res://upgrade_tool_tip.gd" id="1_ooegs"]
 [ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://Dogica_Pixel_edited.pfb" id="2_ooegs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ooegs"]
