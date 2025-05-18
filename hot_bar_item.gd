@@ -8,7 +8,7 @@ extends Node2D
 @onready var originalColor = front.modulate
 
 var tileState = ["dirt", "water", "brick", "hoe", "harvestable"]
-var atlasTexture: Texture2D = preload("res://textureAtlas.png")
+const atlasTexture: Texture2D = preload("res://textureAtlas.png")
 var stateIndex:int = 0 #what state is tile in
 var selected: bool = false
 

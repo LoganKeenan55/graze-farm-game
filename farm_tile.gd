@@ -124,7 +124,8 @@ func advanceState():
 						SoundManager.play_sound("res://sounds/bloop2.mp3",position,.1)
 					"bamboo":
 						SoundManager.play_sound("res://sounds/bloop3.mp3",position)
-
+					_:
+						print("INVALID TYPE in function: advanceState")
 func harvestCrop():
 	if harvestable:
 		createHarvestParticle()
@@ -142,7 +143,8 @@ func harvestCrop():
 			"bamboo":
 				player.inventory[cropType] += randi_range(1,2)
 				SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
-				
+			_:
+				print("INVALID TYPE in function: harvestCrop")
 		player.hotBar.updateAmounts("items") #update hotbar
 		
 		SoundManager.play_sound("res://sounds/harvest_sound.mp3", position)
@@ -156,48 +158,25 @@ func seedCrop(newType = null):
 		updateTexture()
 		player.inventory[typeToPlant] -= 1 
 		SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
-	#match typeToPlant:
-		#"wheat":
-			#if player.inventory["wheat"]>= 1:
-				#if newType:
-					#setType(newType)
-				#stateIndex = 2
-				#updateTexture()
-				#player.inventory["wheat"] -= 1 
-				#SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
-		#"corn":
-			#if player.inventory["corn"] >= 1:
-				#if newType:
-					#setType(newType)
-				#stateIndex = 2
-				#updateTexture()
-				#player.inventory["corn"] -= 1 
-				#SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
-		#"bamboo":
-			#if player.inventory["bamboo"] >= 1:
-				#if newType:
-					#setType(newType)
-				#stateIndex = 2
-				#updateTexture()
-				#player.inventory["bamboo"] -= 1 
-				#SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
+	
 func setType(type:String):
-	if type == "default":
-		currentTextureRegions = defaultTextureRegions
-	if type == "wheat":
-		cropType = type
-		currentTextureRegions = wheatTextureRegions
-		currentHarvestParticle = wheatParticlePreload
-		
-	if type == "corn":
-		cropType = type
-		currentTextureRegions = cornTextureRegions
-		currentHarvestParticle = cornPartilePreload
-		
-	if type == "bamboo":
-		cropType = type
-		currentTextureRegions = bambooTextureRegions
-		currentHarvestParticle = bambooParticlePreload
+	match type:
+		"default":
+			currentTextureRegions = defaultTextureRegions
+		"wheat":
+			cropType = type
+			currentTextureRegions = wheatTextureRegions
+			currentHarvestParticle = wheatParticlePreload
+		"corn":
+			cropType = type
+			currentTextureRegions = cornTextureRegions
+			currentHarvestParticle = cornPartilePreload
+		"bamboo":
+			cropType = type
+			currentTextureRegions = bambooTextureRegions
+			currentHarvestParticle = bambooParticlePreload
+		_:
+			print("INVALID TYPE in function: setType in farm_tile.gd")
 	cropType = type
 	updateTexture()
 

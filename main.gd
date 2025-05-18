@@ -7,4 +7,4 @@ func _process(_delta: float) -> void:
 		
 
 func _ready() -> void:
-	SoundManager.play_sound("res://sounds/music.mp3", Vector2.ZERO, .8)
+	SoundManager.play_sound("res://sounds/music.mp3", Vector2.ZERO, .8) #music - default = .8

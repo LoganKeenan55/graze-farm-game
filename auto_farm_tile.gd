@@ -14,6 +14,17 @@ var priceCounts: Dictionary = {#count of all crops added to it, to be returned w
 	"bamboo": 0
 }
 
+var seedPrices = {
+	"wheat": 50,
+	"corn": 50,
+	"bamboo": 100
+}
+var upgradePrices = {
+	"wheat": 50,
+	"corn": 100,
+	"bamboo": 200
+}
+
 var sound = "res://sounds/metal_sound.mp3"
 var tileState = ["level1","level2","level3"]
 
@@ -38,16 +49,7 @@ var level2TextureRegions = {
 
 var currentTextureRegions: Dictionary
 
-var seedPrices = {
-	"wheat": 50,
-	"corn": 50,
-	"bamboo": 100
-}
-var upgradePrices = {
-	"wheat": 50,
-	"corn": 100,
-	"bamboo": 200
-}
+
 
 
 func _ready() -> void:
@@ -82,7 +84,7 @@ func updateTexture():
 
 
 func upgrade():
-	if cropType == "default":
+	if cropType == "default": #if crop not set
 		return
 		
 	if player.inventory[cropType] < upgradePrices[cropType]: #if player can afford it
@@ -94,7 +96,7 @@ func upgrade():
 	
 	priceCounts[cropType] += upgradePrices[cropType]
 	upgradePrices[cropType] *= 1.5  #increases price on each upgrade
-	upgradePrices[cropType] = int(upgradePrices[cropType]) #rounds
+	upgradePrices[cropType] = int(upgradePrices[cropType]) #rounds price
 	
 	
 	
@@ -104,7 +106,7 @@ func upgrade():
 	if level == 3:
 		stateIndex = 1 #set texture to red
 	
-	if level == 4:
+	if level == 4: #set texture to purple
 		stateIndex = 2
 		
 	updateTexture()

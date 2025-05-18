@@ -1,7 +1,9 @@
 extends Node2D
 
 @onready var sprite = $Sprite #need for all tiles
-var atlasTexture: Texture2D = preload("res://textureAtlas.png")
+
+##
+const atlasTexture: Texture2D = preload("res://textureAtlas.png")
 var stateIndex:int = 0 #what state is tile in
 var harvestable = false
 var tileType
@@ -9,6 +11,7 @@ var inFrontOfPlayer: bool
 var usesBlending = true
 
 
+##
 var currentCollisions = { 
 	"left": false,
 	"right": false,
@@ -16,7 +19,7 @@ var currentCollisions = {
 	"down": false
 }
 
-
+##
 var blendTextureRegions = {
 	"left_blend": Rect2(16, 0, 16, 16),
 	"right_blend": Rect2(16, 16, 16, 16),
@@ -52,7 +55,7 @@ func manageBlending():
 		if not currentCollisions["down"]:
 			createBlendSprite("down_blend")
 		
-func createBlendSprite(direction):
+func createBlendSprite(direction): #creates sprite where no tiles are touching
 	var blendSprite = Sprite2D.new()
 	var atlas = AtlasTexture.new()
 	atlas.atlas = atlasTexture
@@ -71,7 +74,7 @@ func createBlendSprite(direction):
 		
 		#if other is bellow and other harvestable == true then cc[down] = false
 
-func findCurrentCollisions(area, entering: bool):
+func findCurrentCollisions(area, entering: bool): #finds tiles colliding and reports to blendSprite
 	if area.get_parent().has_method("manageBlending") and usesBlending and area.get_parent().usesBlending:
 		var otherPosition = area.get_parent().position
 		if  area.get_parent().tileType == self.tileType:

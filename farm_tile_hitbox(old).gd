@@ -38,7 +38,8 @@ func handlePlayerInterection(event):
 			handleDeletingTile(event)
 		"seeds":
 			handleSeeding()
-
+		_:
+			print("INVALID TYPE in function: handlePlayerInterection")
 
 func createRemoveParticle():
 	var particle = removeParticlePreload.instantiate()

@@ -37,7 +37,8 @@ func updateAmounts(type: String):
 			tileBar.updateAllAmounts(getAmountsFor(player.placeableTiles))
 		"seeds":
 			seedBar.updateAllAmounts(getAmountsFor(player.harvestables))
-
+		_:
+			print("INVALID TYPE in function: updateAmounts")
 func updateAll():
 	itemBar.updateAllAmounts(getAmountsFor(player.items))
 	tileBar.updateAllAmounts(getAmountsFor(player.placeableTiles))
@@ -48,7 +49,8 @@ func updateSelected(type: String, index: int):
 		"items": itemBar.select(index)
 		"tiles": tileBar.select(index)
 		"seeds": seedBar.select(index)
-	
+		_:
+			print("INVALID TYPE in function: updateSelected")
 func setMode(type: String):
 	match type:
 		"farming":
@@ -67,15 +69,17 @@ func setMode(type: String):
 			$ItemsHUD/arrow.z_index = -1
 		"noseed":
 			$SeedsAnimationPlayer.play("Disappear")
-
+		_:
+			print("INVALID TYPE in function: setMode")
 func setTexture(type:String, index: int, newTexture:String) -> void:
 	match type:
-		"items":	
-			itemBar.setSpecificTexture(index,newTexture)
-		"tiles":	
-			tileBar.setSpecificTexture(index,newTexture)
-		"seeds":	
-			seedBar.setSpecificTexture(index,newTexture)
+		"items":itemBar.setSpecificTexture(index,newTexture)
+		"tiles":tileBar.setSpecificTexture(index,newTexture)
+		"seeds":seedBar.setSpecificTexture(index,newTexture)
+		
+		_:
+			print("INVALID TYPE in function: setTexture")
+	
 func setAmount(type:String, index: int, newAmount:int) -> void:
 	match type:
 		"items":	
@@ -84,9 +88,11 @@ func setAmount(type:String, index: int, newAmount:int) -> void:
 			tileBar.setSpecificAmount(index, newAmount)
 		"seeds":	
 			seedBar.setSpecificAmount(index, newAmount)
-
-func isSelected(type:String, index: int) -> bool:
+			
+		_:
+			print("INVALID TYPE in function: setAmount")
 	
+func isSelected(type:String, index: int):
 	match type:
 		"items":	
 			return itemBar.isSelected(index)
@@ -95,5 +101,6 @@ func isSelected(type:String, index: int) -> bool:
 		"seeds":	
 			return seedBar.isSelected(index)
 	
-	print("INVALID TYPE")
-	return false
+		_:
+			print("INVALID TYPE in function: isSelected")
+	

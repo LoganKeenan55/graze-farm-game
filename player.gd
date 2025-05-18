@@ -1,23 +1,29 @@
 extends CharacterBody2D
-##
+
+## onready
 @onready var tileComponent = $TileComponent
 @onready var hotBar = $HUD/HotBar
 @onready var stepSoundTimer: Timer = $StepSoundTimer
-##
+
+## player variables
 var speed: int = 96
 var mode = "nothing" # nothing, placing, farming, seed
-##
+
+## inventory dictionary
 var inventory= {
 	"farmTile": 50,"waterTile" :50 , "brickTile":50 , "autoFarmTile":5,
 	"wheat":10, "corn":10, "bamboo": 20
 }
-##
+
+## tiles
 var currentTile = 0
 var placeableTiles = ["farmTile", "waterTile", "brickTile", "autoFarmTile"]
-##
+
+## items
 var currentItem = 0
 var items = ["hoe", "shovel", "seeds", "hammer"]
-##
+
+## seeds
 var currentSeed = 0
 var harvestables = ["wheat", "corn", "bamboo"]
 ##
@@ -32,16 +38,16 @@ func _physics_process(delta):
 
 func _process(_delta: float) -> void:
 	getInput()
-	handleMode()
 
 func getInput():
 	handleSavingLoadingGame()
 	handleMovement()
 	handleChangingMode()
 	handleCheats()
+	handleMode()
 
 func handleCheats():
-	if Input.is_action_just_pressed("c"): #cheat
+	if Input.is_action_just_pressed("c"): #9999 of everything 
 		inventory["farmTile"] = 9999
 		inventory["waterTile"] = 9999
 		inventory["autoFarmTile"] = 9999
@@ -120,7 +126,7 @@ func handleMovement():
 		$Player_Sprites/Head.frame = 0
 		$Player_Sprites/Body.frame = 0
 
-func handleMode():
+func handleMode(): #handles changing mode
 	match mode:
 		"nothing":
 			pass
@@ -144,7 +150,7 @@ func handleMode():
 					$Cursor.updateTexture()
 					
 					#if we're already on the same item (same index) and pressed again, open the second menu
-					if hotBar.isSelected("items", currentItem):
+					if hotBar.isSelected("items", currentItem) and i == 3:
 						hotBar.setMode("seed")
 						mode = "seed"
 					else:
@@ -158,14 +164,6 @@ func handleMode():
 					hotBar.updateSelected("seeds", currentSeed)
 					hotBar.setMode("noseed")
 					mode = "farming"
-					$Cursor.updateTexture()
-
-#func sortTilesByY(parentNode):
-	#var tiles = parentNode.get_children()
-	#tiles.sort_custom(func(a, b): return a.position.y < b.position.y)
-	#for i in range(tiles.size()):
-		#parentNode.move_child(tiles[i], i)
-
 
 
 func play_walk_sound():

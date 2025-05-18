@@ -33,6 +33,7 @@ position = Vector2(-8, -8)
 script = ExtResource("3_hfn7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_fr0hc")
 

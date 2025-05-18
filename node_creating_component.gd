@@ -69,7 +69,8 @@ func createTile(type):
 			newTile.position = tilePosition
 			underTilesParent.add_child(newTile)
 			inventory["autoFarmTile"] -= 1
-			
+		_:
+			print("INVALID TYPE in function: createTile")
 	hotBar.setAmount("tiles",placeableTiles.find(type),inventory[type])
 	SoundManager.play_sound(newTile.sound)
 	if newTile:
