@@ -4,9 +4,12 @@ extends CharacterBody2D
 @onready var tileComponent = $TileComponent
 @onready var hotBar = $HUD/HotBar
 
+## preload
+var shopMenuPreload = preload("res://ShopMenu.tscn")
+
 ## player variables
 var speed: int = 96
-var mode = "nothing" # nothing, placing, farming, seed
+var mode = "nothing" # nothing, placing, farming, seed, shop
 
 ## inventory dictionary
 var inventory= {
@@ -64,13 +67,13 @@ func getData():
 	}
 
 func handleChangingMode():
-	if Input.is_action_just_pressed("e"): # placing mode
-		
+	if Input.is_action_just_pressed("e"): #placing mode
+		tileComponent.createTilePreview()
 		if mode != "placing":
 			if mode == "seed":
 				hotBar.setMode("noseed")
 			mode = "placing"
-			tileComponent.createTilePreview()
+			
 			$Cursor.visible = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			hotBar.setMode("placing")
@@ -79,7 +82,7 @@ func handleChangingMode():
 			tileComponent.freeTilePreview()
 			hotBar.setMode("nothing")
 
-	if Input.is_action_just_pressed("f"): # farming mode
+	if Input.is_action_just_pressed("f"): #farming mode
 		if mode != "farming":
 			if mode == "seed":
 				hotBar.setMode("noseed")
@@ -95,7 +98,22 @@ func handleChangingMode():
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			$Cursor.updateTexture()
 			hotBar.setMode("nothing")
-
+			
+	if Input.is_action_just_pressed("tab"): #shop mode
+		tileComponent.freeTilePreview()
+		if mode == "shop":
+			mode = "nothing"
+			hotBar.setMode("nothing")
+			var existing_menu = get_node_or_null("ShopMenu")
+			if existing_menu:
+				existing_menu.queue_free()
+		else:
+			mode = "shop"
+			hotBar.setMode("nothing")
+			var shopMenu = shopMenuPreload.instantiate()
+			shopMenu.name = "ShopMenu"
+			add_child(shopMenu)
+			shopMenu
 func handleSavingLoadingGame():
 	if Input.is_action_just_pressed("p"):
 		GlobalVars.saveGame()

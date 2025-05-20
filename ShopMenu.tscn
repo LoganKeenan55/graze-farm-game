@@ -1,37 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs8q1kp40i0yu"]
+[gd_scene load_steps=7 format=3 uid="uid://bs8q1kp40i0yu"]
 
-[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_g1i06"]
-[ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://Dogica_Pixel_edited.pfb" id="2_tuhj1"]
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_bqhtw"]
+[ext_resource type="Script" uid="uid://bqhg0waq2vy3k" path="res://shop_menu.gd" id="1_durvn"]
+[ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://Dogica_Pixel_edited.pfb" id="2_durvn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cqrr"]
-atlas = ExtResource("1_g1i06")
+atlas = ExtResource("1_bqhtw")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo5kk"]
-atlas = ExtResource("1_g1i06")
+atlas = ExtResource("1_bqhtw")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xt5kh"]
-atlas = ExtResource("1_g1i06")
+atlas = ExtResource("1_bqhtw")
 region = Rect2(128, 0, 16, 16)
 
-[node name="SellMenu" type="Node2D"]
+[node name="ShopMenu" type="Node2D"]
+script = ExtResource("1_durvn")
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 320.0
-offset_bottom = 180.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = -160.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control2"]
 layout_mode = 0
-offset_right = 320.0
-offset_bottom = 180.0
+offset_left = 8.0
+offset_top = 10.0
+offset_right = 312.0
+offset_bottom = 170.0
 color = Color(0.241156, 0.241156, 0.241156, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control2"]
-offset_right = 318.0
-offset_bottom = 179.0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 304.0
+offset_bottom = 162.0
 mouse_filter = 2
 theme_override_constants/separation = -2
 
@@ -48,7 +61,7 @@ texture = SubResource("AtlasTexture_1cqrr")
 [node name="WheatCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_tuhj1")
+theme_override_fonts/font = ExtResource("2_durvn")
 theme_override_font_sizes/font_size = 6
 text = "500"
 
@@ -65,7 +78,7 @@ texture = SubResource("AtlasTexture_uo5kk")
 [node name="CornCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer2"]
 texture_filter = 1
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_tuhj1")
+theme_override_fonts/font = ExtResource("2_durvn")
 theme_override_font_sizes/font_size = 6
 text = "500"
 
@@ -82,6 +95,6 @@ texture = SubResource("AtlasTexture_xt5kh")
 [node name="BambooCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer3"]
 texture_filter = 1
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_tuhj1")
+theme_override_fonts/font = ExtResource("2_durvn")
 theme_override_font_sizes/font_size = 6
 text = "500"
