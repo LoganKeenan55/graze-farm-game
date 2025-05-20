@@ -36,6 +36,8 @@ func handleDeletingTile(event): #shovel
 				player.inventory["wheat"] += get_parent().priceCounts["wheat"]
 				player.inventory["corn"] += get_parent().priceCounts["corn"]
 				player.hotBar.updateAll()
+			"brickTile":
+				pass
 			_:
 				print("INVALID TYPE in function: handleDeletingTile")
 		player.hotBar.updateAmounts("seeds")

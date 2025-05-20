@@ -1,6 +1,6 @@
 extends Node2D
 
-var atlasTexture: Texture2D = preload("res://textureAtlas.png")
+const atlasTexture: Texture2D = preload("res://textureAtlas.png")
 
 @onready var items = get_parent().items
 
@@ -33,7 +33,6 @@ func updateTexture():
 		$Sprite2D.texture = atlas
 	else:
 		print("Missing texture for:", textureName)
-	#print(textureName)
 
 
 func _process(_delta: float) -> void:

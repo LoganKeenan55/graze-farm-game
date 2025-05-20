@@ -36,7 +36,7 @@ func play_sound(path: String, pos:Vector2 = Vector2.ZERO, overide: float = 0) ->
 			return
 	
 	#scales volume based on how many sounds are being played and by distance 
-	var volume_scale = (((1.0 - (active_sounds.size() * 0.1)) * distance_volume_scale))
+	var volume_scale = (((1.0 - (active_sounds.size() * 0.05)) * distance_volume_scale))
 	audio_player.volume_db = linear_to_db(clamp((volume_scale* volume) - overide, 0.01, 1.0))
 
 	

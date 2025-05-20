@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="2_7n4sv"]
 [ext_resource type="PackedScene" uid="uid://dbstt3x47rihs" path="res://Player.tscn" id="2_q2fse"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x8qvi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("2_7n4sv")
 0:0/0 = 0
 1:0/0 = 0
@@ -153,7 +153,7 @@ texture = ExtResource("2_7n4sv")
 
 [sub_resource type="TileSet" id="TileSet_ji72q"]
 terrain_set_0/mode = 2
-sources/0 = SubResource("TileSetAtlasSource_x8qvi")
+sources/0 = SubResource("TileSetAtlasSource_1bvp3")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_83qsj")

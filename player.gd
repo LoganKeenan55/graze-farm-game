@@ -3,7 +3,6 @@ extends CharacterBody2D
 ## onready
 @onready var tileComponent = $TileComponent
 @onready var hotBar = $HUD/HotBar
-@onready var stepSoundTimer: Timer = $StepSoundTimer
 
 ## player variables
 var speed: int = 96
@@ -153,8 +152,10 @@ func handleMode(): #handles changing mode
 					if hotBar.isSelected("items", currentItem) and i == 3:
 						hotBar.setMode("seed")
 						mode = "seed"
+						
 					else:
 						hotBar.updateSelected("items", currentItem)
+						
 
 		"seed":
 			for i in range(1, 4):
@@ -164,7 +165,7 @@ func handleMode(): #handles changing mode
 					hotBar.updateSelected("seeds", currentSeed)
 					hotBar.setMode("noseed")
 					mode = "farming"
-
+					$Cursor.updateTexture()
 
 func play_walk_sound():
 	SoundManager.play_sound("res://sounds/grass_walk.mp3",Vector2.ZERO,.4)

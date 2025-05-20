@@ -32,6 +32,8 @@ var autoFarmerTilePreload = preload("res://AutoFarmTile.tscn")
 @onready var player = get_tree().current_scene.get_node("Player")
 @onready var tilesParent = get_tree().current_scene.get_node("Tiles")
 @onready var underTilesParent = get_tree().current_scene.get_node("UnderTiles")
+
+
 func saveGame():
 	print("saving...")
 	var saveData = []  #List that stores dictionaries for all data for all nodes
@@ -94,7 +96,7 @@ func loadGame():
 			underTilesParent.add_child(newTile)
 	player.hotBar.updateAmounts("items")
 	player.hotBar.updateAmounts("tiles")
-	player.hotBar.updateAmounts("seeSds")
+	player.hotBar.updateAmounts("seeds")
 	
 	print(timeSinceLastSave)
 	print("loaded!")
