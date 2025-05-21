@@ -77,6 +77,9 @@ func handleChangingMode():
 			$Cursor.visible = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			hotBar.setMode("placing")
+			var existing_menu = get_node_or_null("ShopMenu") #remove book
+			if existing_menu:
+				existing_menu.queue_free() 
 		else:
 			mode = "nothing"
 			tileComponent.freeTilePreview()
@@ -91,6 +94,9 @@ func handleChangingMode():
 			hotBar.setMode("farming")
 			$Cursor.visible = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			var existing_menu = get_node_or_null("ShopMenu") #remove book
+			if existing_menu:
+				existing_menu.queue_free()
 		else:
 			mode = "nothing"
 			tileComponent.freeTilePreview()
@@ -104,7 +110,7 @@ func handleChangingMode():
 		if mode == "shop":
 			mode = "nothing"
 			hotBar.setMode("nothing")
-			var existing_menu = get_node_or_null("ShopMenu")
+			var existing_menu = get_node_or_null("ShopMenu") #remove book
 			if existing_menu:
 				existing_menu.queue_free()
 		else:

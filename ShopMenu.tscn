@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs8q1kp40i0yu"]
+[gd_scene load_steps=8 format=3 uid="uid://bs8q1kp40i0yu"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_bqhtw"]
 [ext_resource type="Script" uid="uid://bqhg0waq2vy3k" path="res://shop_menu.gd" id="1_durvn"]
 [ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://Dogica_Pixel_edited.pfb" id="2_durvn"]
+[ext_resource type="Texture2D" uid="uid://c7vy3ox2gmqxr" path="res://book.png" id="4_e5qd0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cqrr"]
 atlas = ExtResource("1_bqhtw")
@@ -21,30 +22,38 @@ script = ExtResource("1_durvn")
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
+offset_left = -185.57
 offset_top = -90.0
-offset_right = -160.0
+offset_right = -185.57
 offset_bottom = -90.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Book" type="Sprite2D" parent="Control2"]
+texture_filter = 1
+position = Vector2(160, 90)
+texture = ExtResource("4_e5qd0")
+
 [node name="ColorRect" type="ColorRect" parent="Control2"]
+visible = false
 layout_mode = 0
-offset_left = 8.0
+offset_left = 24.0
 offset_top = 10.0
-offset_right = 312.0
+offset_right = 296.0
 offset_bottom = 170.0
 color = Color(0.241156, 0.241156, 0.241156, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control2"]
-offset_left = 16.0
-offset_top = 18.0
-offset_right = 304.0
-offset_bottom = 162.0
+layout_mode = 0
+offset_left = 56.0
+offset_top = 26.0
+offset_right = 264.0
+offset_bottom = 138.0
 mouse_filter = 2
 theme_override_constants/separation = -2
 
@@ -98,3 +107,27 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_durvn")
 theme_override_font_sizes/font_size = 6
 text = "500"
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -144.0
+offset_top = -72.0
+offset_right = 144.0
+offset_bottom = 72.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 296.0
+offset_bottom = 152.0
+color = Color(0.241156, 0.241156, 0.241156, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 144.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
