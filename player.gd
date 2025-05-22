@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 ## preload
 var shopMenuPreload = preload("res://ShopMenu.tscn")
-
+var dustParticlePreload = preload("res://DustParticle.tscn")
 ## player variables
 var speed: int = 96
 var mode = "nothing" # nothing, placing, farming, seed, shop
@@ -203,3 +203,8 @@ func handleMode(): #handles changing mode
 
 func play_walk_sound():
 	SoundManager.play_sound("res://sounds/grass_walk.mp3",Vector2.ZERO,.4)
+	var particle = dustParticlePreload.instantiate()
+	particle.position.y = position.y+8
+	particle.position.x = position.x
+	particle.get_child(0).emitting = true
+	get_parent().get_node("UnderTiles").add_child(particle)

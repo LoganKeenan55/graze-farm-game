@@ -9,11 +9,11 @@
 atlas = ExtResource("1_bqhtw")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="Theme" id="Theme_e5qd0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1cqrr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_shxc8"]
 atlas = ExtResource("1_bqhtw")
-region = Rect2(240, 64, 16, 16)
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="Theme" id="Theme_e5qd0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo5kk"]
 atlas = ExtResource("1_bqhtw")
@@ -137,6 +137,12 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_e5qd0")
 
+[node name="Wheat2" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
+
 [node name="WheatCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
@@ -145,13 +151,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_durvn")
 theme_override_font_sizes/font_size = 6
 text = "1"
-
-[node name="Wheat2" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer"]
-visible = false
-texture_filter = 1
-layout_mode = 2
-mouse_filter = 2
-texture = SubResource("AtlasTexture_1cqrr")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control2/VBoxContainer"]
 layout_mode = 2
@@ -162,6 +161,12 @@ texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_uo5kk")
+
+[node name="Wheat2" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
 
 [node name="WheatCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer2"]
 texture_filter = 1
@@ -182,6 +187,12 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_xt5kh")
 
+[node name="Wheat2" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
+
 [node name="WheatCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer3"]
 texture_filter = 1
 layout_mode = 2
@@ -201,6 +212,12 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_3m5gk")
 
+[node name="Wheat2" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer4"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
+
 [node name="WheatCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer4"]
 texture_filter = 1
 layout_mode = 2
@@ -219,6 +236,12 @@ texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_teu2f")
+
+[node name="Wheat2" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer5"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
 
 [node name="WheatCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer5"]
 texture_filter = 1
