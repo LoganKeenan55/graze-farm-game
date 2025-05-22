@@ -94,16 +94,12 @@ func handleChangingMode():
 			$Cursor.updateTexture()
 			tileComponent.freeTilePreview()
 			hotBar.setMode("farming")
-			#$Cursor.visible = true
-			#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			var existing_menu = get_node_or_null("ShopMenu") #remove book
 			if existing_menu:
 				existing_menu.queue_free()
 		else:
 			mode = "nothing"
 			tileComponent.freeTilePreview()
-			#$Cursor.visible = false
-			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			$Cursor.updateTexture()
 			hotBar.setMode("nothing")
 			
@@ -115,15 +111,20 @@ func handleChangingMode():
 			
 			var existing_menu = get_node_or_null("ShopMenu") #remove book
 			if existing_menu:
-				existing_menu.queue_free()
+				existing_menu.anPlayer.play("close")
+				
 				SoundManager.play_sound("res://sounds/book_close.mp3",Vector2.ZERO,0.3)
 		else:
 			SoundManager.play_sound("res://sounds/book_sound.mp3")
+			var existing_menu = get_node_or_null("ShopMenu") #makes sure there is only one book
+			if existing_menu:
+				return
 			mode = "shop"
 			hotBar.setMode("nothing")
 			var shopMenu = shopMenuPreload.instantiate()
 			shopMenu.name = "ShopMenu"
 			add_child(shopMenu)
+			shopMenu.anPlayer.play("open")
 			$Cursor.updateTexture()
 func handleSavingLoadingGame():
 	if Input.is_action_just_pressed("p"):
