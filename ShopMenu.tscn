@@ -31,23 +31,6 @@ region = Rect2(16, 112, 16, 16)
 atlas = ExtResource("1_bqhtw")
 region = Rect2(16, 128, 16, 16)
 
-[sub_resource type="Animation" id="Animation_e5qd0"]
-resource_name = "open"
-length = 0.3
-step = 0.005
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.235, 0.3),
-"transitions": PackedFloat32Array(2.63902, 0.812253, 0.277392),
-"update": 0,
-"values": [Vector2(-450, -90), Vector2(-144.14, -90), Vector2(-185.57, -90)]
-}
-
 [sub_resource type="Animation" id="Animation_3m5gk"]
 length = 0.001
 tracks/0/type = "value"
@@ -78,6 +61,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2.54912, 1.36604, 0.933034),
 "update": 0,
 "values": [Vector2(-185.57, -90), Vector2(-144.14, -90), Vector2(-450, -90)]
+}
+
+[sub_resource type="Animation" id="Animation_e5qd0"]
+resource_name = "open"
+length = 0.3
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.235, 0.3),
+"transitions": PackedFloat32Array(2.63902, 0.812253, 0.277392),
+"update": 0,
+"values": [Vector2(-450, -90), Vector2(-144.14, -90), Vector2(-185.57, -90)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_teu2f"]

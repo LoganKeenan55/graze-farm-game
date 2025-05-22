@@ -18,7 +18,7 @@ func _ready() -> void:
 func updateTexture():
 	var textureName: String
 	#if get_parent().mode == "farming" or get_parent().mode == "nothing":
-	if items[item] == "seeds":
+	if items[item] == "seeds" and get_parent().mode == "farming":
 		match get_parent().currentSeed:
 			0: textureName = "wheatSeeds"
 			1: textureName = "cornSeeds"

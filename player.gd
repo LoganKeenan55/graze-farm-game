@@ -67,65 +67,69 @@ func getData():
 	}
 
 func handleChangingMode():
-	if Input.is_action_just_pressed("e"): #placing mode
-		tileComponent.createTilePreview()
-		if mode != "placing":
-			if mode == "seed":
-				hotBar.setMode("noseed")
-			mode = "placing"
-			
-			$Cursor.updateTexture()
-			#$Cursor.visible = false
-			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			hotBar.setMode("placing")
-			var existing_menu = get_node_or_null("ShopMenu") #remove book
-			if existing_menu:
-				existing_menu.queue_free() 
-		else:
-			mode = "nothing"
-			tileComponent.freeTilePreview()
-			hotBar.setMode("nothing")
+	if Input.is_action_just_pressed("e"):
+		switch_to_mode("placing")
 
-	if Input.is_action_just_pressed("f"): #farming mode
-		if mode != "farming":
-			if mode == "seed":
-				hotBar.setMode("noseed")
-			mode = "farming"
-			$Cursor.updateTexture()
-			tileComponent.freeTilePreview()
-			hotBar.setMode("farming")
-			var existing_menu = get_node_or_null("ShopMenu") #remove book
-			if existing_menu:
-				existing_menu.queue_free()
-		else:
-			mode = "nothing"
-			tileComponent.freeTilePreview()
-			$Cursor.updateTexture()
-			hotBar.setMode("nothing")
-			
-	if Input.is_action_just_pressed("tab"): #shop mode
-		tileComponent.freeTilePreview()
-		if mode == "shop":
-			mode = "nothing"
-			hotBar.setMode("nothing")
-			
-			var existing_menu = get_node_or_null("ShopMenu") #remove book
-			if existing_menu:
-				existing_menu.anPlayer.play("close")
-				
-				SoundManager.play_sound("res://sounds/book_close.mp3",Vector2.ZERO,0.3)
-		else:
-			SoundManager.play_sound("res://sounds/book_sound.mp3")
-			var existing_menu = get_node_or_null("ShopMenu") #makes sure there is only one book
-			if existing_menu:
-				return
-			mode = "shop"
-			hotBar.setMode("nothing")
-			var shopMenu = shopMenuPreload.instantiate()
-			shopMenu.name = "ShopMenu"
-			add_child(shopMenu)
-			shopMenu.anPlayer.play("open")
-			$Cursor.updateTexture()
+	elif Input.is_action_just_pressed("f"):
+		switch_to_mode("farming")
+
+	elif Input.is_action_just_pressed("tab"):
+		toggle_shop_mode()
+
+
+func switch_to_mode(new_mode: String):
+	if mode == new_mode:
+		reset_to_nothing()
+		return
+
+	if mode == "seed":
+		hotBar.setMode("noseed")
+
+	mode = new_mode
+	$Cursor.updateTexture()
+	tileComponent.freeTilePreview()
+	tileComponent.createTilePreview() if new_mode == "placing" else null
+	hotBar.setMode(new_mode)
+	close_shop_if_open()
+
+
+func toggle_shop_mode():
+	tileComponent.freeTilePreview()
+	var existing_menu = get_node_or_null("ShopMenu")
+
+	if mode == "shop":
+		mode = "nothing"
+		hotBar.setMode("nothing")
+		if existing_menu:
+			existing_menu.anPlayer.play("close")
+			SoundManager.play_sound("res://sounds/book_close.mp3", Vector2.ZERO, 0.3)
+	else:
+		if existing_menu:
+			return
+		hotBar.setMode("noseed") #gets rid of seed hud
+		mode = "shop"
+		
+		hotBar.setMode("nothing")
+		var shop_menu = shopMenuPreload.instantiate()
+		shop_menu.name = "ShopMenu"
+		add_child(shop_menu)
+		shop_menu.anPlayer.play("open")
+		SoundManager.play_sound("res://sounds/book_sound.mp3")
+		$Cursor.updateTexture()
+
+
+func reset_to_nothing():
+	mode = "nothing"
+	tileComponent.freeTilePreview()
+	$Cursor.updateTexture()
+	hotBar.setMode("nothing")
+
+
+func close_shop_if_open():
+	var existing_menu = get_node_or_null("ShopMenu")
+	if existing_menu:
+		existing_menu.queue_free()
+		
 func handleSavingLoadingGame():
 	if Input.is_action_just_pressed("p"):
 		GlobalVars.saveGame()

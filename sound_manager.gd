@@ -40,7 +40,7 @@ func play_sound(path: String, pos:Vector2 = Vector2.ZERO, overide: float = 0) ->
 	audio_player.volume_db = linear_to_db(clamp((volume_scale* volume) - overide, 0.01, 1.0))
 
 	
-	var pitch_scale = 1.0 - (randf_range(-0.8,0.3)) #random pitch
+	var pitch_scale = 1.0 - (randf_range(-0.7,0.3)) #random pitch
 	audio_player.pitch_scale = pitch_scale
 	audio_player.play()
 	active_sounds.append(audio_player)
