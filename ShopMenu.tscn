@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs8q1kp40i0yu"]
+[gd_scene load_steps=9 format=3 uid="uid://bs8q1kp40i0yu"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_bqhtw"]
 [ext_resource type="Script" uid="uid://bqhg0waq2vy3k" path="res://shop_menu.gd" id="1_durvn"]
@@ -8,6 +8,8 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cqrr"]
 atlas = ExtResource("1_bqhtw")
 region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="Theme" id="Theme_e5qd0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo5kk"]
 atlas = ExtResource("1_bqhtw")
@@ -70,6 +72,8 @@ texture = SubResource("AtlasTexture_1cqrr")
 [node name="WheatCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+theme = SubResource("Theme_e5qd0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_durvn")
 theme_override_font_sizes/font_size = 6
 text = "500"
@@ -118,6 +122,7 @@ offset_right = 144.0
 offset_bottom = 72.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 296.0

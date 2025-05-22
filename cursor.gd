@@ -4,7 +4,6 @@ const atlasTexture: Texture2D = preload("res://textureAtlas.png")
 
 @onready var items = get_parent().items
 
-var stateIndex = 0
 var item = 0
 
 var textureRegions = GlobalVars.textureRegions
@@ -12,20 +11,22 @@ var textureRegions = GlobalVars.textureRegions
 
 func _ready() -> void:
 	updateTexture()
-	z_index = 11
+	z_index = 50
 	#Input.set_custom_mouse_cursor($Sprite2D.texture,0,Vector2(0,0))
 	
 		
 func updateTexture():
 	var textureName: String
+	#if get_parent().mode == "farming" or get_parent().mode == "nothing":
 	if items[item] == "seeds":
 		match get_parent().currentSeed:
 			0: textureName = "wheatSeeds"
 			1: textureName = "cornSeeds"
 			2: textureName = "bambooSeeds"
-	else:
+	elif get_parent().mode == "farming":
 		textureName = items[item]
-
+	else:
+		textureName = "cursor"
 	if textureName in textureRegions:
 		var atlas = AtlasTexture.new()
 		atlas.atlas = atlasTexture

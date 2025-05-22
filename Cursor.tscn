@@ -8,7 +8,6 @@ atlas = ExtResource("2_lxfbd")
 region = Rect2(240, 0, 16, 16)
 
 [node name="Cursor" type="Node2D"]
-visible = false
 script = ExtResource("1_e3af5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
