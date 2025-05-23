@@ -40,11 +40,18 @@ func saveGame():
 	saveData.append({"group": "time","globalTime": Time.get_unix_time_from_system()})
 	saveData.append(player.getData())
 	
-	for node in tilesParent.get_children():
-		saveData.append(node.getData()) #adds all nodes in Tiles
-	for node in underTilesParent.get_children():
-		saveData.append(node.getData()) #adds all nodes in UnderTiles
-		
+	for node in tilesParent.get_children(): #tiles
+		if node.has_method("getData"):
+			saveData.append(node.getData()) #adds all nodes in Tiles
+		else:
+			print("tried to save " + str(node))
+	
+	for node in underTilesParent.get_children(): #underTiles
+		if node.has_method("getData"):
+			saveData.append(node.getData()) #adds all nodes in UnderTiles
+		else:
+			print("tried to save " + str(node))
+	
 	var filePath = "C:/GodotGames/farmGameSaveFiles/save_game.save"
 	var file = FileAccess.open(filePath, FileAccess.WRITE)
 	file.store_var(saveData)
@@ -98,7 +105,7 @@ func loadGame():
 	player.hotBar.updateAmounts("tiles")
 	player.hotBar.updateAmounts("seeds")
 	
-	print(timeSinceLastSave)
+	print("It has been " + str(int(timeSinceLastSave)) + " seconds since last saved")
 	print("loaded!")
 
 func deleteAllTiles():

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://jnrt3h47s1q3"]
+[gd_scene load_steps=7 format=3 uid="uid://jnrt3h47s1q3"]
 
+[ext_resource type="Script" uid="uid://c5w0qdkjnmsh6" path="res://dust_particle.gd" id="1_csst5"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_k60xo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_csst5"]
@@ -32,6 +33,7 @@ turbulence_initial_displacement_min = 1.49012e-06
 turbulence_initial_displacement_max = 1.49012e-06
 
 [node name="DustParticle" type="Node2D"]
+script = ExtResource("1_csst5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 texture_filter = 1
@@ -46,3 +48,5 @@ interpolate = false
 fract_delta = false
 trail_lifetime = 0.2
 process_material = SubResource("ParticleProcessMaterial_ocp6o")
+
+[connection signal="finished" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]

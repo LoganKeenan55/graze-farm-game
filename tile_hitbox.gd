@@ -33,8 +33,9 @@ func handleDeletingTile(event): #shovel
 				if get_parent().stateIndex == 4:
 					get_parent().harvestCrop()
 			"autoFarmTile":
-				player.inventory[get_parent().cropType] += get_parent().priceCounts[get_parent().cropType] #"refund" whatever is put in
-				player.hotBar.updateAll()
+				if get_parent().cropType != "default":
+					player.inventory[get_parent().cropType] += get_parent().priceCounts[get_parent().cropType] #"refund" whatever is put in
+					player.hotBar.updateAll()
 			"brickTile":
 				pass
 			_:
@@ -99,7 +100,7 @@ func createRemoveParticle():
 	particle.position = get_parent().position
 	particle.get_child(0).emitting = true
 	get_parent().get_parent().get_parent().add_child(particle)
-
+	
 
 func handlePlayerInterection(event): #needed for all tiles
 	#match player.items[player.currentItem]:

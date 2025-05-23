@@ -94,15 +94,14 @@ func switch_to_mode(new_mode: String):
 
 
 func toggle_shop_mode():
+	var ogMode = mode #what mode is before switching to shop
 	tileComponent.freeTilePreview()
 	var existing_menu = get_node_or_null("ShopMenu")
 
 	if mode == "shop":
 		mode = "nothing"
 		hotBar.setMode("nothing")
-		if existing_menu:
-			existing_menu.anPlayer.play("close")
-			SoundManager.play_sound("res://sounds/book_close.mp3", Vector2.ZERO, 0.3)
+		close_shop_if_open()
 	else:
 		if existing_menu:
 			return
@@ -110,13 +109,14 @@ func toggle_shop_mode():
 		mode = "shop"
 		
 		hotBar.setMode("nothing")
-		var shop_menu = shopMenuPreload.instantiate()
-		shop_menu.name = "ShopMenu"
-		add_child(shop_menu)
-		shop_menu.anPlayer.play("open")
+		var shopMenu = shopMenuPreload.instantiate()
+		shopMenu.name = "ShopMenu"
+		add_child(shopMenu)
+		shopMenu.position.y -= 8
+		shopMenu.anPlayer.play("open")
 		SoundManager.play_sound("res://sounds/book_sound.mp3")
 		$Cursor.updateTexture()
-
+		hotBar.setMode("placing")
 
 func reset_to_nothing():
 	mode = "nothing"
@@ -128,8 +128,8 @@ func reset_to_nothing():
 func close_shop_if_open():
 	var existing_menu = get_node_or_null("ShopMenu")
 	if existing_menu:
-		existing_menu.queue_free()
-		
+		existing_menu.anPlayer.play("close")
+		SoundManager.play_sound("res://sounds/book_close.mp3", Vector2.ZERO, 0.3)
 func handleSavingLoadingGame():
 	if Input.is_action_just_pressed("p"):
 		GlobalVars.saveGame()
