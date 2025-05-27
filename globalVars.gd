@@ -16,11 +16,15 @@ var textureRegions = {
 	"corn":Rect2(112, 0, 16, 16),
 	"wheat":Rect2(96, 0, 16, 16),
 	"bamboo": Rect2(128, 0, 16, 16),
+	"berry": Rect2(144, 0, 16, 16),
+	"onion": Rect2(160, 0, 16, 16),
 	"default": 	Rect2(500, 0, 16, 16),
 	
 	"wheatSeeds":Rect2(240, 16, 16, 16),
 	"cornSeeds":Rect2(224, 16, 16, 16),
 	"bambooSeeds":Rect2(208, 16, 16, 16),
+	"berrySeeds":Rect2(192, 16, 16, 16),
+	"onionSeeds":Rect2(176, 16, 16, 16),
 }
 
 var timeSinceLastSave

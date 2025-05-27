@@ -7,6 +7,9 @@ class_name FarmTile
 var wheatParticlePreload = preload("res://WheatHarvestParticle.tscn")
 var cornPartilePreload = preload("res://CornHarvestParticle.tscn")
 var bambooParticlePreload = preload("res://bamboo_harvest_particle.tscn")
+var berryParticlePreload = preload("res://berryHarvestParticle.tscn")
+var onionParticlePreload = preload("res://OnionHarvestParticle.tscn")
+
 var tileState = ["unfertile", "fertile", "seeded", "growing", "harvestable"]
 
 var cropType = "default" #what kind of crop
@@ -41,6 +44,20 @@ var bambooTextureRegions = {
 	"growing": Rect2(32, 48, 16, 16),
 	"harvestable": Rect2(32, 64, 16, 32)
 }
+var berryTextureRegions = {
+	"unfertile": Rect2(0, 0, 16, 16),
+	"fertile": Rect2(0, 16, 16, 16),
+	"seeded": Rect2(48, 32, 16, 16),
+	"growing": Rect2(48, 48, 16, 16),
+	"harvestable": Rect2(48, 64, 16, 32)
+}
+var onionTextureRegions = {
+	"unfertile": Rect2(0, 0, 16, 16),
+	"fertile": Rect2(0, 16, 16, 16),
+	"seeded": Rect2(64, 32, 16, 16),
+	"growing": Rect2(64, 48, 16, 16),
+	"harvestable": Rect2(64, 64, 16, 32)
+}
 
 var defaultTextureRegions = {
 	"unfertile": Rect2(0, 0, 16, 16),
@@ -51,6 +68,8 @@ var growSpeeds = { #there is a 1/growSpeed chance every .5 sec, def = 30
 	"wheat": 20,
 	"corn": 30,
 	"bamboo": 15,
+	"berry": 25,
+	"onion": 20,
 }
 
 func _ready() -> void:
@@ -124,17 +143,25 @@ func advanceState():
 						SoundManager.play_sound("res://sounds/bloop2.mp3",position,.1)
 					"bamboo":
 						SoundManager.play_sound("res://sounds/bloop3.mp3",position)
+					"onion":
+						SoundManager.play_sound("res://sounds/bloop4.mp3",position)
+					"berry":
+						SoundManager.play_sound("res://sounds/bloop5.mp3",position,.32)
 					_:
 						print("INVALID TYPE in function: advanceState")
 func harvestCrop():
 	if harvestable:
+		
 		createHarvestParticle()
 		if waterSources.size() > 0:
-			stateIndex = 1 #return to firtile
+			if cropType == "bush":
+				stateIndex = 2
+			else:
+				stateIndex = 1 #return to firtile
 		if waterSources.size() == 0:
 			stateIndex = 0
 		updateTexture()
-	
+		
 		match cropType: #add to inventory
 			"wheat":
 				player.inventory[cropType] += randi_range(1,2)
@@ -143,6 +170,10 @@ func harvestCrop():
 			"bamboo":
 				player.inventory[cropType] += randi_range(1,2)
 				SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
+			"berry":
+				player.inventory[cropType] += randi_range(1,2)
+			"onion":
+				player.inventory[cropType] += randi_range(1,2)
 			_:
 				print("INVALID TYPE in function: harvestCrop")
 		player.hotBar.updateAmounts("items") #update hotbar
@@ -175,6 +206,15 @@ func setType(type:String):
 			cropType = type
 			currentTextureRegions = bambooTextureRegions
 			currentHarvestParticle = bambooParticlePreload
+		"berry":
+			cropType = type
+			currentTextureRegions = berryTextureRegions
+			currentHarvestParticle = berryParticlePreload
+		"onion":
+			cropType = type
+			currentTextureRegions = onionTextureRegions
+			currentHarvestParticle = onionParticlePreload
+		
 		_:
 			print("INVALID TYPE in function: setType in farm_tile.gd")
 	cropType = type

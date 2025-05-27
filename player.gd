@@ -14,7 +14,7 @@ var mode = "nothing" # nothing, placing, farming, seed, shop
 ## inventory dictionary
 var inventory= {
 	"farmTile": 50,"waterTile" :50 , "brickTile":50 , "autoFarmTile":5,
-	"wheat":10, "corn":10, "bamboo": 20
+	"wheat":10, "corn":10, "bamboo": 20,"berry": 20,"onion": 20
 }
 
 ## tiles
@@ -27,7 +27,7 @@ var items = ["hoe", "shovel", "seeds", "hammer"]
 
 ## seeds
 var currentSeed = 0
-var harvestables = ["wheat", "corn", "bamboo"]
+var harvestables = ["wheat", "corn", "bamboo", "berry", "onion"]
 ##
 
 
@@ -192,7 +192,7 @@ func handleMode(): #handles changing mode
 						
 
 		"seed":
-			for i in range(1, 4):
+			for i in range(1, 6):
 				if Input.is_action_just_pressed(str(i)):
 					currentSeed = i - 1
 					hotBar.setTexture("items",2,harvestables[currentSeed])

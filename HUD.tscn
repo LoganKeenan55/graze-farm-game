@@ -323,11 +323,11 @@ region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1and6"]
 atlas = ExtResource("3_vow1y")
-region = Rect2(112, 80, 16, 16)
+region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w75gc"]
 atlas = ExtResource("3_vow1y")
-region = Rect2(112, 48, 16, 16)
+region = Rect2(160, 0, 16, 16)
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_efote")
@@ -493,13 +493,13 @@ text = "500"
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Bambo" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer4"]
+[node name="Berry" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer4"]
 texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_1and6")
 
-[node name="BambooCount" type="Label" parent="Control/VBoxContainer/HBoxContainer4"]
+[node name="BerryCount" type="Label" parent="Control/VBoxContainer/HBoxContainer4"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ne771")
@@ -510,13 +510,13 @@ text = "500"
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Bambo" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer5"]
+[node name="Onion" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer5"]
 texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_w75gc")
 
-[node name="BambooCount" type="Label" parent="Control/VBoxContainer/HBoxContainer5"]
+[node name="OnionCount" type="Label" parent="Control/VBoxContainer/HBoxContainer5"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ne771")
