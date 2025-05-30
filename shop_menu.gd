@@ -46,6 +46,7 @@ func buy(cropType:String, amount:int, purchase:String):
 	if (inventory[cropType]-amount) >= 0:
 		inventory[cropType] = inventory[cropType] - amount
 		inventory[purchase] = inventory[purchase] + 1
+		SoundManager.play_sound("res://sounds/purchase.mp3")
 		GlobalVars.player.hotBar.updateAll()
 		
 	else:

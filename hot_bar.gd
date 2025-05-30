@@ -3,7 +3,7 @@ extends Node2D
 var tileArray = []
 var itemArray = []
 var seedArray = []
-var mode = "farming"
+var mode = ""
 
 @onready var player = find_parent("Player")
 func _ready() -> void:

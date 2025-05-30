@@ -57,6 +57,8 @@ func handleCheats():
 		inventory["wheat"] = 9999
 		inventory["corn"] = 9999
 		inventory["bamboo"] = 9999
+		inventory["berry"] = 9999
+		inventory["onion"] = 9999
 		hotBar.updateAll()
 
 func getData():
@@ -202,7 +204,10 @@ func handleMode(): #handles changing mode
 					$Cursor.updateTexture()
 
 func play_walk_sound():
-	SoundManager.play_sound("res://sounds/grass_walk.mp3",Vector2.ZERO,.4)
+	if $HitBox.isWalkingOnBrick:
+		SoundManager.play_sound("res://sounds/brick_walk.mp3",Vector2.ZERO,.4)
+	else:
+		SoundManager.play_sound("res://sounds/grass_walk.mp3",Vector2.ZERO,.4)
 	var particle = dustParticlePreload.instantiate()
 	particle.position.y = position.y+8
 	particle.position.x = position.x

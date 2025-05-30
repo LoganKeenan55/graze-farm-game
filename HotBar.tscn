@@ -338,7 +338,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uuhq0"]
@@ -373,6 +373,7 @@ position = Vector2(18, 77)
 position = Vector2(36, 77)
 
 [node name="TilesHUD" type="Node2D" parent="."]
+visible = false
 script = ExtResource("2_5twkh")
 hotBarType = "tiles"
 

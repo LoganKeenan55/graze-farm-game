@@ -239,9 +239,8 @@ _data = {
 &"walk": SubResource("Animation_d6rpx")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp6x6"]
-radius = 8.50018
-height = 27.9645
+[sub_resource type="CircleShape2D" id="CircleShape2D_hp6x6"]
+radius = 5.00025
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtqjt"]
 radius = 8.50018
@@ -255,6 +254,7 @@ point_count = 2
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.34902)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_dkxi4")
 
 [node name="TileComponent" type="Node2D" parent="."]
@@ -294,8 +294,8 @@ collision_layer = 3
 script = ExtResource("3_cxr5p")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -5.05)
-shape = SubResource("CapsuleShape2D_hp6x6")
+position = Vector2(0, 3.815)
+shape = SubResource("CircleShape2D_hp6x6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.05)

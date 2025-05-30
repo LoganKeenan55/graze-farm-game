@@ -401,7 +401,7 @@ mouse_filter = 2
 [node name="background" type="Node2D" parent="Control"]
 modulate = Color(1, 1, 1, 0.607843)
 position = Vector2(1.215, 0.84)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.92, 0.92)
 
 [node name="Inside" type="TileMap" parent="Control/background"]
 texture_filter = 1

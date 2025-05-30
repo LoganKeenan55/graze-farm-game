@@ -68,7 +68,7 @@ var growSpeeds = { #there is a 1/growSpeed chance every .5 sec, def = 30
 	"wheat": 20,
 	"corn": 30,
 	"bamboo": 15,
-	"berry": 25,
+	"berry": 60,
 	"onion": 20,
 }
 
@@ -154,8 +154,8 @@ func harvestCrop():
 		
 		createHarvestParticle()
 		if waterSources.size() > 0:
-			if cropType == "bush":
-				stateIndex = 2
+			if cropType == "berry":
+				stateIndex = 3
 			else:
 				stateIndex = 1 #return to firtile
 		if waterSources.size() == 0:

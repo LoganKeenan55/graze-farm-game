@@ -29,14 +29,16 @@ var textureRegions = {
 
 var timeSinceLastSave
 
+##
 var farmTilePreload = preload("res://FarmTile.tscn")
 var waterTilePreload = preload("res://WaterTile.tscn")
 var brickTilePreload = preload("res://BrickTile.tscn")
 var autoFarmerTilePreload = preload("res://AutoFarmTile.tscn")
+##
 @onready var player = get_tree().current_scene.get_node("Player")
 @onready var tilesParent = get_tree().current_scene.get_node("Tiles")
 @onready var underTilesParent = get_tree().current_scene.get_node("UnderTiles")
-
+##
 
 func saveGame():
 	print("saving...")
@@ -76,7 +78,7 @@ func loadGame():
 	
 	for node in saveData:
 		var newTile
-		if node["group"] == "time": #sets time since last saveawl
+		if node["group"] == "time": #sets time since last save
 			timeSinceLastSave = abs(node["globalTime"] - Time.get_unix_time_from_system())
 		if node["group"] == "player":
 			player.position = node["position"]

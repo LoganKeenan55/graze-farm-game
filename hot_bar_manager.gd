@@ -16,7 +16,7 @@ func _ready() -> void:
 	itemBar.updateAllAmounts(getAmountsFor(player.items))
 	tileBar.updateAllAmounts(getAmountsFor(player.placeableTiles))
 	seedBar.updateAllAmounts(getAmountsFor(player.harvestables))
-	
+	#tileBar.visible = false
 func getAmountsFor(list: Array) -> Array:
 	var result = []
 	for name in list:

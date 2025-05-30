@@ -11,18 +11,24 @@ var cropType = "default"
 var priceCounts: Dictionary = {#count of all crops added to it, to be returned when destroyed
 	"wheat": 0,
 	"corn": 0,
-	"bamboo": 0
+	"bamboo": 0,
+	"berry": 0,
+	"onion": 0
 }
 
 var seedPrices = {
 	"wheat": 50,
 	"corn": 50,
-	"bamboo": 100
+	"bamboo": 100,
+	"berry": 50,
+	"onion": 75
 }
 var upgradePrices = {
 	"wheat": 50,
 	"corn": 100,
-	"bamboo": 200
+	"bamboo": 200,
+	"berry": 50,
+	"onion": 75
 }
 
 var sound = "res://sounds/metal_sound.mp3"
@@ -39,12 +45,16 @@ var level1TextureRegions = {
 	"corn":Rect2(112, 0, 16, 16),
 	"wheat":Rect2(96, 0, 16, 16),
 	"bamboo": Rect2(128, 0, 16, 16),
+	"berry": Rect2(144, 0, 16, 16),
+	"onion": Rect2(160, 0, 16, 16)
 }
 
 var level2TextureRegions = {
 	"corn":Rect2(224, 16, 16, 16),
 	"wheat":Rect2(240, 16, 16, 16),
 	"bamboo": Rect2(208, 16, 16, 16),
+	"berry": Rect2(192, 16, 16, 16),
+	"onion": Rect2(176, 16, 16, 16)
 }
 
 var currentTextureRegions: Dictionary
