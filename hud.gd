@@ -13,3 +13,4 @@ func _process(_delta: float) -> void:
 	$Control/VBoxContainer/HBoxContainer3/BambooCount.text = str(player.inventory["bamboo"])
 	$Control/VBoxContainer/HBoxContainer4/BerryCount.text = str(player.inventory["berry"])
 	$Control/VBoxContainer/HBoxContainer5/OnionCount.text = str(player.inventory["onion"])
+	$time.text = str(GlobalVars.globalTime)

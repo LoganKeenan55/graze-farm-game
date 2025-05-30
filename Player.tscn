@@ -290,7 +290,6 @@ libraries = {
 }
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_layer = 3
 script = ExtResource("3_cxr5p")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]

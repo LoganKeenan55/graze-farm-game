@@ -22,7 +22,7 @@ config/icon="uid://drau5v6ysg1b7"
 [autoload]
 
 GlobalVars="*res://globalVars.gd"
-GlobalFarmTileManager="*res://global_farm_tile_manager.gd"
+GlobalFarmTileManager="*res://globalTimeManager.gd"
 SoundManager="*res://sound_manager.gd"
 
 [display]

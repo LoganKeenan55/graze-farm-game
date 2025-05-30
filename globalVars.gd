@@ -28,7 +28,7 @@ var textureRegions = {
 }
 
 var timeSinceLastSave
-
+var globalTime:int = 0
 ##
 var farmTilePreload = preload("res://FarmTile.tscn")
 var waterTilePreload = preload("res://WaterTile.tscn")
@@ -43,7 +43,8 @@ var autoFarmerTilePreload = preload("res://AutoFarmTile.tscn")
 func saveGame():
 	print("saving...")
 	var saveData = []  #List that stores dictionaries for all data for all nodes
-	saveData.append({"group": "time","globalTime": Time.get_unix_time_from_system()})
+	saveData.append({"group": "IRLtime","IRLtime": Time.get_unix_time_from_system()})
+	saveData.append({"group": "globalTime", "globalTime": globalTime})
 	saveData.append(player.getData())
 	
 	for node in tilesParent.get_children(): #tiles
@@ -78,8 +79,10 @@ func loadGame():
 	
 	for node in saveData:
 		var newTile
-		if node["group"] == "time": #sets time since last save
-			timeSinceLastSave = abs(node["globalTime"] - Time.get_unix_time_from_system())
+		if node["group"] == "IRLtime": #sets time since last save
+			timeSinceLastSave = abs(node["IRLtime"] - Time.get_unix_time_from_system())
+		if node["group"] == "globalTime": #gameTime
+			globalTime = node["globalTime"]
 		if node["group"] == "player":
 			player.position = node["position"]
 			player.inventory.clear()
