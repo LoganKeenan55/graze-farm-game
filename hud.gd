@@ -6,6 +6,9 @@ extends Node2D
 
 func _ready() -> void:
 	z_index = 10
+	$NightTimeFilter.z_index = 5
+	GlobalFarmTileManager.connect("night_started", Callable(self, "setNight"))
+	GlobalFarmTileManager.connect("day_started", Callable(self, "setDay"))
 
 func _process(_delta: float) -> void:
 	$Control/VBoxContainer/HBoxContainer/WheatCount.text = str(player.inventory["wheat"])
@@ -14,3 +17,10 @@ func _process(_delta: float) -> void:
 	$Control/VBoxContainer/HBoxContainer4/BerryCount.text = str(player.inventory["berry"])
 	$Control/VBoxContainer/HBoxContainer5/OnionCount.text = str(player.inventory["onion"])
 	$time.text = str(GlobalVars.globalTime)
+
+func setNight():
+	SoundManager.play_ui_sound("res://sounds/turn_night.mp3")
+	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_night")
+func setDay():
+	SoundManager.play_ui_sound("res://sounds/turn_day.mp3")
+	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_day")
