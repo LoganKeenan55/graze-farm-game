@@ -47,6 +47,26 @@ func play_sound(path: String, pos:Vector2 = Vector2.ZERO, overide: float = 0) ->
 	
 	audio_player.connect("finished", Callable(self, "_on_sound_finished").bind(audio_player))
 
+func play_ui_sound(path: String, overide: float = 0): #for UI sounds (no pitch scaling / distance)
+	if active_sounds.size() >= MAX_SOUNDS:
+		return
+	
+	var stream = load(path)
+	
+	if not stream:
+		return
+	
+	var audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
+	audio_player.stream = stream
+
+	audio_player.volume_db = linear_to_db(volume - overide)
+	audio_player.play()
+	active_sounds.append(audio_player)
+
+	audio_player.connect("finished", Callable(self, "_on_sound_finished").bind(audio_player))
+
+
 func _on_sound_finished(player: AudioStreamPlayer):
 	active_sounds.erase(player)
 	player.queue_free()

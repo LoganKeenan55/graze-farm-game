@@ -116,7 +116,7 @@ func toggle_shop_mode():
 		add_child(shopMenu)
 		shopMenu.position.y -= 8
 		shopMenu.anPlayer.play("open")
-		SoundManager.play_sound("res://sounds/book_sound.mp3")
+		SoundManager.play_ui_sound("res://sounds/book_sound.mp3")
 		$Cursor.updateTexture()
 		hotBar.setMode("placing")
 
@@ -131,7 +131,7 @@ func close_shop_if_open():
 	var existing_menu = get_node_or_null("ShopMenu")
 	if existing_menu:
 		existing_menu.anPlayer.play("close")
-		SoundManager.play_sound("res://sounds/book_close.mp3", Vector2.ZERO, 0.3)
+		SoundManager.play_ui_sound("res://sounds/book_close.mp3", 0.3)
 func handleSavingLoadingGame():
 	if Input.is_action_just_pressed("p"):
 		GlobalVars.saveGame()
