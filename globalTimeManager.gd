@@ -10,7 +10,7 @@ var autoFarmElapsed = 0.0
 var autoFarmInterval = 10.0 # 10 seconds
 
 var globalTimeElapsed = 0.0
-var globalTimeInterval = 1
+var globalTimeInterval = 15
 
 func _process(delta: float) -> void:
 	timeElapsed += delta

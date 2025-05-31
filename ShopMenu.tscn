@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bs8q1kp40i0yu"]
+[gd_scene load_steps=41 format=3 uid="uid://bs8q1kp40i0yu"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_bqhtw"]
 [ext_resource type="Script" uid="uid://bqhg0waq2vy3k" path="res://shop_menu.gd" id="1_durvn"]
@@ -359,13 +359,57 @@ region = Rect2(128, 0, 16, 16)
 atlas = ExtResource("1_bqhtw")
 region = Rect2(16, 112, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o68wb"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teu2f"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(0, 112, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ecw7"]
 atlas = ExtResource("1_bqhtw")
 region = Rect2(96, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_teu2f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aip0e"]
 atlas = ExtResource("1_bqhtw")
-region = Rect2(16, 128, 16, 16)
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2q0s"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4t0k"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31hie"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf33j"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc8js"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_108c6"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_534mg"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjohh"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1seuy"]
+atlas = ExtResource("1_bqhtw")
+region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="Animation" id="Animation_3m5gk"]
 length = 0.001
@@ -445,20 +489,11 @@ texture_filter = 1
 position = Vector2(160, 90)
 texture = ExtResource("4_e5qd0")
 
-[node name="ColorRect" type="ColorRect" parent="Control2"]
-visible = false
-layout_mode = 0
-offset_left = 24.0
-offset_top = 10.0
-offset_right = 296.0
-offset_bottom = 170.0
-color = Color(0.241156, 0.241156, 0.241156, 1)
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Control2"]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 57.825
 offset_top = 29.0
-offset_right = 153.0
+offset_right = 154.825
 offset_bottom = 138.0
 mouse_filter = 2
 theme_override_constants/separation = 7
@@ -812,7 +847,7 @@ texture = SubResource("AtlasTexture_shxc8")
 texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
-texture = SubResource("AtlasTexture_4ecw7")
+texture = SubResource("AtlasTexture_o68wb")
 
 [node name="AutoFarmTilePrice" type="Label" parent="Control2/VBoxContainer/HBoxContainer4"]
 texture_filter = 1
@@ -827,26 +862,550 @@ text = "00"
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Bambo" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer5"]
+[node name="todo" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer5"]
 texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_teu2f")
 
-[node name="Wheat2" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer5"]
+[node name="AutoFarmTileButton" type="Button" parent="Control2/VBoxContainer/HBoxContainer5/todo"]
+layout_mode = 0
+offset_left = 35.5
+offset_top = -1.6
+offset_right = 83.5
+offset_bottom = 14.4
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+
+[node name="background" type="Node2D" parent="Control2/VBoxContainer/HBoxContainer5/todo"]
+modulate = Color(1, 1, 1, 0.454902)
+position = Vector2(-8.855, 0.295)
+
+[node name="Inside" type="TileMap" parent="Control2/VBoxContainer/HBoxContainer5/todo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control2/VBoxContainer/HBoxContainer5/todo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Control2/VBoxContainer/HBoxContainer5/todo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Control2/VBoxContainer/HBoxContainer5/todo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Control2/VBoxContainer/HBoxContainer5/todo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Control2/VBoxContainer/HBoxContainer5/todo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_shxc8")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Arrow" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer5"]
 texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_shxc8")
 
-[node name="WheatCount" type="Label" parent="Control2/VBoxContainer/HBoxContainer5"]
+[node name="Wheat" type="TextureRect" parent="Control2/VBoxContainer/HBoxContainer5"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_4ecw7")
+
+[node name="AutoFarmTilePrice" type="Label" parent="Control2/VBoxContainer/HBoxContainer5"]
 texture_filter = 1
 layout_mode = 2
 theme = SubResource("Theme_e5qd0")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_durvn")
 theme_override_font_sizes/font_size = 6
-text = "500"
+text = "00"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control2"]
+layout_mode = 0
+offset_left = 174.2
+offset_top = 29.0
+offset_right = 271.2
+offset_bottom = 138.0
+mouse_filter = 2
+theme_override_constants/separation = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Wheat" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_aip0e")
+
+[node name="WheatButton" type="Button" parent="Control2/VBoxContainer2/HBoxContainer/Wheat"]
+layout_mode = 2
+offset_left = 35.5
+offset_top = -1.6
+offset_right = 83.5
+offset_bottom = 14.4
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+
+[node name="background" type="Node2D" parent="Control2/VBoxContainer2/HBoxContainer/Wheat"]
+modulate = Color(1, 1, 1, 0.454902)
+position = Vector2(-8.855, 0.295)
+
+[node name="Inside" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer/Wheat/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer/Wheat/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer/Wheat/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer/Wheat/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer/Wheat/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer/Wheat/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_shxc8")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Arrow" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
+
+[node name="Corn" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_p2q0s")
+
+[node name="WheatPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_e5qd0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_durvn")
+theme_override_font_sizes/font_size = 6
+text = "00"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control2/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="corn" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_f4t0k")
+
+[node name="cornButton" type="Button" parent="Control2/VBoxContainer2/HBoxContainer2/corn"]
+layout_mode = 0
+offset_left = 35.5
+offset_top = -1.6
+offset_right = 83.5
+offset_bottom = 14.4
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+
+[node name="background" type="Node2D" parent="Control2/VBoxContainer2/HBoxContainer2/corn"]
+modulate = Color(1, 1, 1, 0.454902)
+position = Vector2(-8.855, 0.295)
+
+[node name="Inside" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer2/corn/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer2/corn/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer2/corn/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer2/corn/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer2/corn/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer2/corn/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_shxc8")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Arrow" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
+
+[node name="Wheat" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_31hie")
+
+[node name="CornPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_e5qd0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_durvn")
+theme_override_font_sizes/font_size = 6
+text = "00"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control2/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Bamboo" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_jf33j")
+
+[node name="BambooButton" type="Button" parent="Control2/VBoxContainer2/HBoxContainer3/Bamboo"]
+layout_mode = 0
+offset_left = 35.5
+offset_top = -1.6
+offset_right = 83.5
+offset_bottom = 14.4
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+
+[node name="background" type="Node2D" parent="Control2/VBoxContainer2/HBoxContainer3/Bamboo"]
+modulate = Color(1, 1, 1, 0.454902)
+position = Vector2(-8.855, 0.295)
+
+[node name="Inside" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer3/Bamboo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer3/Bamboo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer3/Bamboo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer3/Bamboo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer3/Bamboo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer3/Bamboo/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_shxc8")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Arrow" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
+
+[node name="Corn" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_jc8js")
+
+[node name="BambooPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_e5qd0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_durvn")
+theme_override_font_sizes/font_size = 6
+text = "00"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control2/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Berry" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer4"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_108c6")
+
+[node name="BerryButton" type="Button" parent="Control2/VBoxContainer2/HBoxContainer4/Berry"]
+layout_mode = 0
+offset_left = 35.5
+offset_top = -1.6
+offset_right = 83.5
+offset_bottom = 14.4
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+
+[node name="background" type="Node2D" parent="Control2/VBoxContainer2/HBoxContainer4/Berry"]
+modulate = Color(1, 1, 1, 0.454902)
+position = Vector2(-8.855, 0.295)
+
+[node name="Inside" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer4/Berry/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer4/Berry/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer4/Berry/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer4/Berry/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer4/Berry/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer4/Berry/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_shxc8")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Arrow" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer4"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
+
+[node name="Bamboo" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer4"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_534mg")
+
+[node name="BerryPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer4"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_e5qd0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_durvn")
+theme_override_font_sizes/font_size = 6
+text = "00"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control2/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Onion" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer5"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_vjohh")
+
+[node name="OnionButton" type="Button" parent="Control2/VBoxContainer2/HBoxContainer5/Onion"]
+layout_mode = 0
+offset_left = 35.5
+offset_top = -1.6
+offset_right = 83.5
+offset_bottom = 14.4
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+
+[node name="background" type="Node2D" parent="Control2/VBoxContainer2/HBoxContainer5/Onion"]
+modulate = Color(1, 1, 1, 0.454902)
+position = Vector2(-8.855, 0.295)
+
+[node name="Inside" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer5/Onion/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer5/Onion/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer5/Onion/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer5/Onion/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer5/Onion/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_3m5gk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Control2/VBoxContainer2/HBoxContainer5/Onion/background"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_shxc8")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Arrow" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer5"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_shxc8")
+
+[node name="Berry" type="TextureRect" parent="Control2/VBoxContainer2/HBoxContainer5"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_1seuy")
+
+[node name="OnionPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer5"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_e5qd0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_durvn")
+theme_override_font_sizes/font_size = 6
+text = "00"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -857,4 +1416,9 @@ libraries = {
 [connection signal="pressed" from="Control2/VBoxContainer/HBoxContainer2/Water/WaterTileButton" to="." method="_on_water_tile_button_pressed"]
 [connection signal="pressed" from="Control2/VBoxContainer/HBoxContainer3/Brick/BrickTileButton" to="." method="_on_brick_tile_button_pressed"]
 [connection signal="pressed" from="Control2/VBoxContainer/HBoxContainer4/AutoFarmTile/AutoFarmTileButton" to="." method="_on_auto_farm_tile_button_pressed"]
+[connection signal="pressed" from="Control2/VBoxContainer2/HBoxContainer/Wheat/WheatButton" to="." method="_on_wheat_button_pressed"]
+[connection signal="pressed" from="Control2/VBoxContainer2/HBoxContainer2/corn/cornButton" to="." method="_on_corn_button_pressed"]
+[connection signal="pressed" from="Control2/VBoxContainer2/HBoxContainer3/Bamboo/BambooButton" to="." method="_on_bamboo_button_pressed"]
+[connection signal="pressed" from="Control2/VBoxContainer2/HBoxContainer4/Berry/BerryButton" to="." method="_on_berry_button_pressed"]
+[connection signal="pressed" from="Control2/VBoxContainer2/HBoxContainer5/Onion/OnionButton" to="." method="_on_onion_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
