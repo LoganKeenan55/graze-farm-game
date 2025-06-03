@@ -75,15 +75,15 @@ func updateSelectedSeed(number):
 
 func setMode(type:String):
 	if type == "farming":
-		if mode == "nothing":
-			$TilesHUD.visible = false
+		#if mode == "nothing":
+			#$TilesHUD.visible = false
 		$AnimationPlayer.play("FarmingMode")
 		$ItemsHUD.visible = true
 		#$TilesHUD.visible = true
 		mode = "farming"
 	if type == "placing":
-		if mode == "nothing":
-			$ItemsHUD.visible = false
+	#	if mode == "nothing":
+			#$ItemsHUD.visible = false
 		$AnimationPlayer.play("PlacingMode")
 		#$ItemsHUD.visible = true
 		$TilesHUD.visible = true
@@ -99,7 +99,8 @@ func setMode(type:String):
 	if type == "noseed":
 		$SeedsAnimationPlayer.play("Disappear")
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "PlacingMode":
-		$ItemsHUD.visible = false
-	if anim_name == "FarmingMode":
-		$TilesHUD.visible = false
+	pass
+#	if anim_name == "PlacingMode":
+		#$ItemsHUD.visible = false
+#	if anim_name == "FarmingMode":
+	#	$TilesHUD.visible = false

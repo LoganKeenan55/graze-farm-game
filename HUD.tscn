@@ -329,21 +329,6 @@ region = Rect2(144, 0, 16, 16)
 atlas = ExtResource("3_vow1y")
 region = Rect2(160, 0, 16, 16)
 
-[sub_resource type="Animation" id="Animation_ne771"]
-resource_name = "turn_night"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.458824, 0, 0.501961, 0), Color(0.458824, 0, 0.501961, 0.258824)]
-}
-
 [sub_resource type="Animation" id="Animation_xxqia"]
 length = 0.001
 tracks/0/type = "value"
@@ -372,6 +357,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.458824, 0, 0.501961, 0.258824), Color(0.458824, 0, 0.501961, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ne771"]
+resource_name = "turn_night"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.458824, 0, 0.501961, 0), Color(0.458824, 0, 0.501961, 0.258824)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1and6"]
@@ -582,6 +582,7 @@ offset_right = 154.0
 offset_bottom = 14.0
 
 [node name="NightTimeFilter" type="ColorRect" parent="."]
+visible = false
 offset_left = -183.0
 offset_top = -146.0
 offset_right = 300.0

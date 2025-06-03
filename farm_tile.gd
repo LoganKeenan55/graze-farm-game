@@ -9,6 +9,8 @@ var cornPartilePreload = preload("res://CornHarvestParticle.tscn")
 var bambooParticlePreload = preload("res://bamboo_harvest_particle.tscn")
 var berryParticlePreload = preload("res://berryHarvestParticle.tscn")
 var onionParticlePreload = preload("res://OnionHarvestParticle.tscn")
+var flowerParticlePreload = preload("res://FlowerHarvestParticle.tscn")
+var pepperParticlePreload = preload("res://PepperHarvestParticle.tscn")
 
 var tileState = ["unfertile", "fertile", "seeded", "growing", "harvestable"]
 
@@ -58,6 +60,20 @@ var onionTextureRegions = {
 	"growing": Rect2(64, 48, 16, 16),
 	"harvestable": Rect2(64, 64, 16, 32)
 }
+var flowerTextureRegions = {
+	"unfertile": Rect2(0, 0, 16, 16),
+	"fertile": Rect2(0, 16, 16, 16),
+	"seeded": Rect2(80, 32, 16, 16),
+	"growing": Rect2(80, 48, 16, 16),
+	"harvestable": Rect2(80, 64, 16, 32)
+}
+var pepperTextureRegions = {
+	"unfertile": Rect2(0, 0, 16, 16),
+	"fertile": Rect2(0, 16, 16, 16),
+	"seeded": Rect2(96, 32, 16, 16),
+	"growing": Rect2(96, 48, 16, 16),
+	"harvestable": Rect2(96, 64, 16, 32)
+}
 
 var defaultTextureRegions = {
 	"unfertile": Rect2(0, 0, 16, 16),
@@ -70,6 +86,8 @@ var growSpeeds = { #there is a 1/growSpeed chance every .5 sec, def = 30
 	"bamboo": 15,
 	"berry": 60,
 	"onion": 20,
+	"flower": 30,
+	"pepper": 50
 }
 
 func _ready() -> void:
@@ -147,6 +165,11 @@ func advanceState():
 						SoundManager.play_sound("res://sounds/bloop4.mp3",position)
 					"berry":
 						SoundManager.play_sound("res://sounds/bloop5.mp3",position,.32)
+					"flower":
+						SoundManager.play_sound("res://sounds/bloop6.mp3",position,.1)
+					"pepper":
+						SoundManager.play_sound("res://sounds/bloop7.mp3",position,.1)
+						SoundManager.play_sound("res://sounds/sizzle.mp3",position,.1)
 					_:
 						print("INVALID TYPE in function: advanceState")
 func harvestCrop():
@@ -173,6 +196,10 @@ func harvestCrop():
 			"berry":
 				player.inventory[cropType] += randi_range(1,2)
 			"onion":
+				player.inventory[cropType] += randi_range(1,2)
+			"flower":
+				player.inventory[cropType] += randi_range(1,2)
+			"pepper":
 				player.inventory[cropType] += randi_range(1,2)
 			_:
 				print("INVALID TYPE in function: harvestCrop")
@@ -214,6 +241,14 @@ func setType(type:String):
 			cropType = type
 			currentTextureRegions = onionTextureRegions
 			currentHarvestParticle = onionParticlePreload
+		"flower":
+			cropType = type
+			currentTextureRegions = flowerTextureRegions
+			currentHarvestParticle = flowerParticlePreload
+		"pepper":
+			cropType = type
+			currentTextureRegions = pepperTextureRegions
+			currentHarvestParticle = pepperParticlePreload
 		
 		_:
 			print("INVALID TYPE in function: setType in farm_tile.gd")

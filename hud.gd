@@ -19,8 +19,10 @@ func _process(_delta: float) -> void:
 	$time.text = str(GlobalVars.globalTime)
 
 func setNight():
-	SoundManager.play_ui_sound("res://sounds/turn_night.mp3")
+	SoundManager.play_ui_sound("res://sounds/turn_night.mp3",.3)
 	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_night")
+	$NightTimeFilter.visible = true
 func setDay():
-	SoundManager.play_ui_sound("res://sounds/turn_day.mp3")
+	SoundManager.play_ui_sound("res://sounds/turn_day.mp3",.3)
 	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_day")
+	$NightTimeFilter.visible = true

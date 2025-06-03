@@ -9,7 +9,7 @@ region = Rect2(160, 0, 16, 16)
 [sub_resource type="Gradient" id="Gradient_kqd4k"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_skwgv"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ox1w"]
 gradient = SubResource("Gradient_kqd4k")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jjo2t"]
@@ -26,7 +26,7 @@ initial_velocity_max = 30.0
 gravity = Vector3(0, 98, 0)
 scale_min = 0.8
 scale_max = 0.8
-color_ramp = SubResource("GradientTexture1D_skwgv")
+color_ramp = SubResource("GradientTexture1D_2ox1w")
 turbulence_initial_displacement_min = 1.49012e-06
 turbulence_initial_displacement_max = 1.49012e-06
 

@@ -25,6 +25,8 @@ func updateTexture():
 			2: textureName = "bambooSeeds"
 			3: textureName = "berrySeeds"
 			4: textureName = "onionSeeds"
+			5: textureName = "flowerSeeds"
+			6: textureName = "pepperSeeds"
 	elif get_parent().mode == "farming":
 		textureName = items[item]
 	else:

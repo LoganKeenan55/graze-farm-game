@@ -11,13 +11,15 @@ var textureRegions = {
 	"seeds": Rect2(240, 16, 16, 16),
 	"shovel": Rect2(208, 0, 16, 16),
 	"hammer": Rect2(224, 0, 16, 16), 
-	"cursor": Rect2(192, 0, 16, 16),
+	"cursor": Rect2(240, 32, 16, 16),
 	
 	"corn":Rect2(112, 0, 16, 16),
 	"wheat":Rect2(96, 0, 16, 16),
 	"bamboo": Rect2(128, 0, 16, 16),
 	"berry": Rect2(144, 0, 16, 16),
 	"onion": Rect2(160, 0, 16, 16),
+	"flower": Rect2(176, 0, 16, 16),
+	"pepper": Rect2(190, 0, 16, 16),
 	"default": 	Rect2(500, 0, 16, 16),
 	
 	"wheatSeeds":Rect2(240, 16, 16, 16),
@@ -25,6 +27,8 @@ var textureRegions = {
 	"bambooSeeds":Rect2(208, 16, 16, 16),
 	"berrySeeds":Rect2(192, 16, 16, 16),
 	"onionSeeds":Rect2(176, 16, 16, 16),
+	"flowerSeeds":Rect2(176, 32, 16, 16),
+	"pepperSeeds":Rect2(192, 32, 16, 16),
 }
 
 var timeSinceLastSave

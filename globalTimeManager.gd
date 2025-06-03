@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		globalTimeElapsed = 0
 		if GlobalVars.globalTime == 21:
 			emit_signal("night_started")
-		if GlobalVars.globalTime == 7:
+		if GlobalVars.globalTime == 6:
 			emit_signal("day_started")
 		if GlobalVars.globalTime == 25:
 			GlobalVars.globalTime = 1
