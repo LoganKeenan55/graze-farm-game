@@ -201,6 +201,7 @@ func harvestCrop():
 				player.inventory[cropType] += randi_range(1,2)
 			"pepper":
 				player.inventory[cropType] += randi_range(1,2)
+				SoundManager.play_sound("res://sounds/sizzle.mp3",position,.1)
 			_:
 				print("INVALID TYPE in function: harvestCrop")
 		player.hotBar.updateAmounts("items") #update hotbar
