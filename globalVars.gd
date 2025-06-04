@@ -32,7 +32,7 @@ var textureRegions = {
 }
 
 var timeSinceLastSave
-var globalTime:int = 7
+var globalTime:int = 12
 ##
 var farmTilePreload = preload("res://FarmTile.tscn")
 var waterTilePreload = preload("res://WaterTile.tscn")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvild13tpsq7d"]
+[gd_scene load_steps=6 format=3 uid="uid://cvild13tpsq7d"]
 
 [ext_resource type="Script" uid="uid://c6fp030nldugh" path="res://main.gd" id="1_83qsj"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="2_7n4sv"]
 [ext_resource type="PackedScene" uid="uid://dbstt3x47rihs" path="res://Player.tscn" id="2_q2fse"]
-[ext_resource type="PackedScene" uid="uid://bcxkwga80ve8u" path="res://FarmTile.tscn" id="4_1bvp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("2_7n4sv")
@@ -180,5 +179,3 @@ layer_0/tile_data = PackedInt32Array(-196611, 786432, 3, -131075, 0, 7, -65539, 
 position = Vector2(237, 94)
 
 [node name="Tiles" type="Node2D" parent="."]
-
-[node name="FarmTile" parent="." instance=ExtResource("4_1bvp3")]
