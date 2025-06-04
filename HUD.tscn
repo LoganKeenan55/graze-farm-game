@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5tdy0vlg8yx"]
+[gd_scene load_steps=22 format=3 uid="uid://c5tdy0vlg8yx"]
 
 [ext_resource type="Script" uid="uid://diindhuf2tctw" path="res://hud.gd" id="1_efote"]
 [ext_resource type="PackedScene" uid="uid://cq8ghkv3svonm" path="res://HotBar.tscn" id="2_vow1y"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="3_vow1y"]
-[ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://Dogica_Pixel_edited.pfb" id="4_ne771"]
+[ext_resource type="PackedScene" uid="uid://df0dg1ely3hdm" path="res://HudCounter.tscn" id="4_xxqia"]
 
 [sub_resource type="Theme" id="Theme_n2snw"]
 
@@ -309,16 +309,19 @@ texture = ExtResource("3_vow1y")
 terrain_set_0/mode = 2
 sources/0 = SubResource("TileSetAtlasSource_xxqia")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ne771"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxqia"]
 atlas = ExtResource("3_vow1y")
 region = Rect2(96, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxqia"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x0me"]
 atlas = ExtResource("3_vow1y")
 region = Rect2(112, 0, 16, 16)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ne771"]
+load_path = "res://.godot/imported/textureAtlas.png-91c19def63bab157ac51f9858f82b9d2.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gv1iq"]
-atlas = ExtResource("3_vow1y")
+atlas = SubResource("CompressedTexture2D_ne771")
 region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1and6"]
@@ -498,124 +501,47 @@ offset_bottom = 56.0
 mouse_filter = 2
 theme_override_constants/separation = -2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="WheatContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
 layout_mode = 2
-mouse_filter = 2
 
-[node name="Wheat" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-mouse_filter = 2
-texture = SubResource("AtlasTexture_ne771")
-
-[node name="WheatCount" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ne771")
-theme_override_font_sizes/font_size = 6
-text = "500"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Corn" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2"]
-texture_filter = 1
-layout_mode = 2
-mouse_filter = 2
+[node name="Sprite" parent="Control/VBoxContainer/WheatContainer" index="0"]
 texture = SubResource("AtlasTexture_xxqia")
 
-[node name="CornCount" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
-texture_filter = 1
+[node name="CornContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ne771")
-theme_override_font_sizes/font_size = 6
-text = "500"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
+[node name="Sprite" parent="Control/VBoxContainer/CornContainer" index="0"]
+texture = SubResource("AtlasTexture_4x0me")
 
-[node name="Bambo" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3"]
-texture_filter = 1
+[node name="BambooContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
 layout_mode = 2
-mouse_filter = 2
+
+[node name="Sprite" parent="Control/VBoxContainer/BambooContainer" index="0"]
 texture = SubResource("AtlasTexture_gv1iq")
 
-[node name="BambooCount" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
-texture_filter = 1
+[node name="BerryContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ne771")
-theme_override_font_sizes/font_size = 6
-text = "500"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Berry" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer4"]
-texture_filter = 1
-layout_mode = 2
-mouse_filter = 2
+[node name="Sprite" parent="Control/VBoxContainer/BerryContainer" index="0"]
 texture = SubResource("AtlasTexture_1and6")
 
-[node name="BerryCount" type="Label" parent="Control/VBoxContainer/HBoxContainer4"]
-texture_filter = 1
+[node name="OnionContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ne771")
-theme_override_font_sizes/font_size = 6
-text = "500"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Onion" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer5"]
-texture_filter = 1
-layout_mode = 2
-mouse_filter = 2
+[node name="Sprite" parent="Control/VBoxContainer/OnionContainer" index="0"]
 texture = SubResource("AtlasTexture_w75gc")
 
-[node name="OnionCount" type="Label" parent="Control/VBoxContainer/HBoxContainer5"]
-texture_filter = 1
+[node name="FlowerContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ne771")
-theme_override_font_sizes/font_size = 6
-text = "500"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Flower" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer6"]
-texture_filter = 1
-layout_mode = 2
-mouse_filter = 2
+[node name="Sprite" parent="Control/VBoxContainer/FlowerContainer" index="0"]
 texture = SubResource("AtlasTexture_n0ylh")
 
-[node name="FlowerCount" type="Label" parent="Control/VBoxContainer/HBoxContainer6"]
-texture_filter = 1
+[node name="PepperContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ne771")
-theme_override_font_sizes/font_size = 6
-text = "500"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Pepper" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer7"]
-texture_filter = 1
-layout_mode = 2
-mouse_filter = 2
+[node name="Sprite" parent="Control/VBoxContainer/PepperContainer" index="0"]
 texture = SubResource("AtlasTexture_gbfpv")
-
-[node name="PepperCount" type="Label" parent="Control/VBoxContainer/HBoxContainer7"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ne771")
-theme_override_font_sizes/font_size = 6
-text = "500"
 
 [node name="time" type="Label" parent="."]
 offset_left = 109.0
@@ -635,3 +561,11 @@ color = Color(0.458824, 0, 0.501961, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_1and6")
 }
+
+[editable path="Control/VBoxContainer/WheatContainer"]
+[editable path="Control/VBoxContainer/CornContainer"]
+[editable path="Control/VBoxContainer/BambooContainer"]
+[editable path="Control/VBoxContainer/BerryContainer"]
+[editable path="Control/VBoxContainer/OnionContainer"]
+[editable path="Control/VBoxContainer/FlowerContainer"]
+[editable path="Control/VBoxContainer/PepperContainer"]

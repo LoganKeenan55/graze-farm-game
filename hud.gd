@@ -9,13 +9,13 @@ func _ready() -> void:
 	$NightTimeFilter.z_index = 5
 	GlobalFarmTileManager.connect("night_started", Callable(self, "setNight"))
 	GlobalFarmTileManager.connect("day_started", Callable(self, "setDay"))
-	$Control/VBoxContainer/HBoxContainer/WheatCount.text = str(player.inventory["wheat"])
-	$Control/VBoxContainer/HBoxContainer2/CornCount.text = str(player.inventory["corn"])
-	$Control/VBoxContainer/HBoxContainer3/BambooCount.text = str(player.inventory["bamboo"])
-	$Control/VBoxContainer/HBoxContainer4/BerryCount.text = str(player.inventory["berry"])
-	$Control/VBoxContainer/HBoxContainer5/OnionCount.text = str(player.inventory["onion"])
-	$Control/VBoxContainer/HBoxContainer6/FlowerCount.text = str(player.inventory["flower"])
-	$Control/VBoxContainer/HBoxContainer7/PepperCount.text = str(player.inventory["pepper"])
+	$Control/VBoxContainer/WheatContainer/Count.text = str(player.inventory["wheat"])
+	$Control/VBoxContainer/CornContainer/Count.text = str(player.inventory["corn"])
+	$Control/VBoxContainer/BambooContainer/Count.text = str(player.inventory["bamboo"])
+	$Control/VBoxContainer/BerryContainer/Count.text = str(player.inventory["berry"])
+	$Control/VBoxContainer/OnionContainer/Count.text = str(player.inventory["onion"])
+	$Control/VBoxContainer/FlowerContainer/Count.text = str(player.inventory["flower"])
+	$Control/VBoxContainer/PepperContainer/Count.text = str(player.inventory["pepper"])
 
 func _process(_delta: float) -> void:
 	$time.text = str(GlobalVars.globalTime)
@@ -32,16 +32,31 @@ func setDay():
 func updateCounter(cropType: String):
 	match cropType:
 		"wheat":
-			$Control/VBoxContainer/HBoxContainer/WheatCount.text = str(player.inventory["wheat"])
+			$Control/VBoxContainer/WheatContainer/Count.text = str(player.inventory["wheat"])
+			$Control/VBoxContainer/WheatContainer/AnimationPlayer.stop()
+			$Control/VBoxContainer/WheatContainer/AnimationPlayer.play("update")
 		"corn":
-			$Control/VBoxContainer/HBoxContainer2/CornCount.text = str(player.inventory["corn"])
+			$Control/VBoxContainer/CornContainer/Count.text = str(player.inventory["corn"])
+			$Control/VBoxContainer/CornContainer/AnimationPlayer.stop()
+			$Control/VBoxContainer/CornContainer/AnimationPlayer.play("update")
 		"bamboo":
-			$Control/VBoxContainer/HBoxContainer3/BambooCount.text = str(player.inventory["bamboo"])
+			$Control/VBoxContainer/BambooContainer/Count.text = str(player.inventory["bamboo"])
+			$Control/VBoxContainer/BambooContainer/AnimationPlayer.stop()
+			$Control/VBoxContainer/BambooContainer/AnimationPlayer.play("update")
 		"berry":
-			$Control/VBoxContainer/HBoxContainer4/BerryCount.text = str(player.inventory["berry"])
+			$Control/VBoxContainer/BerryContainer/Count.text = str(player.inventory["berry"])
+			$Control/VBoxContainer/BerryContainer/AnimationPlayer.stop()
+			$Control/VBoxContainer/BerryContainer/AnimationPlayer.play("update")
 		"onion":
-			$Control/VBoxContainer/HBoxContainer5/OnionCount.text = str(player.inventory["onion"])
+			$Control/VBoxContainer/OnionContainer/Count.text = str(player.inventory["onion"])
+			$Control/VBoxContainer/OnionContainer/AnimationPlayer.stop()
+			$Control/VBoxContainer/OnionContainer/AnimationPlayer.play("update")
 		"flower":
-			$Control/VBoxContainer/HBoxContainer6/FlowerCount.text = str(player.inventory["flower"])
+			$Control/VBoxContainer/FlowerContainer/Count.text = str(player.inventory["flower"])
+			$Control/VBoxContainer/FlowerContainer/AnimationPlayer.stop()
+			$Control/VBoxContainer/FlowerContainer/AnimationPlayer.play("update")
 		"pepper":
-			$Control/VBoxContainer/HBoxContainer7/PepperCount.text = str(player.inventory["pepper"])
+			$Control/VBoxContainer/PepperContainer/Count.text = str(player.inventory["pepper"])
+			$Control/VBoxContainer/PepperContainer/AnimationPlayer.stop()
+			$Control/VBoxContainer/PepperContainer/AnimationPlayer.play("update")
+		
