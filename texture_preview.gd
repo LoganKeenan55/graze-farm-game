@@ -24,13 +24,13 @@ func _ready() -> void:
 	updateTexture()
 	
 func _on_area_2d_area_exited(_area: Area2D) -> void:
-	GlobalFarmTileManager.overTile = false
+	#GlobalFarmTileManager.overTile = false
 	self_modulate.b = 1
 	self_modulate.g = 1
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(player.tileComponent.placeableTiles[player.currentTile] != "brickTile") or area != player.get_node("HitBox"):
-		GlobalFarmTileManager.overTile = true
+		#GlobalFarmTileManager.overTile = true
 		self_modulate.b = 0
 		self_modulate.g = 0
 		self_modulate.r = 1
@@ -47,13 +47,13 @@ func updateTexture():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(player.tileComponent.placeableTiles[player.currentTile] != "brickTile") or body != player.get_node("HitBox"):
-		GlobalFarmTileManager.overTile = true
+	#	GlobalFarmTileManager.overTile = true
 		self_modulate.b = 0
 		self_modulate.g = 0
 		self_modulate.r = 1
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	GlobalFarmTileManager.overTile = false
+	#GlobalFarmTileManager.overTile = false
 	self_modulate.b = 1
 	self_modulate.g = 1

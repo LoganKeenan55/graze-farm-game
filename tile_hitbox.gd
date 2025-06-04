@@ -12,7 +12,7 @@ func _ready():
 	set_process_input(true)
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
-func handleDeletingTile(event): #shovel
+func handleDeletingTile(): #shovel
 	if deleted:
 		return
 	if Input.is_action_pressed("left_click"):

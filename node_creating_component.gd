@@ -32,16 +32,26 @@ func createTile(type):
 
 	var tilesParent = get_tree().current_scene.find_child("Tiles", true, false)
 	var underTilesParent = get_tree().current_scene.find_child("UnderTiles", true, false)
-
-	for child in tilesParent.get_children():
-		if child.position == tilePosition:
-			return
-	for child in underTilesParent.get_children():
-		if child.position == tilePosition:
-			return
 	
 	if inventory[type]<1:
 		return
+		
+	var freedTile = null #temp variable to keep access to the destroyed tile
+	
+	for child in tilesParent.get_children():
+		if child.position == tilePosition:
+			if child.tileType == type: #check to insure that it won't endlessly replace the same tile
+				return
+			if child.tileType == "waterTile":
+				freedTile = child
+			child.hitbox.handleDeletingTile()
+	
+	for child in underTilesParent.get_children():
+		if child.position == tilePosition:
+			if child.tileType == type: #check to insure that it won't endlessly replace the same tile
+				return
+			child.hitbox.handleDeletingTile()
+	
 
 	var newTile
 	match type:
@@ -51,7 +61,12 @@ func createTile(type):
 			newTile.position = tilePosition
 			tilesParent.add_child(newTile)
 			inventory["farmTile"] -= 1
+			newTile.updateWaterTiles()
 			
+			if freedTile != null: #fixes bug with waterTile staying fertile
+				newTile.waterSources.erase(freedTile)
+				newTile.updateTexture()
+				
 		"waterTile":
 			newTile = waterTilePreload.instantiate()
 			newTile.position = tilePosition
@@ -71,6 +86,7 @@ func createTile(type):
 			inventory["autoFarmTile"] -= 1
 		_:
 			print("INVALID TYPE in function: createTile")
+	
 	hotBar.setAmount("tiles",placeableTiles.find(type),inventory[type])
 	SoundManager.play_sound(newTile.sound)
 	if newTile:

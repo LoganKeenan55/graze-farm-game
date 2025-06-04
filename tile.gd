@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var sprite = $Sprite #need for all tiles
-
+@onready var hitbox = $HitBox
 ##
 const atlasTexture: Texture2D = preload("res://textureAtlas.png")
 var stateIndex:int = 0 #what state is tile in

@@ -9,7 +9,7 @@ func handlePlayerInterection(event):
 			handleHarvesting()
 		"shovel":
 			
-			handleDeletingTile(event)
+			handleDeletingTile()
 		"seeds":
 			handleSeeding()
 		"hammer":

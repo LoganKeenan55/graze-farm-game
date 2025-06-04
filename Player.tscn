@@ -258,6 +258,7 @@ collision_layer = 3
 script = ExtResource("1_dkxi4")
 
 [node name="TileComponent" type="Node2D" parent="."]
+visible = false
 script = ExtResource("2_3tkgg")
 
 [node name="Player_Sprites" type="Node2D" parent="."]
