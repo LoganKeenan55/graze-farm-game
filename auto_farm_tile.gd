@@ -120,7 +120,7 @@ func upgrade():
 		stateIndex = 2
 		
 	updateTexture()
-	
+	SoundManager.play_sound("res://sounds/metal_sound.mp3",get_parent().position)
 
 func setCrop(newCrop):
 	if player.inventory[newCrop] < seedPrices[newCrop]:

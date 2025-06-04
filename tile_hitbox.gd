@@ -49,21 +49,41 @@ func handleHarvesting():
 #	if abs(Input.get_last_mouse_velocity().x) + abs(Input.get_last_mouse_velocity().y) >1000:
 	#use ^? only harvests if mouse is at certain speed
 	
-func handleHammer(): #hammer
-	if tooltip == null and get_parent().cropType != "default": #create tooltip
+var can_click := true
+func handleHammer():
+	if not can_click:
+		return
+
+	if tooltip == null and get_parent().cropType != "default":
 		tooltip = upgrateToolTipPreload.instantiate()
 		get_parent().add_child(tooltip)
 		tooltip.changeCropType(get_parent().cropType)
 		tooltip.position = position
 		tooltip.z_index = 12
 		tooltip.price.text = str(get_parent().upgradePrices[player.harvestables[player.currentSeed]])
-	if Input.is_action_pressed("left_click"):
+
+	if Input.is_action_just_pressed("left_click"):
 		if get_parent().cropType == "default":
 			return
+
+		################# timer to prevent bug of upgrading too many times on one click
+		can_click = false
+		var cooldown_timer = Timer.new()
+		cooldown_timer.wait_time = 0.2
+		cooldown_timer.one_shot = true
+		add_child(cooldown_timer)
+		cooldown_timer.start()
+		cooldown_timer.timeout.connect(func():
+			can_click = true
+			cooldown_timer.queue_free()
+		)
+		################
+		
 		get_parent().upgrade()
 		get_parent().updateTexture()
 		tooltip.queue_free()
 		player.hotBar.updateAll()
+
 		
 func _on_mouse_exited():
 	if tooltip:
