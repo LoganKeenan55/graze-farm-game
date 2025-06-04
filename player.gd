@@ -3,7 +3,7 @@ extends CharacterBody2D
 ## onready
 @onready var tileComponent = $TileComponent
 @onready var hotBar = $HUD/HotBar
-
+@onready var hud = $HUD
 ## preload
 var shopMenuPreload = preload("res://ShopMenu.tscn")
 var dustParticlePreload = preload("res://DustParticle.tscn")

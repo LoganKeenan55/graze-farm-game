@@ -587,13 +587,13 @@ text = "500"
 layout_mode = 2
 mouse_filter = 2
 
-[node name="flower" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer6"]
+[node name="Flower" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer6"]
 texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_n0ylh")
 
-[node name="OnionCount" type="Label" parent="Control/VBoxContainer/HBoxContainer6"]
+[node name="FlowerCount" type="Label" parent="Control/VBoxContainer/HBoxContainer6"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ne771")
@@ -604,13 +604,13 @@ text = "500"
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Onion" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer7"]
+[node name="Pepper" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer7"]
 texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_gbfpv")
 
-[node name="OnionCount" type="Label" parent="Control/VBoxContainer/HBoxContainer7"]
+[node name="PepperCount" type="Label" parent="Control/VBoxContainer/HBoxContainer7"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ne771")

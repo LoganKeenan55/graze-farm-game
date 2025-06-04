@@ -62,7 +62,7 @@ func createTile(type):
 			tilesParent.add_child(newTile)
 			inventory["farmTile"] -= 1
 			newTile.updateWaterTiles()
-			
+			print("sent")
 			if freedTile != null: #fixes bug with waterTile staying fertile
 				newTile.waterSources.erase(freedTile)
 				newTile.updateTexture()

@@ -3,7 +3,6 @@ class_name FarmTile
 
 @onready var player = $HitBox.player
 
-
 var wheatParticlePreload = preload("res://WheatHarvestParticle.tscn")
 var cornPartilePreload = preload("res://CornHarvestParticle.tscn")
 var bambooParticlePreload = preload("res://bamboo_harvest_particle.tscn")
@@ -205,9 +204,8 @@ func harvestCrop():
 			_:
 				print("INVALID TYPE in function: harvestCrop")
 		player.hotBar.updateAmounts("items") #update hotbar
-		
+		player.hud.updateCounter(cropType)
 		SoundManager.play_sound("res://sounds/harvest_sound.mp3", position)
-		
 func seedCrop(newType = null):
 	var typeToPlant = newType if newType != null else cropType
 	if player.inventory[typeToPlant]>= 1:

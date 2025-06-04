@@ -96,6 +96,7 @@ func handleSeeding(): #seed
 		"farmTile":
 			if get_parent().tileState[get_parent().stateIndex] == "fertile" and Input.is_action_pressed("left_click"):
 				get_parent().seedCrop(player.harvestables[player.currentSeed])
+				player.hud.updateCounter(get_parent().cropType)
 		"autoFarmTile":
 			if get_parent().cropType != "default": #check if autoFarmTile hasn't already been seeded
 				return 
