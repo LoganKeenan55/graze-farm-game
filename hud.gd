@@ -28,7 +28,30 @@ func setDay():
 	SoundManager.play_ui_sound("res://sounds/turn_day.mp3",.3)
 	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_day")
 
+func updateAllCounter():
+	$Control/VBoxContainer/WheatContainer/Count.text = str(player.inventory["wheat"])
+	$Control/VBoxContainer/WheatContainer/AnimationPlayer.stop()
+	$Control/VBoxContainer/WheatContainer/AnimationPlayer.play("update")
+	$Control/VBoxContainer/CornContainer/Count.text = str(player.inventory["corn"])
+	$Control/VBoxContainer/CornContainer/AnimationPlayer.stop()
+	$Control/VBoxContainer/CornContainer/AnimationPlayer.play("update")
+	$Control/VBoxContainer/BambooContainer/Count.text = str(player.inventory["bamboo"])
+	$Control/VBoxContainer/BambooContainer/AnimationPlayer.stop()
+	$Control/VBoxContainer/BambooContainer/AnimationPlayer.play("update")
+	$Control/VBoxContainer/BerryContainer/Count.text = str(player.inventory["berry"])
+	$Control/VBoxContainer/BerryContainer/AnimationPlayer.stop()
+	$Control/VBoxContainer/BerryContainer/AnimationPlayer.play("update")
+	$Control/VBoxContainer/OnionContainer/Count.text = str(player.inventory["onion"])
+	$Control/VBoxContainer/OnionContainer/AnimationPlayer.stop()
+	$Control/VBoxContainer/OnionContainer/AnimationPlayer.play("update")
+	$Control/VBoxContainer/FlowerContainer/Count.text = str(player.inventory["flower"])
+	$Control/VBoxContainer/FlowerContainer/AnimationPlayer.stop()
+	$Control/VBoxContainer/FlowerContainer/AnimationPlayer.play("update")
+	$Control/VBoxContainer/PepperContainer/Count.text = str(player.inventory["pepper"])
+	$Control/VBoxContainer/PepperContainer/AnimationPlayer.stop()
+	$Control/VBoxContainer/PepperContainer/AnimationPlayer.play("update")
 
+	
 func updateCounter(cropType: String):
 	match cropType:
 		"wheat":

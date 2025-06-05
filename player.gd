@@ -60,7 +60,7 @@ func handleCheats():
 		inventory["berry"] = 9999
 		inventory["onion"] = 9999
 		hotBar.updateAll()
-
+		hud.updateAllCounter()
 func getData():
 	return {
 		"group": "player",
