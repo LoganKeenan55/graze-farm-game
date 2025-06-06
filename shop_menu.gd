@@ -55,7 +55,7 @@ func buy(cropType:String, amount:int, purchase:String):
 		inventory[purchase] = inventory[purchase] + 1
 		SoundManager.play_ui_sound("res://sounds/purchase.mp3")
 		GlobalVars.player.hotBar.updateAll()
-		
+		GlobalVars.player.hud.updateCounter(cropType)
 	else:
 		SoundManager.play_ui_sound("res://sounds/not_enough.mp3")
 		return false

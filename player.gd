@@ -59,6 +59,8 @@ func handleCheats():
 		inventory["bamboo"] = 9999
 		inventory["berry"] = 9999
 		inventory["onion"] = 9999
+		inventory["flower"] = 9999
+		inventory["pepper"] = 9999
 		hotBar.updateAll()
 		hud.updateAllCounter()
 func getData():
