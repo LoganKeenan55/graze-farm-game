@@ -60,7 +60,7 @@ func play_ui_sound(path: String, overide: float = 0): #for UI sounds (no pitch s
 	add_child(audio_player)
 	audio_player.stream = stream
 
-	audio_player.volume_db = linear_to_db(volume - overide)
+	audio_player.volume_db = linear_to_db(clamp((volume) - overide, 0.01, 1.0))
 	audio_player.play()
 	active_sounds.append(audio_player)
 

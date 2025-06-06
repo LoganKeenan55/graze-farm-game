@@ -21,11 +21,11 @@ func _process(_delta: float) -> void:
 	$time.text = str(GlobalVars.globalTime)
 	$ClockSprite/handSprite.rotation = (GlobalVars.globalTime / 12.0) * TAU
 func setNight():
-	SoundManager.play_ui_sound("res://sounds/turn_night.mp3",.3)
+	SoundManager.play_ui_sound("res://sounds/turn_night.mp3",.45)
 	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_night")
 
 func setDay():
-	SoundManager.play_ui_sound("res://sounds/turn_day.mp3",.3)
+	SoundManager.play_ui_sound("res://sounds/turn_day.mp3",.45)
 	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_day")
 
 func updateAllCounter():

@@ -48,10 +48,14 @@ func createTile(type):
 	
 	for child in underTilesParent.get_children():
 		if child.position == tilePosition:
+			if tilePosition.distance_to(get_parent().position) < 20:
+				return
 			if child.tileType == type: #check to insure that it won't endlessly replace the same tile
 				return
 			child.hitbox.handleDeletingTile()
 	
+	if type != "brickTile" and tilePosition.distance_to(get_parent().position) < 20: #checks to see if new tile is on top of player if so doesn't place
+		return
 
 	var newTile
 	match type:

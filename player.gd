@@ -34,7 +34,7 @@ var harvestables = ["wheat", "corn", "bamboo", "berry", "onion", "flower", "pepp
 func _ready() -> void:
 	add_to_group("player")
 	$TileComponent.hotBar = hotBar
-
+	
 func _physics_process(delta):
 	move_and_slide()
 
