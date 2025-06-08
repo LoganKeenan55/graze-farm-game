@@ -116,6 +116,7 @@ func getData():
 	return nodeData
 
 func updateTexture():
+	
 	if waterSources.size() > 0 and stateIndex == 0:
 		stateIndex = 1
 		
@@ -128,7 +129,6 @@ func updateTexture():
 		atlas.atlas = atlasTexture
 		atlas.region = currentTextureRegions[currentState]
 		sprite.texture = atlas  #apply the new texture region
-		
 		
 	if currentState == "harvestable":
 		sprite.offset.y = -8  #move it down by 16 pixels

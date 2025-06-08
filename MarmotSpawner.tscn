@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0grxrghfbhic"]
+
+[ext_resource type="Script" uid="uid://bggmjic583jd0" path="res://marmot_spawner.gd" id="1_cpvi7"]
+
+[node name="MarmotSpawner" type="Node2D"]
+script = ExtResource("1_cpvi7")

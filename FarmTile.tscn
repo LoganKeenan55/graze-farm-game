@@ -88,7 +88,6 @@ texture = SubResource("AtlasTexture_lsl7k")
 [node name="Blend" type="Node2D" parent="."]
 
 [node name="DeletingCollision" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeletingCollision"]
@@ -100,7 +99,6 @@ position = Vector2(-8, -8)
 script = ExtResource("3_8yfbs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-visible = false
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_6nhlr")
 

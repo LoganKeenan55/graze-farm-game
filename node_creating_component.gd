@@ -26,7 +26,7 @@ var tilePreview
 
 func createTile(type):
 	var tilePosition = Vector2(
-		snapped(get_global_mouse_position().x, 16),
+		snapped((get_global_mouse_position().x), 16),
 		snapped(get_global_mouse_position().y, 16)
 	)
 
