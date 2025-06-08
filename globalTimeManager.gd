@@ -7,13 +7,14 @@ var overTile
 var wheatGrowPerMinute: float
 
 var autoFarmElapsed = 0.0
-var autoFarmInterval = 10.0 # 10 seconds
+var autoFarmInterval = 2.0 # 10 seconds
 
 var globalTimeElapsed = 0.0
 var globalTimeInterval = 5
 
 signal night_started
 signal day_started
+signal spawnMarmot
 
 func _process(delta: float) -> void:
 	timeElapsed += delta
@@ -22,9 +23,12 @@ func _process(delta: float) -> void:
 	if timeElapsed >= tickSpeed:
 		growFarmTiles()
 		flowWater()
+		
 		timeElapsed = 0
+	
 	if autoFarmElapsed >= autoFarmInterval:
 		activateAutoFarmers()
+		callMarmotSpawner()
 		autoFarmElapsed = 0
 	if globalTimeElapsed >= globalTimeInterval:
 		
@@ -54,3 +58,6 @@ func flowWater():
 	for water in get_tree().get_nodes_in_group("waterTiles"):
 		if water:
 			water.flow()
+
+func callMarmotSpawner():
+	emit_signal("spawnMarmot")

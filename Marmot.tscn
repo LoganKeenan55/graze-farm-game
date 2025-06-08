@@ -1,14 +1,71 @@
-[gd_scene load_steps=5 format=3 uid="uid://0o4bwumrqgl0"]
+[gd_scene load_steps=9 format=3 uid="uid://0o4bwumrqgl0"]
 
 [ext_resource type="Script" uid="uid://bbiev4l872e43" path="res://marmot.gd" id="1_54bpy"]
-[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_kv1i5"]
+[ext_resource type="Texture2D" uid="uid://bqqvy53klp00p" path="res://marmot.png" id="2_54bpy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_54bpy"]
-atlas = ExtResource("1_kv1i5")
-region = Rect2(128, 128, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioden"]
+atlas = ExtResource("2_54bpy")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ioden"]
 radius = 8.0
+
+[sub_resource type="Animation" id="Animation_54bpy"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ioden"]
+resource_name = "eat"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_tde6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8lyuv"]
+_data = {
+&"RESET": SubResource("Animation_tde6x"),
+&"eat": SubResource("Animation_ioden"),
+&"walk": SubResource("Animation_54bpy")
+}
 
 [node name="Marmot" type="CharacterBody2D"]
 collision_layer = 0
@@ -17,7 +74,8 @@ script = ExtResource("1_54bpy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = SubResource("AtlasTexture_54bpy")
+texture = SubResource("AtlasTexture_ioden")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ioden")
@@ -26,10 +84,14 @@ shape = SubResource("CircleShape2D_ioden")
 target_desired_distance = 0.1
 path_max_distance = 477.0
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8lyuv")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

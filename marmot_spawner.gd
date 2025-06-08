@@ -3,7 +3,12 @@ extends Node2D
 var marmotPreload = preload("res://Marmot.tscn")
 var goalTile:Node
 
+var marmotArr = []
+
 @export var player:Node
+
+func _ready() -> void:
+	GlobalFarmTileManager.connect("spawnMarmot", Callable(self, "spawnMarmot"))
 
 func pickFarmTile() -> Node: #returns random farmTile node
 	var farmTiles = get_tree().get_nodes_in_group("farmTiles")
@@ -14,6 +19,8 @@ func pickFarmTile() -> Node: #returns random farmTile node
 	var ammountOfTiles = farmTiles.size()
 	var randomIndex = randi_range(0,ammountOfTiles-1)
 	var tile = farmTiles[randomIndex]
+	if tile.stateIndex < 2:
+		return null
 	goalTile = tile
 	return tile
 
@@ -26,12 +33,24 @@ func findPlaceToSpawnMarmot() -> Vector2: #760 1450
 
 func isMarmotSpawnValid(randVec) -> bool:
 	var tilesParent = get_tree().current_scene.find_child("Tiles", true, false)
+	var temp
+	
+	
+	if randVec.distance_to(player.position) <= 100: #too close to player
+		return false
+	
+	
+	var hasNearbyTile = false
+
 	for node in tilesParent.get_children():
-		if node.position.distance_to(randVec) <= 16:
+		
+		if node.position.distance_to(randVec) <= 16: #too close to tile any
 			return false
-		if randVec.distance_to(player.position) <= 50:
-			return false
-	return true
+	
+		if node.position.distance_to(randVec) > 500: #not close enough to tile
+			hasNearbyTile = true
+	
+	return hasNearbyTile
 
 
 func spawnMarmot() -> void:
@@ -43,4 +62,5 @@ func spawnMarmot() -> void:
 	newMarmot.position = findPlaceToSpawnMarmot()
 	newMarmot.goal = goalTile
 	#newMarmot.navAgent.target_position = goalTile.position
-	get_parent().add_child(newMarmot)
+	add_child(newMarmot)
+	marmotArr.append(newMarmot)
