@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://0o4bwumrqgl0"]
+[gd_scene load_steps=11 format=3 uid="uid://0o4bwumrqgl0"]
 
 [ext_resource type="Script" uid="uid://bbiev4l872e43" path="res://marmot.gd" id="1_54bpy"]
 [ext_resource type="Texture2D" uid="uid://bqqvy53klp00p" path="res://marmot.png" id="2_54bpy"]
+[ext_resource type="Script" uid="uid://b2fimy3sh4sdf" path="res://hitbox.gd" id="3_ioden"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ioden"]
 atlas = ExtResource("2_54bpy")
@@ -67,6 +68,9 @@ _data = {
 &"walk": SubResource("Animation_54bpy")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_54bpy"]
+radius = 17.0
+
 [node name="Marmot" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
@@ -85,13 +89,23 @@ target_desired_distance = 0.1
 path_max_distance = 477.0
 path_postprocessing = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="EatTimer" type="Timer" parent="."]
 one_shot = true
-autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_8lyuv")
 }
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_ioden")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_54bpy")
+
+[connection signal="timeout" from="EatTimer" to="." method="_on_eat_timer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="input_event" from="Hitbox" to="Hitbox" method="_on_input_event"]

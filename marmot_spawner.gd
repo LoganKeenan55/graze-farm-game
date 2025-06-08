@@ -57,7 +57,6 @@ func spawnMarmot() -> void:
 	var newMarmot = marmotPreload.instantiate()
 	goalTile = pickFarmTile()
 	if goalTile == null:
-		print("cannot spawn marmot: NO FARMTILES AVALIBLE")
 		return
 	newMarmot.position = findPlaceToSpawnMarmot()
 	newMarmot.goal = goalTile

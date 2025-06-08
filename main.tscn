@@ -189,7 +189,7 @@ position = Vector2(500, 300)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
-position = Vector2(237, 94)
+position = Vector2(233, -3)
 navigation_polygon = SubResource("NavigationPolygon_lquwl")
 
 [node name="MarmotSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
