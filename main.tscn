@@ -183,7 +183,7 @@ layer_0/tile_data = PackedInt32Array(655368, 655360, 3, 524316, 655360, 3, -1310
 [node name="UnderTiles" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_q2fse")]
-position = Vector2(500, 300)
+position = Vector2(692, 387)
 
 [node name="Tiles" type="Node2D" parent="."]
 

@@ -22,6 +22,9 @@ func pickFarmTile() -> Node: #returns random farmTile node
 	if tile.stateIndex < 2:
 		return null
 	goalTile = tile
+	for marmot in marmotArr:
+		if marmot.goal == tile:
+			return null
 	return tile
 
 func findPlaceToSpawnMarmot() -> Vector2: #760 1450
@@ -41,16 +44,17 @@ func isMarmotSpawnValid(randVec) -> bool:
 	
 	
 	var hasNearbyTile = false
-
+	
 	for node in tilesParent.get_children():
-		
 		if node.position.distance_to(randVec) <= 16: #too close to tile any
 			return false
 	
 		if node.position.distance_to(randVec) > 500: #not close enough to tile
 			hasNearbyTile = true
+			
 	
 	return hasNearbyTile
+
 
 
 func spawnMarmot() -> void:
