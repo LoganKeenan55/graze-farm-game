@@ -145,4 +145,5 @@ shape = SubResource("CircleShape2D_54bpy")
 [connection signal="timeout" from="EatTimer" to="." method="_on_eat_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="input_event" from="Hitbox" to="Hitbox" method="_on_input_event"]

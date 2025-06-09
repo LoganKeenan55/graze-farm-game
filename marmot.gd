@@ -20,7 +20,6 @@ func flipSprite():
 func _physics_process(delta: float) -> void:
 	handleMovingToTarget(delta)
 	
-
 func handleMovingToTarget(delta: float) -> void:
 	if isLeaving:
 		return
@@ -55,8 +54,23 @@ func _on_eat_timer_timeout() -> void:
 func _on_wait_timer_timeout() -> void:
 	leave("leave_happy")
 
+func isPepperClose():
+	pass
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "leave" or "leave_happy":
 		get_parent().marmotArr.erase(self)
 		queue_free()
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void: #checks for peppers in range, if so leaves
+	if area.get_parent().tileType != "farmTile":
+		return
+	if area.get_parent().cropType == "pepper":
+		leave("leave")
+	#nearbyFarmTiles.append(area.get_parent())
+
+#
+#func _on_hitbox_area_exited(area: Area2D) -> void:
+	#if nearbyFarmTiles.has(area.get_parent()):
+		#nearbyFarmTiles.erase(area.get_parent())
