@@ -24,7 +24,7 @@ func handleMovingToTarget(delta: float) -> void:
 	if isLeaving:
 		return
 	if !goal:
-		leave("leave")
+		leave("leave_scared")
 	if navAgent.distance_to_target() < 10:
 		eatCrop()
 		isEating = true
@@ -58,16 +58,16 @@ func isPepperClose():
 	pass
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "leave" or "leave_happy":
+	if anim_name == "leave_scared" or "leave_happy":
 		get_parent().marmotArr.erase(self)
 		queue_free()
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void: #checks for peppers in range, if so leaves
-	if area.get_parent().tileType != "farmTile":
+	if !area.get_parent().is_in_group("farmTiles"):
 		return
 	if area.get_parent().cropType == "pepper":
-		leave("leave")
+		leave("leave_hot")
 	#nearbyFarmTiles.append(area.get_parent())
 
 #

@@ -7,4 +7,4 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	handlePlayerInteraction(event)
 
 func handlePlayerInteraction(event):
-	get_parent().leave("leave")
+	get_parent().leave("leave_scared")
