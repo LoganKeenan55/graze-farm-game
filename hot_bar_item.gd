@@ -29,7 +29,8 @@ func setAmount(newAmount):
 		amount.text = str(newAmount) 
 	else:
 		amount.visible = false
-
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("update_ammount")
 
 func setSelected(input: bool):
 	

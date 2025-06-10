@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb648teaj3rrn"]
+[gd_scene load_steps=11 format=3 uid="uid://bb648teaj3rrn"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_0jthv"]
 [ext_resource type="Script" uid="uid://o1giiswb2exi" path="res://hot_bar_item.gd" id="1_dao0i"]
@@ -42,6 +42,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteHolder/amount:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 4)]
+}
 
 [sub_resource type="Animation" id="Animation_dao0i"]
 resource_name = "Selected"
@@ -59,11 +71,28 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -3.345), Vector2(0, -1.88)]
 }
 
+[sub_resource type="Animation" id="Animation_dxvqn"]
+resource_name = "update_ammount"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteHolder/amount:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.170755, 2.54912),
+"update": 0,
+"values": [Vector2(-8, 1.555), Vector2(-8, 4)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1clux"]
 _data = {
 &"Deselected": SubResource("Animation_1clux"),
 &"RESET": SubResource("Animation_vh0u0"),
-&"Selected": SubResource("Animation_dao0i")
+&"Selected": SubResource("Animation_dao0i"),
+&"update_ammount": SubResource("Animation_dxvqn")
 }
 
 [node name="HotBarItem" type="Node2D"]
