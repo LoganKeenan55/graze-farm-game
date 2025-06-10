@@ -124,9 +124,9 @@ text = "1"
 [node name="amount" type="Label" parent="SpriteHolder"]
 texture_filter = 1
 offset_left = -8.0
-offset_top = 4.0
+offset_top = 1.555
 offset_right = 8.0
-offset_bottom = 9.0
+offset_bottom = 6.555
 theme_override_fonts/font = ExtResource("3_vh0u0")
 theme_override_font_sizes/font_size = 4
 text = "N/A"

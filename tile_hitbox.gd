@@ -30,6 +30,7 @@ func handleDeletingTile(): #shovel
 			"farmTile":
 				if get_parent().stateIndex >= 2 and get_parent().stateIndex <= 3:
 					player.inventory[get_parent().cropType] += 1
+					player.hud.updateCounter(get_parent().cropType)
 				if get_parent().stateIndex == 4:
 					get_parent().harvestCrop()
 			"autoFarmTile":
