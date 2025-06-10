@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://cn6qxxbekju82"]
+[gd_scene load_steps=2 format=3 uid="uid://cn6qxxbekju82"]
+
+[ext_resource type="Texture2D" uid="uid://cyamwum24vugd" path="res://home.png" id="1_jmugw"]
 
 [node name="Home" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_jmugw")
+hframes = 2

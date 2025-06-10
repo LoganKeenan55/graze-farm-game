@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvild13tpsq7d"]
+[gd_scene load_steps=9 format=3 uid="uid://cvild13tpsq7d"]
 
 [ext_resource type="Script" uid="uid://c6fp030nldugh" path="res://main.gd" id="1_83qsj"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="2_7n4sv"]
 [ext_resource type="PackedScene" uid="uid://dbstt3x47rihs" path="res://Player.tscn" id="2_q2fse"]
+[ext_resource type="PackedScene" uid="uid://cn6qxxbekju82" path="res://Home.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d0grxrghfbhic" path="res://MarmotSpawner.tscn" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
@@ -194,3 +195,6 @@ navigation_polygon = SubResource("NavigationPolygon_lquwl")
 
 [node name="MarmotSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 player = NodePath("../Player")
+
+[node name="Home" parent="." instance=ExtResource("4_lquwl")]
+position = Vector2(748, 363)
