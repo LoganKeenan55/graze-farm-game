@@ -7,7 +7,7 @@ var overTile
 var wheatGrowPerMinute: float
 
 var autoFarmElapsed = 0.0
-var autoFarmInterval = 1.0 # 10 seconds
+var autoFarmInterval = 10.0 # 10 seconds
 
 var globalTimeElapsed = 0.0
 var globalTimeInterval = 5
@@ -60,4 +60,6 @@ func flowWater():
 			water.flow()
 
 func callMarmotSpawner():
+	if randi_range(1,3) != 1:
+		return
 	emit_signal("spawnMarmot")
