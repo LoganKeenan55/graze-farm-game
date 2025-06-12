@@ -109,7 +109,6 @@ func freeTilePreview():
 		tilePreview.queue_free()
 
 func sortTilesByY(parentNode):
-	pass
 	var tiles = parentNode.get_children()
 	tiles.sort_custom(func(a, b): return a.position.y < b.position.y)
 	for i in range(tiles.size()):

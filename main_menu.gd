@@ -1,5 +1,6 @@
 extends Node2D
 
+var transitioning = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -18,13 +19,16 @@ func _on_quit_button_mouse_entered() -> void:
 
 func _on_continue_button_pressed() -> void:
 	GlobalVars.isNewGame = false
-	get_tree().change_scene_to_file("res://main.tscn")
+	$DirtTransition.closeTransition()
+	transitioning = true
+	#get_tree().change_scene_to_file("res://main.tscn")
 	
 
 
 func _on_new_game_button_pressed() -> void:
 	GlobalVars.isNewGame = true
-	get_tree().change_scene_to_file("res://main.tscn")
+	transitioning = true
+	$DirtTransition.closeTransition()
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

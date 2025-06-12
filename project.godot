@@ -24,6 +24,7 @@ config/icon="uid://drau5v6ysg1b7"
 GlobalVars="*res://globalVars.gd"
 GlobalFarmTileManager="*res://globalTimeManager.gd"
 SoundManager="*res://sound_manager.gd"
+DirtTransition="res://dirt_transition.gd"
 
 [display]
 

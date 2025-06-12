@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvild13tpsq7d"]
+[gd_scene load_steps=10 format=3 uid="uid://cvild13tpsq7d"]
 
 [ext_resource type="Script" uid="uid://c6fp030nldugh" path="res://main.gd" id="1_83qsj"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="2_7n4sv"]
 [ext_resource type="PackedScene" uid="uid://dbstt3x47rihs" path="res://Player.tscn" id="2_q2fse"]
 [ext_resource type="PackedScene" uid="uid://cn6qxxbekju82" path="res://Home.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d0grxrghfbhic" path="res://MarmotSpawner.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b2mqiobubchau" path="res://DirtTransition.tscn" id="6_7mycd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
 texture = ExtResource("2_7n4sv")
@@ -208,3 +209,7 @@ player = NodePath("../Player")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="DirtTransition" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(542, 377)
+scale = Vector2(5, 5)

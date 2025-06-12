@@ -1,5 +1,7 @@
 extends Sprite2D
 
+
+
 func _process(delta: float) -> void:
 	position = get_viewport().get_mouse_position() -  Vector2(158,90)
 
@@ -24,6 +26,8 @@ func pickRandomSeed() -> String:
 	return "dafuq"
 	
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	if get_parent().transitioning == true:
+		return
 	var parent = area.get_parent()
 	if parent.tileType != "farmTile":
 		return

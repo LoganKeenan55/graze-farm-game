@@ -15,7 +15,7 @@ size = Vector2(2.22725, 1.83748)
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkvcj"]
-size = Vector2(19.7279, 19.6704)
+size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_ia4s4"]
 length = 0.001
@@ -55,11 +55,10 @@ position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_6nhlr")
 
 [node name="PlayerCollision" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(-8, -8)
+position = Vector2(-8.58, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
-position = Vector2(8.10478, 7.96018)
+position = Vector2(8.58, 8)
 shape = SubResource("RectangleShape2D_rkvcj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

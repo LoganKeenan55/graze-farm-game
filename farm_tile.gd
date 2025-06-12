@@ -2,6 +2,7 @@ extends "res://tile.gd"
 class_name FarmTile
 
 @onready var player = $HitBox.player
+@onready var playerCol = $PlayerCollision
 
 var wheatParticlePreload = preload("res://WheatHarvestParticle.tscn")
 var cornPartilePreload = preload("res://CornHarvestParticle.tscn")

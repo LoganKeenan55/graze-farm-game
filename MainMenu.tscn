@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bpctmvd7jl1ar"]
+[gd_scene load_steps=25 format=3 uid="uid://bpctmvd7jl1ar"]
 
 [ext_resource type="Script" uid="uid://b4g7gjmx15vfp" path="res://main_menu.gd" id="1_h7a2f"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_i26rj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://3gf1swbufqte" path="res://main_menu_cursor.gd" id="4_qoqlk"]
 [ext_resource type="PackedScene" uid="uid://dpsu1q5hkv5i" path="res://WaterTile.tscn" id="5_e2xy7"]
 [ext_resource type="Texture2D" uid="uid://b7fmp2kynllgt" path="res://sunBeam.png" id="8_e2xy7"]
+[ext_resource type="PackedScene" uid="uid://b2mqiobubchau" path="res://DirtTransition.tscn" id="9_fimr5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eiy7p"]
 texture = ExtResource("1_i26rj")
@@ -967,6 +968,10 @@ shape = SubResource("CircleShape2D_cqjrg")
 texture_filter = 1
 position = Vector2(-8, -8)
 texture = ExtResource("8_e2xy7")
+
+[node name="DirtTransition" parent="." instance=ExtResource("9_fimr5")]
+position = Vector2(-168, -95)
+scale = Vector2(5, 5)
 
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Continue/ContinueButton" to="." method="_on_continue_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Continue/ContinueButton" to="." method="_on_continue_button_pressed"]
