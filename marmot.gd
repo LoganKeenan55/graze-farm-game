@@ -6,7 +6,7 @@ const speed = 3000
 
 var goal: Node
 var isEating
-var isLeaving
+var isLeaving = false
 
 func _ready() -> void:
 	$NavigationAgent2D.target_position = goal.global_position
@@ -66,8 +66,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void: #checks for peppers in range, if so leaves
 	if !area.get_parent().is_in_group("farmTiles"):
 		return
-	if area.get_parent().cropType == "pepper":
+	if area.get_parent().cropType == "pepper" and area.get_parent().stateIndex == 4:
 		leave("leave_hot")
+		area.get_parent().stateIndex = 2
+		area.get_parent().updateTexture()
 	#nearbyFarmTiles.append(area.get_parent())
 
 #

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cn6qxxbekju82" path="res://Home.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d0grxrghfbhic" path="res://MarmotSpawner.tscn" id="5_lquwl"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
 texture = ExtResource("2_7n4sv")
 0:0/0 = 0
 1:0/0 = 0
@@ -155,7 +155,7 @@ texture = ExtResource("2_7n4sv")
 
 [sub_resource type="TileSet" id="TileSet_ji72q"]
 terrain_set_0/mode = 2
-sources/0 = SubResource("TileSetAtlasSource_1bvp3")
+sources/0 = SubResource("TileSetAtlasSource_lquwl")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(1222, 770, -235, 770, -235, 4, 1222, 2)
@@ -181,10 +181,14 @@ tile_set = SubResource("TileSet_ji72q")
 format = 2
 layer_0/tile_data = PackedInt32Array(655368, 655360, 3, 524316, 655360, 3, -131060, 655360, 3, 524285, 655360, 3, -655362, 655360, 3, 1507391, 655360, 3, 1769519, 655360, 3, 1310747, 655360, 3, 1572868, 655360, 3, 65586, 655360, 3, -786396, 655360, 3, -720825, 655360, 3, 1507405, 655360, 3, 327747, 655360, 3, 786492, 720896, 3, 327730, 720896, 3, 917543, 720896, 3, 65570, 720896, 3, 917524, 720896, 3, 1310720, 720896, 3, 131077, 720896, 3, -131076, 720896, 3, -655349, 720896, 3, 1703983, 720896, 3, 1835039, 720896, 3, 1966074, 720896, 3, 1245256, 720896, 3, 917564, 720896, 3, -262081, 720896, 3, -524241, 720896, 3, 1441847, 786432, 3, 458797, 786432, 3, 917533, 786432, 3, 131108, 786432, 3, -393192, 786432, 3, -458750, 786432, 3, 196620, 786432, 3, 458754, 786432, 3, 1179643, 786432, 3, 1507347, 786432, 3, 786447, 786432, 3, 917540, 786432, 3, 786483, 786432, 3, 1441865, 786432, 3, 720975, 786432, 3, -327607, 786432, 3, -917429, 786432, 3, -917443, 786432, 3, -524239, 786432, 3, -917480, 786432, 3, 1114123, 786432, 3, 1114116, 786432, 3, 1900541, 786432, 3, 1835057, 851968, 3, 1114142, 851968, 3, 589885, 851968, 3, 393260, 851968, 3, -327628, 851968, 3, -655330, 851968, 3, 31, 851968, 3, -589822, 851968, 3, -196595, 851968, 3, 196610, 851968, 3, 720915, 917504, 3, 1048572, 851968, 3, 327673, 851968, 3, 983049, 851968, 3, 1703952, 983040, 3, 1900584, 851968, 3, 1245232, 851968, 3, 1114187, 851968, 3, -65462, 851968, 3, -524229, 851968, 3, 1376318, 917504, 3, 786472, 917504, 3, 262201, 917504, 3, -524248, 917504, 3, -655346, 917504, 3, 65544, 917504, 3, 327707, 917504, 3, 1245186, 917504, 3, 1245185, 917504, 3, 786429, 917504, 3, 1900535, 917504, 3, 1507366, 983040, 3, 852012, 983040, 3, 589862, 983040, 3, -393151, 983040, 3, 1376330, 983040, 3, 1376320, 983040, 3, -786366, 983040, 3, -917462, 983040, 3, -196569, 983040, 3, -720882, 983040, 3, -458733, 983040, 3, -65533, 983040, 3, 196618, 983040, 3, 1114107, 983040, 3, 917522, 983040, 3, 720942, 983040, 3, 196632, 786432, 3, -262116, 786432, 3, 393247, 851968, 3, 196626, 851968, 3, 131097, 983040, 3, 1376270, 983040, 3)
 
+[node name="Home" parent="." instance=ExtResource("4_lquwl")]
+visible = false
+position = Vector2(576, 391)
+
 [node name="UnderTiles" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_q2fse")]
-position = Vector2(692, 387)
+position = Vector2(619, 448)
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -195,6 +199,3 @@ navigation_polygon = SubResource("NavigationPolygon_lquwl")
 
 [node name="MarmotSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 player = NodePath("../Player")
-
-[node name="Home" parent="." instance=ExtResource("4_lquwl")]
-position = Vector2(748, 363)

@@ -208,6 +208,7 @@ func harvestCrop():
 		SoundManager.play_sound("res://sounds/harvest_sound.mp3", position)
 func seedCrop(newType = null):
 	var typeToPlant = newType if newType != null else cropType
+	
 	if player.inventory[typeToPlant]>= 1:
 		if newType:
 			setType(newType)

@@ -5,7 +5,7 @@ const MAX_SOUNDS = 35
 var volume:float = .5
 
 var active_sounds = [] #keeps track of all sounds being played
-@onready var player = get_tree().current_scene.get_node("Player")
+@onready var player
 
 #path -> sound_file
 #pos -> position of sound (optional)

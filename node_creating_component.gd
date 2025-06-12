@@ -26,8 +26,8 @@ var tilePreview
 
 func createTile(type):
 	var tilePosition = Vector2(
-		snapped((get_global_mouse_position().x), 16),
-		snapped(get_global_mouse_position().y, 16)
+		int(snapped(get_global_mouse_position().x, 16)),
+		int(snapped(get_global_mouse_position().y, 16))
 	)
 
 	var tilesParent = get_tree().current_scene.find_child("Tiles", true, false)

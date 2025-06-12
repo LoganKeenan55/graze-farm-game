@@ -178,7 +178,7 @@ texture = ExtResource("1_bqhtw")
 terrain_set_0/mode = 2
 sources/0 = SubResource("TileSetAtlasSource_e5qd0")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teu2f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3m5gk"]
 texture = ExtResource("1_bqhtw")
 0:0/0 = 0
 1:0/0 = 0
@@ -327,7 +327,7 @@ texture = ExtResource("1_bqhtw")
 
 [sub_resource type="TileSet" id="TileSet_shxc8"]
 terrain_set_0/mode = 2
-sources/0 = SubResource("TileSetAtlasSource_teu2f")
+sources/0 = SubResource("TileSetAtlasSource_3m5gk")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_shxc8"]
 atlas = ExtResource("1_bqhtw")

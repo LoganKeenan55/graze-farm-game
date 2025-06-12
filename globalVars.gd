@@ -33,15 +33,17 @@ var textureRegions = {
 
 var timeSinceLastSave
 var globalTime:int = 8
+var isNewGame = false
+var isInMainMenu = true
 ##
 var farmTilePreload = preload("res://FarmTile.tscn")
 var waterTilePreload = preload("res://WaterTile.tscn")
 var brickTilePreload = preload("res://BrickTile.tscn")
 var autoFarmerTilePreload = preload("res://AutoFarmTile.tscn")
 ##
-@onready var player = get_tree().current_scene.get_node("Player")
-@onready var tilesParent = get_tree().current_scene.get_node("Tiles")
-@onready var underTilesParent = get_tree().current_scene.get_node("UnderTiles")
+@onready var player
+@onready var tilesParent
+@onready var underTilesParent 
 ##
 
 func saveGame():

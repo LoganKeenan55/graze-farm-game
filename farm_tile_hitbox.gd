@@ -14,3 +14,5 @@ func handlePlayerInterection(event):
 			handleSeeding()
 		"hammer":
 			pass
+	#if GlobalVars.isInMainMenu:
+		
