@@ -54,8 +54,8 @@ func createTile(type):
 				return
 			child.hitbox.handleDeletingTile()
 	
-	if type != "brickTile" and tilePosition.distance_to(get_parent().position) < 20: #checks to see if new tile is on top of player if so doesn't place
-		return
+	#if type != "brickTile" and tilePosition.distance_to(get_parent().position) < 20: #checks to see if new tile is on top of player if so doesn't place
+		#return
 
 	var newTile
 	match type:
@@ -109,6 +109,7 @@ func freeTilePreview():
 		tilePreview.queue_free()
 
 func sortTilesByY(parentNode):
+	pass
 	var tiles = parentNode.get_children()
 	tiles.sort_custom(func(a, b): return a.position.y < b.position.y)
 	for i in range(tiles.size()):

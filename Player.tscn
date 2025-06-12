@@ -256,9 +256,9 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.34902)
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_dkxi4")
+metadata/_edit_vertical_guides_ = [-2172.0]
 
 [node name="TileComponent" type="Node2D" parent="."]
-visible = false
 script = ExtResource("2_3tkgg")
 
 [node name="Player_Sprites" type="Node2D" parent="."]

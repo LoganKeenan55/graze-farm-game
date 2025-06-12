@@ -50,6 +50,7 @@ _data = {
 size = Vector2(16, 16)
 
 [node name="TexturePreview" type="Sprite2D"]
+visible = false
 modulate = Color(1, 1, 1, 0.388235)
 texture_filter = 1
 texture = SubResource("AtlasTexture_yy4wn")

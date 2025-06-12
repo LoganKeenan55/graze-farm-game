@@ -28,13 +28,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if parent.tileType != "farmTile":
 		return
 	if parent.stateIndex ==4 :
-		SoundManager.play_sound("res://sounds/harvest_sound.mp3", parent.position)
+		SoundManager.play_sound("res://sounds/harvest_sound.mp3", parent.position,.2)
 		parent.createHarvestParticle()
 		parent.stateIndex = 1
 		parent.updateTexture()
 		return
 	if parent.stateIndex <2:
-		SoundManager.play_sound("res://sounds/seed_sound.mp3", parent.position)
+		SoundManager.play_sound("res://sounds/seed_sound.mp3", parent.position,.2)
 		parent.setType(pickRandomSeed())
 		parent.stateIndex = 2
 		parent.updateTexture()

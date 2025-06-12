@@ -68,9 +68,6 @@ func createBlendSprite(direction): #creates sprite where no tiles are touching
 	blendSprite.position.y = snapped(get_node("Blend").position.y, 16)
 	get_node("Blend").add_child(blendSprite)
 	
-	#for item in get_children():
-		#print(item)
-		
 		
 		#if other is bellow and other harvestable == true then cc[down] = false
 

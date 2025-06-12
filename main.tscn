@@ -167,6 +167,12 @@ agent_radius = 0.0
 script = ExtResource("1_83qsj")
 metadata/_edit_horizontal_guides_ = [96.0]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1142.0
+offset_bottom = 702.0
+color = Color(0, 1, 0, 1)
+
 [node name="Grass" type="TileMap" parent="."]
 texture_filter = 1
 position = Vector2(144, 256)
@@ -199,3 +205,6 @@ navigation_polygon = SubResource("NavigationPolygon_lquwl")
 
 [node name="MarmotSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 player = NodePath("../Player")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
