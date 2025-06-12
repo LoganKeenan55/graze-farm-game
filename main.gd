@@ -8,7 +8,6 @@ func _ready() -> void:
 	GlobalVars.player = $Player
 	GlobalVars.tilesParent = $Tiles
 	GlobalVars.underTilesParent = $UnderTiles
-	GlobalVars.isInMainMenu = false
 	SoundManager.player = $Player
 	### SET GLOBAL VARS
 	

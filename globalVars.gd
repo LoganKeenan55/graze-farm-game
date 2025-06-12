@@ -34,7 +34,6 @@ var textureRegions = {
 var timeSinceLastSave
 var globalTime:int = 8
 var isNewGame = false
-var isInMainMenu = true
 ##
 var farmTilePreload = preload("res://FarmTile.tscn")
 var waterTilePreload = preload("res://WaterTile.tscn")
