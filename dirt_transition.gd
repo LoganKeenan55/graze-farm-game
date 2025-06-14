@@ -2,6 +2,12 @@ extends Node2D
 
 var farmTilePreload = preload("res://FarmTile.tscn")
 var particlePreload = preload("res://bigger_dirt_particle.tscn")
+
+func _process(delta: float) -> void:
+	if  GlobalVars.player:
+		position = GlobalVars.player.position - Vector2(165,95)
+
+
 var posArr = [
 	Vector2(0, 0),
 	Vector2(0, 16),
@@ -24,13 +30,14 @@ var posArr = [
 
 func closeTransition() -> void:
 	var tiles = $Tiles
+	#create dirt 
 	for i in posArr:
 		var newTile = farmTilePreload.instantiate()
 		newTile.position = i
 		tiles.add_child(newTile)
 		newTile.playerCol.collision_layer = 0
 		newTile.playerCol.collision_mask = 0
-		
+		newTile.sprite.flip_h = false
 		newTile.waterSources.clear()
 		newTile.stateIndex = 0
 		newTile.updateTexture()
@@ -40,13 +47,16 @@ func closeTransition() -> void:
 	get_tree().change_scene_to_file("res://main.tscn")
 func openTransition() -> void:
 	
+	#create initial dirt to remove
 	for i in posArr:
 		var newTile = farmTilePreload.instantiate()
 		newTile.position = i
 		
 		$Tiles.add_child(newTile)
+		newTile.sprite.flip_h = false
 		newTile.playerCol.collision_layer = 0
 		newTile.playerCol.collision_mask = 0
+		
 		newTile.currentCollisions = { 
 			"left": true,
 			"right": true,
@@ -54,6 +64,8 @@ func openTransition() -> void:
 			"down": true
 			}
 		newTile.updateTexture()
+	
+	#remove
 	var tiles = $Tiles.get_children()
 	for i in range(tiles.size() - 1, -1, -1):  #from last index to 0
 		var tile = tiles[i]
@@ -66,3 +78,6 @@ func openTransition() -> void:
 		tile.queue_free()
 		SoundManager.play_sound(tile.sound)
 		await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(2).timeout
+	queue_free()
+	

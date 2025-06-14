@@ -14,7 +14,7 @@ warnings/check_invalid_track_paths=false
 
 [application]
 
-config/name="FarmGame"
+config/name="Graze"
 run/main_scene="uid://bpctmvd7jl1ar"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://drau5v6ysg1b7"
@@ -24,7 +24,6 @@ config/icon="uid://drau5v6ysg1b7"
 GlobalVars="*res://globalVars.gd"
 GlobalFarmTileManager="*res://globalTimeManager.gd"
 SoundManager="*res://sound_manager.gd"
-DirtTransition="res://dirt_transition.gd"
 
 [display]
 
