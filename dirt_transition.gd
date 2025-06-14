@@ -29,6 +29,7 @@ var posArr = [
 	
 
 func closeTransition() -> void:
+	z_index = 50
 	var tiles = $Tiles
 	#create dirt 
 	for i in posArr:
@@ -41,18 +42,18 @@ func closeTransition() -> void:
 		newTile.waterSources.clear()
 		newTile.stateIndex = 0
 		newTile.updateTexture()
-		print(newTile.stateIndex)
 		SoundManager.play_sound("res://sounds/dirt_sound.mp3")
 		await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://main.tscn")
 func openTransition() -> void:
-	
+	z_index = 50
 	#create initial dirt to remove
 	for i in posArr:
 		var newTile = farmTilePreload.instantiate()
 		newTile.position = i
 		
 		$Tiles.add_child(newTile)
+		
 		newTile.sprite.flip_h = false
 		newTile.playerCol.collision_layer = 0
 		newTile.playerCol.collision_mask = 0
@@ -64,7 +65,7 @@ func openTransition() -> void:
 			"down": true
 			}
 		newTile.updateTexture()
-	
+		
 	#remove
 	var tiles = $Tiles.get_children()
 	for i in range(tiles.size() - 1, -1, -1):  #from last index to 0

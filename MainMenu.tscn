@@ -959,6 +959,7 @@ texture = SubResource("AtlasTexture_iwfq2")
 script = ExtResource("4_qoqlk")
 
 [node name="Area2D" type="Area2D" parent="MainMenuCursor"]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenuCursor/Area2D"]
 position = Vector2(0, 2)

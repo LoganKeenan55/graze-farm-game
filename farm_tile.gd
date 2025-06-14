@@ -3,7 +3,7 @@ class_name FarmTile
 
 @onready var player = $HitBox.player
 @onready var playerCol = $PlayerCollision
-
+@onready var blend = $Blend
 var wheatParticlePreload = preload("res://WheatHarvestParticle.tscn")
 var cornPartilePreload = preload("res://CornHarvestParticle.tscn")
 var bambooParticlePreload = preload("res://bamboo_harvest_particle.tscn")
@@ -279,4 +279,4 @@ func updateWaterTiles():
 		if position.distance_to(tile.position) <= 44:  #44 makes circle  46 makes square
 			if tile not in waterSources:
 				waterSources[tile] = true
-		updateTexture()
+				updateTexture()

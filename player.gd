@@ -13,8 +13,8 @@ var mode = "nothing" # nothing, placing, farming, seed, shop
 
 ## inventory dictionary
 var inventory= {
-	"farmTile": 50,"waterTile" :50 , "brickTile":50 , "autoFarmTile":5,
-	"wheat":10, "corn":10, "bamboo": 20,"berry": 20,"onion": 20, "flower": 20, "pepper": 20
+	"farmTile": 10,"waterTile" :2 , "brickTile":0 , "autoFarmTile":0,
+	"wheat":5, "corn":0, "bamboo": 0,"berry": 0,"onion": 0, "flower": 0, "pepper": 0
 }
 
 ## tiles
@@ -37,6 +37,7 @@ func _ready() -> void:
 	
 func _physics_process(delta):
 	move_and_slide()
+	
 func _process(_delta: float) -> void:
 	getInput()
 

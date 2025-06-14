@@ -46,6 +46,7 @@ var autoFarmerTilePreload = preload("res://AutoFarmTile.tscn")
 ##
 
 func saveGame():
+	isNewGame = false
 	print("saving...")
 	var saveData = []  #List that stores dictionaries for all data for all nodes
 	saveData.append({"group": "IRLtime","IRLtime": Time.get_unix_time_from_system()})

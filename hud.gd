@@ -16,6 +16,16 @@ func _ready() -> void:
 	$Control/VBoxContainer/OnionContainer/Count.text = str(player.inventory["onion"])
 	$Control/VBoxContainer/FlowerContainer/Count.text = str(player.inventory["flower"])
 	$Control/VBoxContainer/PepperContainer/Count.text = str(player.inventory["pepper"])
+	await get_tree().create_timer(0.1).timeout
+	updateAllCounterWithoutAnimation()
+func updateAllCounterWithoutAnimation():
+	$Control/VBoxContainer/WheatContainer/Count.text = str(player.inventory["wheat"])
+	$Control/VBoxContainer/CornContainer/Count.text = str(player.inventory["corn"])
+	$Control/VBoxContainer/BambooContainer/Count.text = str(player.inventory["bamboo"])
+	$Control/VBoxContainer/BerryContainer/Count.text = str(player.inventory["berry"])
+	$Control/VBoxContainer/OnionContainer/Count.text = str(player.inventory["onion"])
+	$Control/VBoxContainer/FlowerContainer/Count.text = str(player.inventory["flower"])
+	$Control/VBoxContainer/PepperContainer/Count.text = str(player.inventory["pepper"])
 
 func _process(_delta: float) -> void:
 	$time.text = str(GlobalVars.globalTime)

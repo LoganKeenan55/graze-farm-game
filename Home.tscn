@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn6qxxbekju82"]
+[gd_scene load_steps=3 format=3 uid="uid://cn6qxxbekju82"]
 
 [ext_resource type="Texture2D" uid="uid://cyamwum24vugd" path="res://home.png" id="1_jmugw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmugw"]
+size = Vector2(82, 29)
 
 [node name="Home" type="Node2D"]
 
@@ -8,3 +11,9 @@
 texture_filter = 1
 texture = ExtResource("1_jmugw")
 hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_jmugw")
