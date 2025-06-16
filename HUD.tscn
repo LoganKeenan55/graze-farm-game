@@ -313,24 +313,12 @@ sources/0 = SubResource("TileSetAtlasSource_xxqia")
 atlas = ExtResource("3_vow1y")
 region = Rect2(96, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4x0me"]
-atlas = ExtResource("3_vow1y")
-region = Rect2(112, 0, 16, 16)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ne771"]
 load_path = "res://.godot/imported/textureAtlas.png-91c19def63bab157ac51f9858f82b9d2.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gv1iq"]
 atlas = SubResource("CompressedTexture2D_ne771")
 region = Rect2(128, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1and6"]
-atlas = ExtResource("3_vow1y")
-region = Rect2(144, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w75gc"]
-atlas = ExtResource("3_vow1y")
-region = Rect2(160, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0ylh"]
 atlas = ExtResource("3_vow1y")
@@ -339,6 +327,18 @@ region = Rect2(176, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbfpv"]
 atlas = ExtResource("3_vow1y")
 region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x0me"]
+atlas = ExtResource("3_vow1y")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1and6"]
+atlas = ExtResource("3_vow1y")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w75gc"]
+atlas = ExtResource("3_vow1y")
+region = Rect2(160, 0, 16, 16)
 
 [sub_resource type="Animation" id="Animation_xxqia"]
 length = 0.001
@@ -469,38 +469,257 @@ offset_right = 153.876
 offset_bottom = -43.971
 mouse_filter = 2
 
-[node name="background" type="Node2D" parent="Control"]
+[node name="background7" type="Node2D" parent="Control"]
+visible = false
 modulate = Color(1, 1, 1, 0.607843)
 position = Vector2(1.215, 0.84)
 scale = Vector2(0.92, 0.92)
 
-[node name="Inside" type="TileMap" parent="Control/background"]
+[node name="Inside" type="TileMap" parent="Control/background7"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_xxqia")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 851968, 8, 0, 851968, 8, 65536, 851968, 8, 131072, 851968, 8, 131073, 851968, 8, 65537, 851968, 8, 1, 851968, 8, -65535, 851968, 8, -1, 851968, 8, 65535, 851968, 8, 131071, 851968, 8, 196607, 851968, 8, 262143, 851968, 8, 196608, 851968, 8, 196609, 851968, 8, 327679, 851968, 8, 393215, 851968, 8, 327680, 851968, 8, 327681, 851968, 8, 262145, 851968, 8, 262144, 851968, 8)
 
-[node name="Inside2" type="TileMap" parent="Control/background"]
+[node name="Inside2" type="TileMap" parent="Control/background7"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_xxqia")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 655360, 6, -65535, 720896, 6, 196607, 655360, 7, 131073, 720896, 6, 393215, 720896, 7, 327681, 720896, 7)
 
-[node name="Inside3" type="TileMap" parent="Control/background"]
+[node name="Inside3" type="TileMap" parent="Control/background7"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_xxqia")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 655360, 7, -65535, 655360, 6, 393215, 786432, 7, 327681, 851968, 7)
 
-[node name="Border" type="TileMap" parent="Control/background"]
+[node name="Border" type="TileMap" parent="Control/background7"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_1and6")
 format = 2
 layer_0/tile_data = PackedInt32Array(65537, 720896, 6, 1, 720896, 6, -65535, 851968, 6, -65536, 655360, 6, 65535, 655360, 7, -1, 786432, 6, 131071, 655360, 7, 393215, 655360, 7, 327679, 655360, 7, 327681, 720896, 6, 262145, 720896, 6, 196609, 720896, 6, 262143, 655360, 7, 327680, 720896, 7)
+
+[node name="background6" type="Node2D" parent="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(1.215, 0.84)
+scale = Vector2(0.92, 0.92)
+
+[node name="Inside" type="TileMap" parent="Control/background6"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 851968, 8, 0, 851968, 8, 65536, 851968, 8, 131072, 851968, 8, 131073, 851968, 8, 65537, 851968, 8, 1, 851968, 8, -65535, 851968, 8, -1, 851968, 8, 65535, 851968, 8, 131071, 851968, 8, 196607, 851968, 8, 262143, 851968, 8, 196608, 851968, 8, 196609, 851968, 8, 327679, 851968, 8, 262144, 851968, 8, 262145, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control/background6"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 6, -65535, 720896, 6, 196607, 655360, 7, 131073, 720896, 6, 327679, 720896, 7, 262145, 720896, 7)
+
+[node name="Inside3" type="TileMap" parent="Control/background6"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 7, -65535, 655360, 6, 327679, 786432, 7, 262145, 851968, 7)
+
+[node name="Border" type="TileMap" parent="Control/background6"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_1and6")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 720896, 6, 1, 720896, 6, -65535, 851968, 6, -65536, 655360, 6, 65535, 655360, 7, -1, 786432, 6, 131071, 655360, 7, 196609, 720896, 6, 262143, 655360, 7, 327679, 655360, 7, 262144, 720896, 7, 262145, 720896, 6)
+
+[node name="background5" type="Node2D" parent="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(1.215, 0.84)
+scale = Vector2(0.92, 0.92)
+
+[node name="Inside" type="TileMap" parent="Control/background5"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 851968, 8, 0, 851968, 8, 65536, 851968, 8, 131072, 851968, 8, 131073, 851968, 8, 65537, 851968, 8, 1, 851968, 8, -65535, 851968, 8, -1, 851968, 8, 65535, 851968, 8, 131071, 851968, 8, 196607, 851968, 8, 262143, 851968, 8, 196608, 851968, 8, 196609, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control/background5"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 6, -65535, 720896, 6, 196607, 655360, 7, 131073, 720896, 6, 262143, 720896, 7, 196609, 720896, 7)
+
+[node name="Inside3" type="TileMap" parent="Control/background5"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 7, -65535, 655360, 6, 262143, 786432, 7, 196609, 851968, 7)
+
+[node name="Border" type="TileMap" parent="Control/background5"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_1and6")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 720896, 6, 1, 720896, 6, -65535, 851968, 6, -65536, 655360, 6, 65535, 655360, 7, -1, 786432, 6, 131071, 655360, 7, 262143, 655360, 7, 196608, 720896, 7, 196609, 720896, 6)
+
+[node name="background4" type="Node2D" parent="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(1.215, 0.84)
+scale = Vector2(0.92, 0.92)
+
+[node name="Inside" type="TileMap" parent="Control/background4"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 851968, 8, 0, 851968, 8, 65536, 851968, 8, 131072, 851968, 8, 131073, 851968, 8, 65537, 851968, 8, 1, 851968, 8, -65535, 851968, 8, -1, 851968, 8, 65535, 851968, 8, 131071, 851968, 8, 196607, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control/background4"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 6, -65535, 720896, 6, 196607, 720896, 7, 131073, 720896, 7)
+
+[node name="Inside3" type="TileMap" parent="Control/background4"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 7, -65535, 655360, 6, 196607, 786432, 7, 131073, 851968, 7)
+
+[node name="Border" type="TileMap" parent="Control/background4"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_1and6")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 720896, 6, 1, 720896, 6, -65535, 851968, 6, -65536, 655360, 6, 65535, 655360, 7, -1, 786432, 6, 131071, 655360, 7, 196607, 655360, 7, 131072, 720896, 7, 131073, 720896, 6)
+
+[node name="background3" type="Node2D" parent="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(1.215, 0.84)
+scale = Vector2(0.92, 0.92)
+
+[node name="Inside" type="TileMap" parent="Control/background3"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 851968, 8, 0, 851968, 8, 65536, 851968, 8, 65537, 851968, 8, 1, 851968, 8, -65535, 851968, 8, -1, 851968, 8, 65535, 851968, 8, 131071, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control/background3"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 6, -65535, 720896, 6, 131071, 720896, 7, 65537, 720896, 7)
+
+[node name="Inside3" type="TileMap" parent="Control/background3"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 7, -65535, 655360, 6, 131071, 786432, 7, 65537, 851968, 7)
+
+[node name="Border" type="TileMap" parent="Control/background3"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_1and6")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 720896, 6, 1, 720896, 6, -65535, 851968, 6, -65536, 655360, 6, 65535, 655360, 7, -1, 786432, 6, 131071, 655360, 7, 65536, 720896, 7)
+
+[node name="background2" type="Node2D" parent="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(1.215, 0.84)
+scale = Vector2(0.92, 0.92)
+
+[node name="Inside" type="TileMap" parent="Control/background2"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 851968, 8, 0, 851968, 8, 1, 851968, 8, -65535, 851968, 8, -1, 851968, 8, 65535, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Control/background2"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 6, -65535, 720896, 6, 65535, 720896, 7, 1, 720896, 7)
+
+[node name="Inside3" type="TileMap" parent="Control/background2"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 7, -65535, 655360, 6, 65535, 786432, 7, 1, 851968, 7)
+
+[node name="Border" type="TileMap" parent="Control/background2"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_1and6")
+format = 2
+layer_0/tile_data = PackedInt32Array(1, 720896, 6, -65535, 851968, 6, -65536, 655360, 6, 65535, 655360, 7, -1, 786432, 6, 0, 720896, 7)
+
+[node name="background1" type="Node2D" parent="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(1.215, 0.84)
+scale = Vector2(0.92, 0.92)
+
+[node name="Inside" type="TileMap" parent="Control/background1"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 851968, 8, -65535, 851968, 8, -1, 851968, 8)
+
+[node name="Inside4" type="TileMap" parent="Control/background1"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 655360, 6, -65536, 655360, 6, -65535, 655360, 6)
+
+[node name="Inside2" type="TileMap" parent="Control/background1"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 720896, 7, -65535, 720896, 7)
+
+[node name="Inside5" type="TileMap" parent="Control/background1"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 786432, 6, -65535, 851968, 6)
+
+[node name="Inside3" type="TileMap" parent="Control/background1"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_xxqia")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 786432, 7, -65535, 851968, 7)
+
+[node name="Border" type="TileMap" parent="Control/background1"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_1and6")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65535, 720896, 6, -65536, 720896, 7, -1, 655360, 7)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 0
@@ -510,46 +729,53 @@ mouse_filter = 2
 theme_override_constants/separation = -2
 
 [node name="WheatContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
+visible = false
 layout_mode = 2
 
 [node name="Sprite" parent="Control/VBoxContainer/WheatContainer" index="0"]
 texture = SubResource("AtlasTexture_xxqia")
 
-[node name="CornContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
-layout_mode = 2
-
-[node name="Sprite" parent="Control/VBoxContainer/CornContainer" index="0"]
-texture = SubResource("AtlasTexture_4x0me")
-
 [node name="BambooContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
+visible = false
 layout_mode = 2
 
 [node name="Sprite" parent="Control/VBoxContainer/BambooContainer" index="0"]
 texture = SubResource("AtlasTexture_gv1iq")
 
-[node name="BerryContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
-layout_mode = 2
-
-[node name="Sprite" parent="Control/VBoxContainer/BerryContainer" index="0"]
-texture = SubResource("AtlasTexture_1and6")
-
-[node name="OnionContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
-layout_mode = 2
-
-[node name="Sprite" parent="Control/VBoxContainer/OnionContainer" index="0"]
-texture = SubResource("AtlasTexture_w75gc")
-
 [node name="FlowerContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
+visible = false
 layout_mode = 2
 
 [node name="Sprite" parent="Control/VBoxContainer/FlowerContainer" index="0"]
 texture = SubResource("AtlasTexture_n0ylh")
 
 [node name="PepperContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
+visible = false
 layout_mode = 2
 
 [node name="Sprite" parent="Control/VBoxContainer/PepperContainer" index="0"]
 texture = SubResource("AtlasTexture_gbfpv")
+
+[node name="CornContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
+visible = false
+layout_mode = 2
+
+[node name="Sprite" parent="Control/VBoxContainer/CornContainer" index="0"]
+texture = SubResource("AtlasTexture_4x0me")
+
+[node name="BerryContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
+visible = false
+layout_mode = 2
+
+[node name="Sprite" parent="Control/VBoxContainer/BerryContainer" index="0"]
+texture = SubResource("AtlasTexture_1and6")
+
+[node name="OnionContainer" parent="Control/VBoxContainer" instance=ExtResource("4_xxqia")]
+visible = false
+layout_mode = 2
+
+[node name="Sprite" parent="Control/VBoxContainer/OnionContainer" index="0"]
+texture = SubResource("AtlasTexture_w75gc")
 
 [node name="time" type="Label" parent="."]
 visible = false
@@ -559,6 +785,7 @@ offset_right = 154.0
 offset_bottom = 37.0
 
 [node name="NightTimeFilter" type="ColorRect" parent="."]
+visible = false
 offset_left = -183.0
 offset_top = -146.0
 offset_right = 300.0
@@ -582,9 +809,9 @@ texture = SubResource("AtlasTexture_2afx3")
 offset = Vector2(0.5, -0.5)
 
 [editable path="Control/VBoxContainer/WheatContainer"]
-[editable path="Control/VBoxContainer/CornContainer"]
 [editable path="Control/VBoxContainer/BambooContainer"]
-[editable path="Control/VBoxContainer/BerryContainer"]
-[editable path="Control/VBoxContainer/OnionContainer"]
 [editable path="Control/VBoxContainer/FlowerContainer"]
 [editable path="Control/VBoxContainer/PepperContainer"]
+[editable path="Control/VBoxContainer/CornContainer"]
+[editable path="Control/VBoxContainer/BerryContainer"]
+[editable path="Control/VBoxContainer/OnionContainer"]

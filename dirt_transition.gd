@@ -5,7 +5,7 @@ var particlePreload = preload("res://bigger_dirt_particle.tscn")
 
 func _process(delta: float) -> void:
 	if  GlobalVars.player:
-		position = GlobalVars.player.position - Vector2(165,95)
+		position = GlobalVars.player.position - Vector2(167,95)
 
 
 var posArr = [

@@ -1,10 +1,11 @@
 extends Node2D
 
-@onready var player = self.get_parent()
+@onready var player:Player = self.get_parent()
 
 
 
 func _ready() -> void:
+	setSizeBasedOnUpgradeLevel()
 	z_index = 10
 	$NightTimeFilter.z_index = 5
 	GlobalFarmTileManager.connect("night_started", Callable(self, "setNight"))
@@ -18,6 +19,51 @@ func _ready() -> void:
 	$Control/VBoxContainer/PepperContainer/Count.text = str(player.inventory["pepper"])
 	await get_tree().create_timer(0.1).timeout
 	updateAllCounterWithoutAnimation()
+
+func setSizeBasedOnUpgradeLevel():
+	match player.unlockLevel:
+		1:
+			$Control/background1.visible = true
+			$Control/VBoxContainer/WheatContainer.visible = true
+		2:
+			$Control/background2.visible = true
+			$Control/VBoxContainer/WheatContainer.visible = true
+			$Control/VBoxContainer/BambooContainer.visible = true
+		3:
+			$Control/background3.visible = true
+			$Control/VBoxContainer/WheatContainer.visible = true
+			$Control/VBoxContainer/BambooContainer.visible = true
+			$Control/VBoxContainer/FlowerContainer.visible = true
+		4:
+			$Control/background4.visible = true
+			$Control/VBoxContainer/WheatContainer.visible = true
+			$Control/VBoxContainer/BambooContainer.visible = true
+			$Control/VBoxContainer/FlowerContainer.visible = true
+			$Control/VBoxContainer/PepperContainer.visible = true
+		5:
+			$Control/background5.visible = true
+			$Control/VBoxContainer/WheatContainer.visible = true
+			$Control/VBoxContainer/BambooContainer.visible = true
+			$Control/VBoxContainer/FlowerContainer.visible = true
+			$Control/VBoxContainer/PepperContainer.visible = true
+			$Control/VBoxContainer/CornContainer.visible = true
+		6:
+			$Control/background6.visible = true
+			$Control/VBoxContainer/WheatContainer.visible = true
+			$Control/VBoxContainer/BambooContainer.visible = true
+			$Control/VBoxContainer/FlowerContainer.visible = true
+			$Control/VBoxContainer/PepperContainer.visible = true
+			$Control/VBoxContainer/CornContainer.visible = true
+			$Control/VBoxContainer/BerryContainer.visible = true
+		7:
+			$Control/background7.visible = true
+			$Control/VBoxContainer/WheatContainer.visible = true
+			$Control/VBoxContainer/BambooContainer.visible = true
+			$Control/VBoxContainer/FlowerContainer.visible = true
+			$Control/VBoxContainer/PepperContainer.visible = true
+			$Control/VBoxContainer/CornContainer.visible = true
+			$Control/VBoxContainer/BerryContainer.visible = true
+			$Control/VBoxContainer/OnionContainer.visible = true
 func updateAllCounterWithoutAnimation():
 	$Control/VBoxContainer/WheatContainer/Count.text = str(player.inventory["wheat"])
 	$Control/VBoxContainer/CornContainer/Count.text = str(player.inventory["corn"])
@@ -30,6 +76,7 @@ func updateAllCounterWithoutAnimation():
 func _process(_delta: float) -> void:
 	$time.text = str(GlobalVars.globalTime)
 	$ClockSprite/handSprite.rotation = (GlobalVars.globalTime / 12.0) * TAU
+
 func setNight():
 	SoundManager.play_ui_sound("res://sounds/turn_night.mp3",.45)
 	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_night")

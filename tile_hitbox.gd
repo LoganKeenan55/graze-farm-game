@@ -96,6 +96,8 @@ func handleHammer():
 				tooltip.setToolTip(get_parent().cropType,"Uproot?",str(1))
 
 			if Input.is_action_just_pressed("left_click"):
+				if tooltip == null:
+					return
 				################# timer to prevent bug of upgrading too many times on one click
 				can_click = false
 				var cooldown_timer = Timer.new()
@@ -110,12 +112,11 @@ func handleHammer():
 				################
 				get_parent().stateIndex = 1
 				get_parent().updateTexture()
-				tooltip.queue_free()
 				player.inventory[get_parent().cropType]+=1
 				get_parent().createHarvestParticle()
 				player.hotBar.updateAll()
-				
 				player.hud.updateCounter(get_parent().cropType)
+				tooltip.queue_free()
 		"brickTile":
 			pass
 		_:
