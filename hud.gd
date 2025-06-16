@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name HUD
 @onready var player:Player = self.get_parent()
 
 

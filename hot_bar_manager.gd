@@ -1,5 +1,5 @@
 extends Node
-
+class_name  HotBar
 @onready var player = find_parent("Player")
 
 @onready var itemBar = $ItemsHUD

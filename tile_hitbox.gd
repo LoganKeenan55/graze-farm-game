@@ -1,6 +1,6 @@
 extends Area2D
 ##
-@onready var player = get_tree().current_scene.find_child("Player", true, false)
+@onready var player: Player = get_tree().current_scene.find_child("Player", true, false)
 @onready var upgrateToolTipPreload = preload("res://upgradeToolTip.tscn")
 
 ##
@@ -18,8 +18,9 @@ func handleDeletingTile(): #shovel
 	if Input.is_action_pressed("left_click"):
 		set_process_input(false)
 		createRemoveParticle()
-		player.inventory[get_parent().tileType]+=1 
-		player.hotBar.setAmount("tiles",player.placeableTiles.find(get_parent().tileType),player.inventory[get_parent().tileType])
+	#	player.inventory[get_parent().tileType]+=1 
+		player.recieve(get_parent().tileType,1)
+		#player.hotBar.setAmount("tiles",player.placeableTiles.find(get_parent().tileType),player.inventory[get_parent().tileType])
 		get_parent().queue_free()  #delete the object
 		deleted = true
 		SoundManager.play_sound(get_parent().sound)

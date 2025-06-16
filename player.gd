@@ -3,8 +3,8 @@ class_name Player
 
 ## onready
 @onready var tileComponent = $TileComponent
-@onready var hotBar = $HUD/HotBar
-@onready var hud = $HUD
+@onready var hotBar: HotBar = $HUD/HotBar
+@onready var hud: HUD = $HUD
 ## preload
 var shopMenuPreload = preload("res://ShopMenu.tscn")
 var dustParticlePreload = preload("res://DustParticle.tscn")
@@ -33,6 +33,39 @@ var harvestables = ["wheat", "bamboo", "flower", "pepper", "corn", "berry", "oni
 ##
 
 
+func recieve(item:String, ammount:int): #handles receiving items
+	inventory[item] += ammount
+	match unlockLevel: #changes unlockLevel if needed
+		1:
+			if item == "bamboo":
+				unlockLevel = 2
+				hud.setSizeBasedOnUpgradeLevel()
+		2:
+			if item == "flower":
+				unlockLevel = 3
+				hud.setSizeBasedOnUpgradeLevel()
+		3:
+			if item == "pepper":
+				unlockLevel = 4
+				hud.setSizeBasedOnUpgradeLevel()
+		4:
+			if item == "corn":
+				unlockLevel = 5
+				hud.setSizeBasedOnUpgradeLevel()
+		5:
+			if item == "berry":
+				unlockLevel = 6
+				hud.setSizeBasedOnUpgradeLevel()
+		6:
+			if item == "onion":
+				unlockLevel = 7
+				hud.setSizeBasedOnUpgradeLevel()
+
+	if item in harvestables: #updates side hud
+		hud.updateCounter(items)
+	
+	hotBar.updateAll() #updates HotBar
+	
 func _ready() -> void:
 	add_to_group("player")
 	$TileComponent.hotBar = hotBar
