@@ -17,7 +17,7 @@ var inventory= {
 	"farmTile": 20,"waterTile" :2 , "brickTile":0 , "autoFarmTile":0,
 	"wheat":10, "corn":0, "bamboo": 0,"berry": 0,"onion": 0, "flower": 0, "pepper": 0
 }
-var unlockLevel = 4
+var unlockLevel = 7
 
 ## tiles
 var currentTile = 0
@@ -250,4 +250,4 @@ func play_walk_sound():
 	particle.position.y = position.y+8
 	particle.position.x = position.x
 	particle.get_child(0).emitting = true
-	get_parent().get_node("UnderTiles").add_child(particle)
+	#get_parent().get_node("UnderTiles").add_child(particle)

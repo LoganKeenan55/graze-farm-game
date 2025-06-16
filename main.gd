@@ -5,10 +5,10 @@ func _ready() -> void:
 	#SoundManager.play_ui_sound("res://sounds/music.mp3", .8) #music - default = .8
 	
 	### SET GLOBAL VARS
-	GlobalVars.player = $Player
-	GlobalVars.tilesParent = $Tiles
+	GlobalVars.player = $YSort/Player
+	GlobalVars.tilesParent = $YSort/Tiles
 	GlobalVars.underTilesParent = $UnderTiles
-	SoundManager.player = $Player
+	SoundManager.player = $YSort/Player
 	### SET GLOBAL VARS
 	
 	if !GlobalVars.isNewGame: #if the game is not a new game -> load save

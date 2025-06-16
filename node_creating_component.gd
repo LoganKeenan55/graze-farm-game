@@ -84,7 +84,7 @@ func createTile(type):
 			newTile.position = tilePosition
 			underTilesParent.add_child(newTile)
 			inventory["brickTile"] -= 1
-			
+
 		"autoFarmTile":
 			newTile = autoFarmTilePreload.instantiate()
 			newTile.position = tilePosition
@@ -111,7 +111,8 @@ func freeTilePreview():
 		tilePreview.queue_free()
 
 func sortTilesByY(parentNode):
-	var tiles = parentNode.get_children()
-	tiles.sort_custom(func(a, b): return a.position.y < b.position.y)
-	for i in range(tiles.size()):
-		parentNode.move_child(tiles[i], i)
+	pass
+	#var tiles = parentNode.get_children()
+	#tiles.sort_custom(func(a, b): return a.position.y < b.position.y)
+	#for i in range(tiles.size()):
+		#parentNode.move_child(tiles[i], i)

@@ -44,6 +44,8 @@ func updateAll():
 	tileBar.updateAllAmounts(getAmountsFor(player.placeableTiles))
 	seedBar.updateAllAmounts(getAmountsFor(player.harvestables))
 	
+
+	
 func updateSelected(type: String, index: int):
 	match type:
 		"items": itemBar.select(index)

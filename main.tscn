@@ -165,6 +165,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-235, 4, -235, 770, 122
 agent_radius = 0.0
 
 [node name="Main" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_83qsj")
 metadata/_edit_horizontal_guides_ = [96.0]
 
@@ -193,10 +194,14 @@ position = Vector2(576, 391)
 
 [node name="UnderTiles" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_q2fse")]
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="YSort" instance=ExtResource("2_q2fse")]
 position = Vector2(736, 482)
 
-[node name="Tiles" type="Node2D" parent="."]
+[node name="Tiles" type="Node2D" parent="YSort"]
+y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
@@ -204,7 +209,7 @@ position = Vector2(233, -3)
 navigation_polygon = SubResource("NavigationPolygon_lquwl")
 
 [node name="MarmotSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
-player = NodePath("../Player")
+player = NodePath("../YSort/Player")
 
 [node name="DirtTransition" parent="." instance=ExtResource("6_7mycd")]
 position = Vector2(542, 377)

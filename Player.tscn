@@ -242,10 +242,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_hp6x6"]
 radius = 5.00025
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtqjt"]
-radius = 8.50018
-height = 27.9645
-
 [sub_resource type="Curve" id="Curve_tdg3f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -253,7 +249,12 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_tdg3f"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.34902)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp6x6"]
+radius = 3.0
+height = 16.0
+
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_dkxi4")
 metadata/_edit_vertical_guides_ = [-2172.0]
@@ -297,10 +298,6 @@ script = ExtResource("3_cxr5p")
 position = Vector2(0, 3.815)
 shape = SubResource("CircleShape2D_hp6x6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.05)
-shape = SubResource("CapsuleShape2D_dtqjt")
-
 [node name="HUD" parent="." instance=ExtResource("3_kne1u")]
 
 [node name="Cursor" parent="." instance=ExtResource("4_e80uo")]
@@ -316,5 +313,10 @@ script = ExtResource("6_tdg3f")
 [node name="StepSoundTimer" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hp6x6")
 
 [connection signal="timeout" from="StepSoundTimer" to="." method="_on_step_sound_timer_timeout"]

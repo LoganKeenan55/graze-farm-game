@@ -54,6 +54,7 @@ func buy(cropType:String, amount:int, purchase:String):
 		inventory[cropType] = inventory[cropType] - amount
 		inventory[purchase] = inventory[purchase] + 1
 		SoundManager.play_ui_sound("res://sounds/purchase.mp3")
+		#hotBar.setAmount("tiles",placeableTiles.find(type),inventory[type])
 		GlobalVars.player.hotBar.updateAll()
 		GlobalVars.player.hud.updateCounter(cropType)
 	else:

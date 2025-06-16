@@ -101,6 +101,7 @@ _data = {
 }
 
 [node name="FarmTile" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_8yfbs")
 
 [node name="Sprite" type="Sprite2D" parent="."]
