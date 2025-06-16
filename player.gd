@@ -13,8 +13,8 @@ var mode = "nothing" # nothing, placing, farming, seed, shop
 
 ## inventory dictionary
 var inventory= {
-	"farmTile": 10,"waterTile" :2 , "brickTile":0 , "autoFarmTile":0,
-	"wheat":5, "corn":0, "bamboo": 0,"berry": 0,"onion": 0, "flower": 0, "pepper": 0
+	"farmTile": 20,"waterTile" :2 , "brickTile":0 , "autoFarmTile":0,
+	"wheat":10, "corn":0, "bamboo": 0,"berry": 0,"onion": 0, "flower": 0, "pepper": 0
 }
 
 ## tiles

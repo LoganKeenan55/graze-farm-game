@@ -57,6 +57,8 @@ func createTile(type):
 	if type != "brickTile" and tilePosition.distance_to(get_parent().position) < 20: #checks to see if new tile is on top of player if so doesn't place
 		return
 
+	if tilePosition.distance_to(get_tree().current_scene.find_child("Home", true, false).position) <60:
+		return
 	var newTile
 	match type:
 		
@@ -76,7 +78,7 @@ func createTile(type):
 			newTile.position = tilePosition
 			tilesParent.add_child(newTile)
 			inventory["waterTile"] -= 1
-			
+			newTile.hitbox.createRemoveParticle()
 		"brickTile":
 			newTile = brickTilePreload.instantiate()
 			newTile.position = tilePosition

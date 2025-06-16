@@ -4,7 +4,7 @@ extends Area2D
 @onready var upgrateToolTipPreload = preload("res://upgradeToolTip.tscn")
 
 ##
-var tooltip: Node = null
+var tooltip: ToolTip = null
 var removeParticlePreload
 var deleted = false
 
@@ -54,37 +54,72 @@ var can_click := true
 func handleHammer():
 	if not can_click:
 		return
+	match get_parent().tileType:
+		"waterTile":
+			pass
+		"autoFarmTile":
+			if tooltip == null and get_parent().cropType != "default":
+				tooltip = upgrateToolTipPreload.instantiate()
+				get_parent().add_child(tooltip)
+				#tooltip.changeCropType(get_parent().cropType)
+				tooltip.position = position
+				tooltip.z_index = 12
+				#tooltip.price.text = str(get_parent().upgradePrices[player.harvestables[player.currentSeed]])
+				tooltip.setToolTip(get_parent().cropType,"Upgrade?",str(get_parent().upgradePrices[player.harvestables[player.currentSeed]]))
+			if Input.is_action_just_pressed("left_click"):
+				if get_parent().cropType == "default":
+					return
 
-	if tooltip == null and get_parent().cropType != "default":
-		tooltip = upgrateToolTipPreload.instantiate()
-		get_parent().add_child(tooltip)
-		tooltip.changeCropType(get_parent().cropType)
-		tooltip.position = position
-		tooltip.z_index = 12
-		tooltip.price.text = str(get_parent().upgradePrices[player.harvestables[player.currentSeed]])
+				################# timer to prevent bug of upgrading too many times on one click
+				can_click = false
+				var cooldown_timer = Timer.new()
+				cooldown_timer.wait_time = 0.2
+				cooldown_timer.one_shot = true
+				add_child(cooldown_timer)
+				cooldown_timer.start()
+				cooldown_timer.timeout.connect(func():
+					can_click = true
+					cooldown_timer.queue_free()
+				)
+				################
+				
+				get_parent().upgrade()
+				get_parent().updateTexture()
+				tooltip.queue_free()
+				player.hotBar.updateAll()
+		"farmTile":
+			if tooltip == null and get_parent().stateIndex >= 2:
+				tooltip = upgrateToolTipPreload.instantiate()
+				get_parent().add_child(tooltip)
+				tooltip.position = position
+				tooltip.z_index = 12
+				tooltip.setToolTip(get_parent().cropType,"Uproot?",str(1))
 
-	if Input.is_action_just_pressed("left_click"):
-		if get_parent().cropType == "default":
-			return
-
-		################# timer to prevent bug of upgrading too many times on one click
-		can_click = false
-		var cooldown_timer = Timer.new()
-		cooldown_timer.wait_time = 0.2
-		cooldown_timer.one_shot = true
-		add_child(cooldown_timer)
-		cooldown_timer.start()
-		cooldown_timer.timeout.connect(func():
-			can_click = true
-			cooldown_timer.queue_free()
-		)
-		################
-		
-		get_parent().upgrade()
-		get_parent().updateTexture()
-		tooltip.queue_free()
-		player.hotBar.updateAll()
-
+			if Input.is_action_just_pressed("left_click"):
+				################# timer to prevent bug of upgrading too many times on one click
+				can_click = false
+				var cooldown_timer = Timer.new()
+				cooldown_timer.wait_time = 0.2
+				cooldown_timer.one_shot = true
+				add_child(cooldown_timer)
+				cooldown_timer.start()
+				cooldown_timer.timeout.connect(func():
+					can_click = true
+					cooldown_timer.queue_free()
+				)
+				################
+				get_parent().stateIndex = 1
+				get_parent().updateTexture()
+				tooltip.queue_free()
+				player.inventory[get_parent().cropType]+=1
+				get_parent().createHarvestParticle()
+				player.hotBar.updateAll()
+				
+				player.hud.updateCounter(get_parent().cropType)
+		"brickTile":
+			pass
+		_:
+			print("INVALID TYPE in function: handleHammer")
 		
 func _on_mouse_exited():
 	if tooltip:
@@ -107,10 +142,9 @@ func handleSeeding(): #seed
 				tooltip.changeCropType(get_parent().cropType)
 				tooltip.position = position
 				tooltip.z_index = 12
-
-				tooltip.label.text = "Seed?"
-				tooltip.price.text = str(get_parent().seedPrices[player.harvestables[player.currentSeed]])
-				tooltip.changeCropType(player.harvestables[player.currentSeed])
+				
+				tooltip.setToolTip(player.harvestables[player.currentSeed],"Seed?",str(get_parent().seedPrices[player.harvestables[player.currentSeed]]))
+			
 			if  Input.is_action_pressed("left_click"):
 				get_parent().setCrop(player.harvestables[player.currentSeed])
 				if get_parent().cropType != "default":

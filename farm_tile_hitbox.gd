@@ -13,6 +13,6 @@ func handlePlayerInterection(event):
 		"seeds":
 			handleSeeding()
 		"hammer":
-			pass
+			handleHammer()
 
 		

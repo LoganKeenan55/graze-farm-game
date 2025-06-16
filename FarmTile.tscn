@@ -140,3 +140,4 @@ libraries = {
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]
 [connection signal="input_event" from="HitBox" to="HitBox" method="_on_input_event"]
+[connection signal="mouse_exited" from="HitBox" to="HitBox" method="_on_mouse_exited"]
