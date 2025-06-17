@@ -251,4 +251,4 @@ func play_walk_sound():
 	particle.position.y = position.y+8
 	particle.position.x = position.x
 	particle.get_child(0).emitting = true
-	#get_parent().get_node("UnderTiles").add_child(particle)
+	get_parent().get_parent().get_node("UnderTiles").add_child(particle)

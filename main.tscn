@@ -165,7 +165,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-235, 4, -235, 770, 122
 agent_radius = 0.0
 
 [node name="Main" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_83qsj")
 metadata/_edit_horizontal_guides_ = [96.0]
 
