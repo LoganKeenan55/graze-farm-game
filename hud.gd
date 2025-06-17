@@ -25,29 +25,49 @@ func setSizeBasedOnUpgradeLevel():
 		1:
 			$Control/background1.visible = true
 			$Control/VBoxContainer/WheatContainer.visible = true
+			$HotBar.seedBar.setSpecificTexture(0,player.harvestables[0])
 		2:
+			$Control/background1.visible = false
 			$Control/background2.visible = true
 			$Control/VBoxContainer/WheatContainer.visible = true
 			$Control/VBoxContainer/BambooContainer.visible = true
+			$HotBar.seedBar.setSpecificTexture(0,player.harvestables[0])
+			$HotBar.seedBar.setSpecificTexture(1,player.harvestables[1])
 		3:
+			$Control/background2.visible = false
 			$Control/background3.visible = true
 			$Control/VBoxContainer/WheatContainer.visible = true
 			$Control/VBoxContainer/BambooContainer.visible = true
 			$Control/VBoxContainer/FlowerContainer.visible = true
+			$HotBar.seedBar.setSpecificTexture(0,player.harvestables[0])
+			$HotBar.seedBar.setSpecificTexture(1,player.harvestables[1])
+			$HotBar.seedBar.setSpecificTexture(3,player.harvestables[0])
 		4:
+			$Control/background3.visible = false
 			$Control/background4.visible = true
 			$Control/VBoxContainer/WheatContainer.visible = true
 			$Control/VBoxContainer/BambooContainer.visible = true
 			$Control/VBoxContainer/FlowerContainer.visible = true
 			$Control/VBoxContainer/PepperContainer.visible = true
+			$HotBar.seedBar.setSpecificTexture(0,player.harvestables[0])
+			$HotBar.seedBar.setSpecificTexture(1,player.harvestables[1])
+			$HotBar.seedBar.setSpecificTexture(3,player.harvestables[3])
+			$HotBar.seedBar.setSpecificTexture(4,player.harvestables[4])
 		5:
+			$Control/background4.visible = false
 			$Control/background5.visible = true
 			$Control/VBoxContainer/WheatContainer.visible = true
 			$Control/VBoxContainer/BambooContainer.visible = true
 			$Control/VBoxContainer/FlowerContainer.visible = true
 			$Control/VBoxContainer/PepperContainer.visible = true
 			$Control/VBoxContainer/CornContainer.visible = true
+			$HotBar.seedBar.setSpecificTexture(0,player.harvestables[0])
+			$HotBar.seedBar.setSpecificTexture(1,player.harvestables[1])
+			$HotBar.seedBar.setSpecificTexture(3,player.harvestables[3])
+			$HotBar.seedBar.setSpecificTexture(4,player.harvestables[4])
+			$HotBar.seedBar.setSpecificTexture(5,player.harvestables[5])
 		6:
+			$Control/background5.visible = false
 			$Control/background6.visible = true
 			$Control/VBoxContainer/WheatContainer.visible = true
 			$Control/VBoxContainer/BambooContainer.visible = true
@@ -55,7 +75,14 @@ func setSizeBasedOnUpgradeLevel():
 			$Control/VBoxContainer/PepperContainer.visible = true
 			$Control/VBoxContainer/CornContainer.visible = true
 			$Control/VBoxContainer/BerryContainer.visible = true
+			$HotBar.seedBar.setSpecificTexture(0,player.harvestables[0])
+			$HotBar.seedBar.setSpecificTexture(1,player.harvestables[1])
+			$HotBar.seedBar.setSpecificTexture(3,player.harvestables[3])
+			$HotBar.seedBar.setSpecificTexture(4,player.harvestables[4])
+			$HotBar.seedBar.setSpecificTexture(5,player.harvestables[5])
+			$HotBar.seedBar.setSpecificTexture(6,player.harvestables[6])
 		7:
+			$Control/background6.visible = false
 			$Control/background7.visible = true
 			$Control/VBoxContainer/WheatContainer.visible = true
 			$Control/VBoxContainer/BambooContainer.visible = true
@@ -64,6 +91,13 @@ func setSizeBasedOnUpgradeLevel():
 			$Control/VBoxContainer/CornContainer.visible = true
 			$Control/VBoxContainer/BerryContainer.visible = true
 			$Control/VBoxContainer/OnionContainer.visible = true
+			$HotBar.seedBar.setSpecificTexture(0,player.harvestables[0])
+			$HotBar.seedBar.setSpecificTexture(1,player.harvestables[1])
+			$HotBar.seedBar.setSpecificTexture(3,player.harvestables[3])
+			$HotBar.seedBar.setSpecificTexture(4,player.harvestables[4])
+			$HotBar.seedBar.setSpecificTexture(5,player.harvestables[5])
+			$HotBar.seedBar.setSpecificTexture(6,player.harvestables[6])
+			$HotBar.seedBar.setSpecificTexture(7,player.harvestables[7])
 func updateAllCounterWithoutAnimation():
 	$Control/VBoxContainer/WheatContainer/Count.text = str(player.inventory["wheat"])
 	$Control/VBoxContainer/CornContainer/Count.text = str(player.inventory["corn"])

@@ -51,12 +51,14 @@ func _on_auto_farm_tile_button_pressed() -> void:
 func buy(cropType:String, amount:int, purchase:String):
 	var inventory = GlobalVars.player.inventory
 	if (inventory[cropType]-amount) >= 0:
-		inventory[cropType] = inventory[cropType] - amount
-		inventory[purchase] = inventory[purchase] + 1
+		GlobalVars.player.recieve(cropType,-amount)
+		GlobalVars.player.recieve(purchase,1)
+		#inventory[cropType] = inventory[cropType] - amount
+		#inventory[purchase] = inventory[purchase] + 1
 		SoundManager.play_ui_sound("res://sounds/purchase.mp3")
 		#hotBar.setAmount("tiles",placeableTiles.find(type),inventory[type])
-		GlobalVars.player.hotBar.updateAll()
-		GlobalVars.player.hud.updateCounter(cropType)
+		#GlobalVars.player.hotBar.updateAll()
+		#GlobalVars.player.hud.updateCounter(cropType)
 	else:
 		SoundManager.play_ui_sound("res://sounds/not_enough.mp3")
 		return false

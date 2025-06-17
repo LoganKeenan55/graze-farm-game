@@ -20,6 +20,9 @@ func setArr():
 	if items.size() > 0:
 		items[0].setSelected(true)
 
+func setAllSeedsTexture(newTexture:String) -> void:
+	for item in items:
+		item.setTexture(newTexture)
 
 func updateAllItems(playerData: Array):
 	for i in range(min(items.size(), playerData.size())): #Size of array to player

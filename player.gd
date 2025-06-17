@@ -17,7 +17,7 @@ var inventory= {
 	"farmTile": 20,"waterTile" :2 , "brickTile":0 , "autoFarmTile":0,
 	"wheat":10, "corn":0, "bamboo": 0,"berry": 0,"onion": 0, "flower": 0, "pepper": 0
 }
-var unlockLevel = 7
+var unlockLevel = 1
 
 ## tiles
 var currentTile = 0
@@ -62,9 +62,10 @@ func recieve(item:String, ammount:int): #handles receiving items
 				hud.setSizeBasedOnUpgradeLevel()
 
 	if item in harvestables: #updates side hud
-		hud.updateCounter(items)
-	
-	hotBar.updateAll() #updates HotBar
+		hud.updateCounter(item)
+	if item in placeableTiles:
+		hotBar.setAmount("tiles",placeableTiles.find(item),inventory[item]-ammount)
+	#hotBar.updateAll() #updates HotBar
 	
 func _ready() -> void:
 	add_to_group("player")
@@ -232,7 +233,7 @@ func handleMode(): #handles changing mode
 						
 
 		"seed":
-			for i in range(1, 8):
+			for i in range(1, unlockLevel+1):
 				if Input.is_action_just_pressed(str(i)):
 					currentSeed = i - 1
 					hotBar.setTexture("items",2,harvestables[currentSeed])

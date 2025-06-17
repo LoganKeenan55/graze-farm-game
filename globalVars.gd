@@ -21,6 +21,7 @@ var textureRegions = {
 	"flower": Rect2(176, 0, 16, 16),
 	"pepper": Rect2(190, 0, 16, 16),
 	"default": 	Rect2(500, 0, 16, 16),
+	"questionMark":Rect2(80, 0, 16, 16),
 	
 	"wheatSeeds":Rect2(240, 16, 16, 16),
 	"cornSeeds":Rect2(224, 16, 16, 16),
@@ -40,7 +41,7 @@ var waterTilePreload = preload("res://WaterTile.tscn")
 var brickTilePreload = preload("res://BrickTile.tscn")
 var autoFarmerTilePreload = preload("res://AutoFarmTile.tscn")
 ##
-@onready var player
+@onready var player:Player
 @onready var tilesParent
 @onready var underTilesParent 
 ##

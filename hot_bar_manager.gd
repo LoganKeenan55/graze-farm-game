@@ -12,7 +12,7 @@ func _ready() -> void:
 	setTexture("items",2,"wheat")
 	itemBar.updateAllItems(player.items)
 	tileBar.updateAllItems(player.placeableTiles)
-	seedBar.updateAllItems(player.harvestables)
+	seedBar.setAllSeedsTexture("questionMark")
 	itemBar.updateAllAmounts(getAmountsFor(player.items))
 	tileBar.updateAllAmounts(getAmountsFor(player.placeableTiles))
 	seedBar.updateAllAmounts(getAmountsFor(player.harvestables))
