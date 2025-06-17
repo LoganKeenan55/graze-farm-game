@@ -785,7 +785,6 @@ offset_right = 154.0
 offset_bottom = 37.0
 
 [node name="NightTimeFilter" type="ColorRect" parent="."]
-visible = false
 offset_left = -183.0
 offset_top = -146.0
 offset_right = 300.0

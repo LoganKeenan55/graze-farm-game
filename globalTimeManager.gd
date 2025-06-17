@@ -40,8 +40,7 @@ func _process(delta: float) -> void:
 			emit_signal("day_started")
 		if GlobalVars.globalTime == 25:
 			GlobalVars.globalTime = 1
-	if Input.is_action_just_pressed("tab"):
-		GlobalVars.globalTime = 23
+	
 func growFarmTiles():
 	for crop in get_tree().get_nodes_in_group("farmTiles"):
 		if crop:

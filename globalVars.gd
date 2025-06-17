@@ -95,6 +95,7 @@ func loadGame():
 			player.inventory.clear()
 			for key in node["inventory"]:
 				player.inventory[key] = node["inventory"][key]
+			player.unlockLevel = node["unlockLevel"]
 		if node["group"] == "farmTiles":
 			newTile = farmTilePreload.instantiate()
 			newTile.position = node["position"]

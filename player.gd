@@ -99,6 +99,10 @@ func handleCheats():
 		inventory["pepper"] = 9999
 		hotBar.updateAll()
 		hud.updateAllCounter()
+	if Input.is_action_just_pressed("d"):
+		recieve("pepper",1)
+	
+		
 func getData():
 	return {
 		"group": "player",

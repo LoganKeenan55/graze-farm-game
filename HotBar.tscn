@@ -351,6 +351,7 @@ _data = {
 }
 
 [node name="HotBar" type="Node2D"]
+visible = false
 script = ExtResource("1_hpejl")
 
 [node name="SeedsHUD" type="Node2D" parent="."]
