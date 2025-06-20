@@ -8,6 +8,7 @@ class_name Player
 ## preload
 var shopMenuPreload = preload("res://ShopMenu.tscn")
 var dustParticlePreload = preload("res://DustParticle.tscn")
+var popUpPreload = preload("res://pop_up.tscn")
 ## player variables
 var speed: int = 96
 var mode = "nothing" # nothing, placing, farming, seed, shop
@@ -40,26 +41,38 @@ func recieve(item:String, ammount:int): #handles receiving items
 			if item == "bamboo":
 				unlockLevel = 2
 				hud.setSizeBasedOnUpgradeLevel()
+				var popUp:PopUp = popUpPreload.instantiate(); add_child(popUp)
+				popUp.setText("Level 2: Bamboo Unlocked!")
 		2:
 			if item == "flower":
 				unlockLevel = 3
 				hud.setSizeBasedOnUpgradeLevel()
+				var popUp:PopUp = popUpPreload.instantiate(); add_child(popUp)
+				popUp.setText("Level 3: Wild Flower Unlocked!")
 		3:
 			if item == "pepper":
 				unlockLevel = 4
 				hud.setSizeBasedOnUpgradeLevel()
+				var popUp:PopUp = popUpPreload.instantiate(); add_child(popUp)
+				popUp.setText("Level 4: Pepper Unlocked!")
 		4:
 			if item == "corn":
 				unlockLevel = 5
 				hud.setSizeBasedOnUpgradeLevel()
+				var popUp:PopUp = popUpPreload.instantiate(); add_child(popUp)
+				popUp.setText("Level 5: Corn Unlocked!")
 		5:
 			if item == "berry":
 				unlockLevel = 6
 				hud.setSizeBasedOnUpgradeLevel()
+				var popUp:PopUp = popUpPreload.instantiate(); add_child(popUp)
+				popUp.setText("Level 6: Berry Unlocked!")
 		6:
 			if item == "onion":
 				unlockLevel = 7
 				hud.setSizeBasedOnUpgradeLevel()
+				var popUp:PopUp = popUpPreload.instantiate(); add_child(popUp)
+				popUp.setText("Level 7: Onion Unlocked!")
 
 	if item in harvestables: #updates side hud
 		hud.updateCounter(item)
