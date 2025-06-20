@@ -58,7 +58,7 @@ var level1TextureRegions = {
 	"pepper": Rect2(190, 0, 16, 16)
 }
 
-var level2TextureRegions = {
+var level3TextureRegions = {
 	"corn":Rect2(224, 16, 16, 16),
 	"wheat":Rect2(240, 16, 16, 16),
 	"bamboo": Rect2(208, 16, 16, 16),
@@ -72,7 +72,6 @@ var currentTextureRegions: Dictionary
 
 
 
-
 func _ready() -> void:
 	currentTextureRegions = level1TextureRegions
 	add_to_group("autoFarmerTiles")
@@ -80,12 +79,14 @@ func _ready() -> void:
 	usesBlending = false
 	tileType = "autoFarmTile"
 	updateTexture()
-	
+	onStartLoad()
+
 func getData():
 	var nodeData = {}
 	nodeData["group"] = "autoFarmerTiles"
 	nodeData["position"] = position
 	nodeData["level"] = level
+	nodeData["cropType"] = cropType
 	return nodeData
 
 func updateTexture(): 
@@ -122,13 +123,15 @@ func upgrade():
 	
 	
 	
-	if level == 2:
-		currentTextureRegions = level2TextureRegions #set to seeded
-		
-	if level == 3:
-		stateIndex = 1 #set texture to red
+	if level == 2: #set texture to red and increase range
+		stateIndex = 1
+		range = 55
 	
-	if level == 4: #set texture to purple
+	if level == 3: #can seed
+		currentTextureRegions = level3TextureRegions #set to seeded
+	
+	if level == 4: #set texture to purple and faster activation
+		$ActivationTimer.wait_time = 5
 		stateIndex = 2
 		
 	updateTexture()
@@ -163,5 +166,24 @@ func plantFarmTiles():
 func activate():
 	$AnimationPlayer.play("activate")
 	harvestFarmTiles()
-	if level >= 2:
+	if level >= 3:
 		plantFarmTiles()
+
+
+func _on_activation_timer_timeout() -> void:
+	activate()
+
+func onStartLoad():
+	match level:
+		1:
+			stateIndex = 0
+		2:
+			stateIndex = 1
+			range = 55
+		3:
+			currentTextureRegions = level3TextureRegions #set to seeded
+		4:
+			stateIndex = 2
+			$ActivationTimer.wait_time = 5
+	
+	updateTexture()

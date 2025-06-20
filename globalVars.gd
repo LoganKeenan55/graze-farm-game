@@ -117,6 +117,7 @@ func loadGame():
 			newTile = autoFarmerTilePreload.instantiate()
 			newTile.position = node["position"]
 			newTile.level = node["level"]
+			newTile.cropType = node["cropType"]
 			underTilesParent.add_child(newTile)
 	player.hotBar.updateAmounts("items")
 	player.hotBar.updateAmounts("tiles")

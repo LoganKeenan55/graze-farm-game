@@ -4,6 +4,7 @@ var tileState = ["water1","water2"]
 
 var sound = "res://sounds/water_sound.mp3"
 
+var range = 45 #44 makes circle  46 makes square
 var flowSpeed:int = 2 #there is a 1/flowSpeed chance every .5 sec, def = 30
 
 var textureRegions = {
@@ -47,7 +48,7 @@ func flow():
 		
 func updateFertileTiles(add_water: int):
 	for tile in get_tree().get_nodes_in_group("farmTiles"):
-		if position.distance_to(tile.position) <= 44:  #44 makes circle  46 makes square
+		if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
 			if add_water > 0:
 				tile.waterSources[self] = true
 			elif add_water < 0 and self in tile.waterSources:
