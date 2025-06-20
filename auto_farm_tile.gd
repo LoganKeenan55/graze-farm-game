@@ -13,22 +13,29 @@ var priceCounts: Dictionary = {#count of all crops added to it, to be returned w
 	"corn": 0,
 	"bamboo": 0,
 	"berry": 0,
-	"onion": 0
+	"onion": 0,
+	"pepper": 0,
+	"flower": 0
+	
 }
 
 var seedPrices = {
-	"wheat": 50,
-	"corn": 50,
-	"bamboo": 100,
-	"berry": 50,
-	"onion": 75
+	"wheat": 10,
+	"corn": 10,
+	"bamboo": 10,
+	"berry": 10,
+	"onion": 10,
+	"flower": 10,
+	"pepper": 10
 }
 var upgradePrices = {
-	"wheat": 50,
-	"corn": 100,
-	"bamboo": 200,
-	"berry": 50,
-	"onion": 75
+	"wheat": 20,
+	"corn": 20,
+	"bamboo": 50,
+	"berry": 10,
+	"onion": 20,
+	"pepper": 10,
+	"flower": 20,
 }
 
 var sound = "res://sounds/metal_sound.mp3"
@@ -46,15 +53,19 @@ var level1TextureRegions = {
 	"wheat":Rect2(96, 0, 16, 16),
 	"bamboo": Rect2(128, 0, 16, 16),
 	"berry": Rect2(144, 0, 16, 16),
-	"onion": Rect2(160, 0, 16, 16)
+	"onion": Rect2(160, 0, 16, 16),
+	"flower": Rect2(176, 0, 16, 16),
+	"pepper": Rect2(190, 0, 16, 16)
 }
 
 var level2TextureRegions = {
 	"corn":Rect2(224, 16, 16, 16),
 	"wheat":Rect2(240, 16, 16, 16),
 	"bamboo": Rect2(208, 16, 16, 16),
-	"berry": Rect2(192, 16, 16, 16),
-	"onion": Rect2(176, 16, 16, 16)
+	"berry": Rect2(190, 16, 16, 16),
+	"onion": Rect2(176, 16, 16, 16),
+	"flower": Rect2(176, 32, 16, 16),
+	"pepper": Rect2(190, 32, 16, 16)
 }
 
 var currentTextureRegions: Dictionary
@@ -102,7 +113,8 @@ func upgrade():
 		
 
 	level+=1 
-	player.inventory[cropType] -= upgradePrices[cropType]
+	
+	player.recieve(cropType, -upgradePrices[cropType])
 	
 	priceCounts[cropType] += upgradePrices[cropType]
 	upgradePrices[cropType] *= 1.5  #increases price on each upgrade

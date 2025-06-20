@@ -6,12 +6,11 @@ var prices = {
 	"waterTile" :{"corn": 15},
 	"brickTile":{"bamboo": 20},
 	"autoFarmTile":{"berry": 50},
-	"wheat":{"corn": 50},
-	"corn":{"wheat": 50},
-	"bamboo":{"corn": 50},
-	"berry":{"bamboo": 50},
+	"bamboo":{"wheat": 25},
+	"flower":{"bamboo":50},
+	"corn":{"flower": 30},
+	"berry":{"corn": 25},
 	"onion":{"berry": 50},
-	"flower":{"bamboo":50}
 }
 
 @onready var anPlayer = $AnimationPlayer
@@ -58,7 +57,7 @@ func setDefaultPrices():
 	$Control2/VBoxContainer/HBoxContainer3/BrickTilePrice.text = str(prices["brickTile"].values()[0])
 	$Control2/VBoxContainer/HBoxContainer4/AutoFarmTilePrice.text = str(prices["autoFarmTile"].values()[0])
 	
-	$Control2/VBoxContainer2/HBoxContainer/WheatPrice.text = str(prices["wheat"].values()[0])
+	#$Control2/VBoxContainer2/HBoxContainer/WheatPrice.text = str(prices["wheat"].values()[0])
 	$Control2/VBoxContainer2/HBoxContainer2/CornPrice.text = str(prices["corn"].values()[0])
 	$Control2/VBoxContainer2/HBoxContainer3/BambooPrice.text = str(prices["bamboo"].values()[0])
 	$Control2/VBoxContainer2/HBoxContainer4/BerryPrice.text = str(prices["berry"].values()[0])
@@ -113,7 +112,7 @@ func _on_corn_button_pressed() -> void:
 		SoundManager.play_ui_sound("res://sounds/not_enough.mp3")
 		
 func _on_bamboo_button_pressed() -> void:
-	buy("corn","bamboo")
+	buy("wheat","bamboo")
 	
 
 func _on_berry_button_pressed() -> void:

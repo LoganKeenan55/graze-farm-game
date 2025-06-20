@@ -456,6 +456,7 @@ theme_override_font_sizes/font_size = 10
 text = "Tile:"
 
 [node name="HotBar" parent="." instance=ExtResource("2_vow1y")]
+visible = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_speed = 20.0

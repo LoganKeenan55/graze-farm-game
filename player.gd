@@ -65,7 +65,6 @@ func recieve(item:String, ammount:int): #handles receiving items
 		hud.updateCounter(item)
 	if item in placeableTiles:
 		hotBar.setAmount("tiles",placeableTiles.find(item),inventory[item]-ammount)
-	#hotBar.updateAll() #updates HotBar
 	
 func _ready() -> void:
 	add_to_group("player")
@@ -81,10 +80,10 @@ func getInput():
 	handleSavingLoadingGame()
 	handleMovement()
 	handleChangingMode()
-	handleCheats()
+	handleDebuging()
 	handleMode()
 
-func handleCheats():
+func handleDebuging():
 	if Input.is_action_just_pressed("c"): #9999 of everything 
 		inventory["farmTile"] = 9999
 		inventory["waterTile"] = 9999

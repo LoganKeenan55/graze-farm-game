@@ -20,7 +20,7 @@ func handleDeletingTile(): #shovel
 		createRemoveParticle()
 	#	player.inventory[get_parent().tileType]+=1 
 		player.recieve(get_parent().tileType,1)
-		#player.hotBar.setAmount("tiles",player.placeableTiles.find(get_parent().tileType),player.inventory[get_parent().tileType])
+		player.hotBar.setAmount("tiles",player.placeableTiles.find(get_parent().tileType),player.inventory[get_parent().tileType])
 		get_parent().queue_free()  #delete the object
 		deleted = true
 		SoundManager.play_sound(get_parent().sound)
@@ -30,13 +30,15 @@ func handleDeletingTile(): #shovel
 				get_parent().updateFertileTiles(-1)
 			"farmTile":
 				if get_parent().stateIndex >= 2 and get_parent().stateIndex <= 3:
-					player.inventory[get_parent().cropType] += 1
-					player.hud.updateCounter(get_parent().cropType)
+					#player.inventory[get_parent().cropType] += 1
+					player.recieve(get_parent().cropType, 1)
+					#player.hud.updateCounter(get_parent().cropType)
 				if get_parent().stateIndex == 4:
 					get_parent().harvestCrop()
 			"autoFarmTile":
 				if get_parent().cropType != "default":
-					player.inventory[get_parent().cropType] += get_parent().priceCounts[get_parent().cropType] #"refund" whatever is put in
+					#player.inventory[get_parent().cropType] += get_parent().priceCounts[get_parent().cropType] #"refund" whatever is put in
+					player.recieve(get_parent().cropType, get_parent().priceCounts[get_parent().cropType])
 					player.hotBar.updateAll()
 			"brickTile":
 				pass

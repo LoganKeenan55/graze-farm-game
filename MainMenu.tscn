@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bpctmvd7jl1ar"]
+[gd_scene load_steps=29 format=3 uid="uid://bpctmvd7jl1ar"]
 
 [ext_resource type="Script" uid="uid://b4g7gjmx15vfp" path="res://main_menu.gd" id="1_h7a2f"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://textureAtlas.png" id="1_i26rj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dpsu1q5hkv5i" path="res://WaterTile.tscn" id="5_e2xy7"]
 [ext_resource type="Texture2D" uid="uid://b7fmp2kynllgt" path="res://sunBeam.png" id="8_e2xy7"]
 [ext_resource type="PackedScene" uid="uid://b2mqiobubchau" path="res://DirtTransition.tscn" id="9_fimr5"]
+[ext_resource type="AudioStream" uid="uid://dl4je4ygfdqpa" path="res://sounds/music2.mp3" id="10_u7cqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eiy7p"]
 texture = ExtResource("1_i26rj")
@@ -489,6 +490,42 @@ region = Rect2(240, 32, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqjrg"]
 radius = 3.0
+
+[sub_resource type="Animation" id="Animation_u7cqb"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-25.0, -43.962]
+}
+
+[sub_resource type="Animation" id="Animation_afec1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-25.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_31qfy"]
+_data = {
+&"RESET": SubResource("Animation_afec1"),
+&"exit": SubResource("Animation_u7cqb")
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_h7a2f")
@@ -973,6 +1010,16 @@ texture = ExtResource("8_e2xy7")
 [node name="DirtTransition" parent="." instance=ExtResource("9_fimr5")]
 position = Vector2(-168, -95)
 scale = Vector2(5, 5)
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_u7cqb")
+volume_db = -25.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuMusic"]
+libraries = {
+&"": SubResource("AnimationLibrary_31qfy")
+}
 
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Continue/ContinueButton" to="." method="_on_continue_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Continue/ContinueButton" to="." method="_on_continue_button_pressed"]
