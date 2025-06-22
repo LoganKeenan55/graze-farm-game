@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddwmbj66kgms1"
+path="res://.godot/imported/marmot eating.mp3-07cb8d180bd9a5711a717718c33a66a2.mp3str"
+
+[deps]
+
+source_file="res://sounds/marmot eating.mp3"
+dest_files=["res://.godot/imported/marmot eating.mp3-07cb8d180bd9a5711a717718c33a66a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -37,11 +37,13 @@ func eatCrop():
 	if !isEating:
 		$AnimationPlayer.play("eat")
 		$EatTimer.start()
-		
-func leave(str): #can be leave or leave_happy
+		$EatingSound.play()
+func leave(str): #can be leave or leave_happy or leave_hot
 	$AnimationPlayer.play(str)
+	if str != "leave_happy":
+		$Scared.play()
 	isLeaving = true
-
+	
 
 func _on_eat_timer_timeout() -> void:
 	if isLeaving:
@@ -72,7 +74,5 @@ func _on_hitbox_area_entered(area: Area2D) -> void: #checks for peppers in range
 		area.get_parent().updateTexture()
 	#nearbyFarmTiles.append(area.get_parent())
 
-#
-#func _on_hitbox_area_exited(area: Area2D) -> void:
-	#if nearbyFarmTiles.has(area.get_parent()):
-		#nearbyFarmTiles.erase(area.get_parent())
+func playWalkSound():
+	$WalkSound.play()

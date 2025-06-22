@@ -1,8 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://0o4bwumrqgl0"]
+[gd_scene load_steps=17 format=3 uid="uid://0o4bwumrqgl0"]
 
 [ext_resource type="Script" uid="uid://bbiev4l872e43" path="res://marmot.gd" id="1_54bpy"]
 [ext_resource type="Texture2D" uid="uid://bqqvy53klp00p" path="res://marmot.png" id="2_54bpy"]
 [ext_resource type="Script" uid="uid://b2fimy3sh4sdf" path="res://hitbox.gd" id="3_ioden"]
+[ext_resource type="AudioStream" uid="uid://dvx0irnyo1edj" path="res://sounds/marmot_walk.mp3" id="4_tde6x"]
+[ext_resource type="AudioStream" uid="uid://ddwmbj66kgms1" path="res://sounds/marmot eating.mp3" id="5_8lyuv"]
+[ext_resource type="AudioStream" uid="uid://c48noilw433nj" path="res://sounds/marmot_scared.mp3" id="5_jrvh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ioden"]
 atlas = ExtResource("2_54bpy")
@@ -110,6 +113,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"playWalkSound"
+}, {
+"args": [],
+"method": &"playWalkSound"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8lyuv"]
 _data = {
@@ -159,6 +179,21 @@ script = ExtResource("3_ioden")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_54bpy")
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tde6x")
+volume_db = -6.559
+max_distance = 196.0
+
+[node name="Scared" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jrvh3")
+volume_db = -6.559
+max_distance = 196.0
+
+[node name="EatingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8lyuv")
+volume_db = -6.559
+max_distance = 125.0
 
 [connection signal="timeout" from="EatTimer" to="." method="_on_eat_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
