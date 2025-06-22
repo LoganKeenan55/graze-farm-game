@@ -17,6 +17,6 @@ func _ready() -> void:
 
 	$DirtTransition.openTransition()
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("d"):
-		$MarmotSpawner.spawnMarmot()
+#func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("d"):
+		#$MarmotSpawner.spawnMarmot()

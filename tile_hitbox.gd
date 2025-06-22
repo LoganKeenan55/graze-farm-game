@@ -166,8 +166,9 @@ func createRemoveParticle():
 	var particle = removeParticlePreload.instantiate()
 	particle.position = get_parent().position
 	particle.get_child(0).emitting = true
-	if get_parent().get_parent().get_parent():
-		get_parent().get_parent().get_parent().add_child(particle)
+	
+	if get_parent().get_parent().get_parent().get_parent():
+		get_parent().get_parent().get_parent().get_parent().add_child(particle)
 
 
 func handlePlayerInterection(event): #needed for all tiles

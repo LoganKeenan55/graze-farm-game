@@ -268,7 +268,8 @@ func createHarvestParticle():
 	var particle = currentHarvestParticle.instantiate()
 	particle.position = self.position
 	particle.get_child(0).emitting = true
-	get_parent().get_parent().add_child(particle)
+	get_parent().get_parent().get_parent().add_child(particle)
+	#particle.z = 2
 	particle.add_to_group("harvest")
 	await get_tree().create_timer(1).timeout
 	particle.queue_free()
