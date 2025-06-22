@@ -1038,7 +1038,7 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_p2q0s")
 
-[node name="WheatPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer"]
+[node name="BambooPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = SubResource("Theme_e5qd0")
@@ -1128,7 +1128,7 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_31hie")
 
-[node name="CornPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer2"]
+[node name="FlowerPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer2"]
 texture_filter = 1
 layout_mode = 2
 theme = SubResource("Theme_e5qd0")
@@ -1218,7 +1218,7 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_jc8js")
 
-[node name="BambooPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer3"]
+[node name="CornPrice" type="Label" parent="Control2/VBoxContainer2/HBoxContainer3"]
 texture_filter = 1
 layout_mode = 2
 theme = SubResource("Theme_e5qd0")

@@ -113,7 +113,9 @@ func upgrade():
 	if player.inventory[cropType] < upgradePrices[cropType]: #if player can afford it
 		return
 		
-
+	if level == 4: #max lvl
+		return
+	
 	level+=1 
 	
 	player.recieve(cropType, -upgradePrices[cropType])

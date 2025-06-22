@@ -64,11 +64,18 @@ func handleHammer():
 			if tooltip == null and get_parent().cropType != "default":
 				tooltip = upgrateToolTipPreload.instantiate()
 				get_parent().add_child(tooltip)
-				#tooltip.changeCropType(get_parent().cropType)
+	
 				tooltip.position = position
 				tooltip.z_index = 12
-				#tooltip.price.text = str(get_parent().upgradePrices[player.harvestables[player.currentSeed]])
-				tooltip.setToolTip(get_parent().cropType,"Upgrade?",str(get_parent().upgradePrices[player.harvestables[player.currentSeed]]))
+				
+				if get_parent().level <= 3: #not max level
+					tooltip.setToolTip(get_parent().cropType,"Upgrade?",str(get_parent().upgradePrices[player.harvestables[player.currentSeed]]))
+				
+				if get_parent().level >= 4: #max level
+					tooltip.setToolTip("default","Max Level","")
+					tooltip.colorRect.visible = false
+					tooltip.position.y += 10
+			
 			if Input.is_action_just_pressed("left_click"):
 				if get_parent().cropType == "default":
 					return
@@ -149,7 +156,7 @@ func handleSeeding(): #seed
 				
 				tooltip.setToolTip(player.harvestables[player.currentSeed],"Seed?",str(get_parent().seedPrices[player.harvestables[player.currentSeed]]))
 			
-			if  Input.is_action_pressed("left_click"):
+			if  Input.is_action_pressed("left_click"): #seed autoFarmTile
 				get_parent().setCrop(player.harvestables[player.currentSeed])
 				if get_parent().cropType != "default":
 					tooltip.queue_free()

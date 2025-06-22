@@ -58,11 +58,11 @@ func setDefaultPrices():
 	$Control2/VBoxContainer/HBoxContainer4/AutoFarmTilePrice.text = str(prices["autoFarmTile"].values()[0])
 	
 	#$Control2/VBoxContainer2/HBoxContainer/WheatPrice.text = str(prices["wheat"].values()[0])
-	$Control2/VBoxContainer2/HBoxContainer2/CornPrice.text = str(prices["corn"].values()[0])
-	$Control2/VBoxContainer2/HBoxContainer3/BambooPrice.text = str(prices["bamboo"].values()[0])
+	$Control2/VBoxContainer2/HBoxContainer3/CornPrice.text = str(prices["corn"].values()[0])
+	$Control2/VBoxContainer2/HBoxContainer/BambooPrice.text = str(prices["bamboo"].values()[0])
 	$Control2/VBoxContainer2/HBoxContainer4/BerryPrice.text = str(prices["berry"].values()[0])
 	$Control2/VBoxContainer2/HBoxContainer5/OnionPrice.text = str(prices["onion"].values()[0])
-	
+	$Control2/VBoxContainer2/HBoxContainer2/FlowerPrice.text =  str(prices["flower"].values()[0])
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "close":
 		queue_free()
