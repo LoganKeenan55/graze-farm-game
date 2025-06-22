@@ -50,7 +50,7 @@ func checkUnlockLevel():
 			$Control2/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
 		5:
 			pass
-
+#
 func setDefaultPrices():
 	$Control2/VBoxContainer/HBoxContainer/FarmTilePrice.text = str(prices["farmTile"].values()[0])
 	$Control2/VBoxContainer/HBoxContainer2/WaterTilePrice.text = str(prices["waterTile"].values()[0])
