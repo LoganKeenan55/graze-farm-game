@@ -1,5 +1,6 @@
 extends Node2D
 
+var introPreload = preload("res://Intro.tscn")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -12,11 +13,17 @@ func _ready() -> void:
 	SoundManager.player = $YSort/Player
 	### SET GLOBAL VARS
 	
-	if !GlobalVars.isNewGame: #if the game is not a new game -> load save
-		GlobalVars.loadGame()
-
+	if GlobalVars.isNewGame: #if the game is a new game -> tutorial
+		var intro = introPreload.instantiate()
+		add_child(intro)
+		intro.position = $YSort/Player.global_position
+		print(intro)
+	else:
+		GlobalVars.loadGame() #if the game is not a new game -> load save
+		
 	$DirtTransition.openTransition()
 
 #func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("d"):
+		#GlobalPopUp.createPopUp(self)
 		#$MarmotSpawner.spawnMarmot()

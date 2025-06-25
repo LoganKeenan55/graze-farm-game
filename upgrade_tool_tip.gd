@@ -2,6 +2,7 @@ extends Node2D
 
 class_name ToolTip
 
+
 @onready var sprite = $Control/VBoxContainer/HBoxContainer2/Sprite
 @onready var topText = $Control/VBoxContainer/HBoxContainer/Label
 @onready var priceText = $Control/VBoxContainer/HBoxContainer2/Price

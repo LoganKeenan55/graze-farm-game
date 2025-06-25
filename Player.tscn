@@ -2,23 +2,23 @@
 
 [ext_resource type="Script" uid="uid://dixq4vvsfd82e" path="res://player.gd" id="1_dkxi4"]
 [ext_resource type="Script" uid="uid://cm2cq6cxwf16t" path="res://node_creating_component.gd" id="2_3tkgg"]
-[ext_resource type="Texture2D" uid="uid://uadpj7cba24k" path="res://player_sprites/head.png" id="2_hp6x6"]
-[ext_resource type="Texture2D" uid="uid://b7tcjkpnffixc" path="res://player_sprites/body.png" id="3_3tkgg"]
 [ext_resource type="Script" uid="uid://0kgyusjvw7tu" path="res://hit_box.gd" id="3_cxr5p"]
 [ext_resource type="PackedScene" uid="uid://c5tdy0vlg8yx" path="res://HUD.tscn" id="3_kne1u"]
 [ext_resource type="PackedScene" uid="uid://b4kch1f76k5q8" path="res://Cursor.tscn" id="4_e80uo"]
-[ext_resource type="Texture2D" uid="uid://crcchduihccjy" path="res://player_sprites/legs.png" id="4_l6ohk"]
+[ext_resource type="Texture2D" uid="uid://cb6gbjpkl3t3b" path="res://player_sprites/girl_head.png" id="4_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://coi0udeuf4are" path="res://player_sprites/girl_body.png" id="5_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://fsddyknhjs06" path="res://player_sprites/girl_legs.png" id="6_3tkgg"]
 [ext_resource type="Script" uid="uid://c7xunbq3t1st4" path="res://trail.gd" id="6_tdg3f"]
 [ext_resource type="Texture2D" uid="uid://c7kqukwdti0sx" path="res://shadow.png" id="7_dtqjt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oudfo"]
-atlas = ExtResource("2_hp6x6")
+atlas = ExtResource("4_hp6x6")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6rpx"]
-atlas = ExtResource("3_3tkgg")
+atlas = ExtResource("5_hp6x6")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3kul"]
-atlas = ExtResource("4_l6ohk")
+atlas = ExtResource("6_3tkgg")
 
 [sub_resource type="Animation" id="Animation_3tkgg"]
 length = 0.001

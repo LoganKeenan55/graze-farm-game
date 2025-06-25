@@ -71,6 +71,7 @@ func openTransition() -> void:
 	for i in range(tiles.size() - 1, -1, -1):  #from last index to 0
 		var tile = tiles[i]
 		var particle = particlePreload.instantiate()
+		particle.z_index = 49
 		particle.global_position = tiles[i].get_global_position()
 
 	
