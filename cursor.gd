@@ -11,7 +11,7 @@ var textureRegions = GlobalVars.textureRegions
 
 func _ready() -> void:
 	updateTexture()
-	z_index = 50
+	z_index = 52
 	#Input.set_custom_mouse_cursor($Sprite2D.texture,0,Vector2(0,0))
 	
 		

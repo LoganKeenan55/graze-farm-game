@@ -18,10 +18,12 @@ func _ready() -> void:
 		add_child(intro)
 		intro.position = $YSort/Player.global_position
 		print(intro)
+		dirtTransition.createTiles()
+		GlobalVars.player.set_process(false); GlobalVars.player.set_physics_process(false)
 	else:
 		GlobalVars.loadGame() #if the game is not a new game -> load save
+		dirtTransition.openTransition()
 		
-	dirtTransition.createTiles()
 
 #func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("d"):
