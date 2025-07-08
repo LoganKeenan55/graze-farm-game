@@ -2,4 +2,19 @@ extends Node2D
 
 func _ready() -> void:
 	GlobalVars.player.set_process(false); GlobalVars.player.set_physics_process(false)
-	
+	animateText()
+	z_index = 51
+func animateText():
+	var count = 0
+	for letter in $Label.text:
+		$Label.visible_characters += 1
+		await get_tree().create_timer(0.03).timeout
+
+		if count % 3 == 0:
+			SoundManager.play_sound("res://sounds/bloop1.mp3",Vector2.ZERO,.4)
+			
+		count += 1
+
+
+func _on_continue_button_pressed() -> void:
+	get_parent().dirtTransition.removeTiles()

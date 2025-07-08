@@ -162,7 +162,7 @@ texture = ExtResource("1_i26rj")
 terrain_set_0/mode = 2
 sources/0 = SubResource("TileSetAtlasSource_eiy7p")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7a2f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7cqb"]
 texture = ExtResource("1_i26rj")
 0:0/0 = 0
 1:0/0 = 0
@@ -311,9 +311,9 @@ texture = ExtResource("1_i26rj")
 
 [sub_resource type="TileSet" id="TileSet_qoqlk"]
 terrain_set_0/mode = 2
-sources/0 = SubResource("TileSetAtlasSource_h7a2f")
+sources/0 = SubResource("TileSetAtlasSource_u7cqb")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iwfq2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afec1"]
 texture = ExtResource("1_i26rj")
 0:0/0 = 0
 1:0/0 = 0
@@ -462,7 +462,7 @@ texture = ExtResource("1_i26rj")
 
 [sub_resource type="TileSet" id="TileSet_7r1g0"]
 terrain_set_0/mode = 2
-sources/0 = SubResource("TileSetAtlasSource_iwfq2")
+sources/0 = SubResource("TileSetAtlasSource_afec1")
 
 [sub_resource type="Theme" id="Theme_cqjrg"]
 
@@ -840,6 +840,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cqjrg")
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

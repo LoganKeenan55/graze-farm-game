@@ -1,7 +1,7 @@
 extends Node2D
 
 var introPreload = preload("res://Intro.tscn")
-
+@onready var dirtTransition = $DirtTransition
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	#SoundManager.play_ui_sound("res://sounds/music.mp3", .8) #music - default = .8
@@ -21,7 +21,7 @@ func _ready() -> void:
 	else:
 		GlobalVars.loadGame() #if the game is not a new game -> load save
 		
-	$DirtTransition.openTransition()
+	dirtTransition.createTiles()
 
 #func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("d"):

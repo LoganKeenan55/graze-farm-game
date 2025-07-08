@@ -7,7 +7,8 @@ func _process(delta: float) -> void:
 	if  GlobalVars.player:
 		position = GlobalVars.player.position - Vector2(167,95)
 
-
+func _ready() -> void:
+	z_index = 50
 var posArr = [
 	Vector2(0, 0),
 	Vector2(0, 16),
@@ -29,7 +30,7 @@ var posArr = [
 	
 
 func closeTransition() -> void:
-	z_index = 50
+
 	var tiles = $Tiles
 	#create dirt 
 	for i in posArr:
@@ -45,9 +46,8 @@ func closeTransition() -> void:
 		SoundManager.play_sound("res://sounds/dirt_sound.mp3")
 		await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://main.tscn")
-func openTransition() -> void:
-	z_index = 50
-	#create initial dirt to remove
+
+func createTiles() -> void:
 	for i in posArr:
 		var newTile = farmTilePreload.instantiate()
 		newTile.position = i
@@ -65,8 +65,7 @@ func openTransition() -> void:
 			"down": true
 			}
 		newTile.updateTexture()
-		
-	#remove
+func removeTiles():
 	var tiles = $Tiles.get_children()
 	for i in range(tiles.size() - 1, -1, -1):  #from last index to 0
 		var tile = tiles[i]
@@ -82,4 +81,7 @@ func openTransition() -> void:
 		await get_tree().create_timer(0.1).timeout
 	await get_tree().create_timer(2).timeout
 	queue_free()
-	
+
+func openTransition() -> void:
+	createTiles()
+	removeTiles()
