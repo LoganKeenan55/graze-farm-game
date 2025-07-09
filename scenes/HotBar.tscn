@@ -1,0 +1,447 @@
+[gd_scene load_steps=17 format=3 uid="uid://cq8ghkv3svonm"]
+
+[ext_resource type="Script" uid="uid://bnhe1tdasa1xg" path="res://scripts/hot_bar_manager.gd" id="1_hpejl"]
+[ext_resource type="Script" uid="uid://cj61ws18ksv47" path="res://scripts/hot_bar_panel.gd" id="2_5twkh"]
+[ext_resource type="PackedScene" uid="uid://bb648teaj3rrn" path="res://scenes/HotBarItem.tscn" id="2_hpejl"]
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="3_5twkh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg7jq"]
+atlas = ExtResource("3_5twkh")
+region = Rect2(192, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpejl"]
+atlas = ExtResource("3_5twkh")
+region = Rect2(224, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k827p"]
+atlas = ExtResource("3_5twkh")
+region = Rect2(176, 128, 16, 16)
+
+[sub_resource type="Animation" id="Animation_dafeg"]
+resource_name = "Appear"
+length = 0.1
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SeedsHUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.1),
+"transitions": PackedFloat32Array(1, 3.4822, 0.535887),
+"update": 0,
+"values": [Vector2(-18, 0), Vector2(-18, -23.68), Vector2(-18, -22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SeedsHUD:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5twkh"]
+resource_name = "Disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SeedsHUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(4.92458, 3.13834, 2),
+"update": 0,
+"values": [Vector2(-18, -20), Vector2(-18, -23.495), Vector2(-18, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SeedsHUD:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hpejl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SeedsHUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SeedsHUD:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5twkh"]
+_data = {
+&"Appear": SubResource("Animation_dafeg"),
+&"Disappear": SubResource("Animation_5twkh"),
+&"RESET": SubResource("Animation_hpejl")
+}
+
+[sub_resource type="Animation" id="Animation_px2hj"]
+resource_name = "CursorMode"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TilesHUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemsHUD:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 45)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ItemsHUD:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TilesHUD:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_k827p"]
+resource_name = "FarmingMode"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TilesHUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 3.03143),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemsHUD:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.1),
+"transitions": PackedFloat32Array(1, 2.63902, 0.176777),
+"update": 0,
+"values": [Vector2(0, 45), Vector2(0, -4.2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TilesHUD:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ItemsHUD:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uuhq0"]
+resource_name = "PlacingMode"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TilesHUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.1),
+"transitions": PackedFloat32Array(0.933032, 2, 0.189464),
+"update": 0,
+"values": [Vector2(0, 45), Vector2(0, -4.2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemsHUD:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1.07177, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 45)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TilesHUD:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ItemsHUD:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hg7jq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TilesHUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemsHUD:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TilesHUD:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ItemsHUD:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ItemsHUD:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TilesHUD:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uuhq0"]
+_data = {
+&"CursorMode": SubResource("Animation_px2hj"),
+&"FarmingMode": SubResource("Animation_k827p"),
+&"PlacingMode": SubResource("Animation_uuhq0"),
+&"RESET": SubResource("Animation_hg7jq")
+}
+
+[node name="HotBar" type="Node2D"]
+visible = false
+script = ExtResource("1_hpejl")
+
+[node name="SeedsHUD" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_5twkh")
+hotBarType = "seeds"
+
+[node name="HotBarItem" parent="SeedsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(-36, 77)
+
+[node name="HotBarItem2" parent="SeedsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(-18, 77)
+
+[node name="HotBarItem3" parent="SeedsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(0, 77)
+
+[node name="HotBarItem4" parent="SeedsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(18, 77)
+
+[node name="HotBarItem5" parent="SeedsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(36, 77)
+
+[node name="HotBarItem6" parent="SeedsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(54, 77)
+
+[node name="HotBarItem7" parent="SeedsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(72, 77)
+
+[node name="TilesHUD" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_5twkh")
+hotBarType = "tiles"
+
+[node name="HotBarItem" parent="TilesHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(-36, 77)
+
+[node name="HotBarItem2" parent="TilesHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(-18, 77)
+
+[node name="HotBarItem3" parent="TilesHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(0, 77)
+
+[node name="HotBarItem4" parent="TilesHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(18, 77)
+
+[node name="HotBarItem5" parent="TilesHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(36, 77)
+
+[node name="F" type="Sprite2D" parent="TilesHUD"]
+texture_filter = 1
+position = Vector2(-47, 66)
+texture = SubResource("AtlasTexture_hg7jq")
+
+[node name="ItemsHUD" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_5twkh")
+hotBarType = "items"
+
+[node name="arrow" type="Sprite2D" parent="ItemsHUD"]
+texture_filter = 1
+position = Vector2(0, 61)
+texture = SubResource("AtlasTexture_hpejl")
+
+[node name="HotBarItem" parent="ItemsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(-36, 77)
+
+[node name="HotBarItem2" parent="ItemsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(-18, 77)
+
+[node name="HotBarItem3" parent="ItemsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(0, 77)
+
+[node name="HotBarItem4" parent="ItemsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(18, 77)
+
+[node name="HotBarItem5" parent="ItemsHUD" instance=ExtResource("2_hpejl")]
+position = Vector2(36, 77)
+
+[node name="E" type="Sprite2D" parent="ItemsHUD"]
+texture_filter = 1
+position = Vector2(-47, 66)
+texture = SubResource("AtlasTexture_k827p")
+
+[node name="SeedsAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+&"": SubResource("AnimationLibrary_5twkh")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uuhq0")
+}

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://c48ipagi3uoyw"]
+
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_yuhej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4xgi"]
+atlas = ExtResource("1_yuhej")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_306uc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yuhej"]
+gradient = SubResource("Gradient_306uc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d150r"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 3, 1)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.8
+scale_max = 0.8
+color_ramp = SubResource("GradientTexture1D_yuhej")
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+
+[node name="RemoveBrickParticle" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 5
+texture = SubResource("AtlasTexture_s4xgi")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_d150r")

@@ -1,0 +1,144 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcxkwga80ve8u"]
+
+[ext_resource type="Script" uid="uid://bjk3i01rh3rgs" path="res://scripts/farm_tile.gd" id="1_44iok"]
+[ext_resource type="Script" uid="uid://c4n7n5qrg05td" path="res://scripts/farm_tile_hitbox.gd" id="2_ep2lv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yfbs"]
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddp53"]
+size = Vector2(2.22725, 1.83748)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nhlr"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkvcj"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_ia4s4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Sprite:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8yfbs"]
+resource_name = "grow"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1.1875), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Sprite:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0872665, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7751"]
+_data = {
+&"RESET": SubResource("Animation_ia4s4"),
+&"grow": SubResource("Animation_8yfbs")
+}
+
+[node name="FarmTile" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_44iok")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_8yfbs")
+
+[node name="Blend" type="Node2D" parent="."]
+
+[node name="DeletingCollision" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeletingCollision"]
+position = Vector2(0.0204535, -0.0381246)
+shape = SubResource("RectangleShape2D_ddp53")
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(-8, -8)
+script = ExtResource("2_ep2lv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_6nhlr")
+
+[node name="PlayerCollision" type="StaticBody2D" parent="."]
+position = Vector2(-8.58, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+position = Vector2(8.58, 8)
+shape = SubResource("RectangleShape2D_rkvcj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a7751")
+}
+
+[connection signal="input_event" from="DeletingCollision" to="DeletingCollision" method="_on_input_event"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]
+[connection signal="input_event" from="HitBox" to="HitBox" method="_on_input_event"]
+[connection signal="mouse_exited" from="HitBox" to="HitBox" method="_on_mouse_exited"]

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2mqiobubchau"]
-
-[ext_resource type="Script" uid="uid://cwdo7ywyjuyqx" path="res://dirt_transition.gd" id="1_nkykc"]
-
-[node name="DirtTransition" type="Node2D"]
-script = ExtResource("1_nkykc")
-
-[node name="Tiles" type="Node2D" parent="."]

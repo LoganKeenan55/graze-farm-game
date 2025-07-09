@@ -1,0 +1,202 @@
+[gd_scene load_steps=17 format=3 uid="uid://0o4bwumrqgl0"]
+
+[ext_resource type="Script" uid="uid://bbiev4l872e43" path="res://scripts/marmot.gd" id="1_7umfw"]
+[ext_resource type="Texture2D" uid="uid://bqqvy53klp00p" path="res://world_sprites/marmot.png" id="2_dmt4s"]
+[ext_resource type="Script" uid="uid://b2fimy3sh4sdf" path="res://scripts/hitbox.gd" id="3_djs60"]
+[ext_resource type="AudioStream" uid="uid://dvx0irnyo1edj" path="res://sounds/marmot_walk.mp3" id="4_62e5n"]
+[ext_resource type="AudioStream" uid="uid://c48noilw433nj" path="res://sounds/marmot_scared.mp3" id="5_oju2h"]
+[ext_resource type="AudioStream" uid="uid://ddwmbj66kgms1" path="res://sounds/marmot eating.mp3" id="6_r7swr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioden"]
+atlas = ExtResource("2_dmt4s")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ioden"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_tde6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ioden"]
+resource_name = "eat"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_jrvh3"]
+resource_name = "leave_happy"
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0285711, 0.142857, 0.285714, 0.428571, 0.571432, 0.714282),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_ex0tc"]
+resource_name = "leave_hot"
+length = 1.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 16, 15, 17, 18, 19, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_8lyuv"]
+resource_name = "leave_scared"
+length = 1.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.571429, 0.685715, 0.828572, 0.971429, 1.11429, 1.25714),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_54bpy"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"playWalkSound"
+}, {
+"args": [],
+"method": &"playWalkSound"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8lyuv"]
+_data = {
+&"RESET": SubResource("Animation_tde6x"),
+&"eat": SubResource("Animation_ioden"),
+&"leave_happy": SubResource("Animation_jrvh3"),
+&"leave_hot": SubResource("Animation_ex0tc"),
+&"leave_scared": SubResource("Animation_8lyuv"),
+&"walk": SubResource("Animation_54bpy")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54bpy"]
+radius = 17.0
+
+[node name="Marmot" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_7umfw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_ioden")
+hframes = 23
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ioden")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 0.1
+path_max_distance = 477.0
+path_postprocessing = 1
+
+[node name="EatTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8lyuv")
+}
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_djs60")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_54bpy")
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_62e5n")
+volume_db = -6.559
+max_distance = 196.0
+
+[node name="Scared" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_oju2h")
+volume_db = -6.559
+max_distance = 196.0
+
+[node name="EatingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_r7swr")
+volume_db = -6.559
+max_distance = 125.0
+
+[connection signal="timeout" from="EatTimer" to="." method="_on_eat_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="input_event" from="Hitbox" to="Hitbox" method="_on_input_event"]

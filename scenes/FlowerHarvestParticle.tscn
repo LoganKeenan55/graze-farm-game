@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://7aukvjnar45p"]
+
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_j2s0i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0lgl"]
+atlas = ExtResource("1_j2s0i")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_ycumf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u2nds"]
+gradient = SubResource("Gradient_ycumf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bulln"]
+particle_flag_disable_z = true
+angle_min = -322.8
+angle_max = 455.2
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 57.47
+initial_velocity_max = 57.47
+gravity = Vector3(0, 98, 0)
+scale_min = 0.4
+scale_max = 0.8
+color_ramp = SubResource("GradientTexture1D_u2nds")
+turbulence_enabled = true
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+
+[node name="FlowerHarvestParticle" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+texture = SubResource("AtlasTexture_f0lgl")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_bulln")
