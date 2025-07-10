@@ -187,9 +187,9 @@ func harvestCrop():
 		
 		match cropType: #add to inventory
 			"wheat":
-				player.inventory[cropType] += randi_range(1,2)
+				player.inventory[cropType] += 2
 			"corn":
-				player.inventory[cropType] += randi_range(1,2)
+				player.inventory[cropType] += 2
 			"bamboo":
 				player.inventory[cropType] += randi_range(1,2)
 				SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
@@ -198,9 +198,9 @@ func harvestCrop():
 			"onion":
 				player.inventory[cropType] += randi_range(1,2)
 			"flower":
-				player.inventory[cropType] += randi_range(1,2)
+				player.inventory[cropType] += 2
 			"pepper":
-				player.inventory[cropType] += randi_range(1,2)
+				player.inventory[cropType] += 2
 				SoundManager.play_sound("res://sounds/sizzle.mp3",position,.1)
 			_:
 				print("INVALID TYPE in function: harvestCrop")

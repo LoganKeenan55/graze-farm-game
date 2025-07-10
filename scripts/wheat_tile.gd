@@ -1,4 +1,4 @@
-extends "res://farm_tile.gd"
+extends "res://scenes/FarmTile.tscn"
 func _ready():
 	textureRegions = {
 		"unfertile": Rect2(0, 0, 16, 16),

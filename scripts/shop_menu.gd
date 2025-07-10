@@ -3,11 +3,11 @@ class_name Shop
 
 var prices = {
 	"farmTile": {"wheat": 5},
-	"waterTile" :{"corn": 15},
-	"brickTile":{"bamboo": 20},
-	"autoFarmTile":{"berry": 50},
+	"waterTile" :{"bamboo": 10},
+	"brickTile":{"flower": 5},
+	"autoFarmTile":{"berry": 20},
 	"bamboo":{"wheat": 25},
-	"flower":{"bamboo":50},
+	"flower":{"bamboo":40},
 	"corn":{"flower": 30},
 	"berry":{"corn": 25},
 	"onion":{"berry": 50},
@@ -71,11 +71,11 @@ func _on_farm_tile_button_pressed() -> void:
 	buy("wheat","farmTile")
 	
 func _on_water_tile_button_pressed() -> void:
-	buy("corn","waterTile")
+	buy("bamboo","waterTile")
 
 
 func _on_brick_tile_button_pressed() -> void:
-	buy("bamboo","brickTile")
+	buy("flower","brickTile")
 
 
 func _on_auto_farm_tile_button_pressed() -> void:
