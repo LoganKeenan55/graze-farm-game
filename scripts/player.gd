@@ -12,7 +12,6 @@ var popUpPreload = preload("res://scenes/pop_up.tscn")
 ## player variables
 var speed: int = 96
 var mode = "nothing" # nothing, placing, farming, seed, shop
-
 ## inventory dictionary
 var inventory= {
 	"farmTile": 20,"waterTile" :2 , "brickTile":0 , "autoFarmTile":0,
@@ -80,6 +79,7 @@ func recieve(item:String, ammount:int): #handles receiving items
 		hotBar.setAmount("tiles",placeableTiles.find(item),inventory[item]-ammount)
 	
 func _ready() -> void:
+	setSpriteBasedOffGender()
 	add_to_group("player")
 	$TileComponent.hotBar = hotBar
 	
@@ -115,13 +115,22 @@ func handleDebuging():
 	if Input.is_action_just_pressed("d"):
 		recieve("pepper",1)
 	
-		
+func setSpriteBasedOffGender():
+	if GlobalVars.playerGender == "male":
+		$Player_Sprites/Head.texture.atlas = load("res://player_sprites/male_heads.png")
+		$Player_Sprites/Body.texture.atlas = load("res://player_sprites/male_bodies.png")
+		$Player_Sprites/Legs.texture.atlas = load("res://player_sprites/male_legs.png")
+	if GlobalVars.playerGender == "female":
+		$Player_Sprites/Head.texture.atlas = load("res://player_sprites/female_heads.png")
+		$Player_Sprites/Body.texture.atlas = load("res://player_sprites/female_bodies.png")
+		$Player_Sprites/Legs.texture.atlas = load("res://player_sprites/female_legs.png")
 func getData():
 	return {
 		"group": "player",
 		"position": position,
 		"inventory": inventory,
-		"unlockLevel":unlockLevel
+		"unlockLevel":unlockLevel,
+	
 	}
 
 func handleChangingMode():

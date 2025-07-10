@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fsddyknhjs06"
-path="res://.godot/imported/girl_legs.png-4fd6d3aafd4a22d46184a60ad2ea23aa.ctex"
+uid="uid://coi0udeuf4are"
+path="res://.godot/imported/female_bodies.png-e5c0677dc693262ae26f74879e46ec26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player_sprites/girl_legs.png"
-dest_files=["res://.godot/imported/girl_legs.png-4fd6d3aafd4a22d46184a60ad2ea23aa.ctex"]
+source_file="res://player_sprites/female_bodies.png"
+dest_files=["res://.godot/imported/female_bodies.png-e5c0677dc693262ae26f74879e46ec26.ctex"]
 
 [params]
 

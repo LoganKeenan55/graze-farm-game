@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://0kgyusjvw7tu" path="res://scripts/hit_box.gd" id="3_cxr5p"]
 [ext_resource type="PackedScene" uid="uid://c5tdy0vlg8yx" path="res://scenes/HUD.tscn" id="3_kne1u"]
 [ext_resource type="PackedScene" uid="uid://b4kch1f76k5q8" path="res://scenes/Cursor.tscn" id="4_e80uo"]
-[ext_resource type="Texture2D" uid="uid://cb6gbjpkl3t3b" path="res://player_sprites/girl_head.png" id="4_hp6x6"]
-[ext_resource type="Texture2D" uid="uid://coi0udeuf4are" path="res://player_sprites/girl_body.png" id="5_hp6x6"]
-[ext_resource type="Texture2D" uid="uid://fsddyknhjs06" path="res://player_sprites/girl_legs.png" id="6_3tkgg"]
+[ext_resource type="Texture2D" uid="uid://cb6gbjpkl3t3b" path="res://player_sprites/female_heads.png" id="4_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://coi0udeuf4are" path="res://player_sprites/female_bodies.png" id="5_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://fsddyknhjs06" path="res://player_sprites/female_legs.png" id="6_3tkgg"]
 [ext_resource type="Script" uid="uid://c7xunbq3t1st4" path="res://scripts/trail.gd" id="6_tdg3f"]
 [ext_resource type="Texture2D" uid="uid://c7kqukwdti0sx" path="res://world_sprites/shadow.png" id="7_dtqjt"]
 

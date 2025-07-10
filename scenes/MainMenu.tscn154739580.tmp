@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b2mqiobubchau" path="res://scenes/DirtTransition.tscn" id="9_fimr5"]
 [ext_resource type="AudioStream" uid="uid://dl4je4ygfdqpa" path="res://sounds/music2.mp3" id="10_u7cqb"]
 [ext_resource type="Texture2D" uid="uid://tilkd7c2hqco" path="res://player_sprites/male_head.png" id="11_bky6r"]
-[ext_resource type="Texture2D" uid="uid://bhkvdb5stnbdc" path="res://player_sprites/female_head.png" id="12_l4mxc"]
+[ext_resource type="Texture2D" uid="uid://bhkvdb5stnbdc" path="res://player_sprites/femalel_head.png" id="12_l4mxc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eiy7p"]
 texture = ExtResource("1_i26rj")
@@ -1069,7 +1069,7 @@ theme = SubResource("Theme_cqjrg")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_eiy7p")
 theme_override_font_sizes/font_size = 6
-text = "Character
+text = "Charecter
 "
 metadata/_edit_use_anchors_ = true
 
@@ -1103,20 +1103,6 @@ texture_filter = 1
 position = Vector2(66, 64)
 texture = ExtResource("12_l4mxc")
 
-[node name="femaleButton" type="Button" parent="Female"]
-offset_left = 52.84
-offset_top = 54.525
-offset_right = 77.57
-offset_bottom = 74.525
-scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_cqjrg")
-metadata/_edit_use_anchors_ = true
-
 [node name="MainMenuCursor" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = SubResource("AtlasTexture_iwfq2")
@@ -1129,23 +1115,10 @@ monitoring = false
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_cqjrg")
 
-[node name="arrow" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(74, 76.255)
 texture = SubResource("AtlasTexture_bky6r")
-
-[node name="version" type="Label" parent="."]
-texture_filter = 1
-offset_left = 130.0
-offset_top = 82.0
-offset_right = 175.0
-offset_bottom = 99.0
-theme = SubResource("Theme_cqjrg")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_eiy7p")
-theme_override_font_sizes/font_size = 6
-text = "v 0.1.1"
-metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Continue/ContinueButton" to="." method="_on_continue_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Continue/ContinueButton" to="." method="_on_continue_button_pressed"]
@@ -1154,5 +1127,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer3/NewGame/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/NewGame/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Male/maleButton" to="." method="_on_male_button_pressed"]
-[connection signal="pressed" from="Female/femaleButton" to="." method="_on_female_button_pressed"]
 [connection signal="area_entered" from="MainMenuCursor/Area2D" to="MainMenuCursor" method="_on_area_2d_area_entered"]
