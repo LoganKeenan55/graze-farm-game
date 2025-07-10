@@ -4,7 +4,7 @@ var introPreload = preload("res://scenes/Intro.tscn")
 @onready var dirtTransition = $DirtTransition
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	#SoundManager.play_ui_sound("res://sounds/music.mp3", .8) #music - default = .8
+	SoundManager.play_ui_sound("res://sounds/music.mp3", .8) #music - default = .8
 	
 	### SET GLOBAL VARS
 	GlobalVars.player = $YSort/Player

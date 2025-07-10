@@ -431,7 +431,7 @@ You are a city boy and want to impress a kind mistress you met at the county fai
 
 To impress her you know you have to try starting your own farm, but all you brought was wheet seeds...
 
-She won't be impressed by just a weet farm though so best get to work."
+She won't be impressed by just a wheet farm though so best get to work."
 autowrap_mode = 3
 
 [node name="Continue" type="Node2D" parent="."]
