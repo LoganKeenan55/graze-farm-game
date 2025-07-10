@@ -19,7 +19,7 @@ func animateText():
 func _on_continue_button_pressed() -> void:
 	get_parent().dirtTransition.removeTiles()
 	$AnimationPlayer.play("fadeOut")
-
+	SoundManager.play_ui_sound("res://sounds/music.mp3", .8) #music - default = .8
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fadeOut":
 		queue_free()

@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tvqli"]
 resource_name = "transition"
-length = 2.0
+length = 3.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -31,7 +31,7 @@ tracks/0/path = NodePath("ColorRect:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1.8, 2),
+"times": PackedFloat32Array(0, 0.3, 2.8, 3),
 "transitions": PackedFloat32Array(2.46229, 0.258816, 0.196146, 2.2974),
 "update": 0,
 "values": [Vector2(0, 25.58), Vector2(0, 11), Vector2(0, 11), Vector2(0, 25.705)]

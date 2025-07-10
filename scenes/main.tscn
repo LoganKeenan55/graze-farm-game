@@ -214,3 +214,5 @@ player = NodePath("../YSort/Player")
 [node name="DirtTransition" parent="." instance=ExtResource("6_7mycd")]
 position = Vector2(542, 377)
 scale = Vector2(5, 5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

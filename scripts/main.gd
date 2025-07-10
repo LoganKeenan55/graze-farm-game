@@ -4,7 +4,7 @@ var introPreload = preload("res://scenes/Intro.tscn")
 @onready var dirtTransition = $DirtTransition
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	SoundManager.play_ui_sound("res://sounds/music.mp3", .8) #music - default = .8
+	
 	
 	### SET GLOBAL VARS
 	GlobalVars.player = $YSort/Player
@@ -23,7 +23,7 @@ func _ready() -> void:
 	else:
 		GlobalVars.loadGame() #if the game is not a new game -> load save
 		dirtTransition.openTransition()
-		
+		SoundManager.play_ui_sound("res://sounds/music.mp3", .8) #music - default = .8
 
 #func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("d"):
