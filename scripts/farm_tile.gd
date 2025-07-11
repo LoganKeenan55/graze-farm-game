@@ -86,7 +86,7 @@ var growSpeeds = { #there is a 1/growSpeed chance every .5 sec, def = 30
 	"bamboo": 15,
 	"berry": 60,
 	"onion": 20,
-	"flower": 30,
+	"flower": 20,
 	"pepper": 50
 }
 

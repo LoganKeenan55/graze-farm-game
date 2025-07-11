@@ -22,7 +22,7 @@ func _ready() -> void:
 	setSizeBasedOnUpgradeLevel()
 	
 func setSizeBasedOnUpgradeLevel():
-	print(player.unlockLevel)
+	
 	match player.unlockLevel:
 		1:
 			

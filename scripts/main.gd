@@ -17,7 +17,7 @@ func _ready() -> void:
 		var intro = introPreload.instantiate()
 		add_child(intro)
 		intro.position = $YSort/Player.global_position
-		print(intro)
+		
 		dirtTransition.createTiles()
 		GlobalVars.player.set_process(false); GlobalVars.player.set_physics_process(false)
 	else:

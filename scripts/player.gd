@@ -99,6 +99,7 @@ func getInput():
 
 func handleDebuging():
 	if Input.is_action_just_pressed("c"): #9999 of everything 
+		GlobalVars.globalTime = 20
 		inventory["farmTile"] = 9999
 		inventory["waterTile"] = 9999
 		inventory["autoFarmTile"] = 9999

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://s5w7ens75gix"]
+
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_bwjbh"]
+[ext_resource type="Script" uid="uid://d3upk02txv7k" path="res://scenes/firefly.gd" id="1_n6fa3"]
+
+[node name="Firefly" type="Node2D"]
+script = ExtResource("1_n6fa3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bwjbh")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(64, 128, 64, 16)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
