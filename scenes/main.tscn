@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvild13tpsq7d"]
+[gd_scene load_steps=11 format=3 uid="uid://cvild13tpsq7d"]
 
 [ext_resource type="Script" uid="uid://c6fp030nldugh" path="res://scripts/main.gd" id="1_83qsj"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="2_7n4sv"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cn6qxxbekju82" path="res://scenes/Home.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d0grxrghfbhic" path="res://scenes/MarmotSpawner.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b2mqiobubchau" path="res://scenes/DirtTransition.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://s5w7ens75gix" path="res://scenes/Firefly.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dk5o4hvy3asoe" path="res://scenes/FireFlySpawner.tscn" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
@@ -218,8 +217,5 @@ position = Vector2(542, 377)
 scale = Vector2(5, 5)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[node name="Firefly" parent="." instance=ExtResource("7_o6xl0")]
-position = Vector2(604, 371)
 
 [node name="FireFlySpawner" parent="." instance=ExtResource("8_tipki")]

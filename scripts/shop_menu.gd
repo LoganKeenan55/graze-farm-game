@@ -4,7 +4,7 @@ class_name Shop
 var prices = {
 	"farmTile": {"wheat": 5},
 	"waterTile" :{"bamboo": 10},
-	"brickTile":{"flower": 5},
+	"brickTile":{"flower": 3},
 	"autoFarmTile":{"berry": 20},
 	"bamboo":{"wheat": 25},
 	"flower":{"bamboo":40},

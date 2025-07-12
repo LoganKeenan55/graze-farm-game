@@ -34,7 +34,7 @@ var textureRegions = {
 
 var timeSinceLastSave
 var globalTime:int = 8
-var isNewGame = true
+var isNewGame = false
 var playerGender = "male"
 ##
 var farmTilePreload = preload("res://scenes/FarmTile.tscn")
@@ -119,6 +119,7 @@ func loadGame():
 			newTile.position = node["position"]
 			newTile.level = node["level"]
 			newTile.cropType = node["cropType"]
+			#newTile.upgradePrices = node["upgradePrices"]
 			underTilesParent.add_child(newTile)
 	player.hotBar.updateAmounts("items")
 	player.hotBar.updateAmounts("tiles")

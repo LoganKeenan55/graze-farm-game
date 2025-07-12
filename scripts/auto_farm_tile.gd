@@ -88,6 +88,7 @@ func getData():
 	nodeData["position"] = position
 	nodeData["level"] = level
 	nodeData["cropType"] = cropType
+	nodeData["upgradePrices"] = upgradePrices
 	return nodeData
 
 func updateTexture(): 
@@ -149,7 +150,8 @@ func setCrop(newCrop):
 	if cropType == newCrop or cropType != "default":
 		return
 	
-	player.inventory[newCrop]-=seedPrices[newCrop]
+	
+	player.recieve(newCrop, -seedPrices[newCrop])
 	cropType = newCrop
 	priceCounts[newCrop] += seedPrices[newCrop]
 	updateTexture()
