@@ -54,7 +54,7 @@ func createTile(type):
 				return
 			child.hitbox.handleDeletingTile()
 	
-	if type != "brickTile" and tilePosition.distance_to(get_parent().position) < 20: #checks to see if new tile is on top of player if so doesn't place
+	if type != "brickTile" and tilePosition.distance_to(get_parent().position) < 15: #checks to see if new tile is on top of player if so doesn't place
 		return
 
 	if tilePosition.distance_to(get_tree().current_scene.find_child("Home", true, false).position) <60:

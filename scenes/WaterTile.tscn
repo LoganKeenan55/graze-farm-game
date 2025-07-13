@@ -12,7 +12,7 @@ region = Rect2(0, 96, 16, 16)
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3llwx"]
-size = Vector2(19.7279, 19.6704)
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdsmd"]
 size = Vector2(2.22725, 1.83748)
@@ -38,11 +38,10 @@ position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_fr0hc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(-8, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8.10478, 7.96018)
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_3llwx")
 
 [node name="DeletingCollision" type="Area2D" parent="."]

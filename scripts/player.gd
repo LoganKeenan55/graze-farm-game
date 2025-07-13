@@ -100,7 +100,6 @@ func getInput():
 
 func handleDebuging():
 	if Input.is_action_just_pressed("c"): #9999 of everything 
-		#GlobalVars.globalTime = 20
 		inventory["farmTile"] = 9999
 		inventory["waterTile"] = 9999
 		inventory["autoFarmTile"] = 9999
@@ -116,7 +115,10 @@ func handleDebuging():
 		hud.updateAllCounter()
 	if Input.is_action_just_pressed("d"):
 		recieve("pepper",1)
-		#GlobalVars.globalTime = 5
+	if Input.is_action_just_pressed("n"):
+		GlobalVars.globalTime = 20
+	if Input.is_action_just_pressed("m"):
+		GlobalVars.globalTime = 5
 func setSpriteBasedOffGender():
 	if GlobalVars.playerGender == "male":
 		$Player_Sprites/Head.texture.atlas = load("res://player_sprites/male_heads.png")

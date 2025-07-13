@@ -251,7 +251,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.34902)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp6x6"]
 radius = 3.0
-height = 16.0
+height = 10.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
