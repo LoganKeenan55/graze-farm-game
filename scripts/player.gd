@@ -33,8 +33,10 @@ var harvestables = ["wheat", "bamboo", "flower", "pepper", "corn", "berry", "oni
 ##
 
 
-func recieve(item:String, ammount:int): #handles receiving items
-	inventory[item] += ammount
+func recieve(item:String, amount:int): #handles receiving items
+	if inventory[item] < amount:
+		return
+	inventory[item] += amount
 	match unlockLevel: #changes unlockLevel if needed
 		1:
 			if item == "bamboo":
@@ -77,7 +79,7 @@ func recieve(item:String, ammount:int): #handles receiving items
 		hud.updateCounter(item)
 		
 	if item in placeableTiles:
-		hotBar.setAmount("tiles",placeableTiles.find(item),inventory[item]-ammount)
+		hotBar.setAmount("tiles",placeableTiles.find(item),inventory[item]-amount)
 	
 func _ready() -> void:
 	setSpriteBasedOffGender()

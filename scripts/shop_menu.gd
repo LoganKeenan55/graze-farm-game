@@ -5,7 +5,7 @@ var prices = {
 	"farmTile": {"wheat": 5},
 	"waterTile" :{"bamboo": 10},
 	"brickTile":{"flower": 3},
-	"autoFarmTile":{"berry": 20},
+	"autoFarmTile":{"corn": 20},
 	"bamboo":{"wheat": 25},
 	"flower":{"bamboo":40},
 	"corn":{"flower": 30},

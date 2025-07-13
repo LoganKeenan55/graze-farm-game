@@ -32,7 +32,7 @@ var seedPrices = {
 var upgradePrices = {
 	"wheat": 20,
 	"corn": 20,
-	"bamboo": 50,
+	"bamboo": 30,
 	"berry": 10,
 	"onion": 20,
 	"pepper": 10,
@@ -111,7 +111,9 @@ func upgrade():
 	if cropType == "default": #if crop not set
 		return
 		
-	if player.inventory[cropType] < upgradePrices[cropType]: #if player can afford it
+	#if player.inventory[cropType] < upgradePrices[cropType]: #if player can afford it
+		#return
+	if player.inventory["berry"] < upgradePrices[cropType]: #if player can afford it TESTING CHANGE
 		return
 		
 	if level == 4: #max lvl
@@ -119,10 +121,10 @@ func upgrade():
 	
 	level+=1 
 	
-	player.recieve(cropType, -upgradePrices[cropType])
+	player.recieve("berry", -upgradePrices[cropType]) #TESTING CHANGE
 	
 	priceCounts[cropType] += upgradePrices[cropType]
-	upgradePrices[cropType] *= 1.5  #increases price on each upgrade
+	upgradePrices[cropType] *= 2  #increases price on each upgrade
 	upgradePrices[cropType] = int(upgradePrices[cropType]) #rounds price
 	
 	
@@ -137,7 +139,7 @@ func upgrade():
 		var popUp:PopUp = popUpPreload.instantiate(); player.add_child(popUp)
 		popUp.setText("Level 3: Can seed crops")
 	if level == 4: #set texture to purple and faster activation
-		$ActivationTimer.wait_time = 5
+		$ActivationTimer.wait_time = 8
 		stateIndex = 2
 		var popUp:PopUp = popUpPreload.instantiate(); player.add_child(popUp)
 		popUp.setText("Level 4: Speed Increased")

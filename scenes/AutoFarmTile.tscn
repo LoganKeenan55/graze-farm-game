@@ -127,7 +127,7 @@ texture = SubResource("AtlasTexture_m3el6")
 region_rect = Rect2(96, 0, 16, 16)
 
 [node name="ActivationTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 autostart = true
 
 [connection signal="input_event" from="HitBox" to="HitBox" method="_on_input_event"]

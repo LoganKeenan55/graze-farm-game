@@ -361,7 +361,7 @@ region = Rect2(16, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o68wb"]
 atlas = ExtResource("3_tvlfr")
-region = Rect2(144, 0, 16, 16)
+region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_teu2f"]
 atlas = ExtResource("3_tvlfr")

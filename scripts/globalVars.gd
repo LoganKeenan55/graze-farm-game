@@ -119,7 +119,7 @@ func loadGame():
 			newTile.position = node["position"]
 			newTile.level = node["level"]
 			newTile.cropType = node["cropType"]
-			#newTile.upgradePrices = node["upgradePrices"]
+			newTile.upgradePrices = node["upgradePrices"]
 			underTilesParent.add_child(newTile)
 	player.hotBar.updateAmounts("items")
 	player.hotBar.updateAmounts("tiles")
