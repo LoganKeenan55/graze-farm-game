@@ -77,7 +77,7 @@ func recieve(item:String, amount:int): #handles receiving items
 		hud.updateCounter(item)
 		
 	if item in placeableTiles:
-		hotBar.setAmount("tiles",placeableTiles.find(item),inventory[item]-amount)
+		hotBar.setAmount("tiles",placeableTiles.find(item),inventory[item])
 	
 func _ready() -> void:
 	setSpriteBasedOffGender()

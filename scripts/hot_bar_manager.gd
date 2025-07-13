@@ -82,6 +82,9 @@ func setTexture(type:String, index: int, newTexture:String) -> void:
 		_:
 			print("INVALID TYPE in function: setTexture")
 	
+
+
+
 func setAmount(type:String, index: int, newAmount:int) -> void:
 	match type:
 		"items":	
