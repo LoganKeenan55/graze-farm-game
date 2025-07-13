@@ -24,6 +24,7 @@ config/icon="uid://drau5v6ysg1b7"
 GlobalVars="*res://scripts/globalVars.gd"
 GlobalFarmTileManager="*res://scripts/globalTimeManager.gd"
 SoundManager="*res://scripts/sound_manager.gd"
+Util="*res://scripts/util.gd"
 
 [display]
 

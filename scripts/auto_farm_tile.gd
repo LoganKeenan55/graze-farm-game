@@ -1,7 +1,7 @@
 extends "res://scripts/tile.gd"
 
 @onready var player:Player = GlobalVars.player
-var popUpPreload = preload("res://scenes/pop_up.tscn")
+
 
 var level = 1
 var range = 46
@@ -132,17 +132,15 @@ func upgrade():
 	if level == 2: #set texture to red and increase range
 		stateIndex = 1
 		range = 55
-		var popUp:PopUp = popUpPreload.instantiate(); player.add_child(popUp)
-		popUp.setText("Level 2: Range Increased")
+		Util.createPopUp("Level 2: Range Increased")
+	
 	if level == 3: #can seed
 		currentTextureRegions = level3TextureRegions #set to seeded
-		var popUp:PopUp = popUpPreload.instantiate(); player.add_child(popUp)
-		popUp.setText("Level 3: Can seed crops")
+		Util.createPopUp("Level 3: Can seed crops")
 	if level == 4: #set texture to purple and faster activation
 		$ActivationTimer.wait_time = 8
 		stateIndex = 2
-		var popUp:PopUp = popUpPreload.instantiate(); player.add_child(popUp)
-		popUp.setText("Level 4: Speed Increased")
+		Util.createPopUp("Level 4: Speed Increased")
 	updateTexture()
 	SoundManager.play_sound("res://sounds/metal_sound.mp3",get_parent().position)
 
