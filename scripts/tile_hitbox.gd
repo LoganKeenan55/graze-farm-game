@@ -69,7 +69,7 @@ func handleHammer():
 				tooltip.z_index = 12
 				
 				if get_parent().level <= 3: #not max level
-					tooltip.setToolTip("berry","Upgrade?",str(get_parent().upgradePrices[player.harvestables[player.currentSeed]]))
+					tooltip.setToolTip("berry","Upgrade?",str(get_parent().upgradePrices[get_parent().cropType]))
 				
 				if get_parent().level >= 4: #max level
 					tooltip.setToolTip("default","Max Level","")

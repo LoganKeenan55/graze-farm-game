@@ -34,12 +34,14 @@ var harvestables = ["wheat", "bamboo", "flower", "pepper", "corn", "berry", "oni
 
 
 func recieve(item:String, amount:int): #handles receiving items
-	if inventory[item] < amount:
-		return
+	#if inventory[item] < amount:
+		#return
 	inventory[item] += amount
+	print("recieved: " + item + " " + str(amount))
 	match unlockLevel: #changes unlockLevel if needed
 		1:
 			if item == "bamboo":
+				print("unlock level")
 				unlockLevel = 2
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("Level 2: Bamboo Unlocked!")

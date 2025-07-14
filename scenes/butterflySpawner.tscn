@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwe4wyf4p4k26"]
+
+[ext_resource type="Script" uid="uid://byoc7ljkkwvit" path="res://scenes/butterfly_spawner.gd" id="1_0l8ba"]
+
+[node name="ButterflySpawner" type="Node2D"]
+script = ExtResource("1_0l8ba")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

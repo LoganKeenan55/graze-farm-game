@@ -81,9 +81,9 @@ var defaultTextureRegions = {
 }
 
 var growSpeeds = { #there is a 1/growSpeed chance every .5 sec, def = 30
-	"wheat": 20,
+	"wheat": 22,
 	"corn": 30,
-	"bamboo": 15,
+	"bamboo": 10,
 	"berry": 60,
 	"onion": 20,
 	"flower": 20,

@@ -163,7 +163,7 @@ path_max_distance = 477.0
 path_postprocessing = 1
 
 [node name="EatTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
