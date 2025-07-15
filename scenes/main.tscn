@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvild13tpsq7d"]
+[gd_scene load_steps=16 format=3 uid="uid://cvild13tpsq7d"]
 
 [ext_resource type="Script" uid="uid://c6fp030nldugh" path="res://scripts/main.gd" id="1_83qsj"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="2_7n4sv"]
@@ -168,6 +168,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-235, 4, -235, 770, 1222, 770, 1222, 2)])
 agent_radius = 0.0
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_choun"]
+b = Vector2(0, 768)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ya4ey"]
+b = Vector2(1456, 0)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_83qsj")
 metadata/_edit_horizontal_guides_ = [96.0]
@@ -198,7 +204,7 @@ layer_0/tile_data = PackedInt32Array(655368, 655360, 3, 524316, 655360, 3, -1310
 y_sort_enabled = true
 
 [node name="Player" parent="YSort" instance=ExtResource("2_q2fse")]
-position = Vector2(678, 354)
+position = Vector2(1433, 763)
 
 [node name="Tiles" type="Node2D" parent="YSort"]
 y_sort_enabled = true
@@ -231,3 +237,21 @@ player = NodePath("../../YSort/Player")
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_choun")
 volume_db = -10.505
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_choun")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_ya4ey")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1456, 768)
+rotation = 3.14159
+shape = SubResource("SegmentShape2D_choun")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1456, 768)
+rotation = 3.14159
+shape = SubResource("SegmentShape2D_ya4ey")

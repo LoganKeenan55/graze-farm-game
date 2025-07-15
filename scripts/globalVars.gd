@@ -34,7 +34,7 @@ var textureRegions = {
 
 var timeSinceLastSave
 var globalTime:int = 8
-var isNewGame = false
+var isNewGame = true
 var playerGender = "male"
 ##
 var farmTilePreload = preload("res://scenes/FarmTile.tscn")
