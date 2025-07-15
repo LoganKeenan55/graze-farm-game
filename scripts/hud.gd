@@ -6,8 +6,9 @@ class_name HUD
 
 func _ready() -> void:
 	
+	
 	z_index = 10
-	$NightTimeFilter.z_index = 5
+	$NightTimeFilter.z_index = 70
 	GlobalFarmTileManager.connect("night_started", Callable(self, "setNight"))
 	GlobalFarmTileManager.connect("day_started", Callable(self, "setDay"))
 	$Control/VBoxContainer/WheatContainer/Count.text = str(player.inventory["wheat"])
@@ -20,7 +21,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	updateAllCounterWithoutAnimation()
 	setSizeBasedOnUpgradeLevel()
-	
+	setNightOnStart()
 func setSizeBasedOnUpgradeLevel():
 	
 	match player.unlockLevel:
@@ -131,7 +132,7 @@ func updateAllCounterWithoutAnimation():
 func _process(_delta: float) -> void:
 	$time.text = str(GlobalVars.globalTime)
 	$ClockSprite/handSprite.rotation = (GlobalVars.globalTime / 12.0) * TAU
-
+	
 func setNight():
 	SoundManager.play_ui_sound("res://sounds/turn_night.mp3",.45)
 	$NightTimeFilter/NightFilterAnimationPlayer.play("turn_night")
@@ -195,3 +196,9 @@ func updateCounter(cropType: String):
 			$Control/VBoxContainer/PepperContainer/AnimationPlayer.stop()
 			$Control/VBoxContainer/PepperContainer/AnimationPlayer.play("update")
 		
+func setNightOnStart():
+	#during night time
+	if GlobalVars.globalTime >= 21 and GlobalVars.globalTime <= 24:
+		$NightTimeFilter/NightFilterAnimationPlayer.play("night")
+	if GlobalVars.globalTime >= 1 and GlobalVars.globalTime < 6:
+		$NightTimeFilter/NightFilterAnimationPlayer.play("night")

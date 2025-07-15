@@ -69,5 +69,6 @@ func play_ui_sound(path: String, overide: float = 0): #for UI sounds (no pitch s
 
 
 func _on_sound_finished(player: AudioStreamPlayer):
+	
 	active_sounds.erase(player)
 	player.queue_free()

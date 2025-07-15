@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvild13tpsq7d"]
+[gd_scene load_steps=14 format=3 uid="uid://cvild13tpsq7d"]
 
 [ext_resource type="Script" uid="uid://c6fp030nldugh" path="res://scripts/main.gd" id="1_83qsj"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="2_7n4sv"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://duvxjwiue7kgv" path="res://scenes/Butterfly.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dk5o4hvy3asoe" path="res://scenes/FireFlySpawner.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://cwe4wyf4p4k26" path="res://scenes/butterflySpawner.tscn" id="9_85g3d"]
+[ext_resource type="AudioStream" uid="uid://fqopib5gpu2v" path="res://sounds/music.mp3" id="10_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
 texture = ExtResource("2_7n4sv")
@@ -215,8 +216,6 @@ navigation_polygon = SubResource("NavigationPolygon_lquwl")
 position = Vector2(542, 377)
 scale = Vector2(5, 5)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
 [node name="Butterfly" parent="." instance=ExtResource("8_85g3d")]
 position = Vector2(763, 360)
 
@@ -228,3 +227,7 @@ player = NodePath("../../YSort/Player")
 [node name="FireFlySpawner" parent="Spawners" instance=ExtResource("8_tipki")]
 
 [node name="ButterflySpawner" parent="Spawners" instance=ExtResource("9_85g3d")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_choun")
+volume_db = -10.505
