@@ -1,7 +1,7 @@
 extends Node2D
 
 var transitioning = false
-
+@onready var arrow = $arrow
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
@@ -36,12 +36,3 @@ func _on_new_game_button_pressed() -> void:
 	$MenuMusic/AnimationPlayer.play("exit")
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
-
-
-func _on_male_button_pressed() -> void:
-	GlobalVars.playerGender = "male"
-	$arrow.position.x = 74
-
-func _on_female_button_pressed() -> void:
-	GlobalVars.playerGender = "female"
-	$arrow.position.x = 103
