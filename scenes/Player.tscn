@@ -263,7 +263,7 @@ metadata/_edit_vertical_guides_ = [-2172.0]
 script = ExtResource("2_3tkgg")
 
 [node name="Player_Sprites" type="Node2D" parent="."]
-position = Vector2(0, -5.05)
+position = Vector2(0, -8.895)
 
 [node name="Shadow" type="Sprite2D" parent="Player_Sprites"]
 texture_filter = 1
@@ -292,6 +292,7 @@ libraries = {
 }
 
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, -4.8)
 script = ExtResource("3_cxr5p")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
@@ -299,6 +300,7 @@ position = Vector2(0, 3.815)
 shape = SubResource("CircleShape2D_hp6x6")
 
 [node name="HUD" parent="." instance=ExtResource("3_kne1u")]
+position = Vector2(1, 0)
 
 [node name="Cursor" parent="." instance=ExtResource("4_e80uo")]
 
@@ -315,7 +317,7 @@ wait_time = 0.25
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hp6x6")
 

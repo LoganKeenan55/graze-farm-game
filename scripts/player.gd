@@ -55,7 +55,7 @@ func recieve(item:String, amount:int): #handles receiving items
 			if item == "pepper":
 				unlockLevel = 4
 				hud.setSizeBasedOnUpgradeLevel()
-				Util.createPopUp("Level 4: Pepper Unlocked!")
+				Util.createPopUp("You have discovered Peppers!")
 
 		4:
 			if item == "corn":
@@ -116,8 +116,6 @@ func handleDebuging():
 		inventory["pepper"] = 9999
 		hotBar.updateAll()
 		hud.updateAllCounter()
-	if Input.is_action_just_pressed("d"):
-		recieve("pepper",1)
 	if Input.is_action_just_pressed("n"):
 		GlobalVars.globalTime = 20
 	if Input.is_action_just_pressed("m"):

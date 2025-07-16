@@ -94,7 +94,7 @@ func _ready() -> void:
 	add_to_group("farmTiles")
 	tileType = "farmTile"
 	setType("default")
-	
+	print(cropType)
 	if randi() % 2 == 0:
 		$Sprite.flip_h = true
 	
@@ -187,20 +187,20 @@ func harvestCrop():
 		
 		match cropType: #add to inventory
 			"wheat":
-				player.inventory[cropType] += 2
+				player.recieve(cropType,2)
 			"corn":
-				player.inventory[cropType] += 2
+				player.recieve(cropType,2)
 			"bamboo":
-				player.inventory[cropType] += randi_range(1,2)
+				player.recieve(cropType,randi_range(1,2))
 				SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
 			"berry":
-				player.inventory[cropType] += randi_range(1,2)
+				player.recieve(cropType,randi_range(1,2))
 			"onion":
-				player.inventory[cropType] += randi_range(1,2)
+				player.recieve(cropType,randi_range(1,2))
 			"flower":
-				player.inventory[cropType] += 2
+				player.recieve(cropType,2)
 			"pepper":
-				player.inventory[cropType] += 2
+				player.recieve(cropType,2)
 				SoundManager.play_sound("res://sounds/sizzle.mp3",position,.1)
 			_:
 				print("INVALID TYPE in function: harvestCrop")
