@@ -29,7 +29,6 @@ func spawnFirefly():
 	if fireflyArr.size() > maxFireflies:
 		$Timer.stop()
 		return
-	print(fireflyArr.size())
 	var newFirefly = fireflyPreload.instantiate()
 	newFirefly.position = findPlaceToSpawnFirefly()
 	add_child(newFirefly)

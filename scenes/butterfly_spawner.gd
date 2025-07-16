@@ -32,7 +32,6 @@ func spawnButterfly():
 	if butterflyArr.size() > maxButterflies:
 		$Timer.stop()
 		return
-	print(butterflyArr.size())
 	var newButterfly = butterflyPreload.instantiate()
 	newButterfly.position = findPlaceToSpawnbutterfly()
 	add_child(newButterfly)
