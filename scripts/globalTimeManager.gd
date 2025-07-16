@@ -30,9 +30,9 @@ func _process(delta: float) -> void:
 		callMarmotSpawner()
 		marmotTimeElapsed = 0
 	if globalTimeElapsed >= globalTimeInterval:
-		
 		GlobalVars.globalTime += 1
 		globalTimeElapsed = 0
+		
 		if GlobalVars.globalTime == 21:
 			emit_signal("night_started")
 		if GlobalVars.globalTime == 6:

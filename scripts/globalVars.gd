@@ -36,6 +36,7 @@ var timeSinceLastSave
 var globalTime:int = 8
 var isNewGame = true
 var playerGender = "male"
+var homeLevel := 1
 ##
 var farmTilePreload = preload("res://scenes/FarmTile.tscn")
 var waterTilePreload = preload("res://scenes/WaterTile.tscn")

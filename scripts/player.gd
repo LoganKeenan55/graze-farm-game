@@ -2,34 +2,34 @@ extends CharacterBody2D
 class_name Player
 
 ## onready
-@onready var tileComponent = $TileComponent
+@onready var tileComponent := $TileComponent
 @onready var hotBar: HotBar = $HUD/HotBar
 @onready var hud: HUD = $HUD
 ## preload
-var shopMenuPreload = preload("res://scenes/ShopMenu.tscn")
-var dustParticlePreload = preload("res://scenes/DustParticle.tscn")
+var shopMenuPreload := preload("res://scenes/ShopMenu.tscn")
+var dustParticlePreload := preload("res://scenes/DustParticle.tscn")
 
 ## player variables
 var speed: int = 96
-var mode = "nothing" # nothing, placing, farming, seed, shop
+var mode := "nothing" # nothing, placing, farming, seed, shop
 ## inventory dictionary
 var inventory= {
 	"farmTile": 20,"waterTile" :2 , "brickTile":0 , "autoFarmTile":0,
 	"wheat":10, "corn":0, "bamboo": 0,"berry": 0,"onion": 0, "flower": 0, "pepper": 0
 }
-var unlockLevel = 1
+var unlockLevel := 1
 
 ## tiles
-var currentTile = 0
-var placeableTiles = ["farmTile", "waterTile", "brickTile", "autoFarmTile"]
+var currentTile := 0
+var placeableTiles := ["farmTile", "waterTile", "brickTile", "autoFarmTile"]
 
 ## items
-var currentItem = 0
-var items = ["hoe", "shovel", "seeds", "hammer"]
+var currentItem := 0
+var items := ["hoe", "shovel", "seeds", "hammer"]
 
 ## seeds
-var currentSeed = 0
-var harvestables = ["wheat", "bamboo", "flower", "pepper", "corn", "berry", "onion"]
+var currentSeed := 0
+var harvestables := ["wheat", "bamboo", "flower", "pepper", "corn", "berry", "onion"]
 ##
 
 
@@ -101,6 +101,7 @@ func getInput():
 	handleMode()
 
 func handleDebuging():
+	
 	if Input.is_action_just_pressed("c"): #9999 of everything 
 		inventory["farmTile"] = 9999
 		inventory["waterTile"] = 9999

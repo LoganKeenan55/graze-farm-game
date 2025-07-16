@@ -35,6 +35,7 @@ func animateText():
 			SoundManager.play_sound("res://sounds/bloop1.mp3",Vector2.ZERO,.4)
 			
 		count += 1
+	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play("fade")
 
 func _on_continue_button_pressed() -> void:
@@ -45,4 +46,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fadeOut":
 		queue_free()
 		GlobalVars.player.set_process(true); GlobalVars.player.set_physics_process(true)
-	
+		GlobalVars.globalTime = 8

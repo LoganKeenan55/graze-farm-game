@@ -51,7 +51,7 @@ script = ExtResource("1_vln5t")
 offset_top = 25.7049
 offset_right = 157.0
 offset_bottom = 39.7049
-color = Color(1, 1, 1, 0.243137)
+color = Color(1, 1, 1, 0.564706)
 
 [node name="Label" type="Label" parent="ColorRect"]
 texture_filter = 1
