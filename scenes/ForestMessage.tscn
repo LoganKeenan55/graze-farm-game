@@ -78,6 +78,7 @@ offset_left = -176.0
 offset_top = -172.0
 offset_right = 198.0
 offset_bottom = 90.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -85,6 +86,7 @@ offset_left = -128.0
 offset_top = 25.0
 offset_right = 129.0
 offset_bottom = 67.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("1_8x8el")
 theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true

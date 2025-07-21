@@ -9,4 +9,4 @@ texture_filter = 1
 position = Vector2(0, -14)
 texture = ExtResource("1_2cic4")
 region_enabled = true
-region_rect = Rect2(256, 64, 48, 64)
+region_rect = Rect2(256, 0, 48, 64)

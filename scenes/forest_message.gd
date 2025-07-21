@@ -4,7 +4,7 @@ func _ready() -> void:
 
 	z_index = 50
 	$AnimationPlayer.play("Trigger")
-	SoundManager.play_ui_sound("res://sounds/scary.mp3",3)
+	SoundManager.play_ui_sound("res://sounds/scary.mp3",.45)
 	
 func _process(delta: float) -> void:
 	position = GlobalVars.player.position
