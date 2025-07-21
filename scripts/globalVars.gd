@@ -47,7 +47,8 @@ var autoFarmerTilePreload = preload("res://scenes/AutoFarmTile.tscn")
 @onready var tilesParent
 @onready var underTilesParent 
 ##
-
+signal save_loaded
+##
 func saveGame():
 	isNewGame = false
 	print("saving...")
@@ -126,6 +127,7 @@ func loadGame():
 	player.hotBar.updateAmounts("tiles")
 	player.hotBar.updateAmounts("seeds")
 	
+	emit_signal("save_loaded")
 	print("It has been " + str(int(timeSinceLastSave)) + " seconds since last saved")
 	print("loaded!")
 

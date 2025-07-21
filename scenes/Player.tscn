@@ -240,7 +240,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hp6x6"]
-radius = 5.00025
+radius = 7.00002
 
 [sub_resource type="Curve" id="Curve_tdg3f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

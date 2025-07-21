@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://bedpinl07kiie"]
+
+[ext_resource type="FontFile" uid="uid://b5wdxpdv36l24" path="res://world_sprites/dogicapixel.otf" id="1_8x8el"]
+[ext_resource type="Script" uid="uid://dco55k0la3pli" path="res://scenes/forest_message.gd" id="1_fn80u"]
+
+[sub_resource type="Animation" id="Animation_8x8el"]
+resource_name = "Trigger"
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0.231373, 0.360784), Color(0, 0, 0.231373, 0.360784), Color(0, 0, 0.231373, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.50183, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fn80u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u832t"]
+_data = {
+&"RESET": SubResource("Animation_fn80u"),
+&"Trigger": SubResource("Animation_8x8el")
+}
+
+[node name="ForestMessage" type="Node2D"]
+script = ExtResource("1_fn80u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u832t")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -176.0
+offset_top = -172.0
+offset_right = 198.0
+offset_bottom = 90.0
+color = Color(0, 0, 0, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -43.0
+offset_top = 29.0
+offset_right = 214.0
+offset_bottom = 71.0
+theme_override_fonts/normal_font = ExtResource("1_8x8el")
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = " [shake rate=20.0 level=5 connected=1][tornado radius=4.0 freq=2.0 connected=1]You are not worthy[/tornado][/shake]"
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -15,14 +15,17 @@ func pickFarmTile() -> Node: #returns random farmTile node
 	
 	if farmTiles.is_empty():
 		return null
-	
+		
 	var ammountOfTiles = farmTiles.size()
+	if  ammountOfTiles <= 1:
+		return null
+		
 	var randomIndex = randi_range(0,ammountOfTiles-1)
 	var tile = farmTiles[randomIndex]
 	if tile.stateIndex < 2:
 		return null
 	goalTile = tile
-	for marmot in marmotArr:
+	for marmot in marmotArr: #Tile is already goal from another marmot
 		if marmot.goal == tile:
 			return null
 	return tile

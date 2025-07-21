@@ -42,5 +42,4 @@ func spawnButterfly():
 func queueAllFireflies():
 	for butterfly:Node2D in butterflyArr:
 		butterfly.fade.play("fade_out") #handles freeing
-		print("he")
 	butterflyArr.clear()

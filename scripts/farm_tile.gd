@@ -94,7 +94,6 @@ func _ready() -> void:
 	add_to_group("farmTiles")
 	tileType = "farmTile"
 	setType("default")
-	print(cropType)
 	if randi() % 2 == 0:
 		$Sprite.flip_h = true
 	
