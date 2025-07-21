@@ -51,6 +51,7 @@ func recieve(item:String, amount:int): #handles receiving items
 				unlockLevel = 3
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("Level 3: Wild Flower Unlocked!")
+				get_parent().get_parent().forestHitbox.unlock()
 		3:
 			if item == "pepper":
 				unlockLevel = 4

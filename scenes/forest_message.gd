@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var label = $RichTextLabel
 func _ready() -> void:
 
 	z_index = 50

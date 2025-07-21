@@ -2,7 +2,7 @@ extends Node2D
 
 var introPreload = preload("res://scenes/Intro.tscn")
 @onready var dirtTransition = $DirtTransition
-
+@onready var forestHitbox = $ForestCollision/CollisionShape2D/ForestHitbox
 func _ready() -> void:
 	
 	setVars()
