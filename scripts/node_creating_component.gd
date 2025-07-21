@@ -1,6 +1,6 @@
 extends Node2D
 ##
-@onready var player = get_parent()
+@onready var player:Player = get_parent()
 #
 @onready var inventory = player.inventory
 @onready var hotBar 
@@ -66,7 +66,7 @@ func createTile(type):
 			newTile = farmTilePreload.instantiate()
 			newTile.position = tilePosition
 			tilesParent.add_child(newTile)
-			inventory["farmTile"] -= 1
+			player.recieve("farmTile",-1)
 			newTile.updateWaterTiles()
 
 			if freedTile != null: #fixes bug with waterTile staying fertile
@@ -77,23 +77,23 @@ func createTile(type):
 			newTile = waterTilePreload.instantiate()
 			newTile.position = tilePosition
 			tilesParent.add_child(newTile)
-			inventory["waterTile"] -= 1
+			player.recieve("waterTile",-1)
 			newTile.hitbox.createRemoveParticle()
 		"brickTile":
 			newTile = brickTilePreload.instantiate()
 			newTile.position = tilePosition
 			underTilesParent.add_child(newTile)
-			inventory["brickTile"] -= 1
+			player.recieve("brickTile",-1)
 
 		"autoFarmTile":
 			newTile = autoFarmTilePreload.instantiate()
 			newTile.position = tilePosition
+			
 			underTilesParent.add_child(newTile)
-			inventory["autoFarmTile"] -= 1
+			player.recieve("autoFarmTile",-1)
 		_:
 			print("INVALID TYPE in function: createTile")
 	
-	hotBar.setAmount("tiles",placeableTiles.find(type),inventory[type])
 	SoundManager.play_sound(newTile.sound)
 	if newTile:
 		sortTilesByY(tilesParent)
