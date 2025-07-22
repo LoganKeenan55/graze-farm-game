@@ -100,6 +100,7 @@ func getInput():
 	handleChangingMode()
 	handleDebuging()
 	handleMode()
+	
 
 func handleDebuging():
 	
@@ -186,6 +187,7 @@ func toggle_shop_mode():
 		shopMenu.name = "ShopMenu"
 		add_child(shopMenu)
 		shopMenu.position.y -= 8
+		
 		shopMenu.anPlayer.play("open")
 		SoundManager.play_ui_sound("res://sounds/book_sound.mp3")
 		$Cursor.updateTexture()
@@ -210,6 +212,11 @@ func handleSavingLoadingGame():
 		GlobalVars.loadGame()
 
 func handleMovement():
+	if Input.is_action_pressed("esc"):
+		get_tree().quit()
+	if Input.is_action_pressed("alt") and  Input.is_action_pressed("f4"):
+		get_tree().quit()
+	
 	var inputDirection = Input.get_vector("a", "d", "w", "s")
 	velocity = inputDirection * speed
 

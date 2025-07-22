@@ -34,7 +34,7 @@ var textureRegions = {
 
 var timeSinceLastSave
 var globalTime:int = 8
-var isNewGame = true
+var isNewGame = false
 var playerGender = "male"
 var homeLevel := 1
 ##

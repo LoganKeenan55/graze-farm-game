@@ -22,47 +22,47 @@ func _ready() -> void:
 func checkUnlockLevel():
 	match GlobalVars.player.unlockLevel:
 		1:
-			$Control2/VBoxContainer2/HBoxContainer2/FlowerLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer2/BambooRight.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer3/CornLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer3/FlowerRight.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer4/CornRight.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer2/FlowerLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer2/BambooRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer3/CornLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer3/FlowerRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer4/CornRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
 		2:
-			$Control2/VBoxContainer2/HBoxContainer3/CornLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer3/FlowerRight.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer4/CornRight.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer3/CornLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer3/FlowerRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer4/CornRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
 		3:
 			
-			$Control2/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer4/CornRight.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer4/CornRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
 		4:
-			$Control2/VBoxContainer2/HBoxContainer3/CornLeft.texture.region = GlobalVars.textureRegions["corn"]
-			$Control2/VBoxContainer2/HBoxContainer3/FlowerRight.texture.region = GlobalVars.textureRegions["flower"]
-			$Control2/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = Rect2(80, 0, 16, 16)
-			$Control2/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer3/CornLeft.texture.region = GlobalVars.textureRegions["corn"]
+			$Shop/VBoxContainer2/HBoxContainer3/FlowerRight.texture.region = GlobalVars.textureRegions["flower"]
+			$Shop/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = Rect2(80, 0, 16, 16)
+			$Shop/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = Rect2(80, 0, 16, 16)
 		5:
 			pass
 
 func setDefaultPrices():
-	$Control2/VBoxContainer/HBoxContainer/FarmTilePrice.text = str(prices["farmTile"].values()[0])
-	$Control2/VBoxContainer/HBoxContainer2/WaterTilePrice.text = str(prices["waterTile"].values()[0])
-	$Control2/VBoxContainer/HBoxContainer3/BrickTilePrice.text = str(prices["brickTile"].values()[0])
-	$Control2/VBoxContainer/HBoxContainer4/AutoFarmTilePrice.text = str(prices["autoFarmTile"].values()[0])
+	$Shop/VBoxContainer/HBoxContainer/FarmTilePrice.text = str(prices["farmTile"].values()[0])
+	$Shop/VBoxContainer/HBoxContainer2/WaterTilePrice.text = str(prices["waterTile"].values()[0])
+	$Shop/VBoxContainer/HBoxContainer3/BrickTilePrice.text = str(prices["brickTile"].values()[0])
+	$Shop/VBoxContainer/HBoxContainer4/AutoFarmTilePrice.text = str(prices["autoFarmTile"].values()[0])
 	
 	#$Control2/VBoxContainer2/HBoxContainer/WheatPrice.text = str(prices["wheat"].values()[0])
-	$Control2/VBoxContainer2/HBoxContainer3/CornPrice.text = str(prices["corn"].values()[0])
-	$Control2/VBoxContainer2/HBoxContainer/BambooPrice.text = str(prices["bamboo"].values()[0])
-	$Control2/VBoxContainer2/HBoxContainer4/BerryPrice.text = str(prices["berry"].values()[0])
-	$Control2/VBoxContainer2/HBoxContainer5/OnionPrice.text = str(prices["onion"].values()[0])
-	$Control2/VBoxContainer2/HBoxContainer2/FlowerPrice.text =  str(prices["flower"].values()[0])
+	$Shop/VBoxContainer2/HBoxContainer3/CornPrice.text = str(prices["corn"].values()[0])
+	$Shop/VBoxContainer2/HBoxContainer/BambooPrice.text = str(prices["bamboo"].values()[0])
+	$Shop/VBoxContainer2/HBoxContainer4/BerryPrice.text = str(prices["berry"].values()[0])
+	$Shop/VBoxContainer2/HBoxContainer5/OnionPrice.text = str(prices["onion"].values()[0])
+	$Shop/VBoxContainer2/HBoxContainer2/FlowerPrice.text =  str(prices["flower"].values()[0])
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "close":
 		queue_free()
@@ -93,8 +93,8 @@ func buy(itemGive:String, itemGet:String):
 		SoundManager.play_ui_sound("res://sounds/purchase.mp3")
 
 		if itemGet == "bamboo":
-			$Control2/VBoxContainer2/HBoxContainer2/FlowerLeft.texture.region = GlobalVars.textureRegions["flower"]
-			$Control2/VBoxContainer2/HBoxContainer2/BambooRight.texture.region = GlobalVars.textureRegions["bamboo"]
+			$Shop/VBoxContainer2/HBoxContainer2/FlowerLeft.texture.region = GlobalVars.textureRegions["flower"]
+			$Shop/VBoxContainer2/HBoxContainer2/BambooRight.texture.region = GlobalVars.textureRegions["bamboo"]
 		if itemGet == "corn":
 			$Control2/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = GlobalVars.textureRegions["berry"]
 			$Control2/VBoxContainer2/HBoxContainer4/CornRight.texture.region = GlobalVars.textureRegions["corn"]

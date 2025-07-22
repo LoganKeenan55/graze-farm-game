@@ -1,11 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5tdy0vlg8yx"]
+[gd_scene load_steps=24 format=3 uid="uid://c5tdy0vlg8yx"]
 
 [ext_resource type="Script" uid="uid://diindhuf2tctw" path="res://scripts/hud.gd" id="1_efote"]
 [ext_resource type="PackedScene" uid="uid://cq8ghkv3svonm" path="res://scenes/HotBar.tscn" id="2_vow1y"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="3_vow1y"]
 [ext_resource type="PackedScene" uid="uid://df0dg1ely3hdm" path="res://scenes/HudCounter.tscn" id="4_xxqia"]
-
-[sub_resource type="Theme" id="Theme_n2snw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne771"]
 texture = ExtResource("3_vow1y")
@@ -418,58 +416,6 @@ region = Rect2(128, 112, 16, 16)
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_efote")
-
-[node name="mode" type="Label" parent="."]
-visible = false
-offset_left = -160.0
-offset_top = 39.0
-offset_right = -116.0
-offset_bottom = 62.0
-theme = SubResource("Theme_n2snw")
-theme_override_font_sizes/font_size = 10
-text = "Mode:"
-
-[node name="wheat" type="Label" parent="."]
-visible = false
-offset_left = 107.0
-offset_top = -84.0
-offset_right = 151.0
-offset_bottom = -61.0
-theme = SubResource("Theme_n2snw")
-theme_override_font_sizes/font_size = 10
-text = "Wheat"
-horizontal_alignment = 2
-
-[node name="seeds" type="Label" parent="."]
-visible = false
-offset_left = 107.0
-offset_top = -65.0
-offset_right = 151.0
-offset_bottom = -42.0
-theme = SubResource("Theme_n2snw")
-theme_override_font_sizes/font_size = 10
-text = "Seeds"
-horizontal_alignment = 2
-
-[node name="item" type="Label" parent="."]
-visible = false
-offset_left = -160.0
-offset_top = 58.0
-offset_right = -116.0
-offset_bottom = 81.0
-theme = SubResource("Theme_n2snw")
-theme_override_font_sizes/font_size = 10
-text = "Item:"
-
-[node name="tile" type="Label" parent="."]
-visible = false
-offset_left = -160.0
-offset_top = 77.0
-offset_right = -116.0
-offset_bottom = 100.0
-theme = SubResource("Theme_n2snw")
-theme_override_font_sizes/font_size = 10
-text = "Tile:"
 
 [node name="HotBar" parent="." instance=ExtResource("2_vow1y")]
 visible = true
