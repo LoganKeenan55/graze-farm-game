@@ -300,7 +300,8 @@ position = Vector2(0, 3.815)
 shape = SubResource("CircleShape2D_hp6x6")
 
 [node name="HUD" parent="." instance=ExtResource("3_kne1u")]
-position = Vector2(1, 0)
+offset_left = 1.0
+offset_right = 1.0
 
 [node name="Cursor" parent="." instance=ExtResource("4_e80uo")]
 

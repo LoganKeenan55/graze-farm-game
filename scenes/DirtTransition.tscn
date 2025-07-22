@@ -6,3 +6,5 @@
 script = ExtResource("1_nkykc")
 
 [node name="Tiles" type="Node2D" parent="."]
+position = Vector2(-6, 0)
+scale = Vector2(1.2, 1.2)

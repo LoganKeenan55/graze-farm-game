@@ -414,11 +414,12 @@ region = Rect2(128, 128, 16, 16)
 atlas = ExtResource("3_vow1y")
 region = Rect2(128, 112, 16, 16)
 
-[node name="HUD" type="Node2D"]
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_efote")
 
 [node name="HotBar" parent="." instance=ExtResource("2_vow1y")]
-visible = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_speed = 20.0
@@ -742,16 +743,18 @@ texture = SubResource("AtlasTexture_w75gc")
 
 [node name="time" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 109.0
 offset_top = 14.0
 offset_right = 154.0
 offset_bottom = 37.0
 
 [node name="NightTimeFilter" type="ColorRect" parent="."]
-offset_left = -183.0
-offset_top = -146.0
-offset_right = 300.0
-offset_bottom = 171.0
+layout_mode = 0
+offset_left = -475.0
+offset_top = -294.0
+offset_right = 510.0
+offset_bottom = 298.0
 mouse_filter = 2
 color = Color(0.458824, 0, 0.501961, 0)
 

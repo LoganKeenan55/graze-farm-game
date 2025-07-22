@@ -3,7 +3,7 @@ extends Sprite2D
 
 
 func _process(delta: float) -> void:
-	position = get_viewport().get_mouse_position() -  Vector2(158,90)
+	global_position = get_global_mouse_position()
 
 func pickRandomSeed() -> String:
 	var randInt = randi_range(0,6)

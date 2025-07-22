@@ -533,6 +533,7 @@ position = Vector2(276, 87)
 texture = ExtResource("3_1kkh5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Shop"]
+layout_mode = 0
 offset_left = 57.825
 offset_top = 29.0
 offset_right = 154.825
@@ -992,6 +993,7 @@ theme_override_font_sizes/font_size = 6
 text = "00"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Shop"]
+layout_mode = 0
 offset_left = 174.2
 offset_top = 29.0
 offset_right = 271.2
@@ -1451,6 +1453,7 @@ text = "00"
 
 [node name="FarmTilePrice" type="Label" parent="Shop"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 69.0
 offset_top = 125.0
 offset_right = 126.0
@@ -1478,6 +1481,7 @@ texture = ExtResource("2_pj066")
 
 [node name="FarmTilePrice" type="Label" parent="Shop/Instructions"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 69.0
 offset_top = 125.0
 offset_right = 126.0
@@ -1490,6 +1494,7 @@ text = "Tab to close"
 
 [node name="Body" type="Label" parent="Shop/Instructions"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 58.0
 offset_top = 43.0
 offset_right = 152.0
@@ -1503,6 +1508,7 @@ autowrap_mode = 2
 
 [node name="Body2" type="Label" parent="Shop/Instructions"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 170.0
 offset_top = 43.0
 offset_right = 264.0
