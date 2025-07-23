@@ -1465,6 +1465,7 @@ theme_override_font_sizes/font_size = 6
 text = "Tab to close"
 
 [node name="Instructions" type="Control" parent="Shop"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1503,7 +1504,7 @@ theme = SubResource("Theme_e5qd0")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_1kkh5")
 theme_override_font_sizes/font_size = 4
-text = "This book can be used for instructions and purchasing from the store page. USe the tabs on the book to switch between the two."
+text = "This book can be used for instructions and purchasing from the store page. Use the tabs on the book to switch between the two."
 autowrap_mode = 2
 
 [node name="Body2" type="Label" parent="Shop/Instructions"]
@@ -1517,7 +1518,7 @@ theme = SubResource("Theme_e5qd0")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_1kkh5")
 theme_override_font_sizes/font_size = 4
-text = "Use 'E' and 'F' to switch between tile and farming mode. In farming mode and equip seed swith '3'. Press '3' again to change which seed is equipped"
+text = "Use WASD to move, 'E' and 'F' to switch between tile and farming mode. In farming mode you can equip seeds, . Press '3' again to change which seed is equipped"
 autowrap_mode = 2
 
 [node name="Heading" type="Label" parent="Shop/Instructions"]
