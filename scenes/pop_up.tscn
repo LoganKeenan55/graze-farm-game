@@ -83,9 +83,9 @@ position = Vector2(3.965, 65)
 script = ExtResource("1_vln5t")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_top = 11.0
+offset_top = 25.58
 offset_right = 157.0
-offset_bottom = 25.0
+offset_bottom = 39.58
 color = Color(1, 1, 1, 0.564706)
 metadata/_edit_use_anchors_ = true
 

@@ -98,8 +98,8 @@ func buy(itemGive:String, itemGet:String):
 			$Shop/VBoxContainer2/HBoxContainer2/FlowerLeft.texture.region = GlobalVars.textureRegions["flower"]
 			$Shop/VBoxContainer2/HBoxContainer2/BambooRight.texture.region = GlobalVars.textureRegions["bamboo"]
 		if itemGet == "corn":
-			$Control2/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = GlobalVars.textureRegions["berry"]
-			$Control2/VBoxContainer2/HBoxContainer4/CornRight.texture.region = GlobalVars.textureRegions["corn"]
+			$Shop/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = GlobalVars.textureRegions["berry"]
+			$Shop/VBoxContainer2/HBoxContainer4/CornRight.texture.region = GlobalVars.textureRegions["corn"]
 		if itemGet == "berry":
 		
 			$Control2/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = GlobalVars.textureRegions["onion"]
