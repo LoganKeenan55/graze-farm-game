@@ -20,6 +20,8 @@ func _ready() -> void:
 	setDefaultPrices()
 	checkUnlockLevel()
 func checkUnlockLevel():
+	if !GlobalVars.player:
+		return
 	match GlobalVars.player.unlockLevel:
 		1:
 			$Shop/VBoxContainer2/HBoxContainer2/FlowerLeft.texture.region = Rect2(80, 0, 16, 16)
