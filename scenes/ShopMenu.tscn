@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bs8q1kp40i0yu"]
+[gd_scene load_steps=51 format=3 uid="uid://bs8q1kp40i0yu"]
 
 [ext_resource type="Script" uid="uid://bqhg0waq2vy3k" path="res://scripts/shop_menu.gd" id="1_lvq8y"]
 [ext_resource type="Texture2D" uid="uid://c7vy3ox2gmqxr" path="res://world_sprites/book.png" id="2_pj066"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="3_tvlfr"]
 [ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://world_sprites/Dogica_Pixel_edited.pfb" id="4_1kkh5"]
 [ext_resource type="Texture2D" uid="uid://dhev14e7bm332" path="res://world_sprites/shopTab.png" id="5_pj066"]
+[ext_resource type="PackedScene" uid="uid://mnjcqs4h535m" path="res://scenes/SettingsButton.tscn" id="7_1kkh5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e5qd0"]
 atlas = ExtResource("3_tvlfr")
@@ -1525,7 +1526,6 @@ theme = SubResource("Theme_e5qd0")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_1kkh5")
 theme_override_font_sizes/font_size = 4
-text = "This book can be used for instructions and purchasing from the store page. Use the tabs on the book to switch between the two."
 autowrap_mode = 2
 
 [node name="Body2" type="Label" parent="Shop/Instructions"]
@@ -1559,6 +1559,17 @@ text = "Settings"
 texture_filter = 1
 position = Vector2(44, 87)
 texture = ExtResource("5_pj066")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/Instructions"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 49.0
+offset_right = 154.0
+offset_bottom = 135.0
+metadata/_edit_group_ = true
+
+[node name="SettingsButton" parent="Shop/Instructions/VBoxContainer" instance=ExtResource("7_1kkh5")]
+text = "Fullscreen"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

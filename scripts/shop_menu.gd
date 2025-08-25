@@ -140,9 +140,10 @@ func _on_flower_button_pressed() -> void:
 func switchMode(type:String):
 	if type == "shop":
 		$Shop/Instructions.visible = false
+		$Shop/InfoTab.visible = true
 	if type == "settings":
 		$Shop/Instructions.visible = true
-		
+		$Shop/InfoTab.visible = false
 	SoundManager.play_ui_sound("res://sounds/book_sound.mp3")
 
 

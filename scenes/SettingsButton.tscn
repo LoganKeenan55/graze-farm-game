@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://mnjcqs4h535m"]
+
+[ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://world_sprites/Dogica_Pixel_edited.pfb" id="1_6gc2b"]
+[ext_resource type="Script" uid="uid://c28h34dyerqdn" path="res://scenes/settings_button.gd" id="1_rt74m"]
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_wcjey"]
+
+[sub_resource type="Theme" id="Theme_rt74m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gc2b"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt74m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23v6c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e0np"]
+bg_color = Color(0.239216, 0, 0.356863, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmojv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6etfw"]
+bg_color = Color(0.0901961, 0.00784314, 0.239216, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erwoe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3q88"]
+atlas = ExtResource("1_wcjey")
+region = Rect2(208, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82hcb"]
+atlas = ExtResource("1_wcjey")
+region = Rect2(224, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsely"]
+atlas = ExtResource("1_wcjey")
+region = Rect2(256, 128, 16, 16)
+
+[node name="SettingsButton" type="Node2D"]
+script = ExtResource("1_rt74m")
+
+[node name="Text" type="Label" parent="."]
+texture_filter = 1
+offset_left = 12.0
+offset_top = -1.0
+offset_right = 106.0
+offset_bottom = 9.0
+theme = SubResource("Theme_rt74m")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6gc2b")
+theme_override_font_sizes/font_size = 6
+text = "Fullscreen"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 68.0
+offset_top = -5.0
+offset_right = 84.0
+offset_bottom = 11.0
+scale = Vector2(0.98, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_6gc2b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_rt74m")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_23v6c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3e0np")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_pmojv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6etfw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erwoe")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.662745)
+texture_filter = 1
+position = Vector2(76, 3)
+texture = SubResource("AtlasTexture_x3q88")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(76, 3)
+texture = SubResource("AtlasTexture_82hcb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(77, 0)
+texture = SubResource("AtlasTexture_gsely")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
