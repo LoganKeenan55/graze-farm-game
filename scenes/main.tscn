@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvild13tpsq7d"]
+[gd_scene load_steps=20 format=3 uid="uid://cvild13tpsq7d"]
 
 [ext_resource type="Script" uid="uid://c6fp030nldugh" path="res://scripts/main.gd" id="1_83qsj"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="2_7n4sv"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cwe4wyf4p4k26" path="res://scenes/butterflySpawner.tscn" id="9_85g3d"]
 [ext_resource type="AudioStream" uid="uid://fqopib5gpu2v" path="res://sounds/music.mp3" id="10_choun"]
 [ext_resource type="Script" uid="uid://bmvq66ygrn081" path="res://scenes/forest_hitbox.gd" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bqvi7d4bbqtoc" path="res://scenes/TutorialNodeSpawner.tscn" id="13_trceg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
 texture = ExtResource("2_7n4sv")
@@ -1019,5 +1020,7 @@ script = ExtResource("12_eb6dy")
 position = Vector2(-18, -12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ya4ey")
+
+[node name="TutorialNodeSpawner" parent="." instance=ExtResource("13_trceg")]
 
 [connection signal="area_entered" from="ForestCollision/CollisionShape2D/ForestHitbox" to="ForestCollision/CollisionShape2D/ForestHitbox" method="_on_area_entered"]

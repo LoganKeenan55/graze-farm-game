@@ -2,13 +2,15 @@ extends Node2D
 class_name TutorialNode
 
 var actionNeeded:String
+var offset = Vector2(15, 70)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(actionNeeded):
 		$AnimationPlayer.play("Close")
+	position = GlobalVars.player.position + offset
 func _ready() -> void:
 	if self != null:
-		$AnimationPlayer.play("transition")
+		$AnimationPlayer.play("Open")
 		z_index = 30
 
 func setText(text:String):
