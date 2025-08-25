@@ -98,13 +98,13 @@ _data = {
 }
 
 [node name="TutorialNode" type="Node2D"]
-position = Vector2(0, 81.07)
+position = Vector2(10, 70)
 script = ExtResource("1_7q8x3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_top = 25.58
+offset_top = -5.0
 offset_right = 157.0
-offset_bottom = 53.58
+offset_bottom = 23.0
 color = Color(1, 1, 1, 0.337255)
 metadata/_edit_use_anchors_ = true
 
