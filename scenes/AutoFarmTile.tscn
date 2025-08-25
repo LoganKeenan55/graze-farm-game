@@ -1,12 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://h0dopj8abaid"]
+[gd_scene load_steps=11 format=3 uid="uid://h0dopj8abaid"]
 
 [ext_resource type="Script" uid="uid://thvw1uc00t8q" path="res://scripts/auto_farm_tile.gd" id="1_gdu07"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="2_m3el6"]
 [ext_resource type="Script" uid="uid://cuo5mcpbfg55u" path="res://scripts/auto_farm_tile_hit_box.gd" id="3_m3el6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xd0p2"]
-atlas = ExtResource("2_m3el6")
-region = Rect2(16, 112, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6xe5"]
 size = Vector2(16, 16)
@@ -87,7 +83,6 @@ script = ExtResource("1_gdu07")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = SubResource("AtlasTexture_xd0p2")
 
 [node name="Blend" type="Node2D" parent="."]
 

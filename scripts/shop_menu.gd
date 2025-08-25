@@ -136,3 +136,19 @@ func _on_flower_button_pressed() -> void:
 		buy("bamboo","flower")
 	else:
 		SoundManager.play_ui_sound("res://sounds/not_enough.mp3")
+
+func switchMode(type:String):
+	if type == "shop":
+		$Shop/Instructions.visible = false
+	if type == "settings":
+		$Shop/Instructions.visible = true
+		
+	SoundManager.play_ui_sound("res://sounds/book_sound.mp3")
+
+
+func _on_shop_button_pressed() -> void:
+	switchMode("shop")
+	
+
+func _on_settings_button_pressed() -> void:
+	switchMode("settings")

@@ -1,12 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpsu1q5hkv5i"]
+[gd_scene load_steps=6 format=3 uid="uid://dpsu1q5hkv5i"]
 
 [ext_resource type="Script" uid="uid://d0aehc5ktod78" path="res://scripts/water_tile.gd" id="1_dt1af"]
-[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="2_82oga"]
 [ext_resource type="Script" uid="uid://ewvew8lybpov" path="res://scripts/water_tile_hitbox.gd" id="3_hfn7n"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei1f6"]
-atlas = ExtResource("2_82oga")
-region = Rect2(0, 96, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr0hc"]
 size = Vector2(16, 16)
@@ -22,7 +17,6 @@ script = ExtResource("1_dt1af")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = SubResource("AtlasTexture_ei1f6")
 
 [node name="Blend" type="Node2D" parent="."]
 

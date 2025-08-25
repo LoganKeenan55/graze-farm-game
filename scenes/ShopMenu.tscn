@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bs8q1kp40i0yu"]
+[gd_scene load_steps=50 format=3 uid="uid://bs8q1kp40i0yu"]
 
 [ext_resource type="Script" uid="uid://bqhg0waq2vy3k" path="res://scripts/shop_menu.gd" id="1_lvq8y"]
 [ext_resource type="Texture2D" uid="uid://c7vy3ox2gmqxr" path="res://world_sprites/book.png" id="2_pj066"]
@@ -504,6 +504,28 @@ _data = {
 &"close": SubResource("Animation_teu2f"),
 &"open": SubResource("Animation_e5qd0")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvlfr"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kkh5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f11in"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n542x"]
+bg_color = Color(0.239216, 0, 0.356863, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60osk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqupi"]
+bg_color = Color(0.0901961, 0.00784314, 0.239216, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hclqe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="ShopMenu" type="Node2D"]
 script = ExtResource("1_lvq8y")
@@ -1531,7 +1553,7 @@ theme = SubResource("Theme_e5qd0")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_1kkh5")
 theme_override_font_sizes/font_size = 6
-text = "Introduction"
+text = "Settings"
 
 [node name="ShopTab" type="Sprite2D" parent="Shop/Instructions"]
 texture_filter = 1
@@ -1543,6 +1565,36 @@ libraries = {
 &"": SubResource("AnimationLibrary_teu2f")
 }
 
+[node name="ShopButton" type="Button" parent="."]
+offset_left = -157.0
+offset_top = -17.0
+offset_right = -135.95
+offset_bottom = 9.37
+scale = Vector2(0.98, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_tvlfr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1kkh5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f11in")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n542x")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_60osk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqupi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hclqe")
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = 86.0
+offset_top = -16.0
+offset_right = 107.05
+offset_bottom = 10.37
+scale = Vector2(0.98, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_tvlfr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1kkh5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f11in")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n542x")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_60osk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqupi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hclqe")
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer/FarmTile/FarmTileButton" to="." method="_on_farm_tile_button_pressed"]
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/Water/WaterTileButton" to="." method="_on_water_tile_button_pressed"]
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer3/Brick/BrickTileButton" to="." method="_on_brick_tile_button_pressed"]
@@ -1553,3 +1605,5 @@ libraries = {
 [connection signal="pressed" from="Shop/VBoxContainer2/HBoxContainer4/BerryLeft/BerryButton" to="." method="_on_berry_button_pressed"]
 [connection signal="pressed" from="Shop/VBoxContainer2/HBoxContainer5/OnionLeft/OnionButton" to="." method="_on_onion_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

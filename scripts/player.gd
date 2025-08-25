@@ -103,7 +103,8 @@ func getInput():
 	
 
 func handleDebuging():
-	
+	if Input.is_action_pressed("`"):
+		get_tree().quit()
 	if Input.is_action_just_pressed("c"): #9999 of everything 
 		inventory["farmTile"] = 9999
 		inventory["waterTile"] = 9999
@@ -148,8 +149,10 @@ func handleChangingMode():
 		switch_to_mode("farming")
 
 	elif Input.is_action_just_pressed("tab"):
-		toggle_shop_mode()
-
+		toggle_shop_mode("shop")
+	
+	elif Input.is_action_just_pressed("esc"):
+		toggle_shop_mode("settings")
 
 func switch_to_mode(new_mode: String):
 	if mode == new_mode:
@@ -167,7 +170,7 @@ func switch_to_mode(new_mode: String):
 	close_shop_if_open()
 
 
-func toggle_shop_mode():
+func toggle_shop_mode(type:String): #type = shop / settings
 	var ogMode = mode #what mode is before switching to shop
 	tileComponent.freeTilePreview()
 	var existing_menu = get_node_or_null("ShopMenu")
@@ -186,6 +189,8 @@ func toggle_shop_mode():
 		var shopMenu = shopMenuPreload.instantiate()
 		shopMenu.name = "ShopMenu"
 		add_child(shopMenu)
+		if type == "settings":
+			shopMenu.switchMode("settings")
 		shopMenu.position.y -= 8
 		
 		shopMenu.anPlayer.play("open")
@@ -212,8 +217,6 @@ func handleSavingLoadingGame():
 		GlobalVars.loadGame()
 
 func handleMovement():
-	if Input.is_action_pressed("esc"):
-		get_tree().quit()
 	if Input.is_action_pressed("alt") and  Input.is_action_pressed("f4"):
 		get_tree().quit()
 	

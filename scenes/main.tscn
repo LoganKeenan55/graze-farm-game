@@ -1023,4 +1023,9 @@ shape = SubResource("CapsuleShape2D_ya4ey")
 
 [node name="TutorialNodeSpawner" parent="." instance=ExtResource("13_trceg")]
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
 [connection signal="area_entered" from="ForestCollision/CollisionShape2D/ForestHitbox" to="ForestCollision/CollisionShape2D/ForestHitbox" method="_on_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
