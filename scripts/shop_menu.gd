@@ -102,8 +102,8 @@ func buy(itemGive:String, itemGet:String):
 			$Shop/VBoxContainer2/HBoxContainer4/CornRight.texture.region = GlobalVars.textureRegions["corn"]
 		if itemGet == "berry":
 		
-			$Control2/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = GlobalVars.textureRegions["onion"]
-			$Control2/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = GlobalVars.textureRegions["berry"]
+			$Shop/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = GlobalVars.textureRegions["onion"]
+			$Shop/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = GlobalVars.textureRegions["berry"]
 	else:
 		SoundManager.play_ui_sound("res://sounds/not_enough.mp3")
 		return false
