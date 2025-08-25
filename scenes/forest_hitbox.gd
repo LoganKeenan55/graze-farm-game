@@ -23,4 +23,4 @@ func unlock():
 	newForestMessage.position = GlobalVars.player.get_parent().position
 	monitoring = false
 	get_parent().disabled = true
-	newForestMessage.label.text =  "[shake rate=20.0 level=5 connected=1][tornado radius=4.0 freq=2.0 connected=1]You are now worthy for the forest[/tornado][/shake]"
+	newForestMessage.label.text =  "[shake rate=20.0 level=5 connected=1][tornado radius=4.0 freq=2.0 connected=1]The forest is calling you[/tornado][/shake]"

@@ -11,7 +11,7 @@ func _ready() -> void:
 		handleNewGame()
 	else:
 		handleLoadedGame()
-	$TutorialNodeSpawner.start()
+
 func setPepper():
 	$YSort/Tiles/pepper.setType("pepper")
 	$YSort/Tiles/pepper.stateIndex = 4
@@ -36,4 +36,4 @@ func handleNewGame():
 	setPepper()
 	dirtTransition.createTiles()
 	GlobalVars.player.set_process(false); GlobalVars.player.set_physics_process(false)
-	#$TutorialNodeSpawner.start()
+	$TutorialNodeSpawner.start()

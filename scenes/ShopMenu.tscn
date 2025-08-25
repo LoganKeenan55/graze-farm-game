@@ -1515,33 +1515,6 @@ theme_override_fonts/font = ExtResource("4_1kkh5")
 theme_override_font_sizes/font_size = 6
 text = "Tab to close"
 
-[node name="Body" type="Label" parent="Shop/Instructions"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 58.0
-offset_top = 43.0
-offset_right = 152.0
-offset_bottom = 50.0
-theme = SubResource("Theme_e5qd0")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_1kkh5")
-theme_override_font_sizes/font_size = 4
-autowrap_mode = 2
-
-[node name="Body2" type="Label" parent="Shop/Instructions"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 170.0
-offset_top = 43.0
-offset_right = 264.0
-offset_bottom = 80.0
-theme = SubResource("Theme_e5qd0")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_1kkh5")
-theme_override_font_sizes/font_size = 4
-text = "Use WASD to move, 'E' and 'F' to switch between tile and farming mode. In farming mode you can equip seeds, . Press '3' again to change which seed is equipped"
-autowrap_mode = 2
-
 [node name="Heading" type="Label" parent="Shop/Instructions"]
 texture_filter = 1
 layout_mode = 2
@@ -1566,10 +1539,17 @@ offset_left = 58.0
 offset_top = 49.0
 offset_right = 154.0
 offset_bottom = 135.0
-metadata/_edit_group_ = true
 
 [node name="SettingsButton" parent="Shop/Instructions/VBoxContainer" instance=ExtResource("7_1kkh5")]
 text = "Fullscreen"
+
+[node name="SettingsButton2" parent="Shop/Instructions/VBoxContainer" instance=ExtResource("7_1kkh5")]
+position = Vector2(0, 20.73)
+text = "Autosave"
+
+[node name="SettingsButton3" parent="Shop/Instructions/VBoxContainer" instance=ExtResource("7_1kkh5")]
+position = Vector2(0, 41.985)
+text = "Cheats"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
