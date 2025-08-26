@@ -139,10 +139,10 @@ func _on_flower_button_pressed() -> void:
 
 func switchMode(type:String):
 	if type == "shop":
-		$Shop/Instructions.visible = false
+		$Shop/Settigs.visible = false
 		$Shop/InfoTab.visible = true
 	if type == "settings":
-		$Shop/Instructions.visible = true
+		$Shop/Settigs.visible = true
 		$Shop/InfoTab.visible = false
 	SoundManager.play_ui_sound("res://sounds/book_sound.mp3")
 
@@ -153,3 +153,17 @@ func _on_shop_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	switchMode("settings")
+
+
+func _on_save_button_pressed() -> void:
+	GlobalVars.saveGame()
+
+
+func _on_quit_button_pressed() -> void:
+	if GlobalVars.autoSave:
+		GlobalVars.saveGame()
+	get_tree().quit()
+
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

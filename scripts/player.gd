@@ -93,7 +93,7 @@ func _physics_process(delta):
 func _process(_delta: float) -> void:
 	set_process_input(true)
 	getInput()
-
+	
 func getInput():
 	handleSavingLoadingGame()
 	handleMovement()

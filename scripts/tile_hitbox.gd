@@ -183,5 +183,6 @@ func handlePlayerInterection(event): #needed for all tiles
 				
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if player and player.mode == "farming":
-		handlePlayerInterection(event)
+	if player:
+		if player.mode == "farming" or player.mode == "seed":
+			handlePlayerInterection(event)

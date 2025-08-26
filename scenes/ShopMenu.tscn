@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bs8q1kp40i0yu"]
+[gd_scene load_steps=62 format=3 uid="uid://bs8q1kp40i0yu"]
 
 [ext_resource type="Script" uid="uid://bqhg0waq2vy3k" path="res://scripts/shop_menu.gd" id="1_lvq8y"]
 [ext_resource type="Texture2D" uid="uid://c7vy3ox2gmqxr" path="res://world_sprites/book.png" id="2_pj066"]
@@ -413,6 +413,328 @@ region = Rect2(160, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1seuy"]
 atlas = ExtResource("3_tvlfr")
 region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kkh5"]
+texture = ExtResource("3_tvlfr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f11in"]
+terrain_set_0/mode = 2
+sources/0 = SubResource("TileSetAtlasSource_1kkh5")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n542x"]
+texture = ExtResource("3_tvlfr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bqupi"]
+terrain_set_0/mode = 2
+sources/0 = SubResource("TileSetAtlasSource_n542x")
+
+[sub_resource type="Theme" id="Theme_hclqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5364"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71sxn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cljdh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aejf4"]
+bg_color = Color(0.239216, 0, 0.356863, 0.152941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8idf1"]
+bg_color = Color(0.0903062, 0.00751441, 0.240192, 0.415686)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aeowc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Animation" id="Animation_3m5gk"]
 length = 0.001
@@ -1487,7 +1809,7 @@ theme_override_fonts/font = ExtResource("4_1kkh5")
 theme_override_font_sizes/font_size = 6
 text = "Tab to close"
 
-[node name="Instructions" type="Control" parent="Shop"]
+[node name="Settigs" type="Control" parent="Shop"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1497,25 +1819,12 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BookSprite" type="Sprite2D" parent="Shop/Instructions"]
+[node name="BookSprite" type="Sprite2D" parent="Shop/Settigs"]
 texture_filter = 1
 position = Vector2(160, 90)
 texture = ExtResource("2_pj066")
 
-[node name="FarmTilePrice" type="Label" parent="Shop/Instructions"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 69.0
-offset_top = 125.0
-offset_right = 126.0
-offset_bottom = 132.0
-theme = SubResource("Theme_e5qd0")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_1kkh5")
-theme_override_font_sizes/font_size = 6
-text = "Tab to close"
-
-[node name="Heading" type="Label" parent="Shop/Instructions"]
+[node name="Heading" type="Label" parent="Shop/Settigs"]
 texture_filter = 1
 layout_mode = 2
 offset_left = 57.825
@@ -1528,28 +1837,257 @@ theme_override_fonts/font = ExtResource("4_1kkh5")
 theme_override_font_sizes/font_size = 6
 text = "Settings"
 
-[node name="ShopTab" type="Sprite2D" parent="Shop/Instructions"]
+[node name="ShopTab" type="Sprite2D" parent="Shop/Settigs"]
 texture_filter = 1
 position = Vector2(44, 87)
 texture = ExtResource("5_pj066")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Shop/Instructions"]
+[node name="Left" type="VBoxContainer" parent="Shop/Settigs"]
 layout_mode = 0
 offset_left = 58.0
 offset_top = 49.0
 offset_right = 154.0
 offset_bottom = 135.0
 
-[node name="SettingsButton" parent="Shop/Instructions/VBoxContainer" instance=ExtResource("7_1kkh5")]
+[node name="SettingsButton" parent="Shop/Settigs/Left" instance=ExtResource("7_1kkh5")]
 text = "Fullscreen"
 
-[node name="SettingsButton2" parent="Shop/Instructions/VBoxContainer" instance=ExtResource("7_1kkh5")]
+[node name="SettingsButton2" parent="Shop/Settigs/Left" instance=ExtResource("7_1kkh5")]
 position = Vector2(0, 20.73)
 text = "Autosave"
 
-[node name="SettingsButton3" parent="Shop/Instructions/VBoxContainer" instance=ExtResource("7_1kkh5")]
+[node name="SettingsButton3" parent="Shop/Settigs/Left" instance=ExtResource("7_1kkh5")]
 position = Vector2(0, 41.985)
 text = "Cheats"
+
+[node name="Right" type="VBoxContainer" parent="Shop/Settigs"]
+layout_mode = 2
+offset_left = 168.0
+offset_top = 49.0
+offset_right = 264.0
+offset_bottom = 136.0
+
+[node name="Save" type="Node2D" parent="Shop/Settigs/Right"]
+position = Vector2(-19.955, 33.915)
+
+[node name="Inside" type="TileMap" parent="Shop/Settigs/Right/Save"]
+modulate = Color(1, 1, 1, 0.662745)
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Shop/Settigs/Right/Save"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Shop/Settigs/Right/Save"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Shop/Settigs/Right/Save"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Shop/Settigs/Right/Save"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Shop/Settigs/Right/Save"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_bqupi")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Play" type="Label" parent="Shop/Settigs/Right/Save"]
+texture_filter = 1
+offset_left = 48.525
+offset_top = 3.705
+offset_right = 88.525
+offset_bottom = 20.705
+theme = SubResource("Theme_hclqe")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_1kkh5")
+theme_override_font_sizes/font_size = 6
+text = "Save"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SaveButton" type="Button" parent="Shop/Settigs/Right/Save"]
+offset_left = 44.335
+offset_top = -2.0
+offset_right = 93.335
+offset_bottom = 14.0
+scale = Vector2(0.98, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Node2D" parent="Shop/Settigs/Right"]
+position = Vector2(-19.955, 74.065)
+
+[node name="Inside" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+modulate = Color(1, 1, 1, 0.662745)
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_bqupi")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Play" type="Label" parent="Shop/Settigs/Right/Quit"]
+texture_filter = 1
+offset_left = 48.525
+offset_top = 3.705
+offset_right = 88.525
+offset_bottom = 20.705
+theme = SubResource("Theme_hclqe")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_1kkh5")
+theme_override_font_sizes/font_size = 6
+text = "Quit"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="Shop/Settigs/Right/Quit"]
+offset_left = 44.335
+offset_top = -2.0
+offset_right = 93.335
+offset_bottom = 14.0
+scale = Vector2(0.98, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main Menu" type="Node2D" parent="Shop/Settigs/Right"]
+position = Vector2(-19.955, 53.905)
+
+[node name="Inside" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+modulate = Color(1, 1, 1, 0.662745)
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
+
+[node name="Inside2" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
+
+[node name="Inside3" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
+
+[node name="Inside5" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
+
+[node name="Inside4" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_f11in")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
+
+[node name="Border" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+texture_filter = 1
+position = Vector2(12.33, 14.07)
+tile_set = SubResource("TileSet_bqupi")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
+
+[node name="Play" type="Label" parent="Shop/Settigs/Right/Main Menu"]
+texture_filter = 1
+offset_left = 45.775
+offset_top = 3.705
+offset_right = 90.775
+offset_bottom = 20.705
+theme = SubResource("Theme_hclqe")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_1kkh5")
+theme_override_font_sizes/font_size = 6
+text = "Main Menu"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuButton" type="Button" parent="Shop/Settigs/Right/Main Menu"]
+offset_left = 44.335
+offset_top = -2.0
+offset_right = 93.335
+offset_bottom = 14.0
+scale = Vector2(0.98, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1595,6 +2133,9 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Shop/VBoxContainer2/HBoxContainer3/CornLeft/cornButton" to="." method="_on_corn_button_pressed"]
 [connection signal="pressed" from="Shop/VBoxContainer2/HBoxContainer4/BerryLeft/BerryButton" to="." method="_on_berry_button_pressed"]
 [connection signal="pressed" from="Shop/VBoxContainer2/HBoxContainer5/OnionLeft/OnionButton" to="." method="_on_onion_button_pressed"]
+[connection signal="pressed" from="Shop/Settigs/Right/Save/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Shop/Settigs/Right/Quit/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Shop/Settigs/Right/Main Menu/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
