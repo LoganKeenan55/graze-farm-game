@@ -33,6 +33,8 @@ func getSettingState(setting: String) -> bool:
 			return GlobalVars.autoSave
 		"Cheats":
 			return GlobalVars.cheats
+		"Farm on click":
+			return GlobalVars.farmOnClick
 		_:
 			return false
 
@@ -48,3 +50,5 @@ func ApplySetting(setting: String, value: bool) -> void:
 			GlobalVars.autoSave = value
 		"Cheats":
 			GlobalVars.cheats = value
+		"Farm on click":
+			GlobalVars.farmOnClick = value

@@ -48,8 +48,19 @@ func handleDeletingTile(): #shovel
 				
 		
 func handleHarvesting():
-	if get_parent().tileState[get_parent().stateIndex] == "harvestable":
-		get_parent().harvestCrop()
+	if get_parent().cropType == "pepper":
+		#always require a click for peppers
+		if Input.is_action_pressed("click") and get_parent().tileState[get_parent().stateIndex] == "harvestable":
+			get_parent().harvestCrop()
+	elif !GlobalVars.farmOnClick:
+		#require a click
+		if Input.is_action_pressed("click") and get_parent().tileState[get_parent().stateIndex] == "harvestable":
+			get_parent().harvestCrop()
+	else:
+		if get_parent().tileState[get_parent().stateIndex] == "harvestable":
+			get_parent().harvestCrop()
+
+		
 #	if abs(Input.get_last_mouse_velocity().x) + abs(Input.get_last_mouse_velocity().y) >1000:
 	#use ^? only harvests if mouse is at certain speed
 	
@@ -143,7 +154,7 @@ func handleSeeding(): #seed
 		"farmTile":
 			if get_parent().tileState[get_parent().stateIndex] == "fertile" and Input.is_action_pressed("left_click"):
 				get_parent().seedCrop(player.harvestables[player.currentSeed])
-				player.hud.updateCounter(get_parent().cropType)
+				#player.hud.updateCounter(get_parent().cropType)
 		"autoFarmTile":
 			if get_parent().cropType != "default": #check if autoFarmTile hasn't already been seeded
 				return 

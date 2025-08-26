@@ -1860,6 +1860,13 @@ text = "Autosave"
 position = Vector2(0, 41.985)
 text = "Cheats"
 
+[node name="SettingsButton4" parent="Shop/Settigs/Left" instance=ExtResource("7_1kkh5")]
+position = Vector2(0, 63.525)
+text = "Farm on click"
+
+[node name="Text" parent="Shop/Settigs/Left/SettingsButton4" index="0"]
+theme_override_font_sizes/font_size = 5
+
 [node name="Right" type="VBoxContainer" parent="Shop/Settigs"]
 layout_mode = 2
 offset_left = 168.0
@@ -2139,3 +2146,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+
+[editable path="Shop/Settigs/Left/SettingsButton4"]

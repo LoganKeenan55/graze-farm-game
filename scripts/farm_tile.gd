@@ -214,7 +214,8 @@ func seedCrop(newType = null):
 			setType(newType)
 		stateIndex = 2
 		updateTexture()
-		player.inventory[typeToPlant] -= 1 
+		player.recieve(typeToPlant, -1)
+		
 		SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
 	
 func setType(type:String):
