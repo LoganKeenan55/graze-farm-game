@@ -41,6 +41,7 @@ var homeLevel := 1
 var autoSave := true
 var cheats := false
 var farmOnClick := true
+var autoFarmTileUnlocked := false
 ##
 var farmTilePreload = preload("res://scenes/FarmTile.tscn")
 var waterTilePreload = preload("res://scenes/WaterTile.tscn")
@@ -61,7 +62,7 @@ func saveGame():
 	saveData.append({"group": "IRLtime", "IRLtime": Time.get_unix_time_from_system()})
 	saveData.append({"group": "globalTime", "globalTime": globalTime})
 	saveData.append(player.getData())
-
+	saveData.append({"group": "autoFarmTileUnlocked","autoFarmTileUnlocked": autoFarmTileUnlocked})
 	for node in tilesParent.get_children(): # tiles
 		if node.has_method("getData"):
 			saveData.append(node.getData()) # adds all nodes in Tiles
@@ -117,6 +118,8 @@ func loadGame():
 	
 	for node in saveData:
 		var newTile
+		if node["group"] == "autoFarmTileUnlocked": 
+			autoFarmTileUnlocked = node["autoFarmTileUnlocked"]
 		if node["group"] == "IRLtime": #sets time since last save
 			timeSinceLastSave = abs(node["IRLtime"] - Time.get_unix_time_from_system())
 		if node["group"] == "globalTime": #gameTime
@@ -158,7 +161,7 @@ func loadGame():
 	emit_signal("save_loaded")
 	print("It has been " + str(int(timeSinceLastSave)) + " seconds since last saved")
 	print("loaded!")
-
+	print(autoFarmTileUnlocked)
 func deleteAllTiles():
 	for node in tilesParent.get_children():
 		node.queue_free()

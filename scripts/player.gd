@@ -5,6 +5,7 @@ class_name Player
 @onready var tileComponent := $TileComponent
 @onready var hotBar: HotBar = $HUD/HotBar
 @onready var hud: HUD = $HUD
+
 ## preload
 var shopMenuPreload := preload("res://scenes/ShopMenu.tscn")
 var dustParticlePreload := preload("res://scenes/DustParticle.tscn")

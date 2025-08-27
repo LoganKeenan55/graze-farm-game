@@ -85,8 +85,11 @@ func _on_brick_tile_button_pressed() -> void:
 
 
 func _on_auto_farm_tile_button_pressed() -> void:
+	if !GlobalVars.autoFarmTileUnlocked:
+		GlobalVars.autoFarmTileUnlocked = true
+		Util.createPopUp("AutoTile unlocked, place and seed to auto harvest crops. Hammer to upgrade", 3, .4)
 	buy("corn","autoFarmTile")
-
+	
 func buy(itemGive:String, itemGet:String):
 	
 	var inventory = GlobalVars.player.inventory
