@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bs8q1kp40i0yu"]
+[gd_scene load_steps=66 format=3 uid="uid://bs8q1kp40i0yu"]
 
 [ext_resource type="Script" uid="uid://bqhg0waq2vy3k" path="res://scripts/shop_menu.gd" id="1_lvq8y"]
 [ext_resource type="Texture2D" uid="uid://c7vy3ox2gmqxr" path="res://world_sprites/book.png" id="2_pj066"]
@@ -414,6 +414,8 @@ region = Rect2(160, 0, 16, 16)
 atlas = ExtResource("3_tvlfr")
 region = Rect2(144, 0, 16, 16)
 
+[sub_resource type="Theme" id="Theme_rt74m"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kkh5"]
 texture = ExtResource("3_tvlfr")
 0:0/0 = 0
@@ -735,6 +737,17 @@ bg_color = Color(0.0903062, 0.00751441, 0.240192, 0.415686)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aeowc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f11in"]
+atlas = ExtResource("3_tvlfr")
+region = Rect2(256, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kkh5"]
+atlas = ExtResource("3_tvlfr")
+region = Rect2(272, 112, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scbjc"]
+bg_color = Color(1, 0.307855, 0.479956, 1)
 
 [sub_resource type="Animation" id="Animation_3m5gk"]
 length = 0.001
@@ -1810,6 +1823,7 @@ theme_override_font_sizes/font_size = 6
 text = "Tab to close"
 
 [node name="Settigs" type="Control" parent="Shop"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1842,12 +1856,29 @@ texture_filter = 1
 position = Vector2(44, 87)
 texture = ExtResource("5_pj066")
 
+[node name="Text" type="Label" parent="Shop/Settigs"]
+modulate = Color(1, 1, 1, 0.713726)
+texture_filter = 1
+layout_mode = 2
+offset_left = 58.17
+offset_top = 129.26
+offset_right = 154.17
+offset_bottom = 150.26
+theme = SubResource("Theme_rt74m")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1kkh5")
+theme_override_font_sizes/font_size = 2
+text = "Farm on click decides whether it is required to hold left click to harvest crops"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
 [node name="Left" type="VBoxContainer" parent="Shop/Settigs"]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 49.0
-offset_right = 154.0
-offset_bottom = 135.0
+offset_left = 59.0
+offset_top = 53.0
+offset_right = 155.0
+offset_bottom = 139.0
 
 [node name="SettingsButton" parent="Shop/Settigs/Left" instance=ExtResource("7_1kkh5")]
 text = "Fullscreen"
@@ -1874,10 +1905,13 @@ offset_top = 49.0
 offset_right = 264.0
 offset_bottom = 136.0
 
-[node name="Save" type="Node2D" parent="Shop/Settigs/Right"]
-position = Vector2(-19.955, 33.915)
+[node name="Node2D" type="Node2D" parent="Shop/Settigs"]
+position = Vector2(59, 53)
 
-[node name="Inside" type="TileMap" parent="Shop/Settigs/Right/Save"]
+[node name="Save" type="Node2D" parent="Shop/Settigs/Node2D"]
+position = Vector2(89.045, 29.915)
+
+[node name="Inside" type="TileMap" parent="Shop/Settigs/Node2D/Save"]
 modulate = Color(1, 1, 1, 0.662745)
 texture_filter = 1
 position = Vector2(12.33, 14.07)
@@ -1885,42 +1919,42 @@ tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
 
-[node name="Inside2" type="TileMap" parent="Shop/Settigs/Right/Save"]
+[node name="Inside2" type="TileMap" parent="Shop/Settigs/Node2D/Save"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
 
-[node name="Inside3" type="TileMap" parent="Shop/Settigs/Right/Save"]
+[node name="Inside3" type="TileMap" parent="Shop/Settigs/Node2D/Save"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
 
-[node name="Inside5" type="TileMap" parent="Shop/Settigs/Right/Save"]
+[node name="Inside5" type="TileMap" parent="Shop/Settigs/Node2D/Save"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
 
-[node name="Inside4" type="TileMap" parent="Shop/Settigs/Right/Save"]
+[node name="Inside4" type="TileMap" parent="Shop/Settigs/Node2D/Save"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
 
-[node name="Border" type="TileMap" parent="Shop/Settigs/Right/Save"]
+[node name="Border" type="TileMap" parent="Shop/Settigs/Node2D/Save"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_bqupi")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
 
-[node name="Play" type="Label" parent="Shop/Settigs/Right/Save"]
+[node name="Play" type="Label" parent="Shop/Settigs/Node2D/Save"]
 texture_filter = 1
 offset_left = 48.525
 offset_top = 3.705
@@ -1934,7 +1968,7 @@ text = "Save"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SaveButton" type="Button" parent="Shop/Settigs/Right/Save"]
+[node name="SaveButton" type="Button" parent="Shop/Settigs/Node2D/Save"]
 offset_left = 44.335
 offset_top = -2.0
 offset_right = 93.335
@@ -1948,10 +1982,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Node2D" parent="Shop/Settigs/Right"]
-position = Vector2(-19.955, 74.065)
+[node name="Quit" type="Node2D" parent="Shop/Settigs/Node2D"]
+position = Vector2(89.045, 70.065)
 
-[node name="Inside" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+[node name="Inside" type="TileMap" parent="Shop/Settigs/Node2D/Quit"]
 modulate = Color(1, 1, 1, 0.662745)
 texture_filter = 1
 position = Vector2(12.33, 14.07)
@@ -1959,42 +1993,42 @@ tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
 
-[node name="Inside2" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+[node name="Inside2" type="TileMap" parent="Shop/Settigs/Node2D/Quit"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
 
-[node name="Inside3" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+[node name="Inside3" type="TileMap" parent="Shop/Settigs/Node2D/Quit"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
 
-[node name="Inside5" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+[node name="Inside5" type="TileMap" parent="Shop/Settigs/Node2D/Quit"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
 
-[node name="Inside4" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+[node name="Inside4" type="TileMap" parent="Shop/Settigs/Node2D/Quit"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
 
-[node name="Border" type="TileMap" parent="Shop/Settigs/Right/Quit"]
+[node name="Border" type="TileMap" parent="Shop/Settigs/Node2D/Quit"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_bqupi")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
 
-[node name="Play" type="Label" parent="Shop/Settigs/Right/Quit"]
+[node name="Play" type="Label" parent="Shop/Settigs/Node2D/Quit"]
 texture_filter = 1
 offset_left = 48.525
 offset_top = 3.705
@@ -2008,7 +2042,7 @@ text = "Quit"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="QuitButton" type="Button" parent="Shop/Settigs/Right/Quit"]
+[node name="QuitButton" type="Button" parent="Shop/Settigs/Node2D/Quit"]
 offset_left = 44.335
 offset_top = -2.0
 offset_right = 93.335
@@ -2022,10 +2056,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
 metadata/_edit_use_anchors_ = true
 
-[node name="Main Menu" type="Node2D" parent="Shop/Settigs/Right"]
-position = Vector2(-19.955, 53.905)
+[node name="Main Menu" type="Node2D" parent="Shop/Settigs/Node2D"]
+position = Vector2(89.045, 49.905)
 
-[node name="Inside" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+[node name="Inside" type="TileMap" parent="Shop/Settigs/Node2D/Main Menu"]
 modulate = Color(1, 1, 1, 0.662745)
 texture_filter = 1
 position = Vector2(12.33, 14.07)
@@ -2033,42 +2067,42 @@ tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65533, 851968, 8, -65532, 851968, 8, -65534, 851968, 8)
 
-[node name="Inside2" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+[node name="Inside2" type="TileMap" parent="Shop/Settigs/Node2D/Main Menu"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 851968, 6, -65534, 786432, 6)
 
-[node name="Inside3" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+[node name="Inside3" type="TileMap" parent="Shop/Settigs/Node2D/Main Menu"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 851968, 7, -65534, 786432, 7)
 
-[node name="Inside5" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+[node name="Inside5" type="TileMap" parent="Shop/Settigs/Node2D/Main Menu"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65532, 720896, 6, -65534, 655360, 7)
 
-[node name="Inside4" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+[node name="Inside4" type="TileMap" parent="Shop/Settigs/Node2D/Main Menu"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_f11in")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65534, 720896, 7, -65533, 720896, 7, -65532, 720896, 7)
 
-[node name="Border" type="TileMap" parent="Shop/Settigs/Right/Main Menu"]
+[node name="Border" type="TileMap" parent="Shop/Settigs/Node2D/Main Menu"]
 texture_filter = 1
 position = Vector2(12.33, 14.07)
 tile_set = SubResource("TileSet_bqupi")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
 
-[node name="Play" type="Label" parent="Shop/Settigs/Right/Main Menu"]
+[node name="Play" type="Label" parent="Shop/Settigs/Node2D/Main Menu"]
 texture_filter = 1
 offset_left = 45.775
 offset_top = 3.705
@@ -2082,12 +2116,103 @@ text = "Main Menu"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MainMenuButton" type="Button" parent="Shop/Settigs/Right/Main Menu"]
+[node name="MainMenuButton" type="Button" parent="Shop/Settigs/Node2D/Main Menu"]
 offset_left = 44.335
 offset_top = -2.0
 offset_right = 93.335
 offset_bottom = 14.0
 scale = Vector2(0.98, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Shop/Settigs/Node2D"]
+texture_filter = 1
+position = Vector2(157, -9)
+scale = Vector2(6, 1)
+texture = SubResource("AtlasTexture_f11in")
+
+[node name="GameVolume" type="HSlider" parent="Shop/Settigs/Node2D"]
+texture_filter = 1
+offset_left = 109.0
+offset_top = -17.0
+offset_right = 205.0
+offset_bottom = -1.0
+theme_override_icons/grabber = SubResource("AtlasTexture_1kkh5")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_1kkh5")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_1kkh5")
+theme_override_styles/slider = SubResource("StyleBoxFlat_scbjc")
+value = 50.0
+
+[node name="Text" type="Label" parent="Shop/Settigs/Node2D/GameVolume"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.09375
+anchor_top = -0.375
+anchor_right = -0.0729167
+anchor_bottom = -0.375
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 103.0
+offset_bottom = 9.0
+theme = SubResource("Theme_rt74m")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1kkh5")
+theme_override_font_sizes/font_size = 5
+text = "Game Volume"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Shop/Settigs/Node2D"]
+texture_filter = 1
+position = Vector2(157, 18)
+scale = Vector2(6, 1)
+texture = SubResource("AtlasTexture_f11in")
+
+[node name="MusicVolume" type="HSlider" parent="Shop/Settigs/Node2D"]
+texture_filter = 1
+offset_left = 109.0
+offset_top = 10.0
+offset_right = 205.0
+offset_bottom = 26.0
+theme_override_icons/grabber = SubResource("AtlasTexture_1kkh5")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_1kkh5")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_1kkh5")
+theme_override_styles/slider = SubResource("StyleBoxFlat_scbjc")
+value = 50.0
+
+[node name="Text" type="Label" parent="Shop/Settigs/Node2D/MusicVolume"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.09375
+anchor_top = -0.375
+anchor_right = -0.0729167
+anchor_bottom = -0.375
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 103.0
+offset_bottom = 9.0
+theme = SubResource("Theme_rt74m")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_1kkh5")
+theme_override_font_sizes/font_size = 5
+text = "Music Volume"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuButton" type="Button" parent="Shop/Settigs/Node2D"]
+offset_left = 109.0
+offset_top = 36.0
+offset_right = 205.0
+offset_bottom = 36.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
@@ -2140,9 +2265,12 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Shop/VBoxContainer2/HBoxContainer3/CornLeft/cornButton" to="." method="_on_corn_button_pressed"]
 [connection signal="pressed" from="Shop/VBoxContainer2/HBoxContainer4/BerryLeft/BerryButton" to="." method="_on_berry_button_pressed"]
 [connection signal="pressed" from="Shop/VBoxContainer2/HBoxContainer5/OnionLeft/OnionButton" to="." method="_on_onion_button_pressed"]
-[connection signal="pressed" from="Shop/Settigs/Right/Save/SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="Shop/Settigs/Right/Quit/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Shop/Settigs/Right/Main Menu/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Shop/Settigs/Node2D/Save/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Shop/Settigs/Node2D/Quit/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Shop/Settigs/Node2D/Main Menu/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="value_changed" from="Shop/Settigs/Node2D/GameVolume" to="." method="_on_game_volume_value_changed"]
+[connection signal="value_changed" from="Shop/Settigs/Node2D/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="Shop/Settigs/Node2D/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

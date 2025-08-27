@@ -20,7 +20,7 @@ func setPepper():
 func handleLoadedGame():
 	GlobalVars.loadGame() #if the game is not a new game -> load save
 	dirtTransition.openTransition()
-	SoundManager.play_ui_sound("res://sounds/music.mp3", .8) #music - default = .8
+	SoundManager.play_music("res://sounds/music.mp3", .8) #music - default = .8
 
 func setVars():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

@@ -192,10 +192,6 @@ height = 538.0
 script = ExtResource("1_83qsj")
 metadata/_edit_horizontal_guides_ = [96.0]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_choun")
-volume_db = -10.505
-
 [node name="Grass" type="TileMap" parent="."]
 texture_filter = 1
 position = Vector2(144, 256)
@@ -956,6 +952,13 @@ position = Vector2(783, 472)
 
 [node name="Player" parent="YSort" instance=ExtResource("2_q2fse")]
 position = Vector2(827, 343)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="YSort/Player"]
+position = Vector2(-0.4, -8.715)
+stream = ExtResource("10_choun")
+volume_db = -33.091
+bus = &"Music"
+parameters/looping = true
 
 [node name="Tiles" type="Node2D" parent="YSort"]
 y_sort_enabled = true

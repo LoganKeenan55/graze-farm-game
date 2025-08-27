@@ -3,6 +3,7 @@ extends Node
 const MAX_SOUNDS = 35
 
 var volume:float = .5
+var musicVolume: float = .5
 var max_distance = 200.0
 
 var active_sounds = [] #keeps track of all sounds being played
@@ -40,8 +41,9 @@ func play_sound(path: String, pos:Vector2 = Vector2.ZERO, overide: float = 0) ->
 			return
 	#scales volume based on how many sounds are being played and by distance 
 	var volume_scale = (((1.0 - (active_sounds.size() * 0.02)) * distance_volume_scale))
-	audio_player.volume_db = linear_to_db(clamp((volume_scale* volume) - overide, 0.01, 1.0))
-
+	audio_player.volume_db = linear_to_db(clamp((volume_scale * volume) - overide, 0.01, 1.0))
+	if volume == 0:
+		audio_player.volume_db = -999
 	
 	var pitch_scale = 1.0 - (randf_range(-0.7,0.3)) #random pitch
 	audio_player.pitch_scale = pitch_scale
@@ -62,6 +64,28 @@ func play_ui_sound(path: String, overide: float = 0): #for UI sounds (no pitch s
 	audio_player.stream = stream
 
 	audio_player.volume_db = linear_to_db(clamp((volume) - overide, 0.01, 1.0))
+	if volume == 0:
+		audio_player.volume_db = -999
+	audio_player.play()
+	active_sounds.append(audio_player)
+
+	audio_player.connect("finished", Callable(self, "_on_sound_finished").bind(audio_player))
+
+func play_music(path: String = "res://sounds/music.mp3", overide: float = 0):
+	var stream = load(path)
+	
+	if not stream:
+		return
+	
+	var audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
+	audio_player.stream = stream
+
+	audio_player.bus = "Music"
+
+	audio_player.volume_db = linear_to_db(clamp((volume) - overide, 0.01, 1.0))
+	if volume == 0:
+		audio_player.volume_db = -999
 	audio_player.play()
 	active_sounds.append(audio_player)
 

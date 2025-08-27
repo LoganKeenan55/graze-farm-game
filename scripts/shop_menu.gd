@@ -19,6 +19,7 @@ func _ready() -> void:
 	z_index = 20
 	setDefaultPrices()
 	checkUnlockLevel()
+	setSliders()
 func checkUnlockLevel():
 	if !GlobalVars.player:
 		return
@@ -53,6 +54,9 @@ func checkUnlockLevel():
 		5:
 			pass
 
+func setSliders() -> void:
+	$Shop/Settigs/Node2D/GameVolume.value = SoundManager.volume * 100
+	$Shop/Settigs/Node2D/MusicVolume.value = SoundManager.musicVolume * 100
 func setDefaultPrices():
 	$Shop/VBoxContainer/HBoxContainer/FarmTilePrice.text = str(prices["farmTile"].values()[0])
 	$Shop/VBoxContainer/HBoxContainer2/WaterTilePrice.text = str(prices["waterTile"].values()[0])
@@ -167,3 +171,16 @@ func _on_quit_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+
+
+func _on_game_volume_value_changed(value: float) -> void:
+	SoundManager.volume = value / 100
+	print(value / 100)
+
+func _on_music_volume_value_changed(value: float) -> void:
+	
+	SoundManager.musicVolume = value / 100
+	var busIndex = AudioServer.get_bus_index("Music")
+	var db = linear_to_db(value / 100.0)  # convert normalized volume to dB
+	AudioServer.set_bus_volume_db(busIndex, db)
+	
