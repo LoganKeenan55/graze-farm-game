@@ -11,6 +11,7 @@ var textureRegions = {
 	"seeds": Rect2(240, 16, 16, 16),
 	"shovel": Rect2(208, 0, 16, 16),
 	"hammer": Rect2(224, 0, 16, 16), 
+	"book" : Rect2(288, 112, 16, 16),
 	"cursor": Rect2(240, 32, 16, 16),
 	
 	"corn":Rect2(112, 0, 16, 16),

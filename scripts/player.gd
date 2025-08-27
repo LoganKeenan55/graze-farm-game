@@ -25,7 +25,7 @@ var placeableTiles := ["farmTile", "waterTile", "brickTile", "autoFarmTile"]
 
 ## items
 var currentItem := 0
-var items := ["hoe", "shovel", "seeds", "hammer"]
+var items := ["hoe", "shovel", "seeds", "hammer", "book"]
 
 ## seeds
 var currentSeed := 0
@@ -273,7 +273,8 @@ func handleMode(): #handles changing mode
 					else:
 						hotBar.updateSelected("items", currentItem)
 						
-
+			if Input.is_action_just_pressed("5"):
+				toggle_shop_mode("shop")
 		"seed":
 			for i in range(1, unlockLevel+1):
 				if Input.is_action_just_pressed(str(i)):

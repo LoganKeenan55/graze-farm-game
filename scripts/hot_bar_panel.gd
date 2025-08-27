@@ -17,6 +17,8 @@ func setArr():
 
 			count += 1
 	
+	if hotBarType == "items":
+		get_child(5).indice.text = "tab"
 	if items.size() > 0:
 		items[0].setSelected(true)
 
