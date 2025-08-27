@@ -52,7 +52,7 @@ func handleHarvesting():
 		#always require a click for peppers
 		if Input.is_action_pressed("click") and get_parent().tileState[get_parent().stateIndex] == "harvestable":
 			get_parent().harvestCrop()
-	elif !GlobalVars.farmOnClick:
+	elif GlobalVars.farmOnClick:
 		#require a click
 		if Input.is_action_pressed("click") and get_parent().tileState[get_parent().stateIndex] == "harvestable":
 			get_parent().harvestCrop()

@@ -39,7 +39,7 @@ var playerGender := "male"
 var homeLevel := 1
 var autoSave := true
 var cheats := false
-var farmOnClick := false
+var farmOnClick := true
 ##
 var farmTilePreload = preload("res://scenes/FarmTile.tscn")
 var waterTilePreload = preload("res://scenes/WaterTile.tscn")
