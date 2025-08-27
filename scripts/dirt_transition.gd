@@ -45,7 +45,7 @@ func closeTransition() -> void:
 		newTile.updateTexture()
 		SoundManager.play_sound("res://sounds/dirt_sound.mp3")
 		await get_tree().create_timer(0.1).timeout
-	get_tree().change_scene_to_file("res://scenes/main.tscn" )
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func createTiles() -> void:
 	for i in posArr:

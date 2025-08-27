@@ -55,36 +55,59 @@ signal save_loaded
 func saveGame():
 	isNewGame = false
 	print("saving...")
-	var saveData = []  #List that stores dictionaries for all data for all nodes
-	saveData.append({"group": "IRLtime","IRLtime": Time.get_unix_time_from_system()})
+
+	var saveData = []  # List that stores dictionaries for all data for all nodes
+	saveData.append({"group": "IRLtime", "IRLtime": Time.get_unix_time_from_system()})
 	saveData.append({"group": "globalTime", "globalTime": globalTime})
 	saveData.append(player.getData())
-	
-	for node in tilesParent.get_children(): #tiles
+
+	for node in tilesParent.get_children(): # tiles
 		if node.has_method("getData"):
-			saveData.append(node.getData()) #adds all nodes in Tiles
+			saveData.append(node.getData()) # adds all nodes in Tiles
 		else:
 			print("tried to save " + str(node))
-	
-	for node in underTilesParent.get_children(): #underTiles
+
+	for node in underTilesParent.get_children(): # underTiles
 		if node.has_method("getData"):
-			saveData.append(node.getData()) #adds all nodes in UnderTiles
+			saveData.append(node.getData()) # adds all nodes in UnderTiles
 		else:
 			print("tried to save " + str(node))
-	
-	var filePath = "C:/GodotGames/farmGameSaveFiles/save_game.save"
+
+	# Ensure folder exists in user://
+	var dir = DirAccess.open("user://")
+	if not dir.dir_exists("farmGameSaveFiles"):
+		dir.make_dir("farmGameSaveFiles")
+
+	var filePath = "user://farmGameSaveFiles/save_game.save"
 	var file = FileAccess.open(filePath, FileAccess.WRITE)
 	file.store_var(saveData)
 	file.close()
-	
-	print("saved!")
+
+	print("saved at: ", ProjectSettings.globalize_path(filePath))
 
 func loadGame():
 	print("loading...")
-	var file_path = "C:/GodotGames/farmGameSaveFiles/save_game.save"
+
+	var dir = DirAccess.open("user://")
+	if dir == null:
+		push_error("Could not open user:// directory")
+		return
+
+	# Ensure folder exists
+	if not dir.dir_exists("farmGameSaveFiles"):
+		#new game
+		dir.make_dir("farmGameSaveFiles")
+
+	var file_path = "user://farmGameSaveFiles/save_game.save"
+
+	if not FileAccess.file_exists(file_path):
+		print("No save file found.")
+		return
+
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	var saveData = file.get_var()
 	file.close()
+
 	
 	deleteAllTiles()
 	

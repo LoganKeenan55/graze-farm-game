@@ -3,6 +3,7 @@ extends Node2D
 var transitioning = false
 @onready var arrow = $arrow
 func _ready() -> void:
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	
@@ -22,7 +23,11 @@ func _on_quit_button_mouse_entered() -> void:
 
 
 func _on_continue_button_pressed() -> void:
-	GlobalVars.isNewGame = false
+
+	if FileAccess.file_exists("user://farmGameSaveFiles/save_game.save"):
+		GlobalVars.isNewGame = false
+	else:
+		GlobalVars.isNewGame = true
 	$DirtTransition.closeTransition()
 	transitioning = true
 	$MenuMusic/AnimationPlayer.play("exit")
