@@ -20,7 +20,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Close":
 		queue_free()
 
-func constructor(text:String, newActionNeeded:String, waitTime:float):
+func constructor(text:String, newActionNeeded:String, waitTime:float = 3):
 	setText(text)
 	actionNeeded = newActionNeeded
 	await get_tree().create_timer(waitTime).timeout

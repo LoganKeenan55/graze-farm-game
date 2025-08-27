@@ -77,7 +77,8 @@ func saveGame():
 	var dir = DirAccess.open("user://")
 	if not dir.dir_exists("farmGameSaveFiles"):
 		dir.make_dir("farmGameSaveFiles")
-
+	
+	Util.createPopUp("Game saved!")
 	var filePath = "user://farmGameSaveFiles/save_game.save"
 	var file = FileAccess.open(filePath, FileAccess.WRITE)
 	file.store_var(saveData)
