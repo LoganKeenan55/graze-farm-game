@@ -2,8 +2,8 @@ extends Node
 
 const MAX_SOUNDS = 35
 
-var volume:float = .5
-var musicVolume: float = .5
+var volume:float = 0 #.5
+var musicVolume: float = 0 #.5
 var max_distance = 200.0
 
 var active_sounds = [] #keeps track of all sounds being played

@@ -1013,6 +1013,7 @@ position = Vector2(438, 225)
 position = Vector2(-18, -12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ya4ey")
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="ForestHitbox" type="Area2D" parent="ForestCollision/CollisionShape2D"]
 position = Vector2(11.9999, -18.0001)
@@ -1023,6 +1024,7 @@ script = ExtResource("12_eb6dy")
 position = Vector2(-18, -12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ya4ey")
+debug_color = Color(0, 0.45098, 0.529412, 0)
 
 [node name="TutorialNodeSpawner" parent="." instance=ExtResource("13_trceg")]
 
