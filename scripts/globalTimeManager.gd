@@ -39,7 +39,13 @@ func _process(delta: float) -> void:
 			emit_signal("day_started")
 		if GlobalVars.globalTime == 25:
 			GlobalVars.globalTime = 1
-	
+
+func getNightDay() -> String:
+	if GlobalVars.globalTime >= 21 or GlobalVars.globalTime < 6:
+		return "night"
+	else:
+		return "day"
+
 func growFarmTiles():
 	for crop in get_tree().get_nodes_in_group("farmTiles"):
 		if crop:

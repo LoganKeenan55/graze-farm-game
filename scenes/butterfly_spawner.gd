@@ -9,6 +9,15 @@ func _ready() -> void:
 	GlobalFarmTileManager.connect("night_started", Callable(self, "setNight"))
 	GlobalFarmTileManager.connect("day_started", Callable(self, "setDay"))
 	$Timer.start()
+	await get_tree().create_timer(1).timeout
+	onReadyCheck()
+
+func onReadyCheck():
+	if GlobalFarmTileManager.getNightDay() == "night":
+		setNight()
+	if GlobalFarmTileManager.getNightDay() == "day":
+		setDay()
+	
 func setNight():
 	queueAllFireflies()
 	$Timer.stop()

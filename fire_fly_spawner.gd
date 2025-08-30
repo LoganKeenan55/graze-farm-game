@@ -8,11 +8,20 @@ var maxFireflies = 30
 func _ready() -> void:
 	GlobalFarmTileManager.connect("night_started", Callable(self, "setNight"))
 	GlobalFarmTileManager.connect("day_started", Callable(self, "setDay"))
+	await get_tree().create_timer(1).timeout
+	onReadyCheck()
 
+	
 func setNight():
 	$Timer.start()
 		
-
+func onReadyCheck():
+	if GlobalFarmTileManager.getNightDay() == "night":
+		setNight()
+		print("night")
+	if GlobalFarmTileManager.getNightDay() == "day":
+		setDay()
+		print("day")
 func setDay():
 	queueAllFireflies()
 	$Timer.stop()
