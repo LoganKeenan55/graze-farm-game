@@ -965,6 +965,7 @@ y_sort_enabled = true
 
 [node name="pepper" parent="YSort/Tiles" instance=ExtResource("6_ya4ey")]
 position = Vector2(432, 240)
+script = null
 
 [node name="Home" parent="YSort" instance=ExtResource("4_lquwl")]
 y_sort_enabled = true

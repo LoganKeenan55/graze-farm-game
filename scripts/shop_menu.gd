@@ -178,6 +178,7 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_game_volume_value_changed(value: float) -> void:
 	SoundManager.volume = value / 100
+	print(value / 100)
 
 func _on_music_volume_value_changed(value: float) -> void:
 	
