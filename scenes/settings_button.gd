@@ -17,13 +17,13 @@ func _on_button_pressed() -> void:
 	setOnOff(!getSettingState(text))
 	
 func setVisuals(on: bool) -> void:
-	#udate visuals
+	#update visuals
 	$Sprite.frame = 0 if on else 1
 	$Sprite.position = $Sprite.position - spriteOffset if on else $Sprite.position + spriteOffset
 
 	
 func setOnOff(on: bool) -> void:
-	#udate visuals
+	#update visuals
 	$Sprite.frame = 0 if on else 1
 	$Sprite.position = $Sprite.position - spriteOffset if on else $Sprite.position + spriteOffset
 

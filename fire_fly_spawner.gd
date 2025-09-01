@@ -18,10 +18,10 @@ func setNight():
 func onReadyCheck():
 	if GlobalFarmTileManager.getNightDay() == "night":
 		setNight()
-		print("night")
+
 	if GlobalFarmTileManager.getNightDay() == "day":
 		setDay()
-		print("day")
+
 func setDay():
 	queueAllFireflies()
 	$Timer.stop()

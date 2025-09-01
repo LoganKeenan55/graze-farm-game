@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn6qxxbekju82"]
+[gd_scene load_steps=6 format=3 uid="uid://cn6qxxbekju82"]
 
 [ext_resource type="Script" uid="uid://bhine2rqfenrd" path="res://scenes/home.gd" id="1_d52sk"]
 [ext_resource type="Texture2D" uid="uid://cyamwum24vugd" path="res://world_sprites/home.png" id="1_jmugw"]
+[ext_resource type="Script" uid="uid://ddq3lvn7dkfnn" path="res://scenes/area_2d.gd" id="3_nqr1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmugw"]
 size = Vector2(85, 24)
@@ -24,10 +25,11 @@ position = Vector2(1.5, 8)
 shape = SubResource("RectangleShape2D_jmugw")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_nqr1n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_d52sk")
 debug_color = Color(0.861707, 0.173194, 0.773309, 0.42)
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
