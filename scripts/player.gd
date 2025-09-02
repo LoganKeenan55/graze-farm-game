@@ -10,15 +10,17 @@ class_name Player
 var shopMenuPreload := preload("res://scenes/ShopMenu.tscn")
 var dustParticlePreload := preload("res://scenes/DustParticle.tscn")
 
-## playerc variables
+## player variables
 var speed: int = 96
 var mode := "nothing" # nothing, placing, farming, seed, shop
+
 ## inventory dictionary
+var unlockLevel := 1
 var inventory= {
 	"farmTile": 20,"waterTile" :2 , "brickTile":0 , "autoFarmTile":0,
 	"wheat":10, "corn":0, "bamboo": 0,"berry": 0,"onion": 0, "flower": 0, "pepper": 0
 }
-var unlockLevel := 1
+
 
 ## tiles
 var currentTile := 0
@@ -35,14 +37,11 @@ var harvestables := ["wheat", "bamboo", "flower", "pepper", "corn", "berry", "on
 
 
 func recieve(item:String, amount:int): #handles receiving items
-	#if inventory[item] < amount:
-		#return
 	inventory[item] += amount
 	print("recieved: " + item + " " + str(amount))
 	match unlockLevel: #changes unlockLevel if needed
 		1:
 			if item == "bamboo":
-				print("unlock level")
 				unlockLevel = 2
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("Level 2: Bamboo Unlocked!")

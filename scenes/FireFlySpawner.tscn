@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dk5o4hvy3asoe"]
 
-[ext_resource type="Script" uid="uid://crnn2wa6vryi6" path="res://fire_fly_spawner.gd" id="1_felrs"]
+[ext_resource type="Script" uid="uid://crnn2wa6vryi6" path="res://scripts/fire_fly_spawner.gd" id="1_felrs"]
 
 [node name="FireFlySpawner" type="Node2D"]
 script = ExtResource("1_felrs")
