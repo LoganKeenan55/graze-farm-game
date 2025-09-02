@@ -1,7 +1,7 @@
 extends Node2D
 class_name Shop
 
-var prices = {
+var prices := {
 	"farmTile": {"wheat": 5},
 	"waterTile" :{"bamboo": 10},
 	"brickTile":{"flower": 3},
@@ -13,7 +13,7 @@ var prices = {
 	"onion":{"berry": 50},
 }
 
-@onready var anPlayer = $AnimationPlayer
+@onready var anPlayer := $AnimationPlayer
 
 func _ready() -> void:
 	z_index = 20

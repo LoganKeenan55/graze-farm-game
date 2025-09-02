@@ -37,7 +37,7 @@ var timeSinceLastSave
 var globalTime:int = 8
 var isNewGame := false
 var playerGender := "male"
-var homeLevel := 1
+var homeLevel := 0
 var autoSave := true
 var cheats := false
 var farmOnClick := true
@@ -70,6 +70,7 @@ func saveGame():
 	saveData.append({"group": "globalTime", "globalTime": globalTime})
 	saveData.append(player.getData())
 	saveData.append({"group": "autoFarmTileUnlocked","autoFarmTileUnlocked": autoFarmTileUnlocked})
+	saveData.append({"group": "homeLevel", "homeLevel" : homeLevel})
 	for node in tilesParent.get_children(): # tiles
 		if node.has_method("getData"):
 			saveData.append(node.getData()) # adds all nodes in Tiles
@@ -125,6 +126,9 @@ func loadGame():
 	
 	for node in saveData:
 		var newTile
+		if node["group"] == "homeLevel": 
+			homeLevel = node["homeLevel"]
+			
 		if node["group"] == "autoFarmTileUnlocked": 
 			autoFarmTileUnlocked = node["autoFarmTileUnlocked"]
 		if node["group"] == "IRLtime": #sets time since last save
