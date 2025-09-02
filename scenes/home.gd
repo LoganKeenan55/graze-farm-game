@@ -16,7 +16,7 @@ func getData():
 	return nodeData
 
 func upgrade():
-	if upgradesIndex >= len(upgrades):
+	if upgradesIndex+1 >= len(upgrades):
 		return
 	var currentUpgrade = upgrades[upgradesIndex]
 	var crop = currentUpgrade[0]
@@ -24,7 +24,6 @@ func upgrade():
 	print("1")
 	
 	if GlobalVars.player.inventory[crop] >= price:
-		print("2")
 		GlobalVars.player.recieve(crop,price)
 		sprite.frame += 1
 		upgradesIndex += 1

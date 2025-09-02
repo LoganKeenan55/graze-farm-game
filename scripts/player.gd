@@ -10,7 +10,7 @@ class_name Player
 var shopMenuPreload := preload("res://scenes/ShopMenu.tscn")
 var dustParticlePreload := preload("res://scenes/DustParticle.tscn")
 
-## player variables
+## playerc variables
 var speed: int = 96
 var mode := "nothing" # nothing, placing, farming, seed, shop
 ## inventory dictionary
@@ -104,6 +104,8 @@ func getInput():
 	
 
 func handleDebuging():
+	if !GlobalVars.cheats:
+		return
 	if Input.is_action_pressed("`"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("c"): #9999 of everything 
