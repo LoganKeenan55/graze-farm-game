@@ -2,12 +2,13 @@ extends "res://scripts/tile.gd"
 
 @onready var player:Player = GlobalVars.player
 
+#Handles autoFarmTile behavior -> harvesting / planting crops, upgrading
 
-var level = 1
-var range = 46
-
-var cropType = "default"
-
+##
+var level := 1
+var range := 46
+var cropType := "default"
+##
 
 var priceCounts: Dictionary = {#count of all crops added to it, to be returned when destroyed
 	"wheat": 0,
@@ -20,7 +21,7 @@ var priceCounts: Dictionary = {#count of all crops added to it, to be returned w
 	
 }
 
-var seedPrices = {
+var seedPrices: Dictionary = {
 	"wheat": 10,
 	"corn": 10,
 	"bamboo": 10,
@@ -29,7 +30,7 @@ var seedPrices = {
 	"flower": 10,
 	"pepper": 10
 }
-var upgradePrices = {
+var upgradePrices: Dictionary = {
 	"wheat": 20,
 	"corn": 20,
 	"bamboo": 30,
@@ -39,16 +40,16 @@ var upgradePrices = {
 	"flower": 20,
 }
 
-var sound = "res://sounds/metal_sound.mp3"
-var tileState = ["level1","level2","level3"]
+var sound := "res://sounds/metal_sound.mp3"
+var tileState := ["level1","level2","level3"]
 
-var textureRegions = {
+var textureRegions: Dictionary = {
 	"level1": Rect2(16, 112, 16, 16),
 	"level2": Rect2(32, 112, 16, 16),
 	"level3": Rect2(48, 112, 16, 16),
 }
 
-var level1TextureRegions = {
+var level1TextureRegions: Dictionary = {
 	"default": 	Rect2(500, 0, 16, 16),
 	"corn":Rect2(112, 0, 16, 16),
 	"wheat":Rect2(96, 0, 16, 16),
@@ -59,7 +60,7 @@ var level1TextureRegions = {
 	"pepper": Rect2(190, 0, 16, 16)
 }
 
-var level3TextureRegions = {
+var level3TextureRegions: Dictionary = {
 	"corn":Rect2(224, 16, 16, 16),
 	"wheat":Rect2(240, 16, 16, 16),
 	"bamboo": Rect2(208, 16, 16, 16),
@@ -159,17 +160,21 @@ func setCrop(newCrop):
 
 func harvestFarmTiles():
 	for tile in get_tree().get_nodes_in_group("farmTiles"):
-		if tile.cropType == cropType:
-			if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
-				if tile.harvestable:
-					tile.harvestCrop()
+		if tile.cropType != cropType:
+			continue
+		if position.distance_to(tile.position) > range:  #44 makes circle  46 makes square
+			continue
+		if tile.harvestable:
+			tile.harvestCrop()
 
 func plantFarmTiles():
 	for tile in get_tree().get_nodes_in_group("farmTiles"):
-		if tile.cropType == cropType:
-			if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
-				if tile.tileState[tile.stateIndex] == "fertile" and tile.cropType != "default":
-					tile.seedCrop()
+		if tile.cropType != cropType:
+			continue
+		if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
+			continue
+		if tile.tileState[tile.stateIndex] == "fertile" and tile.cropType != "default":
+			tile.seedCrop()
 
 func activate():
 	$AnimationPlayer.play("activate")

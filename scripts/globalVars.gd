@@ -32,7 +32,7 @@ var textureRegions = {
 	"flowerSeeds":Rect2(176, 32, 16, 16),
 	"pepperSeeds":Rect2(192, 32, 16, 16),
 }
-var debugging := false
+var debugging := true
 var timeSinceLastSave
 var globalTime:int = 8
 var isNewGame := false
@@ -57,10 +57,10 @@ signal save_loaded
 
 func _ready() -> void:
 	if debugging:
-		
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_window().size = Vector2i(1920, 1080)
 		cheats = true
+		
 func saveGame():
 	isNewGame = false
 	print("saving...")
