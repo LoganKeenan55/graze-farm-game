@@ -95,14 +95,38 @@ func _process(_delta: float) -> void:
 	getInput()
 	
 func getInput():
-	handleSavingLoadingGame()
 	handleMovement()
 	handleChangingMode()
+	handleCheats()
 	handleDebuging()
 	handleMode()
 	
-
+func handleCheats():
+	if !GlobalVars.cheats:
+		return
+	if Input.is_action_just_pressed("c"): #9999 of everything 
+		inventory["farmTile"] = 9999
+		inventory["waterTile"] = 9999
+		inventory["autoFarmTile"] = 9999
+		inventory["brickTile"] = 9999
+		inventory["wheat"] = 9999
+		inventory["corn"] = 9999
+		inventory["bamboo"] = 9999
+		inventory["berry"] = 9999
+		inventory["onion"] = 9999
+		inventory["flower"] = 9999
+		inventory["pepper"] = 9999
+		hotBar.updateAll()
+		hud.updateAllCounter()
+	if Input.is_action_just_pressed("n"):
+		GlobalVars.globalTime = 20
+	if Input.is_action_just_pressed("m"):
+		GlobalVars.globalTime = 5
+		
 func handleDebuging():
+	if !GlobalVars.debugging:
+		return
+	handleDebugSavingLoadingGame()
 	if !GlobalVars.cheats:
 		return
 	if Input.is_action_pressed("`"):
@@ -212,7 +236,7 @@ func close_shop_if_open():
 	if existing_menu:
 		existing_menu.anPlayer.play("close")
 		SoundManager.play_ui_sound("res://sounds/book_close.mp3", 0.3)
-func handleSavingLoadingGame():
+func handleDebugSavingLoadingGame():
 	if Input.is_action_just_pressed("p"):
 		GlobalVars.saveGame()
 	if Input.is_action_just_pressed("l"):
