@@ -60,7 +60,7 @@ func _ready() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_window().size = Vector2i(1920, 1080)
 		cheats = true
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		#get_tree().change_scene_to_file("res://scenes/main.tscn")
 func saveGame():
 	isNewGame = false
 	print("saving...")
