@@ -1,6 +1,6 @@
 extends Node2D
 
-var maleText = "You scramble your remaining cash together to buy some land in the country...
+var maleText = "You scramble your remaining cash together to buy some land on a small island...
 
 You are a city boy and want to impress a kind mistress you met at the county fair. You don't know her name but you know she owns the biggest most profitable farm in town.
 
@@ -8,7 +8,7 @@ To impress her you know you have to try starting your own farm, but all you brou
 
 She won't be impressed by just a wheet farm though so best get to work."
 
-var femaleText ="You scramble your remaining cash together to buy some land in the country...
+var femaleText ="You scramble your remaining cash together to buy some land on a small island...
 
 You are a city girl and want to impress a kind man you met at the county fair. You don't know his name but you know he owns the biggest most profitable farm in town.
 
