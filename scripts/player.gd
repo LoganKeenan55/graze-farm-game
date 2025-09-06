@@ -56,7 +56,8 @@ func recieve(item:String, amount:int): #handles receiving items
 			if item == "pepper":
 				unlockLevel = 4
 				hud.setSizeBasedOnUpgradeLevel()
-				Util.createPopUp("You have discovered Peppers!")
+				Util.createPopUp("You have discovered Peppers! They scare away marmots",2,.9)
+				
 
 		4:
 			if item == "corn":

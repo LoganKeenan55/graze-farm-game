@@ -42,6 +42,7 @@ func setArr() -> void:
 	nodesArr.append(["Switch to hoe to harvest crops", "1"])
 	nodesArr.append(["Use tab to open shop menu. You can buy bamboo for wheat", "tab"])
 	nodesArr.append(["Use the hammer to upgrade your house", "4"])
+
 	#nodesArr.append(["Use ", ""]) <= STARTER
 
 func start() -> void:
