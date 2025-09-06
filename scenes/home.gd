@@ -3,9 +3,9 @@ extends Node2D
 @onready var sprite = $Sprite2D
 
 var upgrades = [
-	["wheat", 20],
-	["flower", 60],
-	["onion", 100]
+	["wheat", 20, "Crops drop more seeds"],
+	["flower", 60, "Crops grow faster"],
+	["onion", 100, "Farm finished"]
 ]
 
 func _ready() -> void:
@@ -30,5 +30,14 @@ func upgrade():
 		GlobalVars.player.recieve(crop,price)
 		sprite.frame += 1
 		GlobalVars.homeLevel += 1
+		Util.createPopUp("Home upgraded! " + currentUpgrade[2],2,.5)
+		$AnimationPlayer.play("upgrade")
+		match GlobalVars.homeLevel:
+			1:
+				GlobalFarmTileManager.extraDropRate = 1
+			2:
+				GlobalFarmTileManager.tickSpeed = .35
+			3:
+				GlobalVars.finishGame()
 	else:
 		return

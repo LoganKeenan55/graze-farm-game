@@ -173,8 +173,11 @@ func loadGame():
 	print("It has been " + str(int(timeSinceLastSave)) + " seconds since last saved")
 	print("loaded!")
 	print(autoFarmTileUnlocked)
-func deleteAllTiles():
+func deleteAllTiles() -> void:
 	for node in tilesParent.get_children():
 		node.queue_free()
 	for node in underTilesParent.get_children():
 		node.queue_free()
+
+func finishGame():
+	print("Game finished :D")

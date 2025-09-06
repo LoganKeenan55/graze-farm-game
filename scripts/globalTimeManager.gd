@@ -4,7 +4,8 @@ var allFarmTiles = []
 var timeElapsed = 0.0
 var tickSpeed = 0.5
 var overTile
-var wheatGrowPerMinute: float
+var extraDropRate = 0
+
 
 var marmotTimeElapsed = 0.0
 var marmotTimeInterval = 10.0 # 10 seconds

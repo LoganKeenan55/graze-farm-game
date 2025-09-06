@@ -24,9 +24,10 @@ func handleHammer():
 		tooltip.position = position
 		tooltip.z_index = 12
 				
-				
-		tooltip.setToolTip(get_parent().upgrades[GlobalVars.homeLevel][0],"Upgrade?",str(get_parent().upgrades[GlobalVars.homeLevel][1]))
-				
+		if GlobalVars.homeLevel < 2:
+			tooltip.setToolTip(get_parent().upgrades[GlobalVars.homeLevel][0],"Upgrade?",str(get_parent().upgrades[GlobalVars.homeLevel][1]))
+		else:
+			tooltip.setToolTip(get_parent().upgrades[GlobalVars.homeLevel][0],"Finish Farm?",str(get_parent().upgrades[GlobalVars.homeLevel][1]))
 				
 	if Input.is_action_just_pressed("left_click"):
 		get_parent().upgrade()
