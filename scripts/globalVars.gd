@@ -32,7 +32,7 @@ var textureRegions = {
 	"flowerSeeds":Rect2(176, 32, 16, 16),
 	"pepperSeeds":Rect2(192, 32, 16, 16),
 }
-var debugging := false
+var debugging := true
 var timeSinceLastSave
 var globalTime:int = 8
 var isNewGame := false
@@ -61,6 +61,7 @@ func _ready() -> void:
 		get_window().size = Vector2i(1920, 1080)
 		cheats = true
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		autoSave = false
 func saveGame():
 	isNewGame = false
 	print("saving...")
@@ -181,3 +182,10 @@ func deleteAllTiles() -> void:
 
 func finishGame():
 	print("Game finished :D")
+
+
+func setDefault():
+	globalTime = 8
+	homeLevel = 0
+	farmOnClick = true
+	autoFarmTileUnlocked = false

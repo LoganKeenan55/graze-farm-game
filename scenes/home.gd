@@ -19,8 +19,7 @@ func setSprite():
 	sprite.frame = GlobalVars.homeLevel
 	
 func upgrade():
-	if  GlobalVars.homeLevel+1 >= len(upgrades):
-		return
+
 	var currentUpgrade = upgrades[ GlobalVars.homeLevel]
 	var crop = currentUpgrade[0]
 	var price = currentUpgrade[1]
@@ -37,7 +36,9 @@ func upgrade():
 				GlobalFarmTileManager.extraDropRate = 1
 			2:
 				GlobalFarmTileManager.tickSpeed = .35
+				print("ee")
 			3:
+				print("yey")
 				GlobalVars.finishGame()
 	else:
 		return

@@ -37,4 +37,5 @@ func handleNewGame():
 	setPepper()
 	dirtTransition.createTiles()
 	GlobalVars.player.set_process(false); GlobalVars.player.set_physics_process(false)
+	GlobalVars.setDefault()
 	$TutorialNodeSpawner.start()
