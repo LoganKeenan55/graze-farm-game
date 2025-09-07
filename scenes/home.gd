@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var sprite = $Sprite2D
+@onready var dirtTransitionPreload = preload("res://scenes/DirtTransition.tscn")
 
 var upgrades = [
 	["wheat", 20, "Crops drop more seeds"],
@@ -10,7 +11,8 @@ var upgrades = [
 
 func _ready() -> void:
 	GlobalVars.connect("save_loaded",setSprite)
-
+	if GlobalVars.homeLevel > 1:
+		$Sprite2D/AnimatedSprite2D.visible = true
 
 
 func setSprite():
@@ -30,15 +32,28 @@ func upgrade():
 		sprite.frame += 1
 		GlobalVars.homeLevel += 1
 		Util.createPopUp("Home upgraded! " + currentUpgrade[2],2,.5)
-		$AnimationPlayer.play("upgrade")
+		
 		match GlobalVars.homeLevel:
 			1:
 				GlobalFarmTileManager.extraDropRate = 1
+				$AnimationPlayer.play("upgrade")
+				$Sprite2D/AnimatedSprite2D.visible = true
 			2:
 				GlobalFarmTileManager.tickSpeed = .35
-				print("ee")
+				$AnimationPlayer.play("upgrade")
 			3:
-				print("yey")
-				GlobalVars.finishGame()
+				$Sprite2D/AnimatedSprite2D.play("open")
+				
 	else:
 		return
+
+func endGame():
+	var dirtTransition:DirtTransition = dirtTransitionPreload.instantiate()
+	get_parent().get_parent().add_child(dirtTransition)
+	dirtTransition.scale = Vector2(5,5)
+	dirtTransition.closeTransition("uid://s6qymif8os4s")
+
+	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	$Sprite2D/AnimatedSprite2D.play("stay_open")
+	endGame()

@@ -1,7 +1,9 @@
 extends Node2D
-
+class_name DirtTransition
 var farmTilePreload = preload("res://scenes/FarmTile.tscn")
 var particlePreload = preload("res://scenes/bigger_dirt_particle.tscn")
+
+
 
 func _process(delta: float) -> void:
 	if  GlobalVars.player:
@@ -29,7 +31,7 @@ var posArr = [
 	
 	
 
-func closeTransition() -> void:
+func closeTransition(destination:String) -> void:
 
 	var tiles = $Tiles
 	#create dirt 
@@ -45,7 +47,7 @@ func closeTransition() -> void:
 		newTile.updateTexture()
 		SoundManager.play_sound("res://sounds/dirt_sound.mp3")
 		await get_tree().create_timer(0.1).timeout
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file(destination)
 
 func createTiles() -> void:
 	for i in posArr:

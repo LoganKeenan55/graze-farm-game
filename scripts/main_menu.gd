@@ -28,7 +28,7 @@ func _on_continue_button_pressed() -> void:
 		GlobalVars.isNewGame = false
 	else:
 		GlobalVars.isNewGame = true
-	$DirtTransition.closeTransition()
+	$DirtTransition.closeTransition("res://scenes/main.tscn")
 	transitioning = true
 	$MenuMusic/AnimationPlayer.play("exit")
 	
@@ -37,7 +37,7 @@ func _on_continue_button_pressed() -> void:
 func _on_new_game_button_pressed() -> void:
 	GlobalVars.isNewGame = true
 	transitioning = true
-	$DirtTransition.closeTransition()
+	$DirtTransition.closeTransition("res://scenes/main.tscn")
 	$MenuMusic/AnimationPlayer.play("exit")
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
