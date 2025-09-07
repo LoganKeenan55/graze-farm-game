@@ -16,14 +16,15 @@ func _ready():
 func handleHammer():
 	if not can_click:
 		return
-	
+	if GlobalVars.homeLevel > 2:
+		return
 	if tooltip == null:
 		tooltip = upgrateToolTipPreload.instantiate()
 		get_parent().add_child(tooltip)
 	
 		tooltip.position = position
 		tooltip.z_index = 12
-				
+		
 		if GlobalVars.homeLevel < 2:
 			tooltip.setToolTip(get_parent().upgrades[GlobalVars.homeLevel][0],"Upgrade?",str(get_parent().upgrades[GlobalVars.homeLevel][1]))
 		else:
