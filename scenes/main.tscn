@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://bmvq66ygrn081" path="res://scenes/forest_hitbox.gd" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bqvi7d4bbqtoc" path="res://scenes/TutorialNodeSpawner.tscn" id="13_trceg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
 texture = ExtResource("2_7n4sv")
 0:0/0 = 0
 1:0/0 = 0
@@ -170,7 +170,7 @@ texture = ExtResource("2_7n4sv")
 
 [sub_resource type="TileSet" id="TileSet_ji72q"]
 terrain_set_0/mode = 2
-sources/0 = SubResource("TileSetAtlasSource_lquwl")
+sources/0 = SubResource("TileSetAtlasSource_trceg")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lquwl"]
 vertices = PackedVector2Array(1222, 770, -235, 770, -235, 4, 1222, 2)
