@@ -1,6 +1,6 @@
 extends Area2D
 ##
-@onready var player: Player = get_tree().current_scene.find_child("Player", true, false)
+@onready var player: Player = GlobalVars.player
 @onready var upgrateToolTipPreload = preload("res://scenes/upgradeToolTip.tscn")
 
 ##

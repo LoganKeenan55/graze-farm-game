@@ -1,30 +1,33 @@
 extends Node2D
 
-var maleText = "You scramble your remaining cash together to buy some land on a small island...
+var maleIntroText = "You scramble your remaining cash together to buy some land on a small island...
 
 You are a city boy and want to impress a kind mistress you met at the county fair. You don't know her name but you know she owns the biggest most profitable farm in town.
 
 To impress her you know you have to try starting your own farm, but all you brought was wheet seeds...
 
-She won't be impressed by just a wheet farm and a trailer, so best get to work."
+She won't be impressed by just a wheet farm and a trailer, so best get to work. "
 
-var femaleText ="You scramble your remaining cash together to buy some land on a small island...
+var femaleIntroText ="You scramble your remaining cash together to buy some land on a small island...
 
 You are a city girl and want to impress a kind man you met at the county fair. You don't know his name but you know he owns the biggest most profitable farm in town.
 
 To impress him you know you have to try starting your own farm, but all you brought was wheet seeds...
 
-he won't be impressed by just a wheet farm and a trailer, so best get to work."
+he won't be impressed by just a wheet farm and a trailer, so best get to work. "
 
+
+
+func setText(str:String):
+	$Label.text = str
 
 func _ready() -> void:
-	#GlobalVars.player.set_process(false); GlobalVars.player.set_physics_process(false)
-	animateText()
 	z_index = 51
 	if GlobalVars.playerGender == "male":
-		$Label.text = maleText
+		$Label.text = maleIntroText
 	else:
-		$Label.text = femaleText
+		$Label.text = femaleIntroText
+	animateText()
 func animateText():
 	var count = 0
 	for letter in $Label.text:
@@ -46,5 +49,10 @@ func _on_continue_button_pressed() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fadeOut":
 		queue_free()
+		if !GlobalVars.player: #if is in ending scene
+			get_parent().sceneAnimationPlayer.play("knock")
+			return 
+		#if is in main
 		GlobalVars.player.set_process(true); GlobalVars.player.set_physics_process(true)
 		GlobalVars.globalTime = 8
+		

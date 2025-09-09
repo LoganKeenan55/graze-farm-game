@@ -11,15 +11,12 @@ var upgrades = [
 
 func _ready() -> void:
 	GlobalVars.connect("save_loaded",setSprite)
-	if GlobalVars.homeLevel > 1:
-		$Sprite2D/AnimatedSprite2D.visible = true
 
 
 func setSprite():
-	print(sprite.frame)
-	print(GlobalVars.homeLevel)
 	sprite.frame = GlobalVars.homeLevel
-	
+	if GlobalVars.homeLevel > 1:
+		$Sprite2D/AnimatedSprite2D.visible = true
 func upgrade():
 
 	var currentUpgrade = upgrades[ GlobalVars.homeLevel]
