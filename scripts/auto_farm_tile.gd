@@ -122,7 +122,7 @@ func upgrade():
 	
 	level+=1 
 	
-	player.recieve("berry", -upgradePrices[cropType]) #TESTING CHANGE
+	player.receive("berry", -upgradePrices[cropType]) #TESTING CHANGE
 	
 	priceCounts[cropType] += upgradePrices[cropType]
 	upgradePrices[cropType] *= 2  #increases price on each upgrade
@@ -152,7 +152,7 @@ func setCrop(newCrop):
 		return
 	
 	
-	player.recieve(newCrop, -seedPrices[newCrop])
+	player.receive(newCrop, -seedPrices[newCrop])
 	cropType = newCrop
 	priceCounts[newCrop] += seedPrices[newCrop]
 	updateTexture()
@@ -171,7 +171,7 @@ func plantFarmTiles():
 	for tile in get_tree().get_nodes_in_group("farmTiles"):
 		if tile.cropType != cropType:
 			continue
-		if position.distance_to(tile.position) <= range:  #44 makes circle  46 makes square
+		if position.distance_to(tile.position) > range:  #44 makes circle  46 makes square
 			continue
 		if tile.tileState[tile.stateIndex] == "fertile" and tile.cropType != "default":
 			tile.seedCrop()

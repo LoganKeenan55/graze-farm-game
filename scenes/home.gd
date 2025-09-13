@@ -25,7 +25,7 @@ func upgrade():
 
 	
 	if GlobalVars.player.inventory[crop] >= price:
-		GlobalVars.player.recieve(crop,price)
+		GlobalVars.player.receive(crop,price)
 		sprite.frame += 1
 		GlobalVars.homeLevel += 1
 		Util.createPopUp("Home upgraded! " + currentUpgrade[2],2,.5)

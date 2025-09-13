@@ -95,8 +95,8 @@ func buy(itemGive:String, itemGet:String):
 	var inventory = GlobalVars.player.inventory
 	var amount = prices[itemGet].values()[0]
 	if (inventory[itemGive]-amount) >= 0:
-		GlobalVars.player.recieve(itemGet,1)
-		GlobalVars.player.recieve(itemGive,-amount)
+		GlobalVars.player.receive(itemGet,1)
+		GlobalVars.player.receive(itemGive,-amount)
 		
 
 		SoundManager.play_ui_sound("res://sounds/purchase.mp3")

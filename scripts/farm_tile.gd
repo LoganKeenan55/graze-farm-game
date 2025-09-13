@@ -186,20 +186,20 @@ func harvestCrop():
 	
 		match cropType: #add to inventory
 			"wheat":
-				player.recieve(cropType,2+GlobalFarmTileManager.extraDropRate)
+				player.receive(cropType,2+GlobalFarmTileManager.extraDropRate)
 			"corn":
-				player.recieve(cropType,2+GlobalFarmTileManager.extraDropRate)
+				player.receive(cropType,2+GlobalFarmTileManager.extraDropRate)
 			"bamboo":
-				player.recieve(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
+				player.receive(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
 				SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
 			"berry":
-				player.recieve(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
+				player.receive(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
 			"onion":
-				player.recieve(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
+				player.receive(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
 			"flower":
-				player.recieve(cropType,2+GlobalFarmTileManager.extraDropRate)
+				player.receive(cropType,2+GlobalFarmTileManager.extraDropRate)
 			"pepper":
-				player.recieve(cropType,2+GlobalFarmTileManager.extraDropRate)
+				player.receive(cropType,2+GlobalFarmTileManager.extraDropRate)
 				SoundManager.play_sound("res://sounds/sizzle.mp3",position,.1)
 			_:
 				print("INVALID TYPE in function: harvestCrop")
@@ -214,7 +214,7 @@ func seedCrop(newType = null):
 			setType(newType)
 		stateIndex = 2
 		updateTexture()
-		player.recieve(typeToPlant, -1)
+		player.receive(typeToPlant, -1)
 		
 		SoundManager.play_sound("res://sounds/seed_sound.mp3", position)
 	

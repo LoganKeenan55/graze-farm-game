@@ -66,7 +66,7 @@ func createTile(type):
 			newTile = farmTilePreload.instantiate()
 			newTile.position = tilePosition
 			tilesParent.add_child(newTile)
-			player.recieve("farmTile",-1)
+			player.receive("farmTile",-1)
 			newTile.updateWaterTiles()
 
 			if freedTile != null: #fixes bug with waterTile staying fertile
@@ -77,20 +77,20 @@ func createTile(type):
 			newTile = waterTilePreload.instantiate()
 			newTile.position = tilePosition
 			tilesParent.add_child(newTile)
-			player.recieve("waterTile",-1)
+			player.receive("waterTile",-1)
 			newTile.hitbox.createRemoveParticle()
 		"brickTile":
 			newTile = brickTilePreload.instantiate()
 			newTile.position = tilePosition
 			underTilesParent.add_child(newTile)
-			player.recieve("brickTile",-1)
+			player.receive("brickTile",-1)
 
 		"autoFarmTile":
 			newTile = autoFarmTilePreload.instantiate()
 			newTile.position = tilePosition
 			
 			underTilesParent.add_child(newTile)
-			player.recieve("autoFarmTile",-1)
+			player.receive("autoFarmTile",-1)
 		_:
 			print("INVALID TYPE in function: createTile")
 	

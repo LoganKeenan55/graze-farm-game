@@ -5,7 +5,7 @@ func _ready() -> void:
 	GlobalVars.connect("save_loaded",updateCollision)
 	
 func _on_area_entered(area: Area2D) -> void:
-	if area.get_parent().has_method("recieve"):
+	if area.get_parent().has_method("receive"):
 		var newForestMessage = forestMessagePreload.instantiate()
 		get_parent().get_parent().get_parent().add_child(newForestMessage)
 		newForestMessage.position = area.get_parent().position

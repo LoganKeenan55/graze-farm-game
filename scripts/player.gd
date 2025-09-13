@@ -36,9 +36,9 @@ var harvestables := ["wheat", "bamboo", "flower", "pepper", "corn", "berry", "on
 ##
 
 
-func recieve(item:String, amount:int): #handles receiving items
+func receive(item:String, amount:int): #handles receiving items
 	inventory[item] += amount
-	print("recieved: " + item + " " + str(amount))
+	print("received: " + item + " " + str(amount))
 	match unlockLevel: #changes unlockLevel if needed
 		1:
 			if item == "bamboo":
