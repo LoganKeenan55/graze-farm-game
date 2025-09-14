@@ -2,19 +2,19 @@ extends Node2D
 
 var maleIntroText = "You scramble your remaining cash together to buy some land on a small island...
 
-You are a city boy and want to impress a kind mistress you met at the county fair. You don't know her name but you know she owns the biggest most profitable farm in town.
+You are a city boy and want to impress a kind lady you met at the county fair. You don't know her name but you know she owns the biggest most profitable farm in town.
 
-To impress her you know you have to try starting your own farm, but all you brought was wheet seeds...
+To impress her you know you have to try starting your own farm, but all you brought was wheat seeds...
 
-She won't be impressed by just a wheet farm and a trailer, so best get to work. "
+She won't be impressed by just a wheat farm and a trailer, so best get to work. "
 
 var femaleIntroText ="You scramble your remaining cash together to buy some land on a small island...
 
 You are a city girl and want to impress a kind man you met at the county fair. You don't know his name but you know he owns the biggest most profitable farm in town.
 
-To impress him you know you have to try starting your own farm, but all you brought was wheet seeds...
+To impress him you know you have to try starting your own farm, but all you brought was wheat seeds...
 
-he won't be impressed by just a wheet farm and a trailer, so best get to work. "
+he won't be impressed by just a wheat farm and a trailer, so best get to work. "
 
 
 

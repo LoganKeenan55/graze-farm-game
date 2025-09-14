@@ -57,7 +57,7 @@ func createTile(type):
 	if type != "brickTile" and tilePosition.distance_to(get_parent().position) < 15: #checks to see if new tile is on top of player if so doesn't place
 		return
 
-	if tilePosition.distance_to(get_tree().current_scene.find_child("Home", true, false).position) <60:
+	if tilePosition.distance_to(get_tree().current_scene.find_child("Home", true, false).position) <40:
 		return
 	var newTile
 	match type:

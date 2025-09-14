@@ -192,7 +192,7 @@ func onStartLoad():
 			stateIndex = 0
 		2:
 			stateIndex = 1
-			range = 55
+			range = 60
 		3:
 			currentTextureRegions = level3TextureRegions #set to seeded
 		4:
