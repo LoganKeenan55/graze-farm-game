@@ -1,3 +1,4 @@
+@abstract
 extends Node2D
 
 @onready var sprite = $Sprite #need for all tiles
