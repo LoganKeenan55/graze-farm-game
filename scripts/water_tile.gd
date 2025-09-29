@@ -4,6 +4,7 @@ var tileState = ["water1","water2"]
 
 var sound = "res://sounds/water_sound.mp3"
 
+@warning_ignore("shadowed_global_identifier")
 var range = 45 #44 makes circle  46 makes square
 var flowSpeed:int = 2 #there is a 1/flowSpeed chance every .5 sec, def = 30
 

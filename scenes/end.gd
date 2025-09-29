@@ -37,3 +37,9 @@ func openEyes():
 		$Player.frame = 1
 	if GlobalVars.playerGender == "female":
 		$Player.frame = 3
+
+func moveToDoor():
+	$Camera2D.position.x = 300
+	await get_tree().create_timer(1).timeout
+	$Door.play("open")
+	$SceneAnimatonPlayer.play("Door")

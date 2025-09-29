@@ -1,3 +1,4 @@
+@abstract
 extends Area2D
 ##
 @onready var player: Player = GlobalVars.player
@@ -181,8 +182,8 @@ func createRemoveParticle():
 	if get_parent().get_parent().get_parent().get_parent():
 		get_parent().get_parent().get_parent().get_parent().add_child(particle)
 
-
-func handlePlayerInterection(event): #needed for all tiles
+@abstract
+func handlePlayerInterection(_event) #needed for all tiles
 	#match player.items[player.currentItem]:
 		#"hoe":
 			#
@@ -190,7 +191,6 @@ func handlePlayerInterection(event): #needed for all tiles
 		#"shovel":
 			#pass
 		#"seeds":
-	pass
 				
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:

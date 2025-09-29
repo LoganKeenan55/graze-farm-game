@@ -33,12 +33,13 @@ func _ready() -> void:
 	updateTexture()
 	manageBlending()
 
-	
-func getData(): #needed for all tiles
-	pass
+@abstract
+func getData() #needed for all tiles
 
-func updateTexture(): #needed for all tiles
-	pass
+
+@abstract
+func updateTexture() #needed for all tiles
+
 
 func manageBlending():
 	if usesBlending:

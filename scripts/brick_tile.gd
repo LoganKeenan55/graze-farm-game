@@ -14,6 +14,9 @@ func getData():
 	nodeData["position"] = position
 	return nodeData
 	
+func updateTexture():
+	pass
+
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	super.findCurrentCollisions(area,true)
 
