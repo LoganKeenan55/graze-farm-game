@@ -34,9 +34,11 @@ func handleNewGame():
 	var intro = introPreload.instantiate()
 	add_child(intro)
 	intro.position = $YSort/Player.global_position
+	intro.animateText()
 	setPepper()
 	dirtTransition.createTiles()
 	GlobalVars.player.set_process(false); GlobalVars.player.set_physics_process(false)
 	GlobalVars.setDefault()
 	$YSort/Home.setSprite()
 	$TutorialNodeSpawner.start()
+	

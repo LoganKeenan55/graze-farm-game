@@ -15,8 +15,8 @@ You are a city girl and want to impress a kind man you met at the county fair. Y
 To impress him you know you have to try starting your own farm, but all you brought was wheat seeds...
 
 he won't be impressed by just a wheat farm and a trailer, so best get to work. "
-
-
+@onready var label = $Label
+@onready var buttonLabel = $Continue/ButtonLabel
 
 func setText(str:String):
 	$Label.text = str
@@ -27,13 +27,13 @@ func _ready() -> void:
 		$Label.text = maleIntroText
 	else:
 		$Label.text = femaleIntroText
-	animateText()
+	
 func animateText():
 	var count = 0
 	for letter in $Label.text:
 		$Label.visible_characters += 1
 		await get_tree().create_timer(0.03).timeout
-
+		
 		if count % 3 == 0:
 			SoundManager.play_sound("res://sounds/bloop1.mp3",Vector2.ZERO,.4)
 			
@@ -42,7 +42,10 @@ func animateText():
 	$AnimationPlayer.play("fade")
 
 func _on_continue_button_pressed() -> void:
-	get_parent().dirtTransition.removeTiles()
+	if get_parent().dirtTransition:
+		get_parent().dirtTransition.removeTiles()
+	if get_parent().introText:
+		get_parent().moveToFuture()
 	$AnimationPlayer.play("fadeOut")
 	SoundManager.play_music("res://sounds/music.mp3", .8) #music - default = .8
 	$Continue/ContinueButton.queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://s6qymif8os4s"]
+[gd_scene load_steps=50 format=3 uid="uid://s6qymif8os4s"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_805va"]
 [ext_resource type="Script" uid="uid://dgo0b6pk0oaul" path="res://scenes/end.gd" id="1_cu3y3"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://b5wdxpdv36l24" path="res://world_sprites/dogicapixel.otf" id="7_yye2m"]
 [ext_resource type="Script" uid="uid://3gf1swbufqte" path="res://scripts/main_menu_cursor.gd" id="8_oh7lv"]
 [ext_resource type="Texture2D" uid="uid://ddj8ao2pfhvek" path="res://world_sprites/door.png" id="9_vujvw"]
+[ext_resource type="Texture2D" uid="uid://on6omwp7mwfy" path="res://player_sprites/female_all.png" id="10_0c6n3"]
+[ext_resource type="Texture2D" uid="uid://chorf5urngms1" path="res://player_sprites/male_all.png" id="11_ohvto"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uehg5"]
 texture = ExtResource("1_805va")
@@ -344,6 +346,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0.5803922), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0.073888026, 0.10276673, 0.15149266, 1)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.2333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"moveToOutside"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_f0sel"]
 length = 0.001
@@ -652,7 +668,67 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="End" type="Node2D"]
+[sub_resource type="Animation" id="Animation_aawgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorInFront:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.07450981, 0.101960786, 0.15294118, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Girl:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_mh60m"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorInFront:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.07450981, 0.101960786, 0.15294118, 1), Color(0.07450981, 0.101960786, 0.15294118, 1), Color(0.07450981, 0.101960786, 0.15294118, 0.3372549)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Girl:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.20000002, 0.90000004),
+"transitions": PackedFloat32Array(0.26794338, 0.40612596),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(3, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yit58"]
+_data = {
+&"RESET": SubResource("Animation_aawgk"),
+&"fadeIn": SubResource("Animation_mh60m")
+}
+
+[node name="End_House" type="Node2D"]
 script = ExtResource("1_cu3y3")
 
 [node name="Planks" type="TileMap" parent="."]
@@ -772,5 +848,41 @@ offset_top = -42.0
 offset_right = 390.0
 offset_bottom = 59.0
 color = Color(0, 0, 0, 0.5803922)
+
+[node name="Scene3" type="Node2D" parent="."]
+position = Vector2(600, 6)
+
+[node name="Background" type="ColorRect" parent="Scene3"]
+offset_left = -102.0
+offset_top = -76.0
+offset_right = 112.0
+offset_bottom = 71.0
+color = Color(0.073888026, 0.10276673, 0.15149266, 1)
+
+[node name="Girl" type="Sprite2D" parent="Scene3"]
+texture_filter = 1
+position = Vector2(0, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("10_0c6n3")
+
+[node name="Boy" type="Sprite2D" parent="Scene3"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("11_ohvto")
+
+[node name="ColorInFront" type="ColorRect" parent="Scene3"]
+visible = false
+offset_left = -100.0
+offset_top = -76.0
+offset_right = 114.0
+offset_bottom = 70.0
+color = Color(0.07450981, 0.101960786, 0.15294118, 1)
+
+[node name="OutsideAnimationPlayer" type="AnimationPlayer" parent="Scene3"]
+libraries = {
+&"": SubResource("AnimationLibrary_yit58")
+}
 
 [connection signal="area_entered" from="MainMenuCursor/Area2D" to="MainMenuCursor" method="_on_area_2d_area_entered"]

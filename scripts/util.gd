@@ -12,3 +12,5 @@ func createTutorialNode(text:String, newActionNeeded:String):
 	var tutorialNode = tutorialNodepPreload.instantiate(); GlobalVars.player.add_child(tutorialNode)
 	tutorialNode.constructor(text,newActionNeeded)
 	
+func quitGame():
+	get_tree().quit()

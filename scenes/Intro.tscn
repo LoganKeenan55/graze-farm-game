@@ -310,23 +310,23 @@ sources/0 = SubResource("TileSetAtlasSource_iysgs")
 
 [sub_resource type="Theme" id="Theme_6omm5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ad6s"]
-bg_color = Color(0.847059, 0.509804, 0.105882, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7136s"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfgsg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eejac"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33olo"]
-bg_color = Color(0.239216, 0, 0.356863, 0.152941)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_465o5"]
 bg_color = Color(0.0903062, 0.00751441, 0.240192, 0.415686)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfgsg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33olo"]
+bg_color = Color(0.239216, 0, 0.356863, 0.152941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eejac"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7136s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ad6s"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
 
 [sub_resource type="Animation" id="Animation_33sem"]
 length = 0.001
@@ -426,13 +426,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.482353)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_ywiat")
 theme_override_font_sizes/font_size = 6
-text = "You scramble your remaining cash together to buy some land in the country...
-
-You are a city boy and want to impress a kind mistress you met at the county fair. You don't know her name but you know she owns the biggest most profitable farm in town.
-
-To impress her you know you have to try starting your own farm, but all you brought was wheet seeds...
-
-She won't be impressed by just a wheet farm though so best get to work."
 autowrap_mode = 3
 
 [node name="Continue" type="Node2D" parent="."]
@@ -481,7 +474,7 @@ tile_set = SubResource("TileSet_1rpvy")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65534, 655360, 6, -65533, 655360, 6, -65532, 655360, 6)
 
-[node name="Play" type="Label" parent="Continue"]
+[node name="ButtonLabel" type="Label" parent="Continue"]
 texture_filter = 1
 offset_left = 48.525
 offset_top = 3.705
@@ -493,6 +486,7 @@ theme_override_fonts/font = ExtResource("2_ywiat")
 theme_override_font_sizes/font_size = 6
 text = "Continue
 "
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ContinueButton" type="Button" parent="Continue"]
@@ -501,12 +495,12 @@ offset_top = -2.0
 offset_right = 93.335
 offset_bottom = 14.0
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_4ad6s")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_7136s")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_eejac")
-theme_override_styles/hover = SubResource("StyleBoxFlat_33olo")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_465o5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sfgsg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_465o5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_33olo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_eejac")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_7136s")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4ad6s")
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

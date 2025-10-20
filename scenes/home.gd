@@ -19,13 +19,13 @@ func setSprite():
 		$Sprite2D/AnimatedSprite2D.visible = true
 func upgrade():
 
-	var currentUpgrade = upgrades[ GlobalVars.homeLevel]
+	var currentUpgrade = upgrades[GlobalVars.homeLevel]
 	var crop = currentUpgrade[0]
 	var price = currentUpgrade[1]
 
 	
 	if GlobalVars.player.inventory[crop] >= price:
-		GlobalVars.player.receive(crop,price)
+		#GlobalVars.player.receive(crop,-price) players seemed to like not losing any when upgrading
 		sprite.frame += 1
 		GlobalVars.homeLevel += 1
 		Util.createPopUp("Home upgraded! " + currentUpgrade[2],2,.5)
