@@ -469,23 +469,23 @@ sources/0 = SubResource("TileSetAtlasSource_5faoh")
 
 [sub_resource type="Theme" id="Theme_cqjrg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiy7p"]
-bg_color = Color(0.847059, 0.509804, 0.105882, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7a2f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqjrg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoqlk"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwfq2"]
-bg_color = Color(0.239216, 0, 0.356863, 0.152941)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7r1g0"]
 bg_color = Color(0.0903062, 0.00751441, 0.240192, 0.415686)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqjrg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwfq2"]
+bg_color = Color(0.239216, 0, 0.356863, 0.152941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoqlk"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7a2f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiy7p"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
 
 [sub_resource type="Animation" id="Animation_afec1"]
 length = 0.001
@@ -843,12 +843,12 @@ offset_top = -2.0
 offset_right = 93.335
 offset_bottom = 14.0
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cqjrg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
@@ -919,12 +919,12 @@ offset_top = -2.0
 offset_right = 93.335
 offset_bottom = 14.0
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cqjrg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -993,12 +993,12 @@ offset_top = -2.0
 offset_right = 93.335
 offset_bottom = 14.0
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cqjrg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -1089,12 +1089,12 @@ offset_top = 54.525
 offset_right = 77.57
 offset_bottom = 74.525
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cqjrg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
 metadata/_edit_use_anchors_ = true
 
 [node name="Female" type="Node2D" parent="."]
@@ -1111,12 +1111,12 @@ offset_top = 54.525
 offset_right = 77.57
 offset_bottom = 74.525
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cqjrg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7r1g0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iwfq2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eiy7p")
 metadata/_edit_use_anchors_ = true
 
 [node name="MainMenuCursor" type="Sprite2D" parent="."]
@@ -1146,7 +1146,7 @@ theme = SubResource("Theme_cqjrg")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_eiy7p")
 theme_override_font_sizes/font_size = 6
-text = "v 0.4.5"
+text = "v 0.5.0"
 metadata/_edit_use_anchors_ = true
 
 [node name="characterSelect" type="Node2D" parent="."]

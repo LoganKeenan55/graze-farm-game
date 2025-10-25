@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://6jj8c55hcwb8"]
+[gd_scene load_steps=31 format=3 uid="uid://6jj8c55hcwb8"]
 
 [ext_resource type="Script" uid="uid://cijovg4wm2tep" path="res://scenes/end_outside.gd" id="1_falf7"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_pggrf"]
 [ext_resource type="Texture2D" uid="uid://t38qdb3wr7cf" path="res://player_sprites/tractor.png" id="2_mhsna"]
 [ext_resource type="PackedScene" uid="uid://bcxkwga80ve8u" path="res://scenes/FarmTile.tscn" id="3_falf7"]
 [ext_resource type="PackedScene" uid="uid://dpsu1q5hkv5i" path="res://scenes/WaterTile.tscn" id="4_mhsna"]
+[ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://world_sprites/Dogica_Pixel_edited.pfb" id="6_5geeg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5geeg"]
 texture = ExtResource("1_pggrf")
@@ -228,6 +229,126 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_falf7"]
+size = Vector2(20, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_falf7"]
+atlas = ExtResource("1_pggrf")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_5geeg"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ec1w4"]
+gradient = SubResource("Gradient_5geeg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lu16h"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 30, 0)
+scale_min = 0.4
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_ec1w4")
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+
+[sub_resource type="Animation" id="Animation_perci"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4nxuc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gdaid"]
+_data = {
+&"Fade": SubResource("Animation_perci"),
+&"RESET": SubResource("Animation_4nxuc")
+}
+
+[sub_resource type="Theme" id="Theme_lu16h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5geeg"]
+size = Vector2(8, 95)
+
+[sub_resource type="Animation" id="Animation_5geeg"]
+resource_name = "Fade"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"sendToMainMenu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lu16h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_perci"]
+_data = {
+&"Fade": SubResource("Animation_5geeg"),
+&"RESET": SubResource("Animation_lu16h")
+}
+
 [node name="End_Outside" type="Node2D"]
 script = ExtResource("1_falf7")
 
@@ -245,248 +366,343 @@ tile_set = SubResource("TileSet_lu16h")
 format = 2
 layer_0/tile_data = PackedInt32Array(655368, 655360, 3, 524316, 655360, 3, -131060, 655360, 3, 524285, 655360, 3, -655362, 655360, 3, 1507391, 655360, 3, 1769519, 655360, 3, 1310747, 655360, 3, 1572868, 655360, 3, 65586, 655360, 3, -786396, 655360, 3, -720825, 655360, 3, 1507405, 655360, 3, 327747, 655360, 3, 327730, 720896, 3, 917543, 720896, 3, 65570, 720896, 3, 1310720, 720896, 3, 131077, 720896, 3, -131076, 720896, 3, -655349, 720896, 3, 1835039, 720896, 3, 1966074, 720896, 3, 1245256, 720896, 3, 917564, 720896, 3, -262081, 720896, 3, -524241, 720896, 3, 1441847, 786432, 3, 458797, 786432, 3, 917533, 786432, 3, 131108, 786432, 3, -393192, 786432, 3, -458750, 786432, 3, 196620, 786432, 3, 458754, 786432, 3, 1179643, 786432, 3, 1507347, 786432, 3, 786447, 786432, 3, 917540, 786432, 3, 786483, 786432, 3, 1441865, 786432, 3, 720975, 786432, 3, -327607, 786432, 3, -917429, 786432, 3, -917443, 786432, 3, -524239, 786432, 3, -917480, 786432, 3, 1114123, 786432, 3, 1114116, 786432, 3, 1900541, 786432, 3, 1835057, 851968, 3, 1114142, 851968, 3, 589885, 851968, 3, 393260, 851968, 3, -327628, 851968, 3, -655330, 851968, 3, 31, 851968, 3, -589822, 851968, 3, -196595, 851968, 3, 196610, 851968, 3, 720915, 917504, 3, 1048572, 851968, 3, 327673, 851968, 3, 983049, 851968, 3, 1703952, 983040, 3, 1900584, 851968, 3, 1245232, 851968, 3, 1114187, 851968, 3, -65462, 851968, 3, -524229, 851968, 3, 1376318, 917504, 3, 786472, 917504, 3, 262201, 917504, 3, -524248, 917504, 3, -655346, 917504, 3, 65544, 917504, 3, 327707, 917504, 3, 1245186, 917504, 3, 1245185, 917504, 3, 786429, 917504, 3, 1900535, 917504, 3, 1507366, 983040, 3, 852012, 983040, 3, 589862, 983040, 3, -393151, 983040, 3, 1376330, 983040, 3, 1376320, 983040, 3, -786366, 983040, 3, -917462, 983040, 3, -196569, 983040, 3, -720882, 983040, 3, -65533, 983040, 3, 196618, 983040, 3, 1114107, 983040, 3, 720942, 983040, 3, 196632, 786432, 3, 393247, 851968, 3, 196626, 851968, 3, 131097, 983040, 3, 1376270, 983040, 3, 1114135, 983040, 3, 524345, 983040, 3, 852039, 983040, 3, 327756, 983040, 3, 1638395, 983040, 3, 589846, 720896, 3, 1245239, 720896, 3, -196593, 786432, 3, -131062, 786432, 3, 131087, 786432, 3, 23, 786432, 3, -262123, 655360, 3, 65555, 589824, 3, 131088, 720896, 3, 1507338, 851968, 3, -917454, 851968, 3, 1245250, 851968, 3, 589861, 786432, 3, -196551, 786432, 3, 1507396, 786432, 3, 1507365, 786432, 3, 1835002, 786432, 3, 1441797, 786432, 3, -720902, 786432, 3, -196615, 786432, 3, -983040, 786432, 3, 589897, 786432, 3, 589881, 720896, 3, 196668, 720896, 3, 44, 720896, 3, 1769497, 720896, 3, 1310727, 720896, 3, 917563, 983040, 3, 1835012, 983040, 3, -7, 983040, 3, -917507, 983040, 3, 65613, 983040, 3, -327635, 983040, 3, -1114074, 0, 7, -1114073, 131072, 1, -1114072, 131072, 1, -1114071, 131072, 1, -1114070, 131072, 1, -1114069, 131072, 1, -1114068, 131072, 1, -1114075, 262144, 1, -1114076, 131072, 1, -1114077, 131072, 1, -1114078, 131072, 1, -1114079, 131072, 1, -1179616, 131072, 1, -1179617, 131072, 1, -1179610, 131072, 1, -1179602, 131072, 1, -1179603, 131072, 1, -1179598, 131072, 1, -1179597, 131072, 1, -1245132, 131072, 1, -1245131, 131072, 1, -1245130, 131072, 1, -1179593, 131072, 1, -1114056, 131072, 1, -1114055, 131072, 1, -1114054, 131072, 1, -1114053, 131072, 1, -1179586, 131072, 1, -1179587, 131072, 1, -1179588, 131072, 1, -1114049, 131072, 1, -1114048, 131072, 1, -1114047, 131072, 1, -1114046, 131072, 1, -1114045, 131072, 1, -1179580, 131072, 1, -1179579, 131072, 1, -1179578, 131072, 1, -1179577, 131072, 1, -1179576, 131072, 1, -1179575, 131072, 1, -1114038, 131072, 1, -1114037, 131072, 1, -1179572, 131072, 1, -1179571, 131072, 1, -1114034, 131072, 1, -1114033, 131072, 1, -1114032, 131072, 1, -1179566, 131072, 1, -1179567, 131072, 1, -1114063, 131072, 1, -1114064, 131072, 1, -1114065, 131072, 1, -1245154, 131072, 1, -1245155, 131072, 1, -1245156, 131072, 1, -1245157, 131072, 1, -1179622, 131072, 1, -1179623, 131072, 1, -1114089, 131072, 1, -1114088, 131072, 1, -1114090, 131072, 1, -1179627, 131072, 1, -1179628, 131072, 1, -1114093, 131072, 1, -1114094, 131072, 1, -1179631, 131072, 1, -1245168, 131072, 1, -1245169, 131072, 1, -1245170, 131072, 1, -1245171, 131072, 1, -1179636, 131072, 1, -1114101, 131072, 1, -1179638, 131072, 1, -1179639, 131072, 1, -1179640, 131072, 1, -1179641, 131072, 1, -1114106, 131072, 1, -1179643, 131072, 1, -1179644, 131072, 1, -1179645, 131072, 1, -1114110, 131072, 1, -1114111, 131072, 1, -1114112, 131072, 1, -1114113, 131072, 1, -1114114, 131072, 1, -1114115, 131072, 1, -1114116, 131072, 1, -1114117, 131072, 1, -1179654, 131072, 1, -1179655, 131072, 1, -1179656, 131072, 1, -1114121, 131072, 1, -1114122, 131072, 1, -983051, 65536, 1, -1048587, 65536, 1, -917516, 65536, 1, -851980, 65536, 1, -524299, 65536, 1, -589835, 65536, 1, -655371, 65536, 1, -720907, 65536, 1, -786443, 65536, 1, -393226, 65536, 1, -458762, 65536, 1, -10, 65536, 1, -65546, 65536, 1, -131082, 65536, 1, 65526, 65536, 1, -262155, 65536, 1, -196619, 65536, 1, 131061, 65536, 1, 196597, 65536, 1, 458741, 65536, 1, 524277, 65536, 1, 589813, 65536, 1, 655349, 65536, 1, 720884, 65536, 1, 786420, 65536, 1, 851956, 65536, 1, 917492, 65536, 1, 1048566, 65536, 1, 983029, 65536, 1, 1507317, 65536, 1, 1441781, 65536, 1, 1376245, 65536, 1, 1310709, 65536, 1, 1245173, 65536, 1, 1179637, 65536, 1, 1114101, 65536, 1, 2162676, 65536, 1, 2097140, 65536, 1, 2031604, 65536, 1, 1966069, 65536, 1, 1900533, 65536, 1, 1834998, 65536, 1, 1769461, 65536, 1, 1703926, 65536, 1, 1638390, 65536, 1, 1572854, 65536, 1, 2228213, 131072, 0, 2228214, 131072, 0, 2228215, 131072, 0, 2162680, 131072, 0, 2162681, 131072, 0, 2228218, 131072, 0, 2228219, 131072, 0, 2162684, 131072, 0, 2228221, 131072, 0, 2293758, 131072, 0, 2293759, 131072, 0, 2162688, 131072, 0, 2162689, 131072, 0, 2097154, 131072, 0, 2097155, 131072, 0, 2097156, 131072, 0, 2162693, 131072, 0, 2162694, 131072, 0, 2162695, 131072, 0, 2097160, 131072, 0, 2097161, 131072, 0, 2097162, 131072, 0, 2097163, 131072, 0, 2162700, 131072, 0, 2162701, 131072, 0, 2162702, 131072, 0, 2228239, 131072, 0, 2228240, 131072, 0, 2228241, 131072, 0, 2228242, 131072, 0, 2162707, 131072, 0, 2162708, 131072, 0, 2097173, 131072, 0, 2097174, 131072, 0, 2162712, 131072, 0, 2162713, 131072, 0, 2162711, 131072, 0, 2097178, 131072, 0, 2097179, 131072, 0, 2097180, 131072, 0, 2162717, 131072, 0, 2162718, 131072, 0, 2162719, 131072, 0, 2097184, 131072, 0, 2097185, 131072, 0, 2097186, 131072, 0, 2097187, 131072, 0, 2162725, 131072, 0, 2162724, 131072, 0, 2228262, 131072, 0, 2228263, 131072, 0, 2228264, 131072, 0, 2228265, 131072, 0, 2228266, 131072, 0, 2228267, 131072, 0, 2228268, 131072, 0, 2162733, 131072, 0, 2162734, 131072, 0, 2162735, 131072, 0, 2097200, 131072, 0, 2097201, 131072, 0, 2097202, 131072, 0, 2162739, 131072, 0, 2162740, 131072, 0, 2162741, 131072, 0, 2162742, 131072, 0, 2097217, 131072, 0, 2097218, 131072, 0, 2097219, 131072, 0, 2162748, 131072, 0, 2162749, 131072, 0, 2162750, 131072, 0, 2162751, 131072, 0, 2162752, 131072, 0, 2097211, 131072, 0, 2097210, 131072, 0, 2097209, 131072, 0, 2097208, 131072, 0, 2097207, 131072, 0, 2162756, 131072, 0, 2162757, 131072, 0, 2162758, 131072, 0, 2162759, 131072, 0, 2097224, 131072, 0, 2097225, 131072, 0, 2097226, 131072, 0, 2097227, 131072, 0, 2097228, 131072, 0, 2162765, 131072, 0, 2162766, 131072, 0, 2162767, 131072, 0, 2097232, 131072, 0, 2162769, 131072, 0, 2097234, 65536, 0, 2031698, 65536, 0, 1966162, 65536, 0, 1900626, 65536, 0, 1835091, 65536, 0, 1769554, 65536, 0, 1704018, 65536, 0, 1638483, 65536, 0, 1572947, 65536, 0, 1507411, 65536, 0, 1441874, 65536, 0, 1376338, 65536, 0, 1310803, 65536, 0, 1245266, 65536, 0, 1179731, 65536, 0, 1114196, 65536, 0, 1048660, 65536, 0, 983124, 65536, 0, 917587, 65536, 0, 852050, 65536, 0, 786514, 65536, 0, 720978, 65536, 0, 655442, 65536, 0, 589906, 65536, 0, 524371, 65536, 0, 458836, 65536, 0, 393300, 65536, 0, 327763, 65536, 0, 262226, 65536, 0, 196691, 65536, 0, 131154, 65536, 0, 65619, 65536, 0, 83, 65536, 0, -65454, 65536, 0, -130990, 65536, 0, -196526, 65536, 0, -262061, 65536, 0, -327597, 65536, 0, -393133, 65536, 0, -458670, 65536, 0, -524206, 65536, 0, -589741, 65536, 0, -655278, 65536, 0, -720813, 65536, 0, -786349, 65536, 0, -851886, 65536, 0, -917422, 65536, 0, -982957, 65536, 0, -1048493, 65536, 0, -1114029, 65536, 0)
 
-[node name="Tractor" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(400, 336)
-sprite_frames = SubResource("SpriteFrames_p7bcb")
-frame_progress = 0.78707594
-speed_scale = 2.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(616, 343)
-
 [node name="Tiles" type="Node2D" parent="."]
-position = Vector2(3, 7)
+position = Vector2(99, 7)
 
 [node name="FarmTile" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(484, 272)
+position = Vector2(659, 272)
 
 [node name="FarmTile2" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(484, 288)
+position = Vector2(659, 288)
 
 [node name="FarmTile3" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(484, 304)
+position = Vector2(659, 304)
 
 [node name="FarmTile4" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(468, 272)
+position = Vector2(643, 272)
 
 [node name="FarmTile5" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(500, 272)
+position = Vector2(675, 272)
 
 [node name="FarmTile6" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(484, 320)
+position = Vector2(659, 320)
 
 [node name="FarmTile7" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(532, 272)
+position = Vector2(707, 272)
 
 [node name="FarmTile8" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(532, 288)
+position = Vector2(707, 288)
 
 [node name="FarmTile9" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(532, 304)
+position = Vector2(707, 304)
 
 [node name="FarmTile10" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(532, 320)
+position = Vector2(707, 320)
 
 [node name="FarmTile11" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(548, 304)
+position = Vector2(723, 304)
 
 [node name="FarmTile12" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(564, 272)
+position = Vector2(739, 272)
 
 [node name="FarmTile13" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(564, 288)
+position = Vector2(739, 288)
 
 [node name="FarmTile14" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(564, 304)
+position = Vector2(739, 304)
 
 [node name="FarmTile16" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(596, 272)
+position = Vector2(771, 272)
 
 [node name="FarmTile17" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(596, 288)
+position = Vector2(771, 288)
 
 [node name="FarmTile42" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(548, 368)
+position = Vector2(723, 368)
 
 [node name="FarmTile43" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(548, 384)
+position = Vector2(723, 384)
 
 [node name="FarmTile44" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(548, 400)
+position = Vector2(723, 400)
 
 [node name="FarmTile45" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(532, 352)
+position = Vector2(707, 352)
 
 [node name="FarmTile46" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(564, 352)
+position = Vector2(739, 352)
 
 [node name="FarmTile66" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(564, 368)
+position = Vector2(739, 368)
 
 [node name="FarmTile67" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(532, 368)
+position = Vector2(707, 368)
 
 [node name="FarmTile47" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(596, 352)
+position = Vector2(771, 352)
 
 [node name="FarmTile48" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(596, 368)
+position = Vector2(771, 368)
 
 [node name="FarmTile49" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(596, 384)
+position = Vector2(771, 384)
 
 [node name="FarmTile50" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(596, 400)
+position = Vector2(771, 400)
 
 [node name="FarmTile51" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(612, 400)
+position = Vector2(787, 400)
 
 [node name="FarmTile52" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(628, 400)
+position = Vector2(803, 400)
 
 [node name="FarmTile53" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(628, 384)
+position = Vector2(803, 384)
 
 [node name="FarmTile54" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(628, 368)
+position = Vector2(803, 368)
 
 [node name="FarmTile57" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(660, 368)
+position = Vector2(835, 368)
 
 [node name="FarmTile58" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(660, 384)
+position = Vector2(835, 384)
 
 [node name="FarmTile59" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(676, 400)
+position = Vector2(851, 400)
 
 [node name="FarmTile60" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(692, 384)
+position = Vector2(867, 384)
 
 [node name="FarmTile61" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(692, 368)
+position = Vector2(867, 368)
 
 [node name="FarmTile62" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(692, 352)
+position = Vector2(867, 352)
 
 [node name="FarmTile63" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(660, 352)
+position = Vector2(835, 352)
 
 [node name="FarmTile64" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(660, 400)
+position = Vector2(835, 400)
 
 [node name="FarmTile65" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(692, 400)
+position = Vector2(867, 400)
 
 [node name="FarmTile55" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(628, 352)
+position = Vector2(803, 352)
 
 [node name="FarmTile56" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(612, 352)
+position = Vector2(787, 352)
 
 [node name="FarmTile18" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(596, 304)
+position = Vector2(771, 304)
 
 [node name="FarmTile19" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(596, 320)
+position = Vector2(771, 320)
 
 [node name="FarmTile20" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(628, 320)
+position = Vector2(803, 320)
 
 [node name="FarmTile21" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(628, 304)
+position = Vector2(803, 304)
 
 [node name="FarmTile22" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(628, 288)
+position = Vector2(803, 288)
 
 [node name="FarmTile23" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(628, 272)
+position = Vector2(803, 272)
 
 [node name="FarmTile24" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(612, 272)
+position = Vector2(787, 272)
 
 [node name="FarmTile25" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(612, 304)
+position = Vector2(787, 304)
 
 [node name="FarmTile26" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(660, 320)
+position = Vector2(835, 320)
 
 [node name="FarmTile27" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(660, 304)
+position = Vector2(835, 304)
 
 [node name="FarmTile28" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(660, 288)
+position = Vector2(835, 288)
 
 [node name="FarmTile29" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(660, 272)
+position = Vector2(835, 272)
 
 [node name="FarmTile30" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(676, 272)
+position = Vector2(851, 272)
 
 [node name="FarmTile31" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(692, 320)
+position = Vector2(867, 320)
 
 [node name="FarmTile32" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(692, 304)
+position = Vector2(867, 304)
 
 [node name="FarmTile33" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(692, 288)
+position = Vector2(867, 288)
 
 [node name="FarmTile34" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(724, 288)
+position = Vector2(899, 288)
 
 [node name="FarmTile35" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(724, 304)
+position = Vector2(899, 304)
 
 [node name="FarmTile36" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(724, 320)
+position = Vector2(899, 320)
 
 [node name="FarmTile37" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(724, 272)
+position = Vector2(899, 272)
 
 [node name="FarmTile38" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(740, 288)
+position = Vector2(915, 288)
 
 [node name="FarmTile39" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(756, 272)
+position = Vector2(931, 272)
 
 [node name="FarmTile40" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(756, 320)
+position = Vector2(931, 320)
 
 [node name="FarmTile41" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(756, 304)
+position = Vector2(931, 304)
 
 [node name="FarmTile15" parent="Tiles" instance=ExtResource("3_falf7")]
-position = Vector2(564, 320)
+position = Vector2(739, 320)
 
 [node name="WaterTile5" parent="Tiles" instance=ExtResource("4_mhsna")]
 visible = false
-position = Vector2(498, 294)
+position = Vector2(676, 296)
 
 [node name="WaterTile6" parent="Tiles" instance=ExtResource("4_mhsna")]
 visible = false
-position = Vector2(548, 293)
+position = Vector2(726, 295)
 
 [node name="WaterTile7" parent="Tiles" instance=ExtResource("4_mhsna")]
 visible = false
-position = Vector2(616, 301)
+position = Vector2(794, 303)
 
 [node name="WaterTile8" parent="Tiles" instance=ExtResource("4_mhsna")]
 visible = false
-position = Vector2(676, 301)
+position = Vector2(854, 303)
 
 [node name="WaterTile9" parent="Tiles" instance=ExtResource("4_mhsna")]
 visible = false
-position = Vector2(740, 300)
+position = Vector2(918, 302)
 
 [node name="WaterTile10" parent="Tiles" instance=ExtResource("4_mhsna")]
 visible = false
-position = Vector2(551, 378)
+position = Vector2(729, 380)
 
 [node name="WaterTile11" parent="Tiles" instance=ExtResource("4_mhsna")]
 visible = false
-position = Vector2(613, 377)
+position = Vector2(791, 379)
 
 [node name="WaterTile12" parent="Tiles" instance=ExtResource("4_mhsna")]
 visible = false
-position = Vector2(675, 376)
+position = Vector2(853, 378)
+
+[node name="Tractor" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(161.515, 327)
+sprite_frames = SubResource("SpriteFrames_p7bcb")
+frame_progress = 0.7047869
+speed_scale = 2.0
+
+[node name="Area2D" type="Area2D" parent="Tractor"]
+position = Vector2(-1, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tractor/Area2D"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_falf7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Tractor"]
+texture_filter = 1
+position = Vector2(-24, 18)
+amount = 5
+texture = SubResource("AtlasTexture_falf7")
+lifetime = 0.99
+randomness = 0.26
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_lu16h")
+
+[node name="TractorCamera" type="Camera2D" parent="Tractor"]
+position = Vector2(-0.84, 4.845)
+
+[node name="White" type="ColorRect" parent="Tractor"]
+offset_left = -185.515
+offset_top = -111.0
+offset_right = 185.485
+offset_bottom = 111.0
+
+[node name="FadeIn" type="AnimationPlayer" parent="Tractor"]
+root_node = NodePath("../White")
+libraries = {
+&"": SubResource("AnimationLibrary_gdaid")
+}
+
+[node name="Text1" type="Label" parent="."]
+texture_filter = 1
+offset_left = 403.0
+offset_top = 285.0
+offset_right = 472.0
+offset_bottom = 302.0
+theme = SubResource("Theme_lu16h")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_5geeg")
+theme_override_font_sizes/font_size = 6
+text = "3 Years later....
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Text2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 514.0
+offset_top = 381.0
+offset_right = 664.0
+offset_bottom = 398.0
+theme = SubResource("Theme_lu16h")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_5geeg")
+theme_override_font_sizes/font_size = 6
+text = "Happily married and running
+a very successful farm together"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="CameraSwitch" type="Area2D" parent="Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/CameraSwitch"]
+position = Vector2(692, 345)
+shape = SubResource("RectangleShape2D_5geeg")
+
+[node name="End" type="Area2D" parent="Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/End"]
+position = Vector2(1203, 349)
+shape = SubResource("RectangleShape2D_5geeg")
+
+[node name="ThankYouCamera" type="Camera2D" parent="."]
+position = Vector2(887, 343)
+enabled = false
+
+[node name="FadeOut" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Black")
+libraries = {
+&"": SubResource("AnimationLibrary_perci")
+}
+
+[node name="Black" type="ColorRect" parent="."]
+offset_left = 707.0
+offset_top = 223.0
+offset_right = 1068.0
+offset_bottom = 447.0
+color = Color(0, 0, 0, 0)
+
+[connection signal="area_entered" from="Tractor/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Triggers/CameraSwitch" to="." method="_on_camera_switch_area_entered"]
+[connection signal="area_entered" from="Triggers/End" to="." method="_on_end_area_entered"]

@@ -36,7 +36,7 @@ var debugging := false
 var timeSinceLastSave
 var globalTime:int = 8
 var isNewGame := false
-var playerGender := "male"
+var playerGender := "female"
 var homeLevel := 0
 var autoSave := true
 var cheats := false

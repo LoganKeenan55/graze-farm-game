@@ -3,10 +3,7 @@ extends Node2D
 var transitioning = false
 @onready var arrow = $arrow
 func _ready() -> void:
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
-	
 	SoundManager.player = self
 	await get_tree().create_timer(.3).timeout
 	$MainMenuCursor/Area2D.monitoring = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://s6qymif8os4s"]
+[gd_scene load_steps=53 format=3 uid="uid://s6qymif8os4s"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_805va"]
 [ext_resource type="Script" uid="uid://dgo0b6pk0oaul" path="res://scenes/end.gd" id="1_cu3y3"]
@@ -694,6 +694,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(2, 2)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boy:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
 
 [sub_resource type="Animation" id="Animation_mh60m"]
 resource_name = "fadeIn"
@@ -721,11 +733,73 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(2, 2), Vector2(3, 3)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boy:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.20000002, 0.90000004),
+"transitions": PackedFloat32Array(0.21763763, 0.30778602),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(3, 3)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yit58"]
 _data = {
 &"RESET": SubResource("Animation_aawgk"),
 &"fadeIn": SubResource("Animation_mh60m")
+}
+
+[sub_resource type="Animation" id="Animation_yit58"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect4:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"moveToFuture"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wy8h4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect4:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g01g8"]
+_data = {
+&"Fade": SubResource("Animation_yit58"),
+&"RESET": SubResource("Animation_wy8h4")
 }
 
 [node name="End_House" type="Node2D"]
@@ -765,7 +839,7 @@ offset_left = -85.0
 offset_top = -61.0
 offset_right = 91.0
 offset_bottom = 70.0
-color = Color(0, 0, 0, 0.658824)
+color = Color(0, 0, 0, 0)
 
 [node name="DirtTransition" parent="." instance=ExtResource("6_yye2m")]
 position = Vector2(-62.11, -26.605)
@@ -849,6 +923,14 @@ offset_right = 390.0
 offset_bottom = 59.0
 color = Color(0, 0, 0, 0.5803922)
 
+[node name="ColorRect5" type="ColorRect" parent="."]
+z_index = 50
+offset_left = -102.0
+offset_top = -66.0
+offset_right = 95.0
+offset_bottom = 81.0
+color = Color(0, 0, 0, 0.5803922)
+
 [node name="Scene3" type="Node2D" parent="."]
 position = Vector2(600, 6)
 
@@ -866,7 +948,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("10_0c6n3")
 
 [node name="Boy" type="Sprite2D" parent="Scene3"]
-visible = false
 texture_filter = 1
 position = Vector2(0, 16)
 scale = Vector2(2, 2)
@@ -883,6 +964,18 @@ color = Color(0.07450981, 0.101960786, 0.15294118, 1)
 [node name="OutsideAnimationPlayer" type="AnimationPlayer" parent="Scene3"]
 libraries = {
 &"": SubResource("AnimationLibrary_yit58")
+}
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 450.0
+offset_top = -100.0
+offset_right = 811.0
+offset_bottom = 124.0
+color = Color(0, 0, 0, 0)
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g01g8")
 }
 
 [connection signal="area_entered" from="MainMenuCursor/Area2D" to="MainMenuCursor" method="_on_area_2d_area_entered"]

@@ -14,9 +14,11 @@ var pepperParticlePreload = preload("res://scenes/PepperHarvestParticle.tscn")
 
 var tileState = ["unfertile", "fertile", "seeded", "growing", "harvestable"]
 
+#what kind of crop
 var cropType = "default" #what kind of crop
 
-var waterSources = {} #dictionary of all waterSources
+#dictionary of all waterSources
+var waterSources = {}
 var sound = "res://sounds/dirt_sound.mp3"
 
 
@@ -209,6 +211,14 @@ func harvestCrop():
 func seedCrop(newType = null):
 	var typeToPlant = newType if newType != null else cropType
 	
+	#for if there is no player
+	if !player:
+		if newType:
+			setType(newType)
+		stateIndex = 2
+		updateTexture()
+		return
+		
 	if player.inventory[typeToPlant]>= 1:
 		if newType:
 			setType(newType)

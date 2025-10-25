@@ -2,15 +2,24 @@ extends Node2D
 
 @onready var dirtTransition = $DirtTransition
 @onready var sceneAnimationPlayer = $SceneAnimatonPlayer
+@onready var fade = $Fade
 @onready var introPreload = preload("res://scenes/Intro.tscn")
 
-var introText = "You have finally did it, you acomplished your dream of making a farm worthy for your true love.
+var maleIntroText = "You’ve finally done it you accomplished your dream of building a farm worthy of your true love.
 
-Everything is ready, you work up the nerve of sending her a letter invtiting her to see what you have made for her. 
+Everything is ready. You work up the nerve to send her a letter, hoping she will love what you have created for her.
 
-You wait for days. Every day you give up hope that she will ever even respond.
+You wait for days. With each passing day, your hope that she’ll ever respond begins to fade.
 
-After a long day of farming and fighting off marmots you head to bed. "
+After a long day of farming and fending off marmots, you head to bed."
+
+var femaleIntroText = "You’ve finally done it you accomplished your dream of building a farm worthy of your true love.
+
+Everything is ready. You work up the nerve to send him a letter, hoping he will love what you have created for him.
+
+You wait for days. With each passing day, your hope that he'll ever respond begins to fade.
+
+After a long day of farming and fending off marmots, you head to bed."
 
 var loveText = " \"Hey, I got your letter... Did you really do all of this for me? Can I come inside?\""
 
@@ -19,11 +28,14 @@ func _ready() -> void:
 	dirtTransition.createTiles()
 	var intro = introPreload.instantiate()
 	add_child(intro)
-	intro.setText(introText)
+	intro.setText(maleIntroText if GlobalVars.playerGender == "male" else femaleIntroText)
 	intro.animateText()
 	intro.scale = Vector2(.4,.4)
 	intro.position.y += 10
-
+	if GlobalVars.playerGender == "male":
+		$Scene3/Boy.visible = false
+	if GlobalVars.playerGender == "female":
+		$Scene3/Girl.visible = false
 func _process(_delta: float) -> void:
 	#if GlobalVars.debugging:
 	if Input.is_action_just_pressed('`'):
@@ -60,5 +72,6 @@ func moveToOutside():
 	intro.label.horizontal_alignment = 1
 	intro.buttonLabel.text = "Yes"
 
+
 func moveToFuture():
-	pass
+	get_tree().change_scene_to_file("res://scenes/EndOutside.tscn")

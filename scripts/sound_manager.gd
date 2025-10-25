@@ -31,7 +31,7 @@ func play_sound(path: String, pos:Vector2 = Vector2.ZERO, overide: float = 0) ->
 
 	#Only apply distance scaling if a non-zero position was given
 	if pos != Vector2.ZERO:
-		var distance = pos.distance_to(player.position)
+		var distance = 0 if !player else pos.distance_to(player.position)
 		
 		distance_volume_scale = clamp(1.0 - (distance / max_distance), 0.0, 1.0)
 		if distance_volume_scale <= 0.0:
