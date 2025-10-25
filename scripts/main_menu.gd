@@ -7,6 +7,7 @@ func _ready() -> void:
 	SoundManager.player = self
 	await get_tree().create_timer(.3).timeout
 	$MainMenuCursor/Area2D.monitoring = true
+	$FadeIn.play("Fade")
 func _on_continue_button_mouse_entered() -> void:
 	SoundManager.play_ui_sound("res://sounds/bloop7.mp3")
 	
