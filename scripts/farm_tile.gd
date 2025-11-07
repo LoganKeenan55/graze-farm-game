@@ -188,20 +188,20 @@ func harvestCrop():
 	
 		match cropType: #add to inventory
 			"wheat":
-				player.receive(cropType,2+GlobalFarmTileManager.extraDropRate)
+				player.receive(cropType,2+GlobalVars.extraDropRate)
 			"corn":
-				player.receive(cropType,2+GlobalFarmTileManager.extraDropRate)
+				player.receive(cropType,randi_range(1,2+GlobalVars.extraDropRate))
 			"bamboo":
-				player.receive(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
+				player.receive(cropType,randi_range(1+GlobalVars.extraDropRate,2))
 				SoundManager.play_sound("res://sounds/bloop3.mp3",position,.1)
 			"berry":
-				player.receive(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
+				player.receive(cropType,randi_range(1,2+GlobalVars.extraDropRate))
 			"onion":
-				player.receive(cropType,randi_range(1,2+GlobalFarmTileManager.extraDropRate))
+				player.receive(cropType,randi_range(1,2+GlobalVars.extraDropRate))
 			"flower":
-				player.receive(cropType,2+GlobalFarmTileManager.extraDropRate)
+				player.receive(cropType,randi_range(1,2+GlobalVars.extraDropRate))
 			"pepper":
-				player.receive(cropType,2+GlobalFarmTileManager.extraDropRate)
+				player.receive(cropType,2+GlobalVars.extraDropRate)
 				SoundManager.play_sound("res://sounds/sizzle.mp3",position,.1)
 			_:
 				print("INVALID TYPE in function: harvestCrop")

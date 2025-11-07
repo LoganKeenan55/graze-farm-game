@@ -43,7 +43,7 @@ func _on_continue_button_pressed() -> void:
 	var parent = get_parent()
 	if parent.dirtTransition:
 		parent.dirtTransition.removeTiles()
-	if parent.maleIntroText and not parent.dirtTransition:
+	if parent.has_method("setBeginninggSprite") and not parent.dirtTransition:
 		parent.fade.play("Fade")
 	$AnimationPlayer.play("fadeOut")
 	SoundManager.play_music("res://sounds/music.mp3", 0.8)

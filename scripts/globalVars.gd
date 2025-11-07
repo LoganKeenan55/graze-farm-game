@@ -42,6 +42,7 @@ var autoSave := true
 var cheats := false
 var farmOnClick := true
 var autoFarmTileUnlocked := false
+var extraDropRate = 0
 ##
 var farmTilePreload = preload("res://scenes/FarmTile.tscn")
 var waterTilePreload = preload("res://scenes/WaterTile.tscn")
@@ -72,6 +73,7 @@ func saveGame():
 	saveData.append(player.getData())
 	saveData.append({"group": "autoFarmTileUnlocked","autoFarmTileUnlocked": autoFarmTileUnlocked})
 	saveData.append({"group": "homeLevel", "homeLevel" : homeLevel})
+	saveData.append({"group": "extraDropRate", "extraDropRate": extraDropRate})
 	for node in tilesParent.get_children(): # tiles
 		if node.has_method("getData"):
 			saveData.append(node.getData()) # adds all nodes in Tiles
@@ -136,6 +138,8 @@ func loadGame():
 			timeSinceLastSave = abs(node["IRLtime"] - Time.get_unix_time_from_system())
 		if node["group"] == "globalTime": #gameTime
 			globalTime = node["globalTime"]
+		if node["group"] == "extraDropRate": #extraDropRate
+			extraDropRate = node["extraDropRate"]
 		if node["group"] == "player":
 			player.position = node["position"]
 			player.inventory.clear()

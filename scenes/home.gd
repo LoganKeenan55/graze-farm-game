@@ -4,9 +4,9 @@ extends Node2D
 @onready var dirtTransitionPreload = preload("res://scenes/DirtTransition.tscn")
 
 var upgrades = [
-	["wheat", 20, "Crops drop more seeds"],
+	["wheat", 50, "Crops drop more seeds"],
 	["flower", 60, "Crops grow faster"],
-	["onion", 100, "Farm finished"]
+	["onion", 1000, "Farm finished"]
 ]
 
 func _ready() -> void:
@@ -32,7 +32,7 @@ func upgrade():
 		
 		match GlobalVars.homeLevel:
 			1:
-				GlobalFarmTileManager.extraDropRate = 1
+				GlobalVars.extraDropRate = 1
 				$AnimationPlayer.play("upgrade")
 				$Sprite2D/AnimatedSprite2D.visible = true
 			2:

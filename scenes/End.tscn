@@ -903,10 +903,10 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_0c6n3")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 227.0
-offset_top = -45.0
-offset_right = 388.0
-offset_bottom = 56.0
+offset_left = 207.0
+offset_top = -67.0
+offset_right = 413.0
+offset_bottom = 92.0
 color = Color(0.0007014951, 0.00024030195, 9.499243e-07, 1)
 
 [node name="Door" type="AnimatedSprite2D" parent="."]
@@ -917,10 +917,10 @@ sprite_frames = SubResource("SpriteFrames_0c6n3")
 animation = &"open"
 
 [node name="ColorRect3" type="ColorRect" parent="."]
-offset_left = 229.0
-offset_top = -42.0
-offset_right = 390.0
-offset_bottom = 59.0
+offset_left = 205.0
+offset_top = -64.0
+offset_right = 410.0
+offset_bottom = 89.0
 color = Color(0, 0, 0, 0.5803922)
 
 [node name="ColorRect5" type="ColorRect" parent="."]
