@@ -1,1 +1,4 @@
-Graze is a fully playable 2D farming game built with the Godot Engine. It features a modular tile-based system, interactive mechanics, crop growth, player actions, and a custom UI.
+*Graze* is a cozy, relaxing farming game where you shape the farm of your dreams. Grow a wide variety of crops, build automated farming machines to plant and harvest for you, and protect your fields from mischievous marmots looking for a snack.
+
+<img width="1208" height="829" alt="image" src="https://github.com/user-attachments/assets/6d71c834-93f4-4fd7-b6c2-e82d9d04b634" />
+
