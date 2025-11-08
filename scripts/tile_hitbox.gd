@@ -2,7 +2,7 @@
 extends Area2D
 ##
 @onready var player: Player = GlobalVars.player
-@onready var upgrateToolTipPreload = preload("res://scenes/upgradeToolTip.tscn")
+@onready var upgradeToolTipPreload = preload("res://scenes/upgradeToolTip.tscn")
 
 ##
 var tooltip: ToolTip = null
@@ -10,13 +10,19 @@ var removeParticlePreload
 var deleted = false
 
 func _ready():
+	await get_tree().get_root().get_node("Main").mainReady
+
+	player = GlobalVars.player
+	upgradeToolTipPreload = preload("res://scenes/upgradeToolTip.tscn")
+
 	set_process_input(true)
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
-	
 func handleDeletingTile(): #shovel
 	if deleted:
 		return
 	if Input.is_action_pressed("left_click"):
+		if !player:
+			player = GlobalVars.player
 		set_process_input(false)
 		createRemoveParticle()
 	#	player.inventory[get_parent().tileType]+=1 
@@ -74,7 +80,7 @@ func handleHammer():
 			pass
 		"autoFarmTile":
 			if tooltip == null and get_parent().cropType != "default":
-				tooltip = upgrateToolTipPreload.instantiate()
+				tooltip = upgradeToolTipPreload.instantiate()
 				get_parent().add_child(tooltip)
 	
 				tooltip.position = position
@@ -111,7 +117,7 @@ func handleHammer():
 				player.hotBar.updateAll()
 		"farmTile":
 			if tooltip == null and get_parent().stateIndex >= 2:
-				tooltip = upgrateToolTipPreload.instantiate()
+				tooltip = upgradeToolTipPreload.instantiate()
 				get_parent().add_child(tooltip)
 				tooltip.position = position
 				tooltip.z_index = 12
@@ -160,7 +166,7 @@ func handleSeeding(): #seed
 			if get_parent().cropType != "default": #check if autoFarmTile hasn't already been seeded
 				return 
 			if tooltip == null: #create tooltip
-				tooltip = upgrateToolTipPreload.instantiate()
+				tooltip = upgradeToolTipPreload.instantiate()
 				get_parent().add_child(tooltip)
 				tooltip.changeCropType(get_parent().cropType)
 				tooltip.position = position

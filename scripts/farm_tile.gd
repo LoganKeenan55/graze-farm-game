@@ -1,7 +1,7 @@
 extends "res://scripts/tile.gd"
 class_name FarmTile
 
-@onready var player = $HitBox.player
+@onready var player = GlobalVars.player
 @onready var playerCol = $PlayerCollision
 @onready var blend = $Blend
 var wheatParticlePreload = preload("res://scenes/WheatHarvestParticle.tscn")

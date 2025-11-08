@@ -46,7 +46,7 @@ func _on_continue_button_pressed() -> void:
 	if parent.has_method("setBeginninggSprite") and not parent.dirtTransition:
 		parent.fade.play("Fade")
 	$AnimationPlayer.play("fadeOut")
-	SoundManager.play_music("res://sounds/music.mp3", 0.8)
+
 	$Continue/ContinueButton.queue_free()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

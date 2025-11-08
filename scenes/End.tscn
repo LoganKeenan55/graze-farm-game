@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://s6qymif8os4s"]
+[gd_scene load_steps=54 format=3 uid="uid://s6qymif8os4s"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_805va"]
 [ext_resource type="Script" uid="uid://dgo0b6pk0oaul" path="res://scenes/end.gd" id="1_cu3y3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ddj8ao2pfhvek" path="res://world_sprites/door.png" id="9_vujvw"]
 [ext_resource type="Texture2D" uid="uid://on6omwp7mwfy" path="res://player_sprites/female_all.png" id="10_0c6n3"]
 [ext_resource type="Texture2D" uid="uid://chorf5urngms1" path="res://player_sprites/male_all.png" id="11_ohvto"]
+[ext_resource type="AudioStream" uid="uid://hlup5145hlsh" path="res://sounds/doorNock.mp3" id="12_d3ggx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uehg5"]
 texture = ExtResource("1_805va")
@@ -237,6 +238,18 @@ tracks/2/keys = {
 "method": &"moveToDoor"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../DoorKnock:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_oh7lv"]
 length = 0.001
@@ -263,6 +276,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../DoorKnock:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vujvw"]
@@ -850,7 +875,7 @@ self_modulate = Color(1, 1, 1, 0)
 offset_left = -96.0
 offset_top = 3.0
 offset_right = -65.0
-offset_bottom = 17.0
+offset_bottom = 17.000002
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("7_yye2m")
 theme_override_font_sizes/normal_font_size = 6
@@ -977,5 +1002,9 @@ color = Color(0, 0, 0, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_g01g8")
 }
+
+[node name="DoorKnock" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-92, 4)
+stream = ExtResource("12_d3ggx")
 
 [connection signal="area_entered" from="MainMenuCursor/Area2D" to="MainMenuCursor" method="_on_area_2d_area_entered"]

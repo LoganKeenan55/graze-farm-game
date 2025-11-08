@@ -2,7 +2,7 @@ extends Area2D
 
 var can_click := true
 
-@onready var upgrateToolTipPreload = preload("res://scenes/upgradeToolTip.tscn")
+@onready var upgradeToolTipPreload = preload("res://scenes/upgradeToolTip.tscn")
 
 
 var tooltip: ToolTip = null
@@ -19,7 +19,7 @@ func handleHammer():
 	if GlobalVars.homeLevel > 2:
 		return
 	if tooltip == null:
-		tooltip = upgrateToolTipPreload.instantiate()
+		tooltip = upgradeToolTipPreload.instantiate()
 		get_parent().add_child(tooltip)
 	
 		tooltip.position = position

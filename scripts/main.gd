@@ -3,6 +3,7 @@ extends Node2D
 var introPreload = preload("res://scenes/Intro.tscn")
 @onready var dirtTransition = $DirtTransition
 @onready var forestHitbox = $ForestCollision/CollisionShape2D/ForestHitbox
+signal mainReady
 func _ready() -> void:
 
 	setVars()
@@ -11,12 +12,13 @@ func _ready() -> void:
 		handleNewGame()
 	else:
 		handleLoadedGame()
-
+	emit_signal("mainReady")
 func setPepper():
 	$YSort/Tiles/pepper.setType("pepper")
 	$YSort/Tiles/pepper.stateIndex = 4
 	$YSort/Tiles/pepper.updateTexture()
-
+	$YSort/Tiles/pepper.player = GlobalVars.player
+	$YSort/Tiles/pepper.hitbox.player = GlobalVars.player
 func handleLoadedGame():
 	GlobalVars.loadGame() #if the game is not a new game -> load save
 	dirtTransition.openTransition()
