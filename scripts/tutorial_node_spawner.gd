@@ -37,7 +37,7 @@ func setArr() -> void:
 	nodesArr.append(["Equip dirt and press left click to place", "click"])
 	nodesArr.append(["Equip water and place next to dirt to fertalize it", "click"])
 	nodesArr.append(["Go to farming mode with f and equip seeds with 3", "3"])
-	nodesArr.append(["Click on a farm tile with seeds equip to plant", "click"])
+	nodesArr.append(["Click on a farm tile with seeds equipped to plant", "click"])
 	nodesArr.append(["While seeds are equipped, you can hit 3 again to switch seeds", "3"])
 	nodesArr.append(["Switch to hoe to harvest crops", "1"])
 	nodesArr.append(["Use tab to open shop menu. You can buy bamboo for wheat", "tab"])

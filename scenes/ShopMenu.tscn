@@ -12,23 +12,23 @@
 atlas = ExtResource("3_tvlfr")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5qd0"]
-bg_color = Color(0.847059, 0.509804, 0.105882, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teu2f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1khl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shxc8"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m5gk"]
-bg_color = Color(0.972549, 0.513726, 0.945098, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whn6i"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.172549)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1khl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m5gk"]
+bg_color = Color(0.972549, 0.513726, 0.945098, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shxc8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teu2f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5qd0"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e5qd0"]
 texture = ExtResource("3_tvlfr")
@@ -720,23 +720,23 @@ sources/0 = SubResource("TileSetAtlasSource_n542x")
 
 [sub_resource type="Theme" id="Theme_hclqe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5364"]
-bg_color = Color(0.847059, 0.509804, 0.105882, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71sxn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aeowc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cljdh"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aejf4"]
-bg_color = Color(0.239216, 0, 0.356863, 0.152941)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8idf1"]
 bg_color = Color(0.0903062, 0.00751441, 0.240192, 0.415686)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aeowc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aejf4"]
+bg_color = Color(0.239216, 0, 0.356863, 0.152941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cljdh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71sxn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5364"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f11in"]
 atlas = ExtResource("3_tvlfr")
@@ -841,27 +841,27 @@ _data = {
 &"open": SubResource("Animation_e5qd0")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvlfr"]
-bg_color = Color(0.847059, 0.509804, 0.105882, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kkh5"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f11in"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n542x"]
-bg_color = Color(0.239216, 0, 0.356863, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60osk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hclqe"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqupi"]
 bg_color = Color(0.0901961, 0.00784314, 0.239216, 0)
 draw_center = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hclqe"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60osk"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n542x"]
+bg_color = Color(0.239216, 0, 0.356863, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f11in"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kkh5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvlfr"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
 
 [node name="ShopMenu" type="Node2D"]
 script = ExtResource("1_lvq8y")
@@ -910,17 +910,17 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_e5qd0")
 
 [node name="FarmTileButton" type="Button" parent="Shop/VBoxContainer/HBoxContainer/FarmTile"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer/HBoxContainer/FarmTile"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1005,12 +1005,12 @@ offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer/HBoxContainer2/Water"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1095,12 +1095,12 @@ offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer/HBoxContainer3/Brick"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1185,12 +1185,12 @@ offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer/HBoxContainer4/AutoFarmTile"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1276,12 +1276,12 @@ offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer/HBoxContainer5/todo"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1370,17 +1370,17 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_aip0e")
 
 [node name="BambooButton" type="Button" parent="Shop/VBoxContainer2/HBoxContainer/BambooLeft"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer2/HBoxContainer/BambooLeft"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1465,12 +1465,12 @@ offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer2/HBoxContainer2/FlowerLeft"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1555,12 +1555,12 @@ offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer2/HBoxContainer3/CornLeft"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1645,12 +1645,12 @@ offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer2/HBoxContainer4/BerryLeft"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1735,12 +1735,12 @@ offset_left = 35.5
 offset_top = -1.6
 offset_right = 83.5
 offset_bottom = 14.4
-theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1khl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_whn6i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3m5gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_shxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_teu2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e5qd0")
 
 [node name="background" type="Node2D" parent="Shop/VBoxContainer2/HBoxContainer5/OnionLeft"]
 modulate = Color(1, 1, 1, 0.454902)
@@ -1840,7 +1840,7 @@ texture = ExtResource("2_pj066")
 
 [node name="Heading" type="Label" parent="Shop/Settigs"]
 texture_filter = 1
-layout_mode = 2
+layout_mode = 0
 offset_left = 57.825
 offset_top = 29.0
 offset_right = 115.825
@@ -1859,7 +1859,7 @@ texture = ExtResource("5_pj066")
 [node name="Text" type="Label" parent="Shop/Settigs"]
 modulate = Color(1, 1, 1, 0.713726)
 texture_filter = 1
-layout_mode = 2
+layout_mode = 0
 offset_left = 58.17
 offset_top = 129.26
 offset_right = 154.17
@@ -1899,7 +1899,7 @@ text = "Farm on click"
 theme_override_font_sizes/font_size = 5
 
 [node name="Right" type="VBoxContainer" parent="Shop/Settigs"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 168.0
 offset_top = 49.0
 offset_right = 264.0
@@ -1974,12 +1974,12 @@ offset_top = -2.0
 offset_right = 93.335
 offset_bottom = 14.0
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
 metadata/_edit_use_anchors_ = true
 
 [node name="Quit" type="Node2D" parent="Shop/Settigs/Node2D"]
@@ -2048,12 +2048,12 @@ offset_top = -2.0
 offset_right = 93.335
 offset_bottom = 14.0
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
 metadata/_edit_use_anchors_ = true
 
 [node name="Main Menu" type="Node2D" parent="Shop/Settigs/Node2D"]
@@ -2122,12 +2122,12 @@ offset_top = -2.0
 offset_right = 93.335
 offset_bottom = 14.0
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop/Settigs/Node2D"]
@@ -2213,12 +2213,12 @@ offset_left = 109.0
 offset_top = 36.0
 offset_right = 205.0
 offset_bottom = 36.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aeowc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8idf1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aejf4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cljdh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_71sxn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c5364")
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -2232,13 +2232,13 @@ offset_top = -17.0
 offset_right = -135.95
 offset_bottom = 9.37
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_tvlfr")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1kkh5")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_f11in")
-theme_override_styles/hover = SubResource("StyleBoxFlat_n542x")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_60osk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_bqupi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_hclqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqupi")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_60osk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n542x")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f11in")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1kkh5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tvlfr")
 metadata/_edit_use_anchors_ = true
 
 [node name="SettingsButton" type="Button" parent="."]
@@ -2247,13 +2247,13 @@ offset_top = -16.0
 offset_right = 107.05
 offset_bottom = 10.37
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_tvlfr")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1kkh5")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_f11in")
-theme_override_styles/hover = SubResource("StyleBoxFlat_n542x")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_60osk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_bqupi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_hclqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqupi")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_60osk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n542x")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f11in")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1kkh5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tvlfr")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer/FarmTile/FarmTileButton" to="." method="_on_farm_tile_button_pressed"]
