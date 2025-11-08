@@ -32,7 +32,7 @@ var textureRegions = {
 	"flowerSeeds":Rect2(176, 32, 16, 16),
 	"pepperSeeds":Rect2(192, 32, 16, 16),
 }
-var debugging := false
+var debugging := true
 var timeSinceLastSave
 var globalTime:int = 8
 var isNewGame := false

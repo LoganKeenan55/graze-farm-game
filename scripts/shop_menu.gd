@@ -97,25 +97,27 @@ func buy(itemGive:String, itemGet:String):
 	if (inventory[itemGive]-amount) >= 0:
 		GlobalVars.player.receive(itemGet,1)
 		GlobalVars.player.receive(itemGive,-amount)
-	if(itemGive == "wheat" and inventory["wheat"] == 0):
-		GlobalVars.player.receive("wheat",1)
-
-		SoundManager.play_ui_sound("res://sounds/purchase.mp3")
-
-		if itemGet == "bamboo":
-			$Shop/VBoxContainer2/HBoxContainer2/FlowerLeft.texture.region = GlobalVars.textureRegions["flower"]
-			$Shop/VBoxContainer2/HBoxContainer2/BambooRight.texture.region = GlobalVars.textureRegions["bamboo"]
-		if itemGet == "corn":
-			$Shop/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = GlobalVars.textureRegions["berry"]
-			$Shop/VBoxContainer2/HBoxContainer4/CornRight.texture.region = GlobalVars.textureRegions["corn"]
-		if itemGet == "berry":
-		
-			$Shop/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = GlobalVars.textureRegions["onion"]
-			$Shop/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = GlobalVars.textureRegions["berry"]
 	else:
 		SoundManager.play_ui_sound("res://sounds/not_enough.mp3")
 		return false
 	
+	if(itemGive == "wheat" and inventory["wheat"] == 0):
+		GlobalVars.player.receive("wheat",1)
+
+	SoundManager.play_ui_sound("res://sounds/purchase.mp3")
+	
+	if itemGet == "bamboo":
+			
+		$Shop/VBoxContainer2/HBoxContainer2/FlowerLeft.texture.region = GlobalVars.textureRegions["flower"]
+		$Shop/VBoxContainer2/HBoxContainer2/BambooRight.texture.region = GlobalVars.textureRegions["bamboo"]
+	if itemGet == "corn":
+		$Shop/VBoxContainer2/HBoxContainer4/BerryLeft.texture.region = GlobalVars.textureRegions["berry"]
+		$Shop/VBoxContainer2/HBoxContainer4/CornRight.texture.region = GlobalVars.textureRegions["corn"]
+	if itemGet == "berry":
+		
+		$Shop/VBoxContainer2/HBoxContainer5/OnionLeft.texture.region = GlobalVars.textureRegions["onion"]
+		$Shop/VBoxContainer2/HBoxContainer5/BerryRight.texture.region = GlobalVars.textureRegions["berry"]
+
 
 func _on_corn_button_pressed() -> void:
 	if GlobalVars.player.unlockLevel >= 4:
