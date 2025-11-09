@@ -1189,6 +1189,7 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("13_l4mxc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -192.0
 offset_top = -133.0
 offset_right = 205.0
