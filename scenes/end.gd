@@ -58,6 +58,7 @@ func moveToDoor():
 	$Camera2D.position.x = 300
 	await get_tree().create_timer(1).timeout
 	$Door.play("open")
+	$Door/DoorOpen.play()
 	$SceneAnimatonPlayer.play("Door")
 	
 func moveToOutside():

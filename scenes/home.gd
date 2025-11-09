@@ -35,12 +35,14 @@ func upgrade():
 				GlobalVars.extraDropRate = 1
 				$AnimationPlayer.play("upgrade")
 				$Sprite2D/AnimatedSprite2D.visible = true
+				$Construction.play()
 			2:
 				GlobalFarmTileManager.tickSpeed = .35
 				$AnimationPlayer.play("upgrade")
+				$Construction.play()
 			3:
 				$Sprite2D/AnimatedSprite2D.play("open")
-				
+				$DoorSound.play()
 	else:
 		return
 

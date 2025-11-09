@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://s6qymif8os4s"]
+[gd_scene load_steps=57 format=3 uid="uid://s6qymif8os4s"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_805va"]
 [ext_resource type="Script" uid="uid://dgo0b6pk0oaul" path="res://scenes/end.gd" id="1_cu3y3"]
@@ -10,8 +10,11 @@
 [ext_resource type="Script" uid="uid://3gf1swbufqte" path="res://scripts/main_menu_cursor.gd" id="8_oh7lv"]
 [ext_resource type="Texture2D" uid="uid://ddj8ao2pfhvek" path="res://world_sprites/door.png" id="9_vujvw"]
 [ext_resource type="Texture2D" uid="uid://on6omwp7mwfy" path="res://player_sprites/female_all.png" id="10_0c6n3"]
+[ext_resource type="AudioStream" uid="uid://bmodlk1cc0avd" path="res://sounds/doorOpen.mp3" id="10_f0sel"]
 [ext_resource type="Texture2D" uid="uid://chorf5urngms1" path="res://player_sprites/male_all.png" id="11_ohvto"]
 [ext_resource type="AudioStream" uid="uid://hlup5145hlsh" path="res://sounds/doorNock.mp3" id="12_d3ggx"]
+[ext_resource type="AudioStream" uid="uid://q33x31nqpdwd" path="res://sounds/whoosh.mp3" id="13_mh60m"]
+[ext_resource type="AudioStream" uid="uid://1w78lj0m2uv1" path="res://sounds/fade.mp3" id="14_aawgk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uehg5"]
 texture = ExtResource("1_805va")
@@ -731,6 +734,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(2, 2)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Whoosh:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_mh60m"]
 resource_name = "fadeIn"
@@ -770,6 +785,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(2, 2), Vector2(3, 3)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Whoosh:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yit58"]
 _data = {
@@ -779,6 +806,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_yit58"]
 resource_name = "Fade"
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -786,7 +814,7 @@ tracks/0/path = NodePath("ColorRect4:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
@@ -798,12 +826,24 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(2.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"moveToFuture"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade/FadeSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_wy8h4"]
@@ -819,6 +859,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade/FadeSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g01g8"]
@@ -941,6 +993,11 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_0c6n3")
 animation = &"open"
 
+[node name="DoorOpen" type="AudioStreamPlayer2D" parent="Door"]
+position = Vector2(-200, 9.333334)
+scale = Vector2(0.6666667, 0.6666667)
+stream = ExtResource("10_f0sel")
+
 [node name="ColorRect3" type="ColorRect" parent="."]
 offset_left = 205.0
 offset_top = -64.0
@@ -991,6 +1048,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_yit58")
 }
 
+[node name="Whoosh" type="AudioStreamPlayer2D" parent="Scene3"]
+stream = ExtResource("13_mh60m")
+volume_db = -12.692
+
 [node name="ColorRect4" type="ColorRect" parent="."]
 offset_left = 450.0
 offset_top = -100.0
@@ -1002,6 +1063,9 @@ color = Color(0, 0, 0, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_g01g8")
 }
+
+[node name="FadeSound" type="AudioStreamPlayer2D" parent="Fade"]
+stream = ExtResource("14_aawgk")
 
 [node name="DoorKnock" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-92, 4)

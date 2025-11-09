@@ -1,9 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://cn6qxxbekju82"]
+[gd_scene load_steps=33 format=3 uid="uid://cn6qxxbekju82"]
 
 [ext_resource type="Script" uid="uid://bhine2rqfenrd" path="res://scenes/home.gd" id="1_d52sk"]
 [ext_resource type="Texture2D" uid="uid://cyamwum24vugd" path="res://world_sprites/home.png" id="1_jmugw"]
 [ext_resource type="Script" uid="uid://ddq3lvn7dkfnn" path="res://scenes/area_2d.gd" id="3_nqr1n"]
 [ext_resource type="Texture2D" uid="uid://ddj8ao2pfhvek" path="res://world_sprites/door.png" id="3_svoro"]
+[ext_resource type="AudioStream" uid="uid://bmodlk1cc0avd" path="res://sounds/doorOpen.mp3" id="5_72wqp"]
+[ext_resource type="AudioStream" uid="uid://cghjrbxmgaxfk" path="res://sounds/construction.mp3" id="6_yk4sq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svoro"]
 atlas = ExtResource("3_svoro")
@@ -345,6 +347,13 @@ debug_color = Color(0.861707, 0.173194, 0.773309, 0.42)
 libraries = {
 &"": SubResource("AnimationLibrary_72wqp")
 }
+
+[node name="DoorSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 21)
+stream = ExtResource("5_72wqp")
+
+[node name="Construction" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yk4sq")
 
 [connection signal="animation_finished" from="Sprite2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

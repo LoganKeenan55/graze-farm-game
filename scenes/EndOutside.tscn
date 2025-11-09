@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://6jj8c55hcwb8"]
+[gd_scene load_steps=33 format=3 uid="uid://6jj8c55hcwb8"]
 
 [ext_resource type="Script" uid="uid://cijovg4wm2tep" path="res://scenes/end_outside.gd" id="1_falf7"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_pggrf"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bcxkwga80ve8u" path="res://scenes/FarmTile.tscn" id="3_falf7"]
 [ext_resource type="PackedScene" uid="uid://dpsu1q5hkv5i" path="res://scenes/WaterTile.tscn" id="4_mhsna"]
 [ext_resource type="FontFile" uid="uid://wit53lcajfem" path="res://world_sprites/Dogica_Pixel_edited.pfb" id="6_5geeg"]
+[ext_resource type="AudioStream" uid="uid://c4db7f3tuw43s" path="res://sounds/endingMusic.mp3" id="7_lu16h"]
+[ext_resource type="AudioStream" uid="uid://dfxwwk32oi2ec" path="res://sounds/tractor.mp3" id="7_perci"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5geeg"]
 texture = ExtResource("1_pggrf")
@@ -642,6 +644,18 @@ root_node = NodePath("../White")
 libraries = {
 &"": SubResource("AnimationLibrary_gdaid")
 }
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Tractor"]
+position = Vector2(-0.51501465, 7)
+stream = ExtResource("7_lu16h")
+volume_db = -11.281
+autoplay = true
+max_distance = 4096.0
+attenuation = 1e-05
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Tractor"]
+stream = ExtResource("7_perci")
+autoplay = true
 
 [node name="Text1" type="Label" parent="."]
 texture_filter = 1
