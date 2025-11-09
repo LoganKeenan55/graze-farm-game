@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb648teaj3rrn"]
+[gd_scene load_steps=14 format=3 uid="uid://bb648teaj3rrn"]
 
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="1_0jthv"]
 [ext_resource type="Script" uid="uid://o1giiswb2exi" path="res://scripts/hot_bar_item.gd" id="1_dao0i"]
@@ -11,22 +11,6 @@ region = Rect2(208, 128, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vh0u0"]
 atlas = ExtResource("1_0jthv")
 region = Rect2(224, 128, 16, 16)
-
-[sub_resource type="Animation" id="Animation_1clux"]
-resource_name = "Deselected"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteHolder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0402456, 0.1),
-"transitions": PackedFloat32Array(1, 0.287175, 0.217638),
-"update": 0,
-"values": [Vector2(0, -1.88), Vector2(0, 0.6), Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_vh0u0"]
 length = 0.001
@@ -55,22 +39,6 @@ tracks/1/keys = {
 "values": [Vector2(-8, 4)]
 }
 
-[sub_resource type="Animation" id="Animation_dao0i"]
-resource_name = "Selected"
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteHolder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.15),
-"transitions": PackedFloat32Array(1, 0.25, 2.14355),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -3.345), Vector2(0, -1.88)]
-}
-
 [sub_resource type="Animation" id="Animation_dxvqn"]
 resource_name = "update_ammount"
 length = 0.3
@@ -87,12 +55,81 @@ tracks/0/keys = {
 "values": [Vector2(-8, 1.555), Vector2(-8, 4)]
 }
 
+[sub_resource type="Animation" id="Animation_dao0i"]
+resource_name = "Selected"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteHolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.15),
+"transitions": PackedFloat32Array(1, 0.25, 2.14355),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -3.345), Vector2(0, -1.88)]
+}
+
+[sub_resource type="Animation" id="Animation_1clux"]
+resource_name = "Deselected"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteHolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0402456, 0.1),
+"transitions": PackedFloat32Array(1, 0.287175, 0.217638),
+"update": 0,
+"values": [Vector2(0, -1.88), Vector2(0, 0.6), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1clux"]
 _data = {
 &"Deselected": SubResource("Animation_1clux"),
 &"RESET": SubResource("Animation_vh0u0"),
 &"Selected": SubResource("Animation_dao0i"),
 &"update_ammount": SubResource("Animation_dxvqn")
+}
+
+[sub_resource type="Animation" id="Animation_kpmui"]
+resource_name = "UpdateAmmount"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteHolder/amount:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.14358737, 1.6817918),
+"update": 0,
+"values": [Vector2(-8, 1.555), Vector2(-8, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_lnp2f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteHolder/amount:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y5fai"]
+_data = {
+&"RESET": SubResource("Animation_lnp2f"),
+&"UpdateAmmount": SubResource("Animation_kpmui")
 }
 
 [node name="HotBarItem" type="Node2D"]
@@ -124,9 +161,9 @@ text = "1"
 [node name="amount" type="Label" parent="SpriteHolder"]
 texture_filter = 1
 offset_left = -8.0
-offset_top = 1.555
+offset_top = 4.0
 offset_right = 8.0
-offset_bottom = 6.555
+offset_bottom = 9.000021
 theme_override_fonts/font = ExtResource("3_vh0u0")
 theme_override_font_sizes/font_size = 4
 text = "N/A"
@@ -136,4 +173,9 @@ text_direction = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_1clux")
+}
+
+[node name="AmmountsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y5fai")
 }

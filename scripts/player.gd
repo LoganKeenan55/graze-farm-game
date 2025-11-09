@@ -24,7 +24,7 @@ var inventory= {
 
 ## tiles
 var currentTile := 0
-var placeableTiles := ["farmTile", "waterTile", "brickTile", "autoFarmTile"]
+var placeableTiles := ["farmTile", "waterTile", "brickTile", "autoFarmTile","book"]
 
 ## items
 var currentItem := 0
@@ -286,7 +286,8 @@ func handleMode(): #handles changing mode
 
 			if Input.is_action_pressed("left_click") and !GlobalFarmTileManager.overTile:
 				tileComponent.createTile(placeableTiles[currentTile])
-
+			if Input.is_action_just_pressed("5"):
+				toggle_shop_mode("shop")
 		"farming":
 			for i in range(1, 5):
 				if Input.is_action_just_pressed(str(i)):

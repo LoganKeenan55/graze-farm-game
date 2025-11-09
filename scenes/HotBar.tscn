@@ -399,6 +399,11 @@ position = Vector2(18, 77)
 [node name="HotBarItem5" parent="TilesHUD" instance=ExtResource("2_hpejl")]
 position = Vector2(36, 77)
 
+[node name="amount" parent="TilesHUD/HotBarItem5/SpriteHolder" index="4"]
+visible = false
+offset_top = 4.0
+offset_bottom = 9.0
+
 [node name="F" type="Sprite2D" parent="TilesHUD"]
 texture_filter = 1
 position = Vector2(-47, 66)
@@ -444,3 +449,5 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_uuhq0")
 }
+
+[editable path="TilesHUD/HotBarItem5"]

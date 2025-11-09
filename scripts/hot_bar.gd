@@ -14,7 +14,7 @@ func setArrs(): #sets arrays with sprites and numbers
 	var count1 = 1
 	
 	for i in range(Itemchildren.size()): #for Items
-		if $ItemsHUD.get_child(i).get_script() == preload("res://hot_bar_item.gd"):  
+		if $ItemsHUD.get_child(i).get_script() == preload("res://scenes/HotBarItem.tscn"):  
 			itemArray.append($ItemsHUD.get_child(i))
 			$ItemsHUD.get_child(i).number.text = str(count1)
 			count1 += 1
@@ -24,7 +24,7 @@ func setArrs(): #sets arrays with sprites and numbers
 	var count2 = 1
 	
 	for i in range(Tileschildren.size()): #for Tiles
-		if $ItemsHUD.get_child(i).get_script() == preload("res://hot_bar_item.gd"):  
+		if $ItemsHUD.get_child(i).get_script() == preload("res://scenes/HotBarItem.tscn"):  
 			tileArray.append($TilesHUD.get_child(i))
 			$TilesHUD.get_child(i).number.text = str(count2)
 			count2 += 1
@@ -33,7 +33,7 @@ func setArrs(): #sets arrays with sprites and numbers
 	var seedchildren = $SeedsHUD.get_children()
 	var count3 = 1
 	for i in range(seedchildren.size()): #for Tiles
-		if $SeedsHUD.get_child(i).get_script() == preload("res://hot_bar_item.gd"):  
+		if $SeedsHUD.get_child(i).get_script() == preload("res://scenes/HotBarItem.tscn"):  
 			seedArray.append($SeedsHUD.get_child(i))
 			$SeedsHUD.get_child(i).number.text = str(count3)
 			count3 += 1
@@ -53,9 +53,11 @@ func setArrs(): #sets arrays with sprites and numbers
 	
 	
 func updateSelectedTile(currentTile):
+	
 	if tileArray[currentTile].selected == false:
 		for i in range(tileArray.size()):
 			tileArray[i].setSelected(false)
+	
 	tileArray[currentTile].setSelected(true)
 func updateSelectedItem(currentItem):
 	if currentItem < 0 or currentItem >= itemArray.size():
