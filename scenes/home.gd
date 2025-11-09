@@ -37,7 +37,7 @@ func upgrade():
 				$Sprite2D/AnimatedSprite2D.visible = true
 				$Construction.play()
 			2:
-				GlobalFarmTileManager.tickSpeed = .35
+				GlobalFarmTileManager.tickSpeed = .42
 				$AnimationPlayer.play("upgrade")
 				$Construction.play()
 			3:

@@ -46,37 +46,39 @@ func receive(item:String, amount:int): #handles receiving items
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("Level 2: Bamboo Unlocked!")
 				
+				
 		2:
 			if item == "flower":
 				unlockLevel = 3
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("Level 3: Wild Flower Unlocked!")
 				get_parent().get_parent().forestHitbox.unlock()
+				
 		3:
 			if item == "pepper":
 				unlockLevel = 4
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("You have discovered Peppers! They scare away marmots",2,.9)
-				
+				SoundManager.play_ui_sound("res://sounds/unlockSound.mp3",.3)
 
 		4:
 			if item == "corn":
 				unlockLevel = 5
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("Level 5: Corn Unlocked!")
-
+				
 		5:
 			if item == "berry":
 				unlockLevel = 6
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("Level 6: Berry Unlocked!")
-
+				
 		6:
 			if item == "onion":
 				unlockLevel = 7
 				hud.setSizeBasedOnUpgradeLevel()
 				Util.createPopUp("Level 7: Onion Unlocked!")
-
+				
 	if item in harvestables: #updates side hud
 		hud.updateCounter(item)
 		
