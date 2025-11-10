@@ -425,7 +425,6 @@ script = ExtResource("1_efote")
 position_smoothing_speed = 20.0
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 112.876
 offset_top = -83.971

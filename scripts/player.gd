@@ -84,7 +84,7 @@ func receive(item:String, amount:int): #handles receiving items
 		
 	if item in placeableTiles:
 		hotBar.setAmount("tiles",placeableTiles.find(item),inventory[item])
-	
+	hud.setSizeBasedOnUpgradeLevel()
 func _ready() -> void:
 	setSpriteBasedOffGender()
 	add_to_group("player")

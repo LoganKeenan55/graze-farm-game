@@ -176,6 +176,7 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
+	GlobalVars.saveGame()
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 

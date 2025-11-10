@@ -1182,14 +1182,13 @@ theme = SubResource("Theme_cqjrg")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_eiy7p")
 theme_override_font_sizes/font_size = 6
-text = "v 1.0.0"
+text = "v 1.0.2"
 metadata/_edit_use_anchors_ = true
 
 [node name="characterSelect" type="Node2D" parent="."]
 script = ExtResource("13_l4mxc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 offset_left = -192.0
 offset_top = -133.0
 offset_right = 205.0
