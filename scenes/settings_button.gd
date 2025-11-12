@@ -55,5 +55,7 @@ func ApplySetting(setting: String, value: bool) -> void:
 			GlobalVars.autoSave = value
 		"Cheats":
 			GlobalVars.cheats = value
+			if value == true:
+				Util.createPopUp("Press 'C' for unlimted items")
 		"Farm on click":
 			GlobalVars.farmOnClick = value

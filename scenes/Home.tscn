@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cn6qxxbekju82"]
+[gd_scene load_steps=38 format=3 uid="uid://cn6qxxbekju82"]
 
 [ext_resource type="Script" uid="uid://bhine2rqfenrd" path="res://scenes/home.gd" id="1_d52sk"]
 [ext_resource type="Texture2D" uid="uid://cyamwum24vugd" path="res://world_sprites/home.png" id="1_jmugw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ddj8ao2pfhvek" path="res://world_sprites/door.png" id="3_svoro"]
 [ext_resource type="AudioStream" uid="uid://bmodlk1cc0avd" path="res://sounds/doorOpen.mp3" id="5_72wqp"]
 [ext_resource type="AudioStream" uid="uid://cghjrbxmgaxfk" path="res://sounds/construction.mp3" id="6_yk4sq"]
+[ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="7_66mx0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svoro"]
 atlas = ExtResource("3_svoro")
@@ -315,6 +316,35 @@ _data = {
 &"upgrade": SubResource("Animation_nqr1n")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_88yq0"]
+atlas = ExtResource("7_66mx0")
+region = Rect2(144, 128, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_dct4q"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yuhej"]
+gradient = SubResource("Gradient_dct4q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k40ht"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 3, 1)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+damping_min = 24.571
+damping_max = 24.571
+scale_min = 0.5
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_yuhej")
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+
 [node name="Home" type="Node2D"]
 script = ExtResource("1_d52sk")
 
@@ -354,6 +384,66 @@ stream = ExtResource("5_72wqp")
 
 [node name="Construction" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_yk4sq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(-46, 24)
+emitting = false
+amount = 3
+texture = SubResource("AtlasTexture_88yq0")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_k40ht")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(-26, 36)
+emitting = false
+amount = 3
+texture = SubResource("AtlasTexture_88yq0")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_k40ht")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(48, 18)
+emitting = false
+amount = 3
+texture = SubResource("AtlasTexture_88yq0")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_k40ht")
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(27, 35)
+emitting = false
+amount = 3
+texture = SubResource("AtlasTexture_88yq0")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+interpolate = false
+fract_delta = false
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_k40ht")
 
 [connection signal="animation_finished" from="Sprite2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

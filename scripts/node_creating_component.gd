@@ -59,6 +59,10 @@ func createTile(type):
 
 	if tilePosition.distance_to(get_tree().current_scene.find_child("Home", true, false).position) <40:
 		return
+	
+	if tilePosition.x <= 0 or tilePosition.x  >= 1455 or tilePosition.y >= 764 or tilePosition.y <= 0:
+		return
+	
 	var newTile
 	match type:
 		

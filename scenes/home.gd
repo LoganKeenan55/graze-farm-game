@@ -5,8 +5,8 @@ extends Node2D
 
 var upgrades = [
 	["wheat", 50, "Crops drop more seeds"],
-	["flower", 60, "Crops grow faster"],
-	["onion", 1000, "Farm finished"]
+	["flower", 600, "Crops grow faster"],
+	["onion", 1500, "Farm finished"]
 ]
 
 func _ready() -> void:
@@ -36,10 +36,12 @@ func upgrade():
 				$AnimationPlayer.play("upgrade")
 				$Sprite2D/AnimatedSprite2D.visible = true
 				$Construction.play()
+				emitParticles()
 			2:
 				GlobalFarmTileManager.tickSpeed = .42
 				$AnimationPlayer.play("upgrade")
 				$Construction.play()
+				emitParticles()
 			3:
 				$Sprite2D/AnimatedSprite2D.play("open")
 				$DoorSound.play()
@@ -56,3 +58,9 @@ func endGame():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	$Sprite2D/AnimatedSprite2D.play("stay_open")
 	endGame()
+
+func emitParticles():
+	$GPUParticles2D.emitting = true
+	$GPUParticles2D2.emitting = true
+	$GPUParticles2D3.emitting = true
+	$GPUParticles2D4.emitting = true

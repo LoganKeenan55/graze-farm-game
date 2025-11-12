@@ -586,7 +586,7 @@ texture_filter = 1
 position = Vector2(-8, 0)
 tile_set = SubResource("TileSet_h7a2f")
 format = 2
-layer_0/tile_data = PackedInt32Array(-131066, 655360, 3, -10, 655360, 3, 196601, 720896, 3, -327677, 720896, 3, 327671, 917504, 3, -262148, 917504, 3, -262145, 983040, 3, 327674, 983040, 3, -393208, 983040, 3, -262150, 786432, 3, 327673, 786432, 3, -393211, 786432, 3, -65543, 983040, 3, -65537, 720896, 3, 196604, 786432, 3, 327678, 720896, 3, 196610, 655360, 3, 131075, 786432, 3)
+layer_0/tile_data = PackedInt32Array(-131066, 655360, 3, -10, 655360, 3, 196601, 720896, 3, -327677, 720896, 3, 327671, 917504, 3, -262148, 917504, 3, -262145, 983040, 3, 327674, 983040, 3, -393208, 983040, 3, -262150, 786432, 3, 327673, 786432, 3, -393211, 786432, 3, -65543, 983040, 3, -65537, 720896, 3, 196604, 786432, 3, 327678, 720896, 3, 196610, 655360, 3, 131075, 786432, 3, 131063, 524288, 3, 131080, 589824, 3, -393219, 589824, 3, 393211, 458752, 3, 327686, 458752, 3, 11, 458752, 3, 65547, 458752, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -1182,13 +1182,14 @@ theme = SubResource("Theme_cqjrg")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_eiy7p")
 theme_override_font_sizes/font_size = 6
-text = "v 1.0.2"
+text = "v 1.0.3"
 metadata/_edit_use_anchors_ = true
 
 [node name="characterSelect" type="Node2D" parent="."]
 script = ExtResource("13_l4mxc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -192.0
 offset_top = -133.0
 offset_right = 205.0

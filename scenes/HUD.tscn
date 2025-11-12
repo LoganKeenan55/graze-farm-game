@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cq8ghkv3svonm" path="res://scenes/HotBar.tscn" id="2_vow1y"]
 [ext_resource type="Texture2D" uid="uid://bydyxd83wf4lv" path="res://world_sprites/textureAtlas.png" id="3_vow1y"]
 [ext_resource type="PackedScene" uid="uid://df0dg1ely3hdm" path="res://scenes/HudCounter.tscn" id="4_xxqia"]
+[ext_resource type="Texture2D" uid="uid://cxck1o7ewdcsd" path="res://world_sprites/textureAtlas-export.png" id="5_nysna"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne771"]
 texture = ExtResource("3_vow1y")
@@ -311,11 +312,8 @@ sources/0 = SubResource("TileSetAtlasSource_xxqia")
 atlas = ExtResource("3_vow1y")
 region = Rect2(96, 0, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ne771"]
-load_path = "res://.godot/imported/textureAtlas.png-91c19def63bab157ac51f9858f82b9d2.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gv1iq"]
-atlas = SubResource("CompressedTexture2D_ne771")
+atlas = ExtResource("5_nysna")
 region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0ylh"]

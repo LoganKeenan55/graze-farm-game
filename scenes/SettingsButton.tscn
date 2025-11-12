@@ -6,27 +6,27 @@
 
 [sub_resource type="Theme" id="Theme_rt74m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gc2b"]
-bg_color = Color(0.847059, 0.509804, 0.105882, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt74m"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23v6c"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e0np"]
-bg_color = Color(0.239216, 0, 0.356863, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmojv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erwoe"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6etfw"]
 bg_color = Color(0.0901961, 0.00784314, 0.239216, 0)
 draw_center = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erwoe"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmojv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e0np"]
+bg_color = Color(0.239216, 0, 0.356863, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23v6c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt74m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gc2b"]
+bg_color = Color(0.847059, 0.509804, 0.105882, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3q88"]
 atlas = ExtResource("1_wcjey")
@@ -63,13 +63,13 @@ offset_top = -5.0
 offset_right = 81.0
 offset_bottom = 11.0
 scale = Vector2(0.98, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_6gc2b")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_rt74m")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_23v6c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3e0np")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_pmojv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6etfw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erwoe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6etfw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_pmojv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3e0np")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_23v6c")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_rt74m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6gc2b")
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]

@@ -966,7 +966,7 @@ libraries = {
 }
 
 [node name="MainMenuCursor" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 texture_filter = 1
 scale = Vector2(0.4, 0.4)
 texture = SubResource("AtlasTexture_vujvw")
