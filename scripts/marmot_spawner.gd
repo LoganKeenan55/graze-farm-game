@@ -24,6 +24,8 @@ func pickFarmTile() -> Node: #returns random farmTile node
 	var tile = farmTiles[randomIndex]
 	if tile.stateIndex < 2:
 		return null
+	if tile.cropType == "pepper":
+		return null
 	goalTile = tile
 	for marmot in marmotArr: #Tile is already goal from another marmot
 		if marmot.goal == tile:
@@ -61,10 +63,10 @@ func isMarmotSpawnValid(randVec) -> bool:
 
 
 func spawnMarmot() -> void:
-	var newMarmot = marmotPreload.instantiate()
 	goalTile = pickFarmTile()
 	if goalTile == null:
 		return
+	var newMarmot = marmotPreload.instantiate()
 	newMarmot.position = findPlaceToSpawnMarmot()
 	newMarmot.goal = goalTile
 	#newMarmot.navAgent.target_position = goalTile.position

@@ -18,6 +18,8 @@ signal day_started
 signal spawnMarmot
 
 func _process(delta: float) -> void:
+	if (GlobalVars.debugging or GlobalVars.cheats) and Input.is_action_just_pressed("m"):
+		emit_signal("spawnMarmot")
 	timeElapsed += delta
 	marmotTimeElapsed += delta
 	globalTimeElapsed += delta

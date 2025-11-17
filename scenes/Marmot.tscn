@@ -142,7 +142,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_54bpy"]
-radius = 17.0
+radius = 22.022715
 
 [node name="Marmot" type="CharacterBody2D"]
 collision_layer = 0

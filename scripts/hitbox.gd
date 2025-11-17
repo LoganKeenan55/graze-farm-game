@@ -7,5 +7,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	handlePlayerInteraction(event)
 
 func handlePlayerInteraction(event):
+	if GlobalVars.player.position.distance_to(get_parent().position) > 40:
+		return
 	if get_parent().isLeaving == false:
 		get_parent().leave("leave_scared")
