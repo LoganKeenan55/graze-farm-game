@@ -7,7 +7,7 @@ func _ready() -> void:
 	z_index = 12
 	visible = false
 func _process(_delta: float) -> void:
-	var pos = get_viewport().get_mouse_position() -  Vector2(156,105)
+	var pos = to_local(get_global_mouse_position()) + Vector2(-3,-4)
 
 	queue.push_front(pos)
 	

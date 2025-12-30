@@ -1050,6 +1050,7 @@ stream = ExtResource("10_u7cqb")
 volume_db = -25.0
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuMusic"]
 libraries = {
@@ -1182,7 +1183,7 @@ theme = SubResource("Theme_cqjrg")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_eiy7p")
 theme_override_font_sizes/font_size = 6
-text = "v 1.0.4"
+text = "v 1.0.5"
 metadata/_edit_use_anchors_ = true
 
 [node name="characterSelect" type="Node2D" parent="."]

@@ -24,6 +24,7 @@ After a long day of farming and fending off marmots, you head to bed."
 var loveText = " \"Hey, I got your letter... Did you really do all of this for me? Can I come inside?\""
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	setBeginninggSprite()
 	dirtTransition.createTiles()
 	var intro = introPreload.instantiate()
